@@ -1,0 +1,22 @@
+# Play-art audit: 4-3 Under Wide
+
+- **Cover 1 Contain Press** — HTTP 200 — routes 1 — image `audit-output/4-3-under-wide/cover-1-contain-press.png`
+- **Cover 1 FS Fire** — HTTP 200 — routes 1 — image `audit-output/4-3-under-wide/cover-1-fs-fire.png`
+- **Cover 1 Hole** — HTTP 200 — routes 2 — image `audit-output/4-3-under-wide/cover-1-hole.png`
+- **Cover 1 Hole Press** — HTTP 200 — routes 2 — image `audit-output/4-3-under-wide/cover-1-hole-press.png`
+- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/4-3-under-wide/cover-1-robber-press.png`
+- **Cover 1 Slant Crash** — HTTP 200 — routes 1 — image `audit-output/4-3-under-wide/cover-1-slant-crash.png`
+- **Cover 2 Invert** — HTTP 200 — routes 5 — image `audit-output/4-3-under-wide/cover-2-invert.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/4-3-under-wide/cover-2-man.png`
+- **Cover 3 Match** — HTTP 200 — routes 6 — image `audit-output/4-3-under-wide/cover-3-match.png`
+- **Cover 3 Sky WK** — HTTP 200 — routes 5 — image `audit-output/4-3-under-wide/cover-3-sky-wk.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/4-3-under-wide/cover-4-quarters.png`
+- **Free Fire** — HTTP 200 — routes 0 — image `audit-output/4-3-under-wide/free-fire.png`
+- **FS Fire 3** — HTTP 200 — routes 7 — image `audit-output/4-3-under-wide/fs-fire-3.png`
+- **Hammer 0 Blast** — HTTP 200 — routes 0 — image `audit-output/4-3-under-wide/hammer-0-blast.png`
+- **Mike Sam Crash Press** — HTTP 200 — routes 7 — image `audit-output/4-3-under-wide/mike-sam-crash-press.png`
+- **Safety Blitz** — HTTP 200 — routes 0 — image `audit-output/4-3-under-wide/safety-blitz.png`
+- **Sam Blitz 2** — HTTP 200 — routes 4 — image `audit-output/4-3-under-wide/sam-blitz-2.png`
+- **SS Sam Crash Press** — HTTP 200 — routes 6 — image `audit-output/4-3-under-wide/ss-sam-crash-press.png`
+- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/4-3-under-wide/tampa-2.png`
+- **Will Go Fire 3** — HTTP 200 — routes 6 — image `audit-output/4-3-under-wide/will-go-fire-3.png`
