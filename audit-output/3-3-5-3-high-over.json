@@ -1,0 +1,1280 @@
+{
+  "formation": "3-3-5 3 High Over",
+  "formation_slug": "3-3-5-3-high-over",
+  "generated_at": "2026-07-20T17:23:22Z",
+  "plays": [
+    {
+      "play": "3 Double Cloud",
+      "slug": "3-double-cloud",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/3-double-cloud/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/3-double-cloud/",
+      "html_bytes": 361105,
+      "title": "3-3-5 3 High Over 3 Double Cloud - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep Rt 3rd",
+        "Zone Hook",
+        "Zone Deep Lt 3rd",
+        "Zone Deep Mid 3rd",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 351,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"cd5d1c383847.08c4847a3ccccc10b70f9b5e\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/3_double_cloud\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "dcf23f1fedf8c73c9886f87dd4d881a8d90687f370ae53b746ae54ddeb99d2ec",
+      "image_path": "audit-output/3-3-5-3-high-over/3-double-cloud.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+      "image_content_type": "image/png",
+      "image_bytes": 80089,
+      "image_errors": []
+    },
+    {
+      "play": "3 Double Sky",
+      "slug": "3-double-sky",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/3-double-sky/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/3-double-sky/",
+      "html_bytes": 360762,
+      "title": "3-3-5 3 High Over 3 Double Sky - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Flat",
+        "Zone Hook",
+        "Zone Deep Lt 3rd",
+        "Zone Deep Mid 3rd",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 349,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"fbd24d2db15b.dbb4b5b7c25c531b75b84260\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/3_double_sky\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "318b5541586c39364ff3be037222a0c0802546491a8947cc8634824a63240ded",
+      "image_path": "audit-output/3-3-5-3-high-over/3-double-sky.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+      "image_content_type": "image/png",
+      "image_bytes": 74752,
+      "image_errors": []
+    },
+    {
+      "play": "Blitz DT Pop",
+      "slug": "blitz-dt-pop",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/blitz-dt-pop/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/blitz-dt-pop/",
+      "html_bytes": 357973,
+      "title": "3-3-5 3 High Over Blitz DT Pop - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Blitz DT Pop",
+        "Zone Hook"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 349,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"cb6f86b9314e.873b159d4fd95661f18ac575\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/blitz_dt_pop\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "1ff906c84533468f57fdb4e54fc59b8155acfc620dc5be338413d584cf736a3a",
+      "image_path": "audit-output/3-3-5-3-high-over/blitz-dt-pop.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+      "image_content_type": "image/png",
+      "image_bytes": 53532,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 2 Lurk",
+      "slug": "cover-2-lurk",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-2-lurk/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-2-lurk/",
+      "html_bytes": 361072,
+      "title": "3-3-5 3 High Over Cover 2 Lurk - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook",
+        "Zone Hook Mid",
+        "Zone Deep 2 Lt Half",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 349,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"909d1ff386bd.23cf873eaa6112b6468e7259\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/cover_2_lurk\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "9a7b2736621721033a026b27d4435f518eca06af85d8ad35d79912cd49e2e6f1",
+      "image_path": "audit-output/3-3-5-3-high-over/cover-2-lurk.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+      "image_content_type": "image/png",
+      "image_bytes": 80511,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 3 Match",
+      "slug": "cover-3-match",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-3-match/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-3-match/",
+      "html_bytes": 360788,
+      "title": "3-3-5 3 High Over Cover 3 Match - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Curl Flat",
+        "Zone Hook",
+        "Zone Deep Lt 3rd",
+        "Zone Deep Mid 3rd",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 350,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"697cd4819534.f6bca41073500bcc1d0fd37c\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/cover_3_match\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "9f3a8f98be5f66e12513112b75a104f120a3b608f369ec355799a997e1137b84",
+      "image_path": "audit-output/3-3-5-3-high-over/cover-3-match.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+      "image_content_type": "image/png",
+      "image_bytes": 80785,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 4 Quarters",
+      "slug": "cover-4-quarters",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-4-quarters/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/cover-4-quarters/",
+      "html_bytes": 361164,
+      "title": "3-3-5 3 High Over Cover 4 Quarters - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep 4 Out Rt Qtr",
+        "Zone Deep 4 In Rt Qtr",
+        "Zone Flat",
+        "Zone Deep 4 In Lt Qtr",
+        "Zone Deep 4 Out Lt Qtr",
+        "Zone Hook In 1 other play",
+        "Zone Hook",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 353,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"3e5b26fb037f.2b9e11242b733ce8f80eb887\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/cover_4_quarters\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "b06b36e9c2f61f4994794d68dd678924f019b2db1c35ac1ac520a00101121983",
+      "image_path": "audit-output/3-3-5-3-high-over/cover-4-quarters.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+      "image_content_type": "image/png",
+      "image_bytes": 85062,
+      "image_errors": []
+    },
+    {
+      "play": "Edge Blitz 2",
+      "slug": "edge-blitz-2",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/edge-blitz-2/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/edge-blitz-2/",
+      "html_bytes": 360057,
+      "title": "3-3-5 3 High Over Edge Blitz 2 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook",
+        "Zone Deep 2 Lt Half",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 349,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"95f256cbbcae.3e0ff88630d1910cfd0285d7\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/edge_blitz_2\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "27b0805b662338399162800d5d24854a01e911a690e479c9308031deb4a8160a",
+      "image_path": "audit-output/3-3-5-3-high-over/edge-blitz-2.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+      "image_content_type": "image/png",
+      "image_bytes": 76130,
+      "image_errors": []
+    },
+    {
+      "play": "Hot Blitz 3",
+      "slug": "hot-blitz-3",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/hot-blitz-3/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/hot-blitz-3/",
+      "html_bytes": 359939,
+      "title": "3-3-5 3 High Over Hot Blitz 3 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Hook In 1 other play",
+        "Zone Hook",
+        "Zone Deep Lt 3rd",
+        "Zone Deep Mid 3rd",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "LB Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 348,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"97f3e2698775.8679c2f45ecde9d8c18846ba\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/hot_blitz_3\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "47d6e3a819c3e28c94827231096410bf0fccbb6c942565f1a937a2c406ce2a25",
+      "image_path": "audit-output/3-3-5-3-high-over/hot-blitz-3.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+      "image_content_type": "image/png",
+      "image_bytes": 66695,
+      "image_errors": []
+    },
+    {
+      "play": "LB Blitz 0",
+      "slug": "lb-blitz-0",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/lb-blitz-0/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/lb-blitz-0/",
+      "html_bytes": 356285,
+      "title": "3-3-5 3 High Over LB Blitz 0 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 42,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "54d5d08bc2e5ccc345a2351b99e77e36e64feec83bff70fdd81a732379e7e5bb",
+      "image_path": "audit-output/3-3-5-3-high-over/lb-blitz-0.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_lb-blitz-0.png",
+      "image_content_type": "image/png",
+      "image_bytes": 34070,
+      "image_errors": []
+    },
+    {
+      "play": "Tampa 2",
+      "slug": "tampa-2",
+      "url": "https://collegefootball.gg/plays/3-3-5-3-high-over/tampa-2/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-3-5-3-high-over/tampa-2/",
+      "html_bytes": 361030,
+      "title": "3-3-5 3 High Over Tampa 2 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook",
+        "Zone Deep 2 Lt Half",
+        "Zone Hook Mid Delay",
+        "Zone Hook Mid",
+        "Blitz DT Pop"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_tampa-2.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-cloud.png",
+          "label": "3 Double Cloud",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_3-double-sky.png",
+          "label": "3 Double Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_blitz-dt-pop.png",
+          "label": "Blitz DT Pop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-2-lurk.png",
+          "label": "Cover 2 Lurk",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-penny_edge-blitz-2.png",
+          "label": "Edge Blitz 2",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 344,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"7912f8ca3616.9d35b79ac97ed132dd9fe0a1\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-3-5\\/3_high_over\\/tampa_2\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "cce6d9c91171e1767abff04889d489ec1f87d0e3eb7290e0c1a432b6d441df2f",
+      "image_path": "audit-output/3-3-5-3-high-over/tampa-2.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-3-5_3-high-over_tampa-2.png",
+      "image_content_type": "image/png",
+      "image_bytes": 77840,
+      "image_errors": []
+    }
+  ]
+}
