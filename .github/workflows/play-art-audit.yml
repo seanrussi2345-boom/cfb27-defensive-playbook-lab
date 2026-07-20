@@ -20,11 +20,23 @@ jobs:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4
       - run: python scripts/audit_play_art.py
+      - name: Upload current audit package
+        uses: actions/upload-artifact@v4
+        with:
+          name: current-play-art-audit-full
+          path: |
+            audit-output/*.json
+            audit-output/*.md
+            audit-output/**/*.png
+            audit-output/**/*.html
+          if-no-files-found: error
+          retention-days: 7
       - name: Commit audit output
         run: |
           git config user.name "play-art-audit-bot"
           git config user.email "actions@users.noreply.github.com"
           git add audit-output
           git diff --cached --quiet && exit 0
-          git commit -m "Audit 3-3-5 Mint play-art sources"
+          FORMATION=$(python -c "import json; print(json.load(open('audit-input.json'))['formation'])")
+          git commit -m "Audit ${FORMATION} play-art sources"
           git push origin HEAD:play-art-audit
