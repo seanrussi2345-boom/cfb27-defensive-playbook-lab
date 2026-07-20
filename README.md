@@ -1,6 +1,6 @@
 # CFB 27 Defensive Playbook Lab
 
-**Version:** 4.4 Beta
+**Version:** 4.60
 
 A standalone browser tool for exploring CFB 27 defensive formations and plays, visualizing player assignments, building custom play maps, and saving defensive macro packages.
 
@@ -8,6 +8,7 @@ A standalone browser tool for exploring CFB 27 defensive formations and plays, v
 
 - `index.html` — the complete application and GitHub Pages entry file
 - `README.md` — setup, sharing, and release information
+- `FINAL_QA_REPORT.md` — final coverage and validation record
 - `example-backup.json` — empty example of the backup/import format
 
 ## Run locally
@@ -20,18 +21,20 @@ Your macros, mapped plays, and My Playbook selections are stored in that browser
 
 ## Publish with GitHub Pages
 
-1. Create a new GitHub repository.
-2. Upload the three files in this package to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then save.
-6. GitHub will provide the public website address after deployment.
+1. Upload the release files to the repository root.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select the `main` branch and `/ (root)`, then save.
+5. GitHub will provide the public website address after deployment.
 
 Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 
 ## Included features
 
 - 72 defensive formations and 1,245 formation-specific play entries
+- 1,243 built-in mapped entries
+- 1,204 source-reviewed mapped entries
+- 39 legacy-source-confirmed mapped entries
 - Formation, play-type, and map-status filters
 - Global formation/play search
 - My Playbook favorites
@@ -39,13 +42,16 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - Draft and verified play maps
 - Ten saved macro slots
 - Undo, backup export/import, help, release notes, and protected reset
-- Clear distinction between inferred base assignments and manual overrides
+- Clear distinction between source-reviewed, source-asset-confirmed, built-in, and local verified mappings
 
 ## Accuracy note
 
-Formation and play names were compiled from public CFB 27 playbook databases. Initial play art is an inferred shell unless a play map has been verified against the game.
+Two source assets remain intentionally unmapped rather than fabricated:
 
-Position assignment menus are conservatively filtered by player role, but formation-specific in-game exceptions may still exist. Treat **Verified** as a status reserved for assignments checked directly in CFB 27.
+- `3-3-5 Mint — Cover 9`
+- `3-4 Grizzly — Cover 9`
+
+All other built-in mapped entries have completed the final source reconciliation process documented in `FINAL_QA_REPORT.md`.
 
 ## Sharing and backups
 
@@ -55,4 +61,4 @@ Importing a backup replaces the current macros, play maps, and My Playbook selec
 
 ## Release
 
-**CFB 27 Defensive Playbook Lab v4.4 Beta**
+**CFB 27 Defensive Playbook Lab v4.60**
