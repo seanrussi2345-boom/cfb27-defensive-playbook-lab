@@ -1,0 +1,1909 @@
+{
+  "formation": "3-4 Tite",
+  "formation_slug": "3-4-tite",
+  "generated_at": "2026-07-20T17:34:21Z",
+  "plays": [
+    {
+      "play": "Cover 1 Hole",
+      "slug": "cover-1-hole",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-1-hole/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-1-hole/",
+      "html_bytes": 363226,
+      "title": "3-4 Tite Cover 1 Hole - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Mid 3rd",
+        "Zone Hook"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 340,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"f2cecb0322bf.ea108baa45941efd31c0b509\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_1_hole\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "eba130139001a2104495e433f96ec33ac21364e8fa6e4432da5daf4b927258e2",
+      "image_path": "audit-output/3-4-tite/cover-1-hole.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+      "image_content_type": "image/png",
+      "image_bytes": 51007,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 3 Match",
+      "slug": "cover-3-match",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-3-match/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-3-match/",
+      "html_bytes": 366032,
+      "title": "3-4 Tite Cover 3 Match - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Deep Mid 3rd",
+        "Zone Flat",
+        "Zone Hook",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 341,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"3886edc7ab9a.73fcaa5fa338e16519b99722\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_3_match\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "25916b4980076b83c7f5cb265e01161646b9e4735a4a3646a69894d3870011ff",
+      "image_path": "audit-output/3-4-tite/cover-3-match.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+      "image_content_type": "image/png",
+      "image_bytes": 83987,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 3 Sky",
+      "slug": "cover-3-sky",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-3-sky/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-3-sky/",
+      "html_bytes": 365998,
+      "title": "3-4 Tite Cover 3 Sky - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Deep Mid 3rd",
+        "Zone Flat",
+        "Zone Hook",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 339,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"89b58140681d.eab5fe37ff506912c2e34624\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_3_sky\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "b348aee010a7e11bc2c87cff3e99c21aad7654e8b0affc67ffd6c9a9cfc6df2f",
+      "image_path": "audit-output/3-4-tite/cover-3-sky.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+      "image_content_type": "image/png",
+      "image_bytes": 80191,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 4 Drop",
+      "slug": "cover-4-drop",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-4-drop/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-4-drop/",
+      "html_bytes": 366626,
+      "title": "3-4 Tite Cover 4 Drop - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep 4 Out Rt Qtr",
+        "Zone Deep 4 In Rt Qtr",
+        "Zone Flat",
+        "Zone Hook Primary",
+        "Zone Hook",
+        "Zone Deep 4 In Lt Qtr",
+        "Zone Deep 4 Out Lt Qtr"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 340,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"caba6cb34132.c761604956f82970b7e419e1\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_4_drop\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "d682425ab723144a207eeda7b2954c0593f60cdf800586b9b21d5a12848a0dee",
+      "image_path": "audit-output/3-4-tite/cover-4-drop.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+      "image_content_type": "image/png",
+      "image_bytes": 83514,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 4 Quarters",
+      "slug": "cover-4-quarters",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-4-quarters/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-4-quarters/",
+      "html_bytes": 366145,
+      "title": "3-4 Tite Cover 4 Quarters - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep 4 Out Rt Qtr",
+        "Zone Deep 4 In Rt Qtr",
+        "Zone Flat Primary",
+        "Zone Flat",
+        "Zone Hook Mid",
+        "Zone Deep 4 In Lt Qtr",
+        "Zone Deep 4 Out Lt Qtr"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 344,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"7865ed475093.614eea89d43b76449dbe8518\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_4_quarters\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "b9c14efef4aaa00b9a120a4f74de4fa27848656e08e9f90eae30c00461f9bbce",
+      "image_path": "audit-output/3-4-tite/cover-4-quarters.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+      "image_content_type": "image/png",
+      "image_bytes": 86921,
+      "image_errors": []
+    },
+    {
+      "play": "Cover 6",
+      "slug": "cover-6",
+      "url": "https://collegefootball.gg/plays/3-4-tite/cover-6/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/cover-6/",
+      "html_bytes": 365993,
+      "title": "3-4 Tite Cover 6 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook Mid Primary",
+        "Zone Hook Mid",
+        "Zone Deep 4 In Lt Qtr",
+        "Zone Deep 4 Out Lt Qtr"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 335,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"0b2469f619a5.f1f8b67237b3ca81ec157cdd\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/cover_6\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "8239d7c1ba36e68a10607f24e2c1f4a9be83a84b65c63f5e7baf65ceea569a3f",
+      "image_path": "audit-output/3-4-tite/cover-6.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+      "image_content_type": "image/png",
+      "image_bytes": 80664,
+      "image_errors": []
+    },
+    {
+      "play": "Field Blitz 3",
+      "slug": "field-blitz-3",
+      "url": "https://collegefootball.gg/plays/3-4-tite/field-blitz-3/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/field-blitz-3/",
+      "html_bytes": 365027,
+      "title": "3-4 Tite Field Blitz 3 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Deep Mid 3rd",
+        "Zone Hook",
+        "Zone Hook Mid Primary",
+        "Zone Hook Mid",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 341,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"71bd1cd9db10.3556dffc0313c077d8c9970e\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/field_blitz_3\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "f939c57426ed120ed5dd2e8bb1571e25a53820777c7a67f7e995ea90613b9b15",
+      "image_path": "audit-output/3-4-tite/field-blitz-3.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+      "image_content_type": "image/png",
+      "image_bytes": 77853,
+      "image_errors": []
+    },
+    {
+      "play": "Hot Blitz 3",
+      "slug": "hot-blitz-3",
+      "url": "https://collegefootball.gg/plays/3-4-tite/hot-blitz-3/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/hot-blitz-3/",
+      "html_bytes": 364555,
+      "title": "3-4 Tite Hot Blitz 3 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Hook",
+        "Zone Deep Mid 3rd",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "Saw Blitz 0",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 339,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"865a89b1abfa.4b0b2fae6d28e50f0e6ab665\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/hot_blitz_3\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "3e845462be04aa17c713ec2a33da9d21343776263991b184df8e3419315bae52",
+      "image_path": "audit-output/3-4-tite/hot-blitz-3.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+      "image_content_type": "image/png",
+      "image_bytes": 66612,
+      "image_errors": []
+    },
+    {
+      "play": "Saw Blitz 0",
+      "slug": "saw-blitz-0",
+      "url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-0/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-0/",
+      "html_bytes": 361417,
+      "title": "3-4 Tite Saw Blitz 0 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 42,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "95d2944de04db9d6f71817db0dc065d53b33589a33ce5c97d6310ee0b18c571d",
+      "image_path": "audit-output/3-4-tite/saw-blitz-0.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-0.png",
+      "image_content_type": "image/png",
+      "image_bytes": 35464,
+      "image_errors": []
+    },
+    {
+      "play": "Saw Blitz 1",
+      "slug": "saw-blitz-1",
+      "url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-1/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-1/",
+      "html_bytes": 362655,
+      "title": "3-4 Tite Saw Blitz 1 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Mid 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-1.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 339,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"078949c87b17.11dfcf8cb6748d038090d200\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/saw_blitz_1\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "e064b1f9a438918a59f84645df464da1bd8b824aacbc6b2b48431f77d4929b41",
+      "image_path": "audit-output/3-4-tite/saw-blitz-1.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-1.png",
+      "image_content_type": "image/png",
+      "image_bytes": 40524,
+      "image_errors": []
+    },
+    {
+      "play": "Saw Blitz 2",
+      "slug": "saw-blitz-2",
+      "url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-2/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-2/",
+      "html_bytes": 364993,
+      "title": "3-4 Tite Saw Blitz 2 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook Primary",
+        "Zone Hook",
+        "Zone Deep 2 Lt Half"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-2.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 339,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"a369805e8d1d.1d091229fc2d1c12f052d808\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/saw_blitz_2\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "d0e42e24af55c8ef98909801c5a751d570a077057271f8f96bd7ab8c60c90fb5",
+      "image_path": "audit-output/3-4-tite/saw-blitz-2.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-2.png",
+      "image_content_type": "image/png",
+      "image_bytes": 77304,
+      "image_errors": []
+    },
+    {
+      "play": "Saw Blitz 3",
+      "slug": "saw-blitz-3",
+      "url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-3/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/saw-blitz-3/",
+      "html_bytes": 365321,
+      "title": "3-4 Tite Saw Blitz 3 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Deep Mid 3rd",
+        "Zone Hook Primary",
+        "Zone Hook",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-3.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 339,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"d1a405367905.b5814005474c3b1c2ef52f93\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/saw_blitz_3\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "525938ec21f094758caee13362f67923cf1a2f9bc401f8f34920204fd6af65a0",
+      "image_path": "audit-output/3-4-tite/saw-blitz-3.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_saw-blitz-3.png",
+      "image_content_type": "image/png",
+      "image_bytes": 75258,
+      "image_errors": []
+    },
+    {
+      "play": "SS 2 Trap",
+      "slug": "ss-2-trap",
+      "url": "https://collegefootball.gg/plays/3-4-tite/ss-2-trap/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/ss-2-trap/",
+      "html_bytes": 365417,
+      "title": "3-4 Tite SS 2 Trap - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep 2 Rt Half",
+        "Zone Deep 2 Lt Half",
+        "Zone Flat",
+        "Zone Hook"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_ss-2-trap.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 337,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"44cbd7f43208.f8de5932efe572c12a08d804\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/ss_2_trap\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "cf9238e1f28e2e2d34eecfb95130cfb41165e4a748b2f30728eab77edaec31f9",
+      "image_path": "audit-output/3-4-tite/ss-2-trap.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_ss-2-trap.png",
+      "image_content_type": "image/png",
+      "image_bytes": 79140,
+      "image_errors": []
+    },
+    {
+      "play": "Tampa 2",
+      "slug": "tampa-2",
+      "url": "https://collegefootball.gg/plays/3-4-tite/tampa-2/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/tampa-2/",
+      "html_bytes": 365964,
+      "title": "3-4 Tite Tampa 2 - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Flat",
+        "Zone Deep 2 Rt Half",
+        "Zone Hook Primary",
+        "Zone Hook",
+        "Zone Deep 2 Lt Half"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_tampa-2.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 335,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"9e4ac52a1267.36813001d4b0fb8ab9abec16\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/tampa_2\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "9c19aaba10b0c1a7c116297aa45e1b907f326005254720393d5c735a4c668226",
+      "image_path": "audit-output/3-4-tite/tampa-2.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_tampa-2.png",
+      "image_content_type": "image/png",
+      "image_bytes": 79976,
+      "image_errors": []
+    },
+    {
+      "play": "Trio Sky Zone",
+      "slug": "trio-sky-zone",
+      "url": "https://collegefootball.gg/plays/3-4-tite/trio-sky-zone/",
+      "status": 200,
+      "final_url": "https://collegefootball.gg/plays/3-4-tite/trio-sky-zone/",
+      "html_bytes": 365519,
+      "title": "3-4 Tite Trio Sky Zone - College Football 27 Play - CollegeFootball.gg",
+      "routes": [
+        "Zone Deep Rt 3rd",
+        "Zone Deep Mid 3rd",
+        "Zone Hook",
+        "Zone Hook Mid Primary",
+        "Zone Hook Mid",
+        "Zone Deep Lt 3rd"
+      ],
+      "image_candidates": [
+        {
+          "kind": "meta",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_trio-sky-zone.png",
+          "label": "og:image",
+          "score": 30
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-9.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-8.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/uploads/2024/07/CollegeFootball.gg-10.png",
+          "label": "CollegeFootball.gg",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-1-hole.png",
+          "label": "Cover 1 Hole",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-match.png",
+          "label": "Cover 3 Match",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-3-sky.png",
+          "label": "Cover 3 Sky",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-drop.png",
+          "label": "Cover 4 Drop",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-4-quarters.png",
+          "label": "Cover 4 Quarters",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_cover-6.png",
+          "label": "Cover 6",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_field-blitz-3.png",
+          "label": "Field Blitz 3",
+          "score": 0
+        },
+        {
+          "kind": "img",
+          "url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_hot-blitz-3.png",
+          "label": "Hot Blitz 3",
+          "score": 0
+        }
+      ],
+      "script_signals": [
+        {
+          "index": 31,
+          "type": null,
+          "id": null,
+          "length": 341,
+          "hits": [
+            "route"
+          ],
+          "sample": "window.PBRT = {\"rest\":\"https:\\/\\/collegefootball.gg\\/wp-json\\/playbooks\\/v1\\/route-plays\",\"token\":\"44f77dded58f.f9690a9a5f98cdc9d6bb3439\",\"rev\":\"1784326712-1784330110-1.61.2\",\"from\":\"football\\/gameplay\\/playbooks\\/playlibrary\\/formations\\/defense\\/3-4\\/tite\\/trio_sky_zone\",\"finder\":\"https:\\/\\/collegefootball.gg\\/plays\\/\",\"side\":\"defense\"};"
+        },
+        {
+          "index": 32,
+          "type": null,
+          "id": null,
+          "length": 9318,
+          "hits": [
+            "route"
+          ],
+          "sample": "\n(function () {\n    var panel = document.getElementById('pbrt-panel');\n    if (!panel || !window.PBRT) { return; }\n    /* the expansion is a single element spanning both grid columns, so it is\n       NOT a child of any row -- fetch it by id instead of row.querySelector */\n    function sharedBody() { return document.getElementById('pbrt-body'); }\n    var states = {};\n\n    function el(tag, cls, txt) {\n        var e = document.createElement(tag);\n        if (cls) { e.className = cls; }\n        if ("
+        },
+        {
+          "index": 43,
+          "type": null,
+          "id": "skill-tree-js-js-extra",
+          "length": 41473,
+          "hits": [
+            "route"
+          ],
+          "sample": "\nvar skillTreeData = {\"categories\":{\"recruiter\":{\"name\":\"Recruiter\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_condition\":\"initial\",\"description\":\"Specialists in identifying and acquiring top talent for your program.\",\"premium\":{\"name\":\"Elite Recruiter\",\"base_unlock_cost\":30,\"unlock_cost\":30,\"unlock_condition\":\"sign_two_top5_classes\",\"description\":\"Masters of recruiting with exclusive access to top prospects.\"}},\"motivator\":{\"name\":\"Motivator\",\"base_unlock_cost\":50,\"unlock_cost\":50,\"unlock_c"
+        }
+      ],
+      "html_sha256": "ee3fdea2545dea554649bc9ebc41cf7ebdbdab984a2d561837d7b1c7f1496168",
+      "image_path": "audit-output/3-4-tite/trio-sky-zone.png",
+      "image_url": "https://collegefootball.gg/wp-content/plugins/playbook/playbook_images_ncaa-27/3-4_tite_trio-sky-zone.png",
+      "image_content_type": "image/png",
+      "image_bytes": 78977,
+      "image_errors": []
+    }
+  ]
+}
