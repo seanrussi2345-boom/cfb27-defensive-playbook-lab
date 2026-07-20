@@ -1,0 +1,23 @@
+# Play-art audit: 3-3-5 Over Flex
+
+- **1 Double WR1** — HTTP 200 — routes 0 — image `audit-output/3-3-5-over-flex/1-double-wr1.png`
+- **CB Bench Blitz** — HTTP 200 — routes 0 — image `audit-output/3-3-5-over-flex/cb-bench-blitz.png`
+- **Cover 1 Hole** — HTTP 200 — routes 2 — image `audit-output/3-3-5-over-flex/cover-1-hole.png`
+- **Cover 1 LB Blitz** — HTTP 200 — routes 1 — image `audit-output/3-3-5-over-flex/cover-1-lb-blitz.png`
+- **Cover 1 SS Blitz** — HTTP 200 — routes 1 — image `audit-output/3-3-5-over-flex/cover-1-ss-blitz.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/3-3-5-over-flex/cover-2-man.png`
+- **Cover 3 Buzz Match** — HTTP 200 — routes 6 — image `audit-output/3-3-5-over-flex/cover-3-buzz-match.png`
+- **Cover 3 Cloud** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/cover-3-cloud.png`
+- **Cover 3 Match** — HTTP 200 — routes 7 — image `audit-output/3-3-5-over-flex/cover-3-match.png`
+- **Cover 3 Sky** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/cover-3-sky.png`
+- **Cover 4 Drop Field** — HTTP 200 — routes 8 — image `audit-output/3-3-5-over-flex/cover-4-drop-field.png`
+- **Cover 4 Palms** — HTTP 200 — routes 6 — image `audit-output/3-3-5-over-flex/cover-4-palms.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/3-3-5-over-flex/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/cover-6.png`
+- **Cover 6 Willie** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/cover-6-willie.png`
+- **Cover 9** — HTTP 200 — routes 6 — image `audit-output/3-3-5-over-flex/cover-9.png`
+- **Edge Blitz 0** — HTTP 200 — routes 0 — image `audit-output/3-3-5-over-flex/edge-blitz-0.png`
+- **Hot Blitz 3** — HTTP 200 — routes 4 — image `audit-output/3-3-5-over-flex/hot-blitz-3.png`
+- **Nickel Sim 3** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/nickel-sim-3.png`
+- **Over 3 Sting** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/over-3-sting.png`
+- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/tampa-2.png`
