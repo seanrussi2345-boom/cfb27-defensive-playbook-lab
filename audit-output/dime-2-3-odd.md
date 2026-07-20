@@ -1,0 +1,32 @@
+# Play-art audit: Dime 2-3 Odd
+
+- **1 Double WR1** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-odd/1-double-wr1.png`
+- **1 Double WR2** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-odd/1-double-wr2.png`
+- **Cover 1 Contain Spy** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-odd/cover-1-contain-spy.png`
+- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/dime-2-3-odd/cover-1-robber-press.png`
+- **Cover 2 Hard Flat** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/cover-2-hard-flat.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/dime-2-3-odd/cover-2-man.png`
+- **Cover 2 Sink** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/cover-2-sink.png`
+- **Cover 3 Buzz Match WK** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/cover-3-buzz-match-wk.png`
+- **Cover 3 Cloud** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-3-cloud.png`
+- **Cover 3 Hard Flat** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-3-hard-flat.png`
+- **Cover 3 Lock** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-3-lock.png`
+- **Cover 4 Drop** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-4-drop.png`
+- **Cover 4 Palms** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-4-palms.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/cover-6.png`
+- **DB Fire 2** — HTTP 200 — routes 4 — image `audit-output/dime-2-3-odd/db-fire-2.png`
+- **DBL Safety Go** — HTTP 200 — routes 0 — image `audit-output/dime-2-3-odd/dbl-safety-go.png`
+- **Double Bracket** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-odd/double-bracket.png`
+- **Edge Blitz 1** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-odd/edge-blitz-1.png`
+- **Edge Blitz 2** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/edge-blitz-2.png`
+- **Edge Blitz 3** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/edge-blitz-3.png`
+- **FS Zone Blitz** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/fs-zone-blitz.png`
+- **Max Sting 3** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/max-sting-3.png`
+- **Okie Eagle 3** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-odd/okie-eagle-3.png`
+- **Okie Roll 2** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/okie-roll-2.png`
+- **Overload 3 Seam Press** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-odd/overload-3-seam-press.png`
+- **SS Zone Blitz** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/ss-zone-blitz.png`
+- **Strg Corner 2 Fire** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/strg-corner-2-fire.png`
+- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-odd/tampa-2.png`
+- **Zero Blitz** — HTTP 200 — routes 0 — image `audit-output/dime-2-3-odd/zero-blitz.png`
