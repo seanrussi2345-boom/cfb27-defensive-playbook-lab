@@ -2,6 +2,7 @@ name: Play Art Audit Artifact
 on:
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened]
     paths:
       - audit-output/**
       - .github/workflows/play-art-artifact.yml
