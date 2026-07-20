@@ -1,0 +1,23 @@
+# Play-art audit: Dime Rush
+
+- **Cover 1 Contain Spy** — HTTP 200 — routes 1 — image `audit-output/dime-rush/cover-1-contain-spy.png`
+- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/dime-rush/cover-1-robber-press.png`
+- **Cover 2 Hard Flat** — HTTP 200 — routes 5 — image `audit-output/dime-rush/cover-2-hard-flat.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/dime-rush/cover-2-man.png`
+- **Cover 2 Roll** — HTTP 200 — routes 4 — image `audit-output/dime-rush/cover-2-roll.png`
+- **Cover 3 Buzz Match** — HTTP 200 — routes 7 — image `audit-output/dime-rush/cover-3-buzz-match.png`
+- **Cover 3 Cloud** — HTTP 200 — routes 6 — image `audit-output/dime-rush/cover-3-cloud.png`
+- **Cover 4 Palms** — HTTP 200 — routes 6 — image `audit-output/dime-rush/cover-4-palms.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/dime-rush/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 6 — image `audit-output/dime-rush/cover-6.png`
+- **DB Blitz** — HTTP 200 — routes 0 — image `audit-output/dime-rush/db-blitz.png`
+- **DBL Safety Blitz** — HTTP 200 — routes 0 — image `audit-output/dime-rush/dbl-safety-blitz.png`
+- **Dime Blitz 2** — HTTP 200 — routes 5 — image `audit-output/dime-rush/dime-blitz-2.png`
+- **Fox Fire Zone Press** — HTTP 200 — routes 6 — image `audit-output/dime-rush/fox-fire-zone-press.png`
+- **FS Middle Blitz 3** — HTTP 200 — routes 5 — image `audit-output/dime-rush/fs-middle-blitz-3.png`
+- **Mug Blitz Tex 3** — HTTP 200 — routes 5 — image `audit-output/dime-rush/mug-blitz-tex-3.png`
+- **Mug DT Loop 1** — HTTP 200 — routes 1 — image `audit-output/dime-rush/mug-dt-loop-1.png`
+- **Mug Sim Pressure** — HTTP 200 — routes 5 — image `audit-output/dime-rush/mug-sim-pressure.png`
+- **SS Overload 3** — HTTP 200 — routes 4 — image `audit-output/dime-rush/ss-overload-3.png`
+- **SS Sim Pressure 3** — HTTP 200 — routes 5 — image `audit-output/dime-rush/ss-sim-pressure-3.png`
+- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/dime-rush/tampa-2.png`
