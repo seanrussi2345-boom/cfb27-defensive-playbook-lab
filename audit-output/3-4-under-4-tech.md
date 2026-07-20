@@ -1,0 +1,21 @@
+# Play-art audit: 3-4 Under 4 Tech
+
+- **Cov 1 QB Contain Spy** — HTTP 200 — routes 1 — image `audit-output/3-4-under-4-tech/cov-1-qb-contain-spy.png`
+- **Cover 1 FS Fire** — HTTP 200 — routes 2 — image `audit-output/3-4-under-4-tech/cover-1-fs-fire.png`
+- **Cover 1 Hole WK** — HTTP 200 — routes 2 — image `audit-output/3-4-under-4-tech/cover-1-hole-wk.png`
+- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/3-4-under-4-tech/cover-1-robber-press.png`
+- **Cover 2 Invert** — HTTP 200 — routes 6 — image `audit-output/3-4-under-4-tech/cover-2-invert.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/3-4-under-4-tech/cover-2-man.png`
+- **Cover 3 Hard Flat** — HTTP 200 — routes 5 — image `audit-output/3-4-under-4-tech/cover-3-hard-flat.png`
+- **Cover 3 Match** — HTTP 200 — routes 6 — image `audit-output/3-4-under-4-tech/cover-3-match.png`
+- **Cover 3 Sky** — HTTP 200 — routes 5 — image `audit-output/3-4-under-4-tech/cover-3-sky.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 7 — image `audit-output/3-4-under-4-tech/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 6 — image `audit-output/3-4-under-4-tech/cover-6.png`
+- **DBL Safety Blitz** — HTTP 200 — routes 0 — image `audit-output/3-4-under-4-tech/dbl-safety-blitz.png`
+- **FS Slant 3** — HTTP 200 — routes 7 — image `audit-output/3-4-under-4-tech/fs-slant-3.png`
+- **MLB Cross Fire 3** — HTTP 200 — routes 4 — image `audit-output/3-4-under-4-tech/mlb-cross-fire-3.png`
+- **Pinch Buck 0** — HTTP 200 — routes 0 — image `audit-output/3-4-under-4-tech/pinch-buck-0.png`
+- **Saw Blitz 1** — HTTP 200 — routes 1 — image `audit-output/3-4-under-4-tech/saw-blitz-1.png`
+- **Weak Blitz 1** — HTTP 200 — routes 1 — image `audit-output/3-4-under-4-tech/weak-blitz-1.png`
+- **Weak Blitz 3** — HTTP 200 — routes 6 — image `audit-output/3-4-under-4-tech/weak-blitz-3.png`
+- **Will Fire 3 Seam** — HTTP 200 — routes 6 — image `audit-output/3-4-under-4-tech/will-fire-3-seam.png`
