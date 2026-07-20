@@ -1,0 +1,22 @@
+# Play-art audit: 4-3 Under
+
+- **1 Contain Press** — HTTP 200 — routes 1 — image `audit-output/4-3-under/1-contain-press.png`
+- **1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/4-3-under/1-robber-press.png`
+- **Cover 1 Hole** — HTTP 200 — routes 2 — image `audit-output/4-3-under/cover-1-hole.png`
+- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/4-3-under/cover-1-robber-press.png`
+- **Cover 2 Invert** — HTTP 200 — routes 5 — image `audit-output/4-3-under/cover-2-invert.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/4-3-under/cover-2-man.png`
+- **Cover 3 Hard Flat** — HTTP 200 — routes 5 — image `audit-output/4-3-under/cover-3-hard-flat.png`
+- **Cover 3 Match** — HTTP 200 — routes 6 — image `audit-output/4-3-under/cover-3-match.png`
+- **Cover 3 Sky WK** — HTTP 200 — routes 5 — image `audit-output/4-3-under/cover-3-sky-wk.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/4-3-under/cover-4-quarters.png`
+- **DBL Safety Blitz** — HTTP 200 — routes 0 — image `audit-output/4-3-under/dbl-safety-blitz.png`
+- **Free Fire 0** — HTTP 200 — routes 0 — image `audit-output/4-3-under/free-fire-0.png`
+- **FS Fire 1** — HTTP 200 — routes 1 — image `audit-output/4-3-under/fs-fire-1.png`
+- **FS Fire 3** — HTTP 200 — routes 7 — image `audit-output/4-3-under/fs-fire-3.png`
+- **Hammer 0 Blast** — HTTP 200 — routes 0 — image `audit-output/4-3-under/hammer-0-blast.png`
+- **Sam Blitz 2** — HTTP 200 — routes 4 — image `audit-output/4-3-under/sam-blitz-2.png`
+- **Sam Crash 1** — HTTP 200 — routes 1 — image `audit-output/4-3-under/sam-crash-1.png`
+- **Sam Crash 3** — HTTP 200 — routes 7 — image `audit-output/4-3-under/sam-crash-3.png`
+- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/4-3-under/tampa-2.png`
+- **Will Go Fire 3** — HTTP 200 — routes 6 — image `audit-output/4-3-under/will-go-fire-3.png`
