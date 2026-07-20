@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CFB 27 Defensive Playbook Lab v4.4</title>
+<style>
+:root{
+  --bg:#061019;--panel:#0d1925;--panel2:#122337;--line:#29435e;
+  --text:#eef7ff;--muted:#9fb4c9;--accent:#65d9ef;--green:#7ee39a;
+  --yellow:#ffd66f;--red:#ff8585;--purple:#c19bff;--orange:#ffad64;
+  --blue:#76caff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:radial-gradient(circle at 50% 0,#152b45 0,#08131f 42%,#050a11 100%);
+}
+header{
+  position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:14px 22px;background:rgba(5,11,18,.96);border-bottom:1px solid #22384f;
+}
+header h1{margin:0;font-size:19px}
+header p{margin:4px 0 0;color:var(--muted);font-size:12px}
+.header-stats{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.stat{
+  padding:6px 9px;border:1px solid #3a5d7b;border-radius:999px;background:#10263a;
+  color:#dcf6ff;font-size:10px;white-space:nowrap;
+}
+.app{
+  width:min(1760px,100%);margin:auto;padding:14px;display:grid;
+  grid-template-columns:280px minmax(610px,1fr) 390px;gap:14px;align-items:start;
+}
+.panel{
+  border:1px solid #213850;border-radius:15px;background:linear-gradient(180deg,var(--panel),#09131e);
+  box-shadow:0 16px 42px rgba(0,0,0,.26);
+}
+.left{position:static;padding:15px}
+.right{
+  position:sticky;top:82px;padding:15px;max-height:calc(100vh - 96px);overflow-y:auto;
+  scrollbar-width:thin;scrollbar-color:#365773 #0a141f;
+}
+.center{padding:13px;min-width:0}
+h2{margin:0 0 10px;color:#c7d9eb;font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+label{display:block;margin:11px 0 5px;color:var(--muted);font-size:11px}
+select,input,button{font:inherit}
+select,input[type="search"],input[list]{
+  width:100%;padding:9px 10px;color:var(--text);background:#08131f;
+  border:1px solid #304c68;border-radius:9px;outline:none;
+}
+select:focus,input:focus{border-color:var(--accent)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.favorite-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.favorite-btn{
+  padding:8px 7px;border:1px solid #3a5872;background:#101f2e;color:#d9ebf9;
+  border-radius:8px;cursor:pointer;font-size:10px;min-width:0
+}
+.favorite-btn:hover{border-color:#65d9ef}
+.favorite-btn.active{border-color:#d8b94f;background:#302812;color:#ffe99a}
+.favorite-btn:disabled{opacity:.55;cursor:not-allowed}
+.library-count{margin-top:7px;color:#9fb4c9;font-size:9px;line-height:1.35}
+.empty-state{
+  padding:11px;border:1px dashed #3b5872;border-radius:9px;background:#0b1723;
+  color:#a8bfd3;font-size:10px;line-height:1.45
+}
+.play-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;
+  color:var(--muted);font-size:10px;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border:1px solid #3b5d78;
+  border-radius:999px;background:#102437;color:#d9f2ff;font-size:10px;font-weight:750;
+}
+.badge.zone{border-color:#4a8060;color:#c9f6d4;background:#11291c}
+.badge.match{border-color:#527b9c;color:#d2efff;background:#10283a}
+.badge.man{border-color:#80555b;color:#ffd6da;background:#2a171b}
+.badge.blitz{border-color:#8a633b;color:#ffe1bf;background:#2a1d10}
+.note{
+  margin-top:12px;padding:10px;border:1px solid #263f59;border-radius:10px;
+  background:#08131f;color:var(--muted);font-size:10px;line-height:1.45;
+}
+.global-result{
+  margin-top:7px;padding:7px 8px;border:1px dashed #35516b;border-radius:8px;
+  color:#b8d2e7;font-size:10px;line-height:1.35;
+}
+.center-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:9px}
+.diagram-title{font-size:14px;font-weight:800;line-height:1.35}
+.status{text-align:right;color:var(--muted);font-size:10px;line-height:1.4}
+.status strong{display:block;color:#dcefff;font-size:11px}
+.field-wrap{
+  min-height:500px;aspect-ratio:1.45/1;overflow:hidden;border:1px solid #315d43;
+  border-radius:13px;background:#123e2a;
+}
+svg{display:block;width:100%;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:9px;color:var(--muted);font-size:10px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{display:block;width:10px;height:10px;border-radius:50%}
+.active-summary{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{
+  border:1px solid #385a76;background:#112a3e;color:#d9efff;border-radius:999px;
+  padding:5px 8px;font-size:10px;
+}
+.mapping-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;
+  padding:9px 10px;border:1px solid #29465f;border-radius:10px;background:#091722;
+}
+.mapping-state{font-size:10px;color:var(--muted);line-height:1.35}
+.mapping-state strong{display:block;color:#e6f4ff;font-size:11px}
+.map-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.small-btn{
+  padding:7px 9px;border-radius:8px;border:1px solid #3b5b75;background:#102233;
+  color:#dceeff;cursor:pointer;font-size:10px;
+}
+.small-btn:hover{border-color:#65d9ef}
+.small-btn.warn{border-color:#71434b;background:#29191e;color:#ffc7cd}
+
+.assignment-sidebar h2{margin-bottom:5px}
+.assignment-sidebar .helptext{margin-bottom:10px}
+.selected-card{
+  width:100%;border:1px solid #33536f;border-radius:10px;background:#0b1a28;padding:9px 11px;
+  margin-bottom:10px;
+}
+.selected-card small{display:block;color:var(--muted);font-size:10px}
+.selected-card strong{display:block;margin-top:3px;font-size:14px}
+.selected-card span{display:block;margin-top:2px;color:#b9d5ea;font-size:11px}
+.subpanel{border:1px solid #233c55;border-radius:12px;background:#08131f;padding:10px;min-width:0;margin-top:9px}
+.subpanel h3{margin:0 0 8px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#c5d8e9}
+.player-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.player-btn{
+  padding:8px 5px;border:1px solid #304b66;border-radius:8px;color:#dcecff;
+  background:#101e2c;cursor:pointer;text-align:center;font-size:10px;min-width:0;
+}
+.player-btn:hover{border-color:#5983a7}
+.player-btn.active{background:#19415a;border-color:#6bdaf2;box-shadow:0 0 0 1px rgba(102,217,239,.15) inset}
+.player-btn em{
+  display:block;margin-top:3px;font-size:8px;color:var(--muted);font-style:normal;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.assignment-groups{display:grid;gap:9px}
+.group-title{font-size:9px;color:#aebfd1;margin-bottom:5px;text-transform:uppercase;letter-spacing:.09em}
+.assignment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.assign-btn{
+  padding:8px 5px;border-radius:8px;border:1px solid #304a64;background:#0f1d2a;
+  color:#e7f2fc;cursor:pointer;font-size:10px;text-align:center;min-width:0;
+}
+.assign-btn:hover{border-color:#5c85aa}
+.assign-btn.active{border-color:#66d9ef;background:#193e56}
+.assign-btn.deep{border-left:4px solid var(--accent)}
+.assign-btn.under{border-left:4px solid var(--green)}
+.assign-btn.flat{border-left:4px solid var(--yellow)}
+.assign-btn.pressure{border-left:4px solid var(--orange)}
+.utility-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.utility{
+  padding:8px 7px;border:1px solid #3b5671;background:#111f2d;color:#dcecff;
+  border-radius:8px;cursor:pointer;font-size:9px;
+}
+.utility.warn{border-color:#71424b;background:#28181d;color:#ffc7cd}
+.utility:disabled{opacity:.4;cursor:not-allowed}
+.role-note{margin:0 0 8px;color:#9fb4c9;font-size:9px;line-height:1.4}
+.helptext{margin-top:7px;color:var(--muted);font-size:10px;line-height:1.45}
+
+.macro-panel{grid-column:1/-1;padding:14px}
+.macro-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:10px}
+.macro-panel-head .note{margin:0;max-width:520px}
+.macro-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;max-height:none;overflow:visible;padding:0}
+.macro{
+  width:100%;text-align:left;padding:9px;border:1px solid #2a435d;border-radius:10px;
+  background:#08131f;color:var(--text);cursor:pointer;min-height:64px;
+}
+.macro:hover{border-color:#527b9f}
+.macro.active{background:#16364e;border-color:#65d4ef}
+.macro.empty{border-style:dashed;color:#7f95aa}
+.macro b{display:block;font-size:12px}
+.macro small{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.35}
+.macro-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.action{
+  flex:1 1 190px;max-width:260px;margin:0;padding:9px;border-radius:9px;border:1px solid;cursor:pointer;
+}
+.save{background:#173c52;border-color:#4e9fbe;color:#effcff}
+.overwrite{background:#101d2a;border-color:#35536f;color:#dceeff}
+.clear{background:#28151a;border-color:#6b3642;color:#ffc0c7}
+.backup{background:#151b2d;border-color:#4d527a;color:#e4e6ff}
+input[type="file"].hidden-file{display:none}
+footer{
+  width:min(1760px,100%);margin:0 auto;padding:0 16px 18px;color:#7f96ab;
+  font-size:9px;text-align:center;line-height:1.45;
+}
+
+.header-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+.header-tools{display:flex;align-items:center;gap:7px}
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;padding:7px 10px;
+  border:1px solid #3a5d7b;border-radius:9px;background:#10263a;color:#e1f6ff;cursor:pointer;
+  font-size:10px;font-weight:750;white-space:nowrap;
+}
+.icon-btn:hover{border-color:#65d9ef;background:#163249}
+.icon-btn:focus-visible,.action:focus-visible,.small-btn:focus-visible,.assign-btn:focus-visible,.player-btn:focus-visible,.macro:focus-visible,.favorite-btn:focus-visible{
+  outline:3px solid rgba(101,217,239,.34);outline-offset:2px;
+}
+.view-indicator{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;padding:8px 9px;
+  border:1px solid #304b65;border-radius:9px;background:#0b1825;color:#b9d1e4;font-size:10px;
+}
+.view-indicator strong{color:#eaf7ff}
+.view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}
+.legend i.line-key{display:inline-block;width:24px;height:0;border-radius:0;background:none;border-top:3px dashed #d9e8f5}
+.legend i.line-key.override{border-top-style:solid;border-top-width:4px;border-top-color:#ffdc7b}
+.selected-card{position:relative;overflow:hidden}
+.selected-card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:#65d9ef}
+.selected-card.override::before{background:#ffcf63}
+.selected-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.selected-state{
+  display:inline-flex;align-items:center;padding:4px 7px;border:1px solid #3a5872;border-radius:999px;
+  background:#102234;color:#cce6f8;font-size:8px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;
+}
+.selected-state.override{border-color:#92763a;background:#332910;color:#ffe69a}
+.selected-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.selected-meta span{display:inline-flex;margin:0;padding:4px 6px;border:1px solid #2d475f;border-radius:999px;background:#0c1824;color:#9fb8cd;font-size:8px}
+.player-btn{position:relative}
+.player-btn.overridden{border-color:#a8873f;background:#2c2411;box-shadow:0 0 0 1px rgba(255,214,111,.12) inset}
+.player-btn.overridden::after{
+  content:"M";position:absolute;top:4px;right:4px;display:grid;place-items:center;width:14px;height:14px;
+  border-radius:50%;background:#ffd66f;color:#191203;font-size:8px;font-weight:950;
+}
+.player-btn.active{box-shadow:0 0 0 2px rgba(101,217,239,.22) inset,0 0 18px rgba(101,217,239,.12)}
+.assignment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.assign-btn{position:relative;padding:7px 4px;font-size:9px;line-height:1.15;min-height:36px}
+.assign-btn.base-current:not(.active)::after{
+  content:"BASE";position:absolute;top:2px;right:3px;color:#8da7bc;font-size:6px;font-weight:900;letter-spacing:.04em;
+}
+.assign-btn.active::after{
+  content:"ACTIVE";position:absolute;top:2px;right:3px;color:#9ff0ff;font-size:6px;font-weight:900;letter-spacing:.04em;
+}
+.group-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.group-count{padding:2px 5px;border:1px solid #304a63;border-radius:999px;color:#8fa8bd;font-size:7px}
+.chip.override{border-color:#866c37;background:#2c2411;color:#ffe6a0}
+.chip.verified{border-color:#4d8060;background:#11291c;color:#c9f6d4}
+.status-pill{
+  display:inline-flex;align-items:center;padding:4px 7px;border:1px solid;border-radius:999px;
+  font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-right:6px;
+}
+.status-pill.unmapped{border-color:#5a6470;background:#1a2027;color:#c3ced8}
+.status-pill.partial{border-color:#8a6a37;background:#2d2210;color:#ffe0a1}
+.status-pill.mapped{border-color:#4b7f5d;background:#11291c;color:#c9f6d4}
+.mapping-bar.unmapped{border-color:#475667}.mapping-bar.partial{border-color:#7d6136}.mapping-bar.mapped{border-color:#467557}
+.macro{position:relative;overflow:hidden;min-height:118px;padding:10px}
+.macro::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:#34516b}
+.macro.active::before{background:#65d9ef}
+.macro-top{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.macro-slot{
+  display:grid;place-items:center;flex:0 0 auto;width:26px;height:26px;border:1px solid #39566f;border-radius:7px;
+  background:#102131;color:#a9c3d8;font-size:10px;font-weight:900;
+}
+.macro-name{min-width:0;font-size:12px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.macro-formation{color:#bcd1e3;font-size:9px;font-weight:750;line-height:1.35}
+.macro-play-name{margin-top:3px;color:#eef7ff;font-size:10px;line-height:1.35;min-height:27px}
+.macro-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.mini-badge{padding:3px 5px;border:1px solid #34516b;border-radius:999px;background:#101f2d;color:#a9bfd2;font-size:7px;font-weight:850;letter-spacing:.04em}
+.mini-badge.zone{border-color:#4a8060;color:#c9f6d4;background:#11291c}
+.mini-badge.match{border-color:#527b9c;color:#d2efff;background:#10283a}
+.mini-badge.man{border-color:#80555b;color:#ffd6da;background:#2a171b}
+.mini-badge.blitz{border-color:#8a633b;color:#ffe1bf;background:#2a1d10}
+.danger-reset{background:#32161c;border-color:#8b404d;color:#ffd1d7}
+.danger-reset:hover{background:#441c24}
+.modal-backdrop{
+  position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(2,7,12,.78);
+  backdrop-filter:blur(7px);
+}
+.modal-backdrop[hidden]{display:none}
+.modal{
+  width:min(780px,100%);max-height:min(760px,calc(100vh - 40px));overflow:hidden;border:1px solid #35536e;
+  border-radius:16px;background:linear-gradient(180deg,#101d2b,#09131e);box-shadow:0 30px 90px rgba(0,0,0,.55);
+}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;padding:16px 18px;border-bottom:1px solid #263d55}
+.modal-head h2{margin:0;color:#eef7ff;font-size:16px;letter-spacing:0;text-transform:none}
+.modal-head p{margin:4px 0 0;color:#9fb4c9;font-size:10px}
+.modal-close{width:34px;height:34px;border:1px solid #3b5871;border-radius:9px;background:#101f2e;color:#e7f4ff;cursor:pointer;font-size:18px}
+.modal-tabs{display:flex;gap:7px;padding:11px 18px;border-bottom:1px solid #23394f;background:#0b1723}
+.modal-tab{padding:7px 10px;border:1px solid #34516b;border-radius:8px;background:#101f2e;color:#bcd2e4;cursor:pointer;font-size:10px}
+.modal-tab.active{border-color:#65d9ef;background:#17374e;color:#fff}
+.modal-body{max-height:580px;overflow-y:auto;padding:18px}
+.modal-pane[hidden]{display:none}
+.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.help-card{border:1px solid #294159;border-radius:11px;background:#0a1622;padding:12px}
+.help-card h3{margin:0 0 7px;color:#dfefff;font-size:11px}
+.help-card p,.help-card li{color:#9fb4c9;font-size:10px;line-height:1.5}
+.help-card ol,.help-card ul{margin:7px 0 0;padding-left:18px}
+.help-card.full{grid-column:1/-1}
+.release-list{display:grid;gap:9px}
+.release-item{border:1px solid #294159;border-radius:10px;background:#0a1622;padding:11px}
+.release-item strong{display:block;color:#eaf7ff;font-size:11px}
+.release-item span{display:block;margin-top:4px;color:#9fb4c9;font-size:10px;line-height:1.45}
+.kbd{display:inline-block;padding:2px 5px;border:1px solid #3b556d;border-bottom-width:2px;border-radius:5px;background:#101e2b;color:#dcecff;font-size:8px}
+.release-callout{margin-top:12px;padding:10px;border:1px solid #806b35;border-radius:10px;background:#2b2410;color:#ffe8a0;font-size:10px;line-height:1.45}
+
+@media(max-width:1280px){
+  .app{grid-template-columns:250px minmax(520px,1fr) 350px}
+  .macro-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:1040px){
+  .app{grid-template-columns:240px minmax(500px,1fr)}
+  .right{grid-column:1/-1;position:static;max-height:none;overflow:visible}
+  .assignment-sidebar{display:grid;grid-template-columns:280px minmax(0,1fr);gap:10px}
+  .assignment-sidebar>h2,.assignment-sidebar>.helptext,.assignment-sidebar>.selected-card{grid-column:1/-1}
+  .assignment-sidebar .subpanel{margin-top:0}
+  .assignment-grid{grid-template-columns:repeat(3,minmax(110px,1fr))}
+  .macro-panel{grid-column:1/-1}
+}
+@media(max-width:850px){
+  header{position:static;align-items:flex-start;flex-direction:column}
+  .header-actions{justify-content:flex-start}
+  .header-stats{justify-content:flex-start}
+  .app{display:block;padding:9px}
+  .left,.right{position:static;margin-bottom:10px;max-height:none;overflow:visible}
+  .center,.macro-panel{margin-bottom:10px}
+  .field-wrap{min-height:430px}
+  .assignment-sidebar{display:block}
+  .assignment-grid{grid-template-columns:repeat(2,minmax(120px,1fr))}
+  .help-grid{grid-template-columns:1fr}
+  .help-card.full{grid-column:auto}
+  .utility-row{grid-template-columns:1fr}
+  .macro-list{grid-template-columns:1fr}
+  .macro-panel-head{display:block}
+  .macro-panel-head .note{margin-top:8px;max-width:none}
+  .mapping-bar{align-items:flex-start;flex-direction:column}
+  .map-actions{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>CFB 27 Defensive Playbook Lab <span style="color:#65d9ef">v4.4</span></h1>
+    <p>Build, verify, save, and share defensive play assignments from the complete formation and play library.</p>
+  </div>
+  <div class="header-actions">
+    <div class="header-stats">
+      <span class="stat">72 formations</span>
+      <span class="stat">1,245 formation-play entries</span>
+      <span class="stat">318 unique play names</span>
+      <span class="stat">10 macro slots</span>
+    </div>
+    <div class="header-tools">
+      <button class="icon-btn" id="openHelp" type="button">? Help</button>
+      <button class="icon-btn" id="openRelease" type="button">v4.4 Notes</button>
+    </div>
+  </div>
+</header>
+
+<main class="app">
+  <section class="panel left">
+    <h2>Play Library</h2>
+
+    <label>Library View</label>
+    <select id="libraryView">
+      <option value="ALL">Full Defensive Library</option>
+      <option value="MY">My Playbook</option>
+    </select>
+    <div class="view-indicator" id="libraryModeIndicator">
+      <span>Current view</span><strong>Full Defensive Library</strong>
+    </div>
+
+    <label>Formation Family</label>
+    <select id="family"></select>
+
+    <label>Formation</label>
+    <select id="formation"></select>
+
+    <div class="two-col">
+      <div>
+        <label>Play Type</label>
+        <select id="typeFilter">
+          <option value="ALL">All Plays</option>
+          <option value="ZONE">Zone</option>
+          <option value="MATCH">Match</option>
+          <option value="MAN">Man</option>
+          <option value="BLITZ">Blitz / Pressure</option>
+        </select>
+      </div>
+      <div>
+        <label>Map Status</label>
+        <select id="mapFilter">
+          <option value="ALL">All Statuses</option>
+          <option value="MAPPED">Verified Maps</option>
+          <option value="PARTIAL">Draft / Partial</option>
+          <option value="UNMAPPED">Unmapped</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Search This Formation</label>
+    <input id="playSearch" type="search" placeholder="Cover 3, blitz, Tampa…">
+
+    <label>Actual Play</label>
+    <select id="play" size="7"></select>
+
+    <div class="favorite-row">
+      <button class="favorite-btn" id="toggleFormationFavorite">☆ Add Formation</button>
+      <button class="favorite-btn" id="togglePlayFavorite">☆ Add Play</button>
+    </div>
+    <div class="library-count" id="myPlaybookCount"></div>
+
+    <div class="play-meta">
+      <span id="playCount">0 plays</span>
+      <span id="typeBadge" class="badge zone">ZONE</span>
+    </div>
+
+    <label>Find Any Play or Formation</label>
+    <input id="globalFinder" list="globalOptions" placeholder="Type a formation or play…">
+    <datalist id="globalOptions"></datalist>
+    <div class="global-result" id="globalHint">Select a result to jump directly to its formation and play.</div>
+
+    <label>Passing Strength</label>
+    <select id="strength">
+      <option value="left">Left</option>
+      <option value="right">Right</option>
+    </select>
+
+    <div class="note">
+      Formation and play names are real database entries. The initial play art is an inferred shell until you save a player-by-player map for that specific play.
+    </div>
+  </section>
+
+  <section class="panel center">
+    <div class="center-head">
+      <div>
+        <h2>Live Play Art</h2>
+        <div class="diagram-title" id="diagramTitle"></div>
+      </div>
+      <div class="status" id="status"></div>
+    </div>
+
+    <div class="field-wrap">
+      <svg id="field" viewBox="0 0 1000 720"></svg>
+    </div>
+
+    <div class="legend">
+      <span><i style="background:#65d9ef"></i>Deep zone</span>
+      <span><i style="background:#7ee39a"></i>Inside zone</span>
+      <span><i style="background:#ffd66f"></i>Flat zone</span>
+      <span><i style="background:#c19bff"></i>Spy</span>
+      <span><i style="background:#ffad64"></i>Blitz / contain</span>
+      <span><i style="background:#7f91a4"></i>Man assignment hidden</span>
+      <span><i class="line-key"></i>Base assignment</span>
+      <span><i class="line-key override"></i>Manual override</span>
+    </div>
+
+    <div class="active-summary" id="activeSummary"></div>
+
+    <div class="mapping-bar">
+      <div class="mapping-state" id="mappingState"></div>
+      <div class="map-actions">
+        <button class="small-btn" id="saveDraftMap">Save Draft Map</button>
+        <button class="small-btn" id="savePlayMap">Mark Map Verified</button>
+        <button class="small-btn warn" id="removePlayMap">Remove Saved Map</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="panel right assignment-sidebar">
+    <h2>Individual Player Assignments</h2>
+    <div class="helptext">
+      Select a defender on the field or here, then assign the zone, spy, contain, or rush responsibility.
+      The field remains visible while you edit. Man responsibilities are intentionally not drawn.
+    </div>
+
+    <div class="selected-card" id="selectedCard">
+      <div class="selected-card-top">
+        <div>
+          <small>Selected Defender</small>
+          <strong id="selectedName"></strong>
+          <span id="selectedAssignment"></span>
+        </div>
+        <span class="selected-state" id="selectedStateBadge">Base Play</span>
+      </div>
+      <div class="selected-meta">
+        <span id="selectedRole"></span>
+        <span id="selectedSource"></span>
+      </div>
+    </div>
+
+    <div class="subpanel">
+      <h3>1. Select Position</h3>
+      <div class="player-grid" id="playerGrid"></div>
+    </div>
+
+    <div class="subpanel">
+      <h3>2. Assign Responsibility</h3>
+      <div class="role-note" id="assignmentRoleNote"></div>
+      <div class="assignment-groups" id="assignmentGroups"></div>
+      <div class="utility-row">
+        <button class="utility" id="undoAssignment">Undo Last Assignment</button>
+        <button class="utility" id="resetSelected">Restore Selected to Play</button>
+        <button class="utility warn" id="resetAll">Clear All Player Overrides</button>
+      </div>
+    </div>
+  </aside>
+
+  <section class="panel macro-panel">
+    <div class="macro-panel-head">
+      <div>
+        <h2>Saved In-Game Macros</h2>
+        <div class="helptext">Select a slot to reload its exact formation, play, passing strength, and defender assignments.</div>
+      </div>
+      <div class="note">
+        Each slot saves the actual play name and complete player-assignment package.
+      </div>
+    </div>
+    <div class="macro-list" id="macroList"></div>
+    <div class="macro-actions">
+      <button class="action save" id="saveMacro">Save Current to Next Slot</button>
+      <button class="action overwrite" id="overwriteMacro">Overwrite Selected Slot</button>
+      <button class="action clear" id="clearMacros">Clear All Saved Slots</button>
+      <button class="action backup" id="exportBackup">Export Backup</button>
+      <button class="action backup" id="importBackup">Import Backup</button>
+      <button class="action danger-reset" id="resetEntireApp">Reset Entire App</button>
+      <input class="hidden-file" id="backupFile" type="file" accept=".json,application/json">
+    </div>
+  </section>
+  <div class="modal-backdrop" id="appModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="modalTitle">Defensive Playbook Lab Help</h2>
+          <p>Quick reference, storage guidance, and release information.</p>
+        </div>
+        <button class="modal-close" id="closeModal" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-modal-tab="help" type="button">Quick Start</button>
+        <button class="modal-tab" data-modal-tab="release" type="button">v4.4 Release Notes</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-pane" id="modalHelpPane">
+          <div class="help-grid">
+            <article class="help-card">
+              <h3>1. Choose a real play</h3>
+              <ol>
+                <li>Select a formation family and formation.</li>
+                <li>Filter by play type or map status.</li>
+                <li>Select the actual play from the list.</li>
+              </ol>
+            </article>
+            <article class="help-card">
+              <h3>2. Edit assignments</h3>
+              <ol>
+                <li>Click a defender on the field or right menu.</li>
+                <li>Choose a role-valid visual responsibility.</li>
+                <li>Manual overrides appear with solid gold play-art lines.</li>
+              </ol>
+            </article>
+            <article class="help-card">
+              <h3>3. Map the play</h3>
+              <p><strong>Unmapped</strong> uses an inferred shell. Save a <strong>Draft</strong> while working. Mark it <strong>Verified</strong> only after comparing it with the in-game play art.</p>
+            </article>
+            <article class="help-card">
+              <h3>4. Save a macro</h3>
+              <p>A macro slot stores the formation, actual play, passing strength, and complete assignment package. The ten slots match the active defensive adjustment limit documented by EA.</p>
+            </article>
+            <article class="help-card full">
+              <h3>Storage and sharing</h3>
+              <ul>
+                <li>Saved data stays in Chrome on the current device.</li>
+                <li>Use <strong>Export Backup</strong> before clearing browser data or moving computers.</li>
+                <li>Send the HTML file to another user; they can open it directly in Chrome.</li>
+                <li>Use <strong>Import Backup</strong> to transfer macros, play maps, and My Playbook.</li>
+                <li><strong>Reset Entire App</strong> deletes only this tool's locally saved macros, maps, and favorites.</li>
+              </ul>
+            </article>
+            <article class="help-card full">
+              <h3>Assignment accuracy</h3>
+              <p>The menu is conservatively filtered by defender role. Exact hot-route availability can still vary by formation and package, so verify questionable options in CFB 27 before marking a play map verified.</p>
+            </article>
+          </div>
+        </div>
+        <div class="modal-pane" id="modalReleasePane" hidden>
+          <div class="release-list">
+            <article class="release-item"><strong>Clearer base versus override play art</strong><span>Base responsibilities use dashed lines. Manual macro overrides use heavier solid gold lines, enhanced player highlighting, and override markers.</span></article>
+            <article class="release-item"><strong>Improved assignment console</strong><span>The selected defender card now shows role, assignment source, and whether the responsibility comes from the base play or a manual override.</span></article>
+            <article class="release-item"><strong>More informative macro cards</strong><span>Each slot now displays formation, play, play type, passing strength, and saved override count.</span></article>
+            <article class="release-item"><strong>Built-in help and release notes</strong><span>The application now includes usage guidance, storage behavior, sharing instructions, and version-specific notes.</span></article>
+            <article class="release-item"><strong>Safer complete reset</strong><span>Reset Entire App requires a typed confirmation and clears only the local storage used by this tool.</span></article>
+            <article class="release-item"><strong>Distribution package</strong><span>The v4.4 release includes the standalone HTML file, a README, and an example backup file in a shareable ZIP archive.</span></article>
+          </div>
+          <div class="release-callout">The role filters remain conservative rather than claiming universal in-game accuracy. Verify formation-specific exceptions before marking play art verified.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  CFB 27 Defensive Playbook Lab v4.4 • Independent planning tool. Formation and play-name inventory comes from public playbook databases. Auto-shell play art is inferred and should be marked verified only after in-game confirmation.
+</footer>
+
+<script>
+const APP_VERSION="4.4";
+const PLAY_DB = {"2-5 Over Wide":["COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 ROBBER","COVER 1 STING WK","COVER 2 INVERT","COVER 2 MAN","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","FIRE MAN","FREE FIRE 3","MIKE SAM CROSS 3","TAMPA 2","THUNDER SMOKE","WILL BLITZ 3"],"3-2-6 3-2":["1 DOUBLE WR1","COVER 1 ROBBER PRESS","COVER 2 MAN LB BLITZ","COVER 3 BUZZ SPY","COVER 3 CLOUD SHOW 2","COVER 3 LOCK","COVER 3 MATCH","COVER 4 DROP CONTAIN","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 3","FS ZONE BLITZ","HOT BLITZ 3","MAX STING 3","OKIE ROLL 2","OKIE ROLL 3","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","TAMPA 2 DROP","ZERO BLITZ"],"3-2-6 Sugar 3-2":["COVER 1 ROBBER PRESS","COVER 2 DROP","COVER 2 MAN LB BLITZ","COVER 3 SKY","COVER 4 DROP","DB FIRE 2","DBL SAFETY GO","DT MIKE LOOP 0","DT MIKE LOOP 1","OVERLOAD 3 SEAM","SS ZONE BLITZ","TAMPA 2"],"3-3-5 3 High":["3 DOUBLE BUZZ","3 DOUBLE CLOUD","CORNER BLITZ 2","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","SAW BLITZ 1","SAW BLITZ 3","TAMPA 2","TAMPA 2 SPY"],"3-3-5 3 High Odd":["2 INVERT DROP","3 DOUBLE CLOUD","3 DOUBLE SKY","COVER 3 MAN","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","HOT BLITZ 3","SAW BLITZ 1","SAW BLITZ 3","SLANT BLITZ 2","SLANT BLITZ 3","TAMPA 2","TAMPA 2 DROP"],"3-3-5 3 High Over":["3 DOUBLE CLOUD","3 DOUBLE SKY","BLITZ DT POP","COVER 2 LURK","COVER 3 MATCH","COVER 4 QUARTERS","EDGE BLITZ 2","HOT BLITZ 3","LB BLITZ 0","TAMPA 2"],"3-3-5 3 High Penny":["3 DOUBLE BUZZ","3 DOUBLE CLOUD","CORNER BLITZ 2","COVER 2 LURK","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","MIKE BLITZ 0","MIKE SIM 2","SAW BLITZ 1","TAMPA 2","TAMPA 2 SPY"],"3-3-5 Mint":["1 DOUBLE WR1","1 DOUBLE WR2","CORNER BLITZ 3","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 BUZZ STRONG","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","HOT BLITZ 3","LB CROSS 0","LB CROSS 3 SHOW 2","NICKEL 2 TRAP","OVERLOAD 3 SKY PRESS","PINCH 0 BLITZ","SAM MIKE 3 PRESS","TAMPA 2","TAMPA SIM PRESSURE"],"3-3-5 Odd Ghost":["COVER 1 DBL HOOK","COVER 2 INVERT","COVER 2 MAN","COVER 2 TAMPA","COVER 2 TAMPA DROP","COVER 3 MATCH","COVER 3 SKY","COVER 3 SKY DROP","COVER 6","HOT BLITZ 3","LB BLITZ 0","MID BLITZ 1","MIKE WILL 3","SAW BLITZ 1","TAMPA SIM PRESSURE"],"3-3-5 Over Flex":["1 DOUBLE WR1","CB BENCH BLITZ","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 SS BLITZ","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","EDGE BLITZ 0","HOT BLITZ 3","NICKEL SIM 3","OVER 3 STING","TAMPA 2"],"3-3-5 Penny":["3 SAM WILL BLITZ","CORNER BLITZ 2","COVER 1 ROBBER","COVER 3 BUZZ","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 9","COVER HOLE 1","DOUBLE DOUBLE","HOT BLITZ 3","MIKE BLITZ 0","MIKE BLITZ 1","SAW BLITZ 1","SLOT BLITZ 3","TAMPA 2"],"3-3-5 Split":["COVER 1 SS BLITZ","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","DOUBLE EDGE BLITZ","FIRE ZONE 3","HOT BLITZ 3","INSIDE BLITZ","ZONE BLITZ"],"3-3-5 Stack":["COVER 3","COVER 3 DROP","COVER 3 MATCH","HOT BLITZ 3","LB BLITZ 0","MID BLITZ 1","MIKE SAM 3","MIKE WILL 2","MIKE WILL 3","SAW BLITZ 1","SAW BLITZ 3","SS BLITZ 0","SS HOT BLITZ 3","TAMPA SIM PRESSURE","WILL SAM 3"],"3-4 Bear":["COVER 1 HOLE","COVER 2 INVERT","COVER 2 INVERT HARD FLAT","COVER 3","COVER 3 HARD FLAT","LB BLITZ 0","SAM MIKE 1","TRIO SKY ZONE","WILL SAM 1"],"3-4 Even":["COV 1 ROBBER PRESS","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","CROSS FIRE 3","PINCH BUCK 0","TAMPA 2","WILL FIRE 3 SEAM"],"3-4 Grizzly":["1 EDGE PINCH","3 EDGE PINCH","COVER 2 INVERT","COVER 3","COVER 3 DROP","COVER 9","MIKE BLITZ 0","MIKE HOT BLITZ 3","MIKE SIM 2","TAMPA 2 SHOW 3"],"3-4 Odd":["COVER 1 HOLE","COVER 1 ROBBER","COVER 3 MATCH","COVER 3 SKY","COVER 3 SKY WK","COVER 4 DROP SHOW 2","COVER 4 QUARTERS","COVER 6","CRASH BLITZ 3","CROSS 3 FIRE","PINCH BUCK 0","SAW BLITZ 1","SS 2 TRAP","STORM BRAVE 1","TAMPA 2","WILL BUCK 3 PRESS"],"3-4 Over":["COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6 PRESS","SAW BLITZ 1","SS 2 TRAP","SS BLITZ 1","STING PINCH","TRIO SKY ZONE","WILL BUCK 3 PRESS"],"3-4 Over Ed":["COVER 1 HOLE","COVER 1 QB CONTAIN","COVER 2","COVER 2 MAN","COVER 3 CLOUD","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","HOT BLITZ 3","OLB FIRE MAN","SAM CRASH 3","STRONG SNAKE 3"],"3-4 Tite":["COVER 1 HOLE","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 QUARTERS","COVER 6","FIELD BLITZ 3","HOT BLITZ 3","SAW BLITZ 0","SAW BLITZ 1","SAW BLITZ 2","SAW BLITZ 3","SS 2 TRAP","TAMPA 2","TRIO SKY ZONE"],"3-4 Tite 5 Tech":["COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","TAMPA 2","WEAK BLITZ 3"],"3-4 Under":["COV 1 QB CONTAIN SPY","COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","TAMPA 2","WEAK BLITZ 1","WEAK BLITZ 3","WILL FIRE 3 SEAM"],"3-4 Under 4 Tech":["COV 1 QB CONTAIN SPY","COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","WEAK BLITZ 1","WEAK BLITZ 3","WILL FIRE 3 SEAM"],"4-2-5 3 High":["3 DOUBLE CLOUD","3 DOUBLE SKY","BLITZ DT POP","COVER 2 LURK","COVER 3 MATCH","COVER 4 QUARTERS","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","LB BLITZ 0","TAMPA 2"],"4-2-5 Even":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BRACKET 9 SWITCH","COVER 1 HOLE","COVER 1 ROBBER","COVER 2","COVER 2 CONTAIN","COVER 2 MAN","COVER 2 MATCH","COVER 3 BUZZ MATCH WK","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","DOUBLE BRACKET SWITCH","LB BLITZ","MIKE SS 3","SS BLITZ 2","SS LB BLITZ","WS BLITZ 1","WS BLITZ 2","WS BLITZ 3"],"4-2-5 Over G":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BRACKET 9 SWITCH","CASINO BLITZ","CORNER BLITZ 3","COVER 1 HOLE","COVER 2","COVER 2 CONTAIN","COVER 2 MAN","COVER 3 BUZZ MATCH WK","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 TRAP","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","DOUBLE BRACKET SWITCH","LB BLITZ","MIKE SS 3","PINCH BLITZ","SS BLITZ 2","SS BLITZ 3","SS LB BLITZ","WS BLITZ 1","WS BLITZ 2","WS BLITZ 3"],"4-2-5 Under":["1 FS FIRE","1 SLANT CRASH","2 INVERT HARD FLAT","COVER 1 CONTAIN PRESS","COVER 1 FS FIRE","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 SLANT CRASH","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FREE FIRE","HAMMER 0 BLAST","MIKE SAM CRASH PRESS","SAFETY BLITZ","SAM BLITZ 2","SS SAM CRASH PRESS","TAMPA 2","WILL GO FIRE 3","WK CORNER BLITZ"],"4-3 Even 6-1":["COVER 1 HOLE","COVER 1 MLB BLITZ","COVER 2 MAN","COVER 3 BUZZ","COVER 4 QUARTERS","MIKE WILL BLITZ","SAM BLITZ 3","SAM WILL BLITZ","TAMPA 2"],"4-3 Odd":["COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 CLOUD","COVER 3 SKY","COVER 6","LB DOGS","PINCH 4 PALMS","STRONG SLANT 3","TAMPA 2"],"4-3 Over":["1 ROBBER PRESS","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 ROBBER PRESS","COVER 1 STING WK","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 CLOUD PRESS","COVER 3 CLOUD STR","COVER 3 SKY","COVER 4 PALMS","COVER 4 PRESS","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FREE FIRE 3","LB STING 1","OLB FIRE MAN","SAM EDGE 3","TAMPA 2"],"4-3 Over Solid":["COVER 1 STING","COVER 2 INVERT","COVER 2 INVERT HARD FLAT","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FS BLITZ","HAMMER 0 BLAST","SAW 0 BLAST","TAMPA 2"],"4-3 Over Walk":["CORNER BLITZ 3","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 SS BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","FIRE ZONE 2","MIKE WILL BLITZ","SAM WILL BLITZ","SS BLITZ 1","SS BLITZ 3","WILL BLITZ 3"],"4-3 Over Wide":["COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 ROBBER","COVER 2 INVERT","COVER 2 MAN","COVER 3 CLOUD SHOW 2","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","FIRE MAN","FREE FIRE 3","SAM BLITZ 3","TAMPA 2"],"4-3 Tite Leo":["COVER 1 HOLE","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 QUARTERS","COVER 6","FIELD BLITZ 3","HOT BLITZ 3","SAW BLITZ 0","SAW BLITZ 1","SAW BLITZ 2","SAW BLITZ 3","SS 2 TRAP","TAMPA 2","TRIO SKY ZONE"],"4-3 Under":["1 CONTAIN PRESS","1 ROBBER PRESS","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","DBL SAFETY BLITZ","FREE FIRE 0","FS FIRE 1","FS FIRE 3","HAMMER 0 BLAST","SAM BLITZ 2","SAM CRASH 1","SAM CRASH 3","TAMPA 2","WILL GO FIRE 3"],"4-3 Under Wide":["COVER 1 CONTAIN PRESS","COVER 1 FS FIRE","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 ROBBER PRESS","COVER 1 SLANT CRASH","COVER 2 INVERT","COVER 2 MAN","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FREE FIRE","FS FIRE 3","HAMMER 0 BLAST","MIKE SAM CRASH PRESS","SAFETY BLITZ","SAM BLITZ 2","SS SAM CRASH PRESS","TAMPA 2","WILL GO FIRE 3"],"4-4 Split":["COVER 1","COVER 2 INVERT","COVER 3","COVER 3 MATCH","COVER 9","CRASH 3","FS BLITZ","LB FIRE","MONSTER GREEN","ZONE BLITZ"],"46 Bear":["46 MID BLITZ","COVER 1","COVER 3","COVER 9","ENGAGE EIGHT","GAP PRESS","LB BLITZ 3","SAFETY FIRE","SLANT WEAK","SLANT WEAK 3","WALL STUNT"],"5-2 Normal":["COVER 1","COVER 2","COVER 3","COVER 9","DT LOOP","FIRE ZONE 2","FLASH BLITZ","PINCH","SMASH BLITZ","TRIO SKY ZONE"],"Dime 2-3 Odd":["1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 2 SINK","COVER 3 BUZZ MATCH WK","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 LOCK","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 2","EDGE BLITZ 3","FS ZONE BLITZ","MAX STING 3","OKIE EAGLE 3","OKIE ROLL 2","OVERLOAD 3 SEAM PRESS","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","ZERO BLITZ"],"Dime 2-3-6":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 QB CONTAIN","COVER 1 ROBBER SHOW 2","COVER 2 INVERT","COVER 2 MAN","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 SHOW 2","COVER 6 WILLIE","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","MAN DOUBLE BUZZ","NICKEL 2 TRAP","OVER STORM BRAVE","OVERLOAD 3 PRESS","PROWL SLANT 3 SEAM","SILVER SHOOT PINCH","TAMPA 2"],"Dime 3-2":["1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 BUZZ MATCH WK","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 LOCK","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 2","EDGE BLITZ 3","FS ZONE BLITZ","HOT BLITZ 3","MAX STING 3","OKIE EAGLE 3","OKIE ROLL 2","OVERLOAD 3 SEAM PRESS","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","TAMPA 2 DROP","ZERO BLITZ"],"Dime 3-2 Single Mug":["1 LB DOG","BLITZ TEX 3","BRACKET SWITCH WILLIE","COV 3 BUZZ SHOW 1","COV 3BUZZ SHOW 1","COVER 1 GAMES","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 4 PALMS","DB BLITZ","DB BLITZ TEX 3","DBL SAFETY BLITZ","DIME BLITZ 2","DOUBLE BRACKET","TAMPA 2"],"Dime Load Weak":["COV 1 ROBBER PRESS","COVER 2 DROP","COVER 2 MAN","COVER 4 PALMS","COVER 4 QUARTERS","DB BLITZ 1","DB BLITZ 3","PINCH BLITZ","PINCH BLITZ 3","SIM 3 MATCH","SIM PRESSURE 3","TAMPA 2"],"Dime Normal":["3 DOUBLE BUZZ","COV 3 BUZZ SHOW 1","COV 3BUZZ SHOW 1","COVER 1 CONTAIN","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","DIME BLITZ 3","LB BLITZ 1","OVERLOAD 3 SHOW 2","SS BLITZ 3","TAMPA 2"],"Dime Rush":["COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 2 ROLL","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DB BLITZ","DBL SAFETY BLITZ","DIME BLITZ 2","FOX FIRE ZONE PRESS","FS MIDDLE BLITZ 3","MUG BLITZ TEX 3","MUG DT LOOP 1","MUG SIM PRESSURE","SS OVERLOAD 3","SS SIM PRESSURE 3","TAMPA 2"],"Dime Single Mug":["1 LB DOG","BLITZ TEX 3","COV 3 BUZZ SHOW 1","COVER 1 GAMES","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 4 PALMS","DB BLITZ","DB BLITZ TEX 3","DBL SAFETY BLITZ","DIME BLITZ 2","TAMPA 2"],"Goal Line 5-3":["GAPS AB","GAPS ALL","GAPS ALL LB","GAPS B","GL MAN","MLB GAP A"],"Goal Line 6-2":["60 BASE","60 HALF OUT","60 OUT","60 OUT JACKS","60 PINCH","GUTS"],"Nickel 2-4":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BUCK SLANT 3","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SHOW 2","CROSS SIM 2","DBL SAFETY BLITZ","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL SIM 2","OVER STORM BRAVE","OVERLOAD 3 SEAM","ROLL COVER 2 INVERT","ROLL COVER 3 CLOUD","SILVER SHOOT PINCH","SIM PRESSURE 3","TAMPA 2"],"Nickel 2-4 Dbl Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","MID BLITZ","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL DOG MEG","NICKEL OVERLOAD 3","NICKEL SIM 2","SS DOG 3"],"Nickel 2-4 Load":["0 LB CROSS GAMES","1 DOUBLE WR1","1 LB CROSS GAMES","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DOUBLE BRACKET","LB 3 SEAM GAMES","OVERLOAD 3 SEAM","TAMPA 2"],"Nickel 2-4 Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel 2-4 Load Mug":["BLITZ LOOP 0","BLITZ LOOP SIM 3","COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 3","TAMPA 2"],"Nickel 2-4 Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9","DB BLITZ TEX 3","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Cub":["1 SAM SS BLITZ","3 SAM WILL BLITZ","COVER 1 CONTAIN","COVER 1 ROBBER","COVER 3 BUZZ","COVER 4 SHOW 2","LB BLITZ 1","MIKE BLITZ 0","NICKEL BLITZ 3","OLB BLITZ 1","SS BLITZ 0","TAMPA 2"],"Nickel 3-3 Dbl Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","MID BLITZ","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL DOG MEG","NICKEL OVERLOAD 3","NICKEL SIM 2","SS DOG 3","TAMPA 2"],"Nickel 3-3 Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","BLITZ LOOP SIM 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel 3-3 Load Mug":["COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 2","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Mint":["1 DOUBLE WR1","1 DOUBLE WR2","3 BUZZ STING PRESS","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MABLE","COVER 3 BUZZ MATCH","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","HOT BLITZ BAIL","LB CROSS 0","LB CROSS 3 SHOW 2","NICKEL 2 TRAP","OVERLOAD 3 SKY PRESS","PINCH 0","SAM MIKE 1","SAM MIKE 3 PRESS","TAMPA 2","TAMPA SIM PRESSURE"],"Nickel 3-3 Over Jack":["1 DOUBLE TE","1 DOUBLE WR1","2 INVERT LURK","BRACKET SWITCH WILLIE","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SHOW 2","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","FIELD SIM 3","FS WILL BLITZ 0","NICKEL SIM 2","OVER STORM BRAVE","OVERLOAD 3 SEAM","SILVER SHOOT PINCH","TAMPA 2"],"Nickel 3-3 Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 2 INVERT","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 4 QUARTERS","COVER 9","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Stack":["COVER 1 ROBBER PRESS","COVER 2 DROP","COVER 2 INVERT","COVER 2 MAN","COVER 3 DROP","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","LB BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL BLITZ 0","NICKEL BLITZ 3","SS MIKE BLITZ","TAMPA 2 NICKEL BLITZ"],"Nickel 3-3 Wide Jack":["CB ZONE BLITZ PRESS","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9 SHOW 2","DBL SAFETY BLITZ","NICKEL 2 TRAP","NICKEL BLITZ 3","OVER STORM BRAVE","SILVER SHOOT PINCH","TAMPA 2 CONTAIN"],"Nickel Double Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","LB BLITZ 3","MID BLITZ","MID BLITZ 0","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL OVERLOAD 3","NICKEL SIM 2","SS BLITZ 3","TAMPA 2"],"Nickel Load":["0 LB CROSS GAMES","1 DOUBLE WR1","1 DOUBLE WR2","1 LB CROSS GAMES","COVER 1 ROBBER","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","LB 3 SEAM GAMES","OVERLOAD 3 SEAM","TAMPA 2"],"Nickel Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","BLITZ LOOP SIM 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel Load Mug":["BLITZ LOOP 0","BLITZ LOOP SIM 3","COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 2","NICKEL BLITZ 3","NICKEL SIM 2","TAMPA 2"],"Nickel Over":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","1 ROBBER PRESS","BRACKET 9 SWITCH","BRACKET SWITCH WILLIE","COV 2 MAN CONTAIN","COV 3 BUZZ MATCH WK","COV 3BUZZ MATCH","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 1 SS BLITZ","COVER 2 DROP","COVER 2 HARD FLAT","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 BUZZ STRONG","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SAMMIE","COVER 9 SHOW 2","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL BLITZ 2","NICKEL BLITZ 3","NICKEL SIM 2","OVER 3 STING","OVER STORM BRAVE","OVERLOAD 3 SEAM","OVERLOAD BLITZ","ROLL COVER 2 INVERT","ROLL COVER 3 CLOUD","SHOW SS SIM 2","SIM PRESSURE 3","TAMPA 2"],"Nickel Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9","DB BLITZ TEX 3","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel Wide":["COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9 SHOW 2","DBL SAFETY BLITZ","NICKEL 2 TRAP","NICKEL BLITZ 3","OVER STORM BRAVE","SILVER SHOOT PINCH","TAMPA 2 CONTAIN"],"Prevent 3 Deep":["COVER 3","MAN 3 DEEP","PREVENT"]};
+
+const FAMILY_ORDER=[
+  "3-3-5","3-4","Nickel","Dime","4-2-5","4-3","3-2-6","2-5","46","4-4","5-2","Prevent","Goal Line"
+];
+
+const ASSIGNMENT_GROUPS=[
+  {title:"Deep Zones",css:"deep",items:[
+    ["deepHalf","Deep Half"],["deepThird","Deep Third"],["outsideThird","Outside Third"],
+    ["insideThird","Inside Third"],["deepQuarter","Deep Quarter"]
+  ]},
+  {title:"Hook / Middle Zones",css:"under",items:[
+    ["hookCurl","Hook Curl"],["vertHook","Vert Hook"],["threeRecHook","3 Rec Hook"],["middleRead","Middle Read"]
+  ]},
+  {title:"Flat / Seam Zones",css:"flat",items:[
+    ["hardFlat","Hard Flat"],["cloudFlat","Cloud Flat"],["softSquat","Soft Squat"],
+    ["curlFlat","Curl Flat"],["seamFlat","Seam Flat"],["quarterFlat","Quarter Flat"]
+  ]},
+  {title:"Pressure / Control",css:"pressure",items:[
+    ["blitz","Blitz / Rush"],["qbSpy","QB Spy"],["qbContain","QB Contain"]
+  ]}
+];
+
+const ASSIGNMENT_LABELS=Object.fromEntries(ASSIGNMENT_GROUPS.flatMap(g=>g.items));
+ASSIGNMENT_LABELS.manHidden="Man (not visualized)";
+
+const ROLE_ASSIGNMENTS={
+  DL:new Set(["blitz","qbContain","qbSpy","hookCurl","vertHook","hardFlat","curlFlat","seamFlat"]),
+  LB:new Set(["insideThird","hookCurl","vertHook","threeRecHook","middleRead","hardFlat","curlFlat","seamFlat","quarterFlat","blitz","qbSpy","qbContain"]),
+  DB:new Set(ASSIGNMENT_GROUPS.flatMap(g=>g.items.map(([key])=>key))),
+  S:new Set(ASSIGNMENT_GROUPS.flatMap(g=>g.items.map(([key])=>key)))
+};
+const ROLE_NAMES={DL:"Defensive line",LB:"Linebacker",DB:"Corner / slot defender",S:"Safety"};
+
+const TEMPLATES={
+  threeHigh335:[
+    ["CB1",105,260,"DB"],["SS1",305,235,"S"],["FS",500,105,"S"],["SS2",695,235,"S"],["CB2",895,260,"DB"],
+    ["SAM",340,410,"LB"],["MIKE",500,425,"LB"],["WILL",660,410,"LB"],
+    ["RRE",390,530,"DL"],["NT",500,545,"DL"],["RLE",610,530,"DL"]
+  ],
+  nickel335:[
+    ["CB1",105,255,"DB"],["SCB",290,310,"DB"],["FS",390,125,"S"],["SS",640,125,"S"],["CB2",895,255,"DB"],
+    ["SAM",340,410,"LB"],["MIKE",500,425,"LB"],["WILL",660,410,"LB"],
+    ["RRE",390,530,"DL"],["NT",500,545,"DL"],["RLE",610,530,"DL"]
+  ],
+  base34:[
+    ["CB1",105,255,"DB"],["FS",385,125,"S"],["SS",615,125,"S"],["CB2",895,255,"DB"],
+    ["SAM",250,410,"LB"],["MIKE",415,395,"LB"],["WILL",585,395,"LB"],["JACK",750,410,"LB"],
+    ["LE",390,530,"DL"],["NT",500,545,"DL"],["RE",610,530,"DL"]
+  ],
+  base43:[
+    ["CB1",105,255,"DB"],["FS",385,125,"S"],["SS",615,125,"S"],["CB2",895,255,"DB"],
+    ["SAM",345,410,"LB"],["MIKE",500,425,"LB"],["WILL",655,410,"LB"],
+    ["LE",350,530,"DL"],["DT1",450,545,"DL"],["DT2",550,545,"DL"],["RE",650,530,"DL"]
+  ],
+  nickel24:[
+    ["CB1",105,255,"DB"],["SCB",285,310,"DB"],["FS",390,125,"S"],["SS",640,125,"S"],["CB2",895,255,"DB"],
+    ["SUBLB1",420,405,"LB"],["SUBLB2",580,405,"LB"],
+    ["RRE",345,530,"DL"],["RDT1",450,545,"DL"],["RDT2",550,545,"DL"],["RLE",655,530,"DL"]
+  ],
+  nickel425:[
+    ["CB1",105,255,"DB"],["SCB",285,310,"DB"],["FS",390,125,"S"],["SS",640,125,"S"],["CB2",895,255,"DB"],
+    ["SUBLB1",420,405,"LB"],["SUBLB2",580,405,"LB"],
+    ["RRE",345,530,"DL"],["RDT1",450,545,"DL"],["RDT2",550,545,"DL"],["RLE",655,530,"DL"]
+  ],
+  threeHigh425:[
+    ["CB1",105,260,"DB"],["SS1",310,235,"S"],["FS",500,105,"S"],["SS2",690,235,"S"],["CB2",895,260,"DB"],
+    ["SUBLB1",420,410,"LB"],["SUBLB2",580,410,"LB"],
+    ["RRE",345,530,"DL"],["RDT1",450,545,"DL"],["RDT2",550,545,"DL"],["RLE",655,530,"DL"]
+  ],
+  dime236:[
+    ["CB1",92,260,"DB"],["SCB1",245,315,"DB"],["FS",385,125,"S"],["SS",615,125,"S"],["SCB2",755,315,"DB"],["CB2",908,260,"DB"],
+    ["SUBLB1",350,415,"LB"],["MIKE",500,425,"LB"],["SUBLB2",650,415,"LB"],
+    ["RRE",445,540,"DL"],["RLE",555,540,"DL"]
+  ],
+  dime32:[
+    ["CB1",92,260,"DB"],["SCB1",245,315,"DB"],["FS",385,125,"S"],["SS",615,125,"S"],["SCB2",755,315,"DB"],["CB2",908,260,"DB"],
+    ["SUBLB1",420,415,"LB"],["SUBLB2",580,415,"LB"],
+    ["RRE",400,530,"DL"],["RDT",500,545,"DL"],["RLE",600,530,"DL"]
+  ],
+  twoFive:[
+    ["CB1",105,255,"DB"],["FS",390,125,"S"],["SS",610,125,"S"],["CB2",895,255,"DB"],
+    ["SAM",245,410,"LB"],["WILL",370,400,"LB"],["MIKE",500,420,"LB"],["JACK",630,400,"LB"],["ROLB",755,410,"LB"],
+    ["RRE",445,540,"DL"],["RLE",555,540,"DL"]
+  ],
+  fourFour:[
+    ["CB1",105,255,"DB"],["FS",500,120,"S"],["CB2",895,255,"DB"],
+    ["LOLB",245,410,"LB"],["MIKE1",415,400,"LB"],["MIKE2",585,400,"LB"],["ROLB",755,410,"LB"],
+    ["LE",350,530,"DL"],["DT1",450,545,"DL"],["DT2",550,545,"DL"],["RE",650,530,"DL"]
+  ],
+  fiveTwo:[
+    ["CB1",105,255,"DB"],["FS",390,125,"S"],["SS",610,125,"S"],["CB2",895,255,"DB"],
+    ["MIKE",420,405,"LB"],["WILL",580,405,"LB"],
+    ["LE",300,530,"DL"],["DT1",400,545,"DL"],["NT",500,552,"DL"],["DT2",600,545,"DL"],["RE",700,530,"DL"]
+  ],
+  prevent:[
+    ["CB1",85,245,"DB"],["SCB1",220,260,"DB"],["FS1",300,95,"S"],["FS2",500,70,"S"],["FS3",700,95,"S"],
+    ["SCB2",780,260,"DB"],["CB2",915,245,"DB"],["MIKE",500,390,"LB"],
+    ["RRE",400,535,"DL"],["NT",500,545,"DL"],["RLE",600,535,"DL"]
+  ],
+  goal53:[
+    ["CB1",120,285,"DB"],["FS",500,175,"S"],["CB2",880,285,"DB"],
+    ["SAM",325,420,"LB"],["MIKE",500,420,"LB"],["WILL",675,420,"LB"],
+    ["LE",280,530,"DL"],["DT1",390,545,"DL"],["NT",500,552,"DL"],["DT2",610,545,"DL"],["RE",720,530,"DL"]
+  ],
+  goal62:[
+    ["CB1",120,285,"DB"],["FS",500,175,"S"],["CB2",880,285,"DB"],
+    ["MIKE",420,420,"LB"],["WILL",580,420,"LB"],
+    ["LE",245,530,"DL"],["DT1",350,545,"DL"],["DT2",450,552,"DL"],["DT3",550,552,"DL"],["DT4",650,545,"DL"],["RE",755,530,"DL"]
+  ]
+};
+
+const state={
+  libraryView:"ALL",
+  family:"3-3-5",
+  formation:"3-3-5 3 High",
+  play:"3 DOUBLE BUZZ",
+  strength:"left",
+  typeFilter:"ALL",
+  mapFilter:"ALL",
+  playSearch:"",
+  selected:null,
+  overrides:{},
+  undoStack:[],
+  selectedSlot:null
+};
+
+const el=id=>document.getElementById(id);
+const svgEl=(tag,attrs={})=>{
+  const n=document.createElementNS("http://www.w3.org/2000/svg",tag);
+  Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));
+  return n;
+};
+
+function familyOf(name){
+  if(name.startsWith("Goal Line"))return "Goal Line";
+  return FAMILY_ORDER.find(f=>name.startsWith(f+" ")||name===f)||name.split(" ")[0];
+}
+function formationsForFamily(family){
+  return Object.keys(PLAY_DB).filter(k=>familyOf(k)===family).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+}
+function profileForFormation(name){
+  if(name.startsWith("3-3-5"))return name.includes("3 High")?"threeHigh335":"nickel335";
+  if(name.startsWith("3-4"))return "base34";
+  if(name.startsWith("4-3"))return "base43";
+  if(name.startsWith("Nickel")){
+    if(name.includes("3-3"))return "nickel335";
+    if(name.includes("2-4"))return "nickel24";
+    return "nickel425";
+  }
+  if(name.startsWith("4-2-5"))return name.includes("3 High")?"threeHigh425":"nickel425";
+  if(name.startsWith("Dime"))return name.includes("2-3")?"dime236":"dime32";
+  if(name.startsWith("3-2-6"))return "dime32";
+  if(name.startsWith("2-5"))return "twoFive";
+  if(name.startsWith("46"))return "base43";
+  if(name.startsWith("4-4"))return "fourFour";
+  if(name.startsWith("5-2"))return "fiveTwo";
+  if(name.startsWith("Prevent"))return "prevent";
+  if(name.startsWith("Goal Line 5-3"))return "goal53";
+  if(name.startsWith("Goal Line 6-2"))return "goal62";
+  return "nickel335";
+}
+function clonePlayers(){
+  return TEMPLATES[profileForFormation(state.formation)].map(p=>[...p]);
+}
+function playKey(formation=state.formation,play=state.play){
+  return formation+"|||"+play;
+}
+function getPlayMaps(){
+  try{return JSON.parse(localStorage.getItem("cfb27-playbook-lab-v4-maps")||"{}")}
+  catch{return{}}
+}
+function storePlayMaps(maps){
+  localStorage.setItem("cfb27-playbook-lab-v4-maps",JSON.stringify(maps));
+}
+function normalizeMapRecord(record){
+  if(!record)return null;
+  if(record.assignments)return {
+    assignments:{...record.assignments},
+    status:record.status==="partial"?"partial":"mapped",
+    updatedAt:record.updatedAt||null
+  };
+  return {assignments:{...record},status:"mapped",updatedAt:null};
+}
+function mapRecordFor(formation=state.formation,play=state.play){
+  return normalizeMapRecord(getPlayMaps()[playKey(formation,play)]||null);
+}
+function savedPlayMap(){
+  return mapRecordFor();
+}
+function mapStatusFor(formation,play){
+  const record=mapRecordFor(formation,play);
+  return record?record.status:"unmapped";
+}
+
+function getMyPlaybook(){
+  try{
+    const raw=JSON.parse(localStorage.getItem("cfb27-playbook-lab-v4-mybook")||"{}");
+    return {
+      formations:Array.isArray(raw.formations)?raw.formations.filter(f=>PLAY_DB[f]):[],
+      plays:raw.plays&&typeof raw.plays==="object"?raw.plays:{}
+    };
+  }catch{return{formations:[],plays:{}}}
+}
+function storeMyPlaybook(book){
+  localStorage.setItem("cfb27-playbook-lab-v4-mybook",JSON.stringify(book));
+}
+function isFormationFavorite(formation=state.formation){
+  return getMyPlaybook().formations.includes(formation);
+}
+function favoritePlaysFor(formation){
+  const values=getMyPlaybook().plays[formation];
+  return Array.isArray(values)?values.filter(p=>PLAY_DB[formation]?.includes(p)):[];
+}
+function isPlayFavorite(formation=state.formation,play=state.play){
+  return favoritePlaysFor(formation).includes(play);
+}
+function formationInMyPlaybook(formation){
+  return isFormationFavorite(formation)||favoritePlaysFor(formation).length>0;
+}
+function viewFormationsForFamily(family){
+  const all=formationsForFamily(family);
+  return state.libraryView==="ALL"?all:all.filter(formationInMyPlaybook);
+}
+function viewPlaysForFormation(formation){
+  const all=PLAY_DB[formation]||[];
+  if(state.libraryView==="ALL")return all;
+  if(isFormationFavorite(formation))return all;
+  return favoritePlaysFor(formation);
+}
+function myPlaybookTotals(){
+  const book=getMyPlaybook();
+  const forms=new Set(book.formations);
+  Object.entries(book.plays).forEach(([formation,plays])=>{
+    if(Array.isArray(plays)&&plays.length)forms.add(formation);
+  });
+  const plays=Object.values(book.plays).reduce((sum,v)=>sum+(Array.isArray(v)?v.length:0),0);
+  return {formations:forms.size,plays};
+}
+function clearUndo(){state.undoStack=[]}
+function pushUndo(){
+  state.undoStack.push({...state.overrides});
+  if(state.undoStack.length>30)state.undoStack.shift();
+}
+function hasOverride(playerId){
+  return Object.prototype.hasOwnProperty.call(state.overrides,playerId);
+}
+function assignmentSourceLabel(){
+  const record=savedPlayMap();
+  if(record)return record.status==="partial"?"Draft play map":"Verified play map";
+  return "Auto-shell base";
+}
+
+function inferType(name){
+  const n=name.toUpperCase();
+  if(/BLITZ|FIRE|STING|DOG|PRESSURE|CRASH|SHOOT|LOOP|SMOKE|GAPS|GUTS|ENGAGE|STUNT|ZONE BLITZ|THUNDER|OVERLOAD|PINCH|SAW|SLANT|CASINO|ZERO/.test(n))return "BLITZ";
+  if(/PALMS|QUARTERS|MATCH|COVER 6|COVER 9|BRACKET|DOUBLE DOUBLE/.test(n))return "MATCH";
+  if(/COVER 1|COVER 2 MAN| MAN|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "MAN";
+  return "ZONE";
+}
+function inferShell(name){
+  const n=name.toUpperCase();
+  if(/PALMS/.test(n))return "palms";
+  if(/QUARTERS|COVER 4|PREVENT|MAN 3 DEEP/.test(n))return "quarters";
+  if(/COVER 6|COVER 9|BRACKET 9/.test(n))return "cover6";
+  if(/TAMPA 2|COVER 2|2 INVERT|2 TRAP|ROLL 2|2 DROP|2 SINK|2 LURK/.test(n))return "cover2";
+  if(/COVER 3|3 DOUBLE|3 BUZZ|3 SKY|3 CLOUD|3 LOCK|3 SEAM|FIRE ZONE 3|ZONE BLITZ|SHOW 2| 3$/.test(n))return "cover3";
+  if(/COVER 1| 1$|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "cover1";
+  if(/ 0$|ZERO|ENGAGE EIGHT|GAPS|GUTS|GL MAN/.test(n))return "cover0";
+  return "cover3";
+}
+function roleArrays(players){
+  const db=players.filter(p=>p[3]==="DB").map(p=>p[0]);
+  const s=players.filter(p=>p[3]==="S").map(p=>p[0]);
+  const lb=players.filter(p=>p[3]==="LB").map(p=>p[0]);
+  const dl=players.filter(p=>p[3]==="DL").map(p=>p[0]);
+  return {db,s,lb,dl,outside:[db[0],db[db.length-1]].filter(Boolean),slots:db.slice(1,-1)};
+}
+function setIf(a,ids,id,val){if(ids.has(id))a[id]=val}
+function midpointId(players,role){
+  const group=players.filter(p=>p[3]===role).sort((a,b)=>Math.abs(a[1]-500)-Math.abs(b[1]-500));
+  return group[0]?.[0];
+}
+function sideId(players,role,left){
+  const group=players.filter(p=>p[3]===role).sort((a,b)=>left?a[1]-b[1]:b[1]-a[1]);
+  return group[0]?.[0];
+}
+function inferAssignments(players,name){
+  const ids=new Set(players.map(p=>p[0]));
+  const {db,s,lb,dl,outside,slots}=roleArrays(players);
+  const a={};
+  players.forEach(p=>a[p[0]]=p[3]==="DL"?"blitz":"hookCurl");
+  const shell=inferShell(name);
+  const n=name.toUpperCase();
+  const set=(id,val)=>setIf(a,ids,id,val);
+
+  if(shell==="cover2"){
+    if(/INVERT/.test(n)){
+      outside.forEach(id=>set(id,"deepHalf"));
+      s.forEach(id=>set(id,"hardFlat"));
+    }else{
+      if(s[0])set(s[0],"deepHalf");
+      if(s.length>1)set(s[s.length-1],"deepHalf");
+      if(s.length===1)set(s[0],"deepHalf");
+      outside.forEach(id=>set(id,/HARD FLAT/.test(n)?"hardFlat":/CLOUD|SINK|TRAP/.test(n)?"cloudFlat":"hardFlat"));
+    }
+    slots.forEach(id=>set(id,/TRAP/.test(n)?"softSquat":"seamFlat"));
+    lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)&&/TAMPA/.test(n)?"middleRead":"hookCurl"));
+    if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
+  }
+
+  if(shell==="cover3"){
+    if(outside[0])set(outside[0],"outsideThird");
+    if(outside[1])set(outside[1],"outsideThird");
+    const middleSafety=midpointId(players,"S");
+    if(middleSafety)set(middleSafety,"insideThird");
+    s.filter(id=>id!==middleSafety).forEach(id=>set(id,/BUZZ/.test(n)?"hookCurl":"curlFlat"));
+    slots.forEach(id=>set(id,/MATCH|SEAM/.test(n)?"seamFlat":/HARD FLAT/.test(n)?"hardFlat":/CLOUD/.test(n)?"cloudFlat":"curlFlat"));
+    lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)?"threeRecHook":"hookCurl"));
+    if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
+  }
+
+  if(shell==="quarters"||shell==="palms"){
+    outside.forEach(id=>set(id,"deepQuarter"));
+    if(s.length>2){
+      const middleSafety=midpointId(players,"S");
+      s.filter(id=>id!==middleSafety).forEach(id=>set(id,"deepQuarter"));
+      if(middleSafety)set(middleSafety,"middleRead");
+    }else{
+      s.forEach(id=>set(id,"deepQuarter"));
+    }
+    slots.forEach(id=>set(id,shell==="palms"?"quarterFlat":"seamFlat"));
+    lb.forEach(id=>set(id,"hookCurl"));
+  }
+
+  if(shell==="cover6"){
+    const quarterLeft=state.strength==="left";
+    if(outside[0])set(outside[0],quarterLeft?"deepQuarter":"cloudFlat");
+    if(outside[1])set(outside[1],quarterLeft?"cloudFlat":"deepQuarter");
+    if(s[0])set(s[0],quarterLeft?"deepQuarter":"deepHalf");
+    if(s.length>1)set(s[s.length-1],quarterLeft?"deepHalf":"deepQuarter");
+    slots.forEach(id=>set(id,"quarterFlat"));
+    lb.forEach(id=>set(id,"hookCurl"));
+  }
+
+  if(shell==="cover1"){
+    db.forEach(id=>set(id,"manHidden"));
+    lb.forEach(id=>set(id,"manHidden"));
+    s.forEach(id=>set(id,"manHidden"));
+    const middleSafety=midpointId(players,"S");
+    if(middleSafety)set(middleSafety,"insideThird");
+    const robberSafety=s.find(id=>id!==middleSafety);
+    if(robberSafety&&/ROBBER|HOLE|LURK/.test(n))set(robberSafety,"middleRead");
+    if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
+  }
+
+  if(shell==="cover0"){
+    db.forEach(id=>set(id,"manHidden"));
+    s.forEach(id=>set(id,"manHidden"));
+    lb.forEach(id=>set(id,/GAPS|GUTS|ENGAGE|BLITZ|FIRE/.test(n)?"blitz":"manHidden"));
+  }
+
+  dl.forEach(id=>set(id,"blitz"));
+  applyPressureHints(a,players,n);
+  return a;
+}
+function applyPressureHints(a,players,n){
+  const ids=new Set(players.map(p=>p[0]));
+  const set=(id,val)=>{if(id&&ids.has(id))a[id]=val};
+  const findExact=(...names)=>players.find(p=>names.some(x=>p[0].includes(x)))?.[0];
+  const leftEdge=sideId(players,"DL",true)||sideId(players,"LB",true);
+  const rightEdge=sideId(players,"DL",false)||sideId(players,"LB",false);
+  const strongLeft=state.strength==="left";
+
+  if(/DBL SAFETY|SAFETY GO/.test(n)){players.filter(p=>p[3]==="S").forEach(p=>set(p[0],"blitz"))}
+  else{
+    if(/\bFS\b|FREE FIRE/.test(n))set(findExact("FS"),"blitz");
+    if(/\bSS\b|SAFETY FIRE/.test(n))set(findExact("SS"),"blitz");
+  }
+  if(/DOUBLE EDGE/.test(n)){set(leftEdge,"blitz");set(rightEdge,"blitz")}
+  else if(/EDGE BLITZ/.test(n))set(strongLeft?leftEdge:rightEdge,"blitz");
+
+  if(/CORNER|CB /.test(n)){
+    const corners=players.filter(p=>p[0]==="CB1"||p[0]==="CB2");
+    const id=strongLeft?corners[0]?.[0]:corners[corners.length-1]?.[0];
+    set(id,"blitz");
+  }
+  if(/NICKEL BLITZ|SLOT BLITZ|DB BLITZ/.test(n)){
+    const slots=players.filter(p=>/SCB/.test(p[0]));
+    if(slots.length)set(strongLeft?slots[0][0]:slots[slots.length-1][0],"blitz");
+  }
+  if(/MIKE/.test(n))set(findExact("MIKE","MLB","SUBLB1"),"blitz");
+  if(/SAM/.test(n))set(findExact("SAM"),"blitz");
+  if(/WILL/.test(n))set(findExact("WILL","SUBLB2"),"blitz");
+  if(/\bLB BLITZ\b|HOT BLITZ|MID BLITZ|INSIDE BLITZ/.test(n)){
+    const m=midpointId(players,"LB");if(m)set(m,"blitz");
+  }
+  if(/ALL LB|ENGAGE EIGHT|GUTS|GAPS ALL/.test(n))players.filter(p=>p[3]==="LB"||p[3]==="DL").forEach(p=>set(p[0],"blitz"));
+  if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
+  if(/CONTAIN/.test(n)){set(leftEdge,"qbContain");set(rightEdge,"qbContain")}
+}
+function baseAssignments(players){
+  const mapped=savedPlayMap();
+  return mapped?{...mapped.assignments}:inferAssignments(players,state.play);
+}
+function currentAssignments(players=clonePlayers()){
+  return {...baseAssignments(players),...state.overrides};
+}
+function differsFromBase(player,key,players){
+  return baseAssignments(players)[player]!==key;
+}
+
+function availableFamilies(){
+  return FAMILY_ORDER.filter(f=>viewFormationsForFamily(f).length);
+}
+function populateFamilies(){
+  const s=el("family");s.innerHTML="";
+  const families=availableFamilies();
+  if(!families.length){
+    const o=document.createElement("option");o.value="";o.textContent="My Playbook is empty";s.appendChild(o);
+    state.family="";state.formation="";state.play="";
+    return;
+  }
+  families.forEach(f=>{
+    const o=document.createElement("option");o.value=f;o.textContent=`${f} (${viewFormationsForFamily(f).length})`;s.appendChild(o);
+  });
+  if(!families.includes(state.family))state.family=families[0];
+  s.value=state.family;
+}
+function populateFormations(){
+  const s=el("formation");s.innerHTML="";
+  const forms=state.family?viewFormationsForFamily(state.family):[];
+  if(!forms.length){
+    const o=document.createElement("option");o.value="";o.textContent="No saved formations";s.appendChild(o);
+    state.formation="";state.play="";
+    return;
+  }
+  forms.forEach(name=>{
+    const count=viewPlaysForFormation(name).length;
+    const o=document.createElement("option");o.value=name;o.textContent=`${name} (${count})`;s.appendChild(o);
+  });
+  if(!forms.includes(state.formation))state.formation=forms[0];
+  s.value=state.formation;
+}
+function filteredPlays(){
+  if(!state.formation)return[];
+  const q=state.playSearch.trim().toUpperCase();
+  return viewPlaysForFormation(state.formation).filter(p=>{
+    const typeOk=state.typeFilter==="ALL"||inferType(p)===state.typeFilter;
+    const status=mapStatusFor(state.formation,p);
+    const mapOk=state.mapFilter==="ALL"
+      ||(state.mapFilter==="MAPPED"&&status==="mapped")
+      ||(state.mapFilter==="PARTIAL"&&status==="partial")
+      ||(state.mapFilter==="UNMAPPED"&&status==="unmapped");
+    const searchOk=!q||p.includes(q);
+    return typeOk&&mapOk&&searchOk;
+  });
+}
+function populatePlays(preserve=true){
+  const s=el("play");s.innerHTML="";
+  const plays=filteredPlays();
+  plays.forEach(name=>{
+    const status=mapStatusFor(state.formation,name);
+    const prefix=status==="mapped"?"✓ ":status==="partial"?"◐ ":"";
+    const o=document.createElement("option");o.value=name;o.textContent=prefix+name;s.appendChild(o);
+  });
+  if(!preserve||!plays.includes(state.play))state.play=plays[0]||"";
+  if(state.play)s.value=state.play;
+  const total=state.formation?viewPlaysForFormation(state.formation).length:0;
+  el("playCount").textContent=`${plays.length} of ${total} plays`;
+  updateTypeBadge();
+  renderFavoriteControls();
+}
+function renderFavoriteControls(){
+  const formationButton=el("toggleFormationFavorite");
+  const playButton=el("togglePlayFavorite");
+  const formationFav=!!state.formation&&isFormationFavorite();
+  const playFav=!!state.play&&isPlayFavorite();
+  formationButton.classList.toggle("active",formationFav);
+  formationButton.textContent=formationFav?"★ Formation Added":"☆ Add Formation";
+  formationButton.disabled=!state.formation;
+  playButton.classList.toggle("active",playFav||formationFav);
+  playButton.textContent=formationFav?"Included with Formation":playFav?"★ Play Added":"☆ Add Play";
+  playButton.disabled=!state.play||formationFav;
+  const totals=myPlaybookTotals();
+  el("myPlaybookCount").textContent=`My Playbook: ${totals.formations} formation${totals.formations===1?"":"s"} • ${totals.plays} individually saved play${totals.plays===1?"":"s"}`;
+  const indicator=el("libraryModeIndicator");
+  indicator.classList.toggle("my",state.libraryView==="MY");
+  indicator.innerHTML=state.libraryView==="MY"
+    ? `<span>Current view</span><strong>★ My Playbook</strong>`
+    : `<span>Current view</span><strong>Full Defensive Library</strong>`;
+}
+function ensureVisibleSelection(){
+  populateFamilies();
+  populateFormations();
+  if(state.formation){
+    const available=viewPlaysForFormation(state.formation);
+    if(!available.includes(state.play))state.play=available[0]||"";
+  }
+  populatePlays(false);
+  state.selected=state.formation?clonePlayers()[0][0]:null;
+  state.overrides={};
+  clearUndo();
+}
+function updateTypeBadge(){
+  const type=state.play?inferType(state.play):"ZONE";
+  const b=el("typeBadge");b.textContent=type;b.className="badge "+type.toLowerCase();
+}
+function populateGlobalFinder(){
+  const list=el("globalOptions");list.innerHTML="";
+  const fragment=document.createDocumentFragment();
+  Object.entries(PLAY_DB).forEach(([formation,plays])=>{
+    plays.forEach(play=>{
+      const o=document.createElement("option");
+      o.value=`${formation} — ${play}`;
+      fragment.appendChild(o);
+    });
+  });
+  list.appendChild(fragment);
+}
+function jumpGlobal(value){
+  const split=value.indexOf(" — ");
+  if(split<0)return false;
+  const formation=value.slice(0,split);
+  const play=value.slice(split+3);
+  if(!PLAY_DB[formation]?.includes(play))return false;
+  state.libraryView="ALL";state.family=familyOf(formation);state.formation=formation;state.play=play;
+  state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
+  el("libraryView").value="ALL";populateFamilies();el("family").value=state.family;populateFormations();
+  el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
+  populatePlays();state.selected=clonePlayers()[0][0];
+  el("globalHint").textContent=`Jumped to ${formation} — ${play}`;
+  renderAll();
+  return true;
+}
+
+function assignmentGeometry(key,player){
+  const left=player[1]<500;
+  const x=player[1];
+  const quarter=x<250?125:x<500?375:x<750?625:875;
+  return {
+    deepHalf:{type:"deep",tx:left?270:730,ty:62,rx:215,ry:92},
+    deepThird:{type:"deep",tx:x<335?155:x>665?845:500,ty:70,rx:125,ry:85},
+    outsideThird:{type:"deep",tx:left?155:845,ty:70,rx:125,ry:85},
+    insideThird:{type:"deep",tx:500,ty:70,rx:125,ry:85},
+    deepQuarter:{type:"deep",tx:quarter,ty:70,rx:92,ry:82},
+    hookCurl:{type:"under",tx:Math.max(310,Math.min(690,x)),ty:310,rx:82,ry:58},
+    vertHook:{type:"under",tx:Math.max(350,Math.min(650,x)),ty:245,rx:76,ry:76},
+    threeRecHook:{type:"under",tx:state.strength==="left"?420:580,ty:285,rx:92,ry:62},
+    middleRead:{type:"under",tx:500,ty:225,rx:95,ry:85},
+    hardFlat:{type:"flat",tx:left?80:920,ty:425,rx:72,ry:45},
+    cloudFlat:{type:"flat",tx:left?105:895,ty:350,rx:82,ry:56},
+    softSquat:{type:"flat",tx:left?125:875,ty:390,rx:78,ry:55},
+    curlFlat:{type:"flat",tx:left?185:815,ty:325,rx:88,ry:62},
+    seamFlat:{type:"flat",tx:left?285:715,ty:275,rx:78,ry:72},
+    quarterFlat:{type:"flat",tx:left?235:765,ty:305,rx:83,ry:64},
+    qbSpy:{type:"spy",tx:500,ty:505,rx:58,ry:40},
+    blitz:{type:"pressure",tx:500,ty:655,rx:0,ry:0},
+    qbContain:{type:"pressure",tx:left?350:650,ty:625,rx:0,ry:0},
+    manHidden:{type:"hidden",tx:player[1],ty:player[2],rx:0,ry:0}
+  }[key]||{type:"hidden",tx:player[1],ty:player[2],rx:0,ry:0};
+}
+function zoneColors(type){
+  return {
+    deep:["rgba(101,217,239,.23)","#65d9ef"],
+    under:["rgba(126,227,154,.23)","#7ee39a"],
+    flat:["rgba(255,214,111,.24)","#ffd66f"],
+    spy:["rgba(193,155,255,.25)","#c19bff"],
+    pressure:["rgba(255,173,100,.14)","#ffad64"],
+    hidden:["rgba(127,145,164,.06)","#7f91a4"]
+  }[type];
+}
+function drawFieldBase(svg){
+  svg.innerHTML="";
+  const defs=svgEl("defs");
+  const marker=svgEl("marker",{id:"arrow",viewBox:"0 0 10 10",refX:"8",refY:"5",markerWidth:"6",markerHeight:"6",orient:"auto"});
+  marker.appendChild(svgEl("path",{d:"M0 0 L10 5 L0 10 Z",fill:"#f4f8ff"}));
+  const glow=svgEl("filter",{id:"selectedGlow",x:"-80%",y:"-80%",width:"260%",height:"260%"});
+  glow.appendChild(svgEl("feGaussianBlur",{stdDeviation:"7",result:"blur"}));
+  glow.appendChild(svgEl("feMerge"));
+  const merge=glow.lastChild;merge.appendChild(svgEl("feMergeNode",{in:"blur"}));merge.appendChild(svgEl("feMergeNode",{in:"SourceGraphic"}));
+  defs.append(marker,glow);svg.appendChild(defs);
+  svg.appendChild(svgEl("rect",{x:0,y:0,width:1000,height:720,fill:"#123e2a"}));
+  for(let i=0;i<10;i++){
+    svg.appendChild(svgEl("rect",{x:i*100,y:0,width:100,height:720,fill:i%2?"#184a32":"#123e2a"}));
+    svg.appendChild(svgEl("line",{x1:i*100,y1:0,x2:i*100,y2:720,stroke:"rgba(255,255,255,.13)","stroke-width":2}));
+  }
+  for(let y=70;y<700;y+=82){
+    [[245,275],[480,520],[725,755]].forEach(([x1,x2])=>svg.appendChild(svgEl("line",{x1,y1:y,x2,y2:y,stroke:"rgba(255,255,255,.2)","stroke-width":2})));
+  }
+  svg.appendChild(svgEl("line",{x1:0,y1:585,x2:1000,y2:585,stroke:"#fff","stroke-width":4}));
+  const t=svgEl("text",{x:18,y:574,fill:"#fff","font-size":16,"font-weight":850});t.textContent="LINE OF SCRIMMAGE";svg.appendChild(t);
+  const offense=[
+    ["WR",80,626],["SL",255,626],["LT",400,610],["LG",450,610],["C",500,610],
+    ["RG",550,610],["RT",600,610],["TE",720,620],["WR",920,626],["QB",500,675]
+  ];
+  offense.forEach(([name,x,y])=>{
+    svg.appendChild(svgEl("circle",{cx:x,cy:y,r:name==="QB"?17:13,fill:"rgba(225,232,240,.38)",stroke:"rgba(255,255,255,.55)","stroke-width":2}));
+    const tx=svgEl("text",{x,y:y+4,"text-anchor":"middle",fill:"#08111a","font-size":name==="QB"?9:7,"font-weight":900});tx.textContent=name;svg.appendChild(tx);
+  });
+}
+function renderField(){
+  const svg=el("field");drawFieldBase(svg);
+  if(!state.formation||!state.play){
+    const t=svgEl("text",{x:500,y:340,"text-anchor":"middle",fill:"#d8e8f5","font-size":22,"font-weight":800});
+    t.textContent=state.libraryView==="MY"?"Add formations or plays to My Playbook":"No plays match the current filters";
+    svg.appendChild(t);
+    el("diagramTitle").textContent="No play selected";
+    el("status").innerHTML="<strong>NO ACTIVE PLAY</strong>Adjust the library or map-status filter.";
+    return;
+  }
+  const players=clonePlayers();
+  if(!players.some(p=>p[0]===state.selected))state.selected=players[0][0];
+  const assignments=currentAssignments(players);
+
+  players.forEach(p=>{
+    const key=assignments[p[0]],geo=assignmentGeometry(key,p),[fill,stroke]=zoneColors(geo.type);
+    const overridden=hasOverride(p[0]);
+    const routeStroke=overridden?"#ffdc7b":stroke;
+    if(geo.rx>0)svg.appendChild(svgEl("ellipse",{
+      cx:geo.tx,cy:geo.ty,rx:geo.rx,ry:geo.ry,
+      fill:overridden?fill.replace(/\.(\d+)\)/,".34)"):fill,
+      stroke:routeStroke,"stroke-width":overridden?3:2,"stroke-dasharray":overridden?"":"7 6"
+    }));
+    if(geo.type!=="hidden"){
+      svg.appendChild(svgEl("line",{
+        x1:p[1],y1:p[2]-15,x2:geo.tx,y2:geo.ty+12,stroke:routeStroke,
+        "stroke-width":overridden?5:3,"stroke-dasharray":overridden?"":"8 6","marker-end":"url(#arrow)",
+        opacity:overridden?1:.9
+      }));
+    }
+  });
+
+  players.forEach(p=>{
+    const key=assignments[p[0]],selected=p[0]===state.selected,overridden=hasOverride(p[0]);
+    const fill=p[3]==="DL"?"#ef9d7b":p[3]==="LB"?"#85e0a0":p[3]==="S"?"#7acbff":"#ffd56e";
+    const group=svgEl("g",{style:"cursor:pointer"});
+    group.addEventListener("click",()=>{state.selected=p[0];renderAll()});
+    if(selected){
+      group.appendChild(svgEl("circle",{cx:p[1],cy:p[2],r:37,fill:"rgba(101,217,239,.10)",stroke:"#65d9ef","stroke-width":3,filter:"url(#selectedGlow)"}));
+      group.appendChild(svgEl("circle",{cx:p[1],cy:p[2],r:30,fill:"none",stroke:"#dffaff","stroke-width":2,"stroke-dasharray":"5 4"}));
+    }
+    if(overridden)group.appendChild(svgEl("circle",{cx:p[1],cy:p[2],r:25,fill:"none",stroke:"#ffdc7b","stroke-width":4}));
+    group.appendChild(svgEl("circle",{cx:p[1],cy:p[2],r:21,fill,stroke:"#fff","stroke-width":3}));
+    const n=svgEl("text",{x:p[1],y:p[2]+4,"text-anchor":"middle",fill:"#071019","font-size":10,"font-weight":900});n.textContent=p[0];group.appendChild(n);
+    if(overridden){
+      group.appendChild(svgEl("circle",{cx:p[1]+22,cy:p[2]-22,r:10,fill:"#ffd66f",stroke:"#171104","stroke-width":2}));
+      const m=svgEl("text",{x:p[1]+22,y:p[2]-19,"text-anchor":"middle",fill:"#171104","font-size":9,"font-weight":950});m.textContent="M";group.appendChild(m);
+    }
+    const l=svgEl("text",{x:p[1],y:p[2]+39,"text-anchor":"middle",fill:overridden?"#ffe7a3":"#fff","font-size":10,"font-weight":overridden?900:750});l.textContent=ASSIGNMENT_LABELS[key];group.appendChild(l);
+    svg.appendChild(group);
+  });
+
+  el("diagramTitle").textContent=`${state.formation} — ${state.play||"No play matches filter"}`;
+  const record=savedPlayMap(),type=state.play?inferType(state.play):"—";
+  const mapLabel=record?(record.status==="partial"?"DRAFT / PARTIAL MAP":"VERIFIED PLAY MAP"):"AUTO-SHELL • NOT EXACT PLAY ART";
+  el("status").innerHTML=`<strong>${mapLabel}</strong>${type} • Strength ${state.strength.toUpperCase()} • ${Object.keys(state.overrides).length} override${Object.keys(state.overrides).length===1?"":"s"}`;
+}
+function renderPlayerGrid(){
+  const wrap=el("playerGrid");wrap.innerHTML="";
+  if(!state.formation||!state.play){
+    wrap.innerHTML='<div class="empty-state" style="grid-column:1/-1">Select a play to load defender positions.</div>';
+    return;
+  }
+  const players=clonePlayers(),assignments=currentAssignments(players);
+  players.forEach(p=>{
+    const overridden=hasOverride(p[0]);
+    const b=document.createElement("button");
+    b.className="player-btn"+(p[0]===state.selected?" active":"")+(overridden?" overridden":"");
+    b.innerHTML=`${p[0]}<em>${ASSIGNMENT_LABELS[assignments[p[0]]]}</em>`;
+    b.title=overridden?"Manual macro override":"Base play assignment";
+    b.onclick=()=>{state.selected=p[0];renderAll()};
+    wrap.appendChild(b);
+  });
+}
+function renderAssignmentGroups(){
+  const wrap=el("assignmentGroups");wrap.innerHTML="";
+  if(!state.formation||!state.play){
+    wrap.innerHTML='<div class="empty-state">Select a play before editing assignments.</div>';
+    el("selectedName").textContent="—";el("selectedAssignment").textContent="—";
+    el("assignmentRoleNote").textContent="";el("selectedRole").textContent="";el("selectedSource").textContent="";
+    el("selectedStateBadge").textContent="Base Play";el("selectedCard").classList.remove("override");el("selectedStateBadge").classList.remove("override");
+    return;
+  }
+  const players=clonePlayers(),assignments=currentAssignments(players),current=assignments[state.selected],base=baseAssignments(players)[state.selected];
+  const player=players.find(p=>p[0]===state.selected)||players[0];
+  const role=player[3],allowed=ROLE_ASSIGNMENTS[role]||new Set(),overridden=hasOverride(state.selected);
+  el("assignmentRoleNote").textContent=`${ROLE_NAMES[role]||role} menu • ${allowed.size} role-filtered visual options.`;
+  ASSIGNMENT_GROUPS.forEach(group=>{
+    const items=group.items.filter(([key])=>allowed.has(key));
+    if(!items.length)return;
+    const box=document.createElement("div"),title=document.createElement("div"),count=document.createElement("span"),grid=document.createElement("div");
+    title.className="group-title";title.append(document.createTextNode(group.title));count.className="group-count";count.textContent=items.length;title.appendChild(count);grid.className="assignment-grid";
+    items.forEach(([key,label])=>{
+      const b=document.createElement("button");
+      b.className=`assign-btn ${group.css}`+(current===key?" active":"")+(base===key?" base-current":"");
+      b.textContent=label;b.onclick=()=>{pushUndo();if(base===key)delete state.overrides[state.selected];else state.overrides[state.selected]=key;renderAll()};grid.appendChild(b);
+    });
+    box.append(title,grid);wrap.appendChild(box);
+  });
+  el("selectedName").textContent=state.selected||"—";
+  el("selectedAssignment").textContent=ASSIGNMENT_LABELS[current]||"—";
+  el("selectedRole").textContent=ROLE_NAMES[role]||role;
+  el("selectedSource").textContent=overridden?"Manual macro override":assignmentSourceLabel();
+  el("selectedStateBadge").textContent=overridden?"Manual Override":"Base Play";
+  el("selectedCard").classList.toggle("override",overridden);
+  el("selectedStateBadge").classList.toggle("override",overridden);
+}
+function renderSummary(){
+  const wrap=el("activeSummary");wrap.innerHTML="";
+  if(!state.formation||!state.play)return;
+  const players=clonePlayers(),assignments=currentAssignments(players);
+  const changed=Object.entries(assignments).filter(([id,key])=>differsFromBase(id,key,players));
+  if(!changed.length){
+    const c=document.createElement("span");c.className="chip"+(savedPlayMap()?.status==="mapped"?" verified":"");
+    c.textContent=savedPlayMap()?"Saved play map • no manual macro overrides":"Inferred play shell only";
+    wrap.appendChild(c);return;
+  }
+  changed.forEach(([player,key])=>{
+    const c=document.createElement("span");c.className="chip override";c.textContent=`${player}: ${ASSIGNMENT_LABELS[key]}`;wrap.appendChild(c);
+  });
+}
+function renderMapping(){
+  const record=state.play?savedPlayMap():null;
+  const bar=el("mappingState").closest(".mapping-bar");
+  const status=!state.play?"unmapped":record?(record.status==="partial"?"partial":"mapped"):"unmapped";
+  bar.classList.remove("unmapped","partial","mapped");bar.classList.add(status);
+  el("mappingState").innerHTML=!state.play
+    ? `<strong><span class="status-pill unmapped">No Play</span>No active play</strong>Select a play before saving a map.`
+    : record
+      ? `<strong><span class="status-pill ${status}">${record.status==="partial"?"Draft":"Verified"}</span>${record.status==="partial"?"Draft / partially mapped":"Verified play map"}</strong>${state.formation} — ${state.play}`
+      : `<strong><span class="status-pill unmapped">Unmapped</span>Auto-shell inference</strong>Save a draft while working, then mark it verified after checking it in game.`;
+  ["saveDraftMap","savePlayMap"].forEach(id=>{
+    el(id).disabled=!state.play;el(id).style.opacity=state.play?"1":".4";
+  });
+  el("removePlayMap").disabled=!record;
+  el("removePlayMap").style.opacity=record?"1":".4";
+}
+
+function getMacros(){
+  try{return JSON.parse(localStorage.getItem("cfb27-playbook-lab-v4-macros")||"[]")}
+  catch{return[]}
+}
+function storeMacros(data){localStorage.setItem("cfb27-playbook-lab-v4-macros",JSON.stringify(data))}
+function snapshot(name){
+  return {
+    name,family:state.family,formation:state.formation,play:state.play,strength:state.strength,
+    assignments:currentAssignments(clonePlayers()),overrides:{...state.overrides},overrideCount:Object.keys(state.overrides).length,
+    playType:state.play?inferType(state.play):"ZONE",mapStatus:state.play?mapStatusFor(state.formation,state.play):"unmapped",
+    savedAt:new Date().toISOString()
+  };
+}
+function renderMacros(){
+  const data=getMacros(),wrap=el("macroList");wrap.innerHTML="";
+  for(let i=0;i<10;i++){
+    const m=data[i],b=document.createElement("button");
+    b.className="macro"+(m?"":" empty")+(state.selectedSlot===i?" active":"");
+    if(m){
+      const type=(m.playType||inferType(m.play||"")).toUpperCase();
+      const count=Number.isFinite(m.overrideCount)?m.overrideCount:(m.overrides&&typeof m.overrides==="object"?Object.keys(m.overrides).length:null);
+      b.innerHTML=`
+        <div class="macro-top"><span class="macro-slot">${String(i+1).padStart(2,"0")}</span><span class="macro-name">${m.name}</span></div>
+        <div class="macro-formation">${m.formation}</div>
+        <div class="macro-play-name">${m.play}</div>
+        <div class="macro-badges">
+          <span class="mini-badge ${type.toLowerCase()}">${type}</span>
+          <span class="mini-badge">${(m.strength||"left").toUpperCase()}</span>
+          <span class="mini-badge">${count===null?"Saved package":`${count} override${count===1?"":"s"}`}</span>
+        </div>`;
+    }else{
+      b.innerHTML=`<div class="macro-top"><span class="macro-slot">${String(i+1).padStart(2,"0")}</span><span class="macro-name">Empty Slot</span></div><div class="macro-play-name" style="color:#7f95aa">Save a full play and assignment package.</div>`;
+    }
+    b.onclick=()=>{
+      state.selectedSlot=i;
+      if(m&&PLAY_DB[m.formation]?.includes(m.play)){
+        state.libraryView="ALL";state.family=familyOf(m.formation);state.formation=m.formation;state.play=m.play;state.strength=m.strength||"left";
+        state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
+        el("libraryView").value="ALL";populateFamilies();el("family").value=state.family;populateFormations();
+        el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
+        populatePlays();el("strength").value=state.strength;
+        if(m.overrides&&typeof m.overrides==="object")state.overrides={...m.overrides};
+        else{
+          const base=baseAssignments(clonePlayers());
+          Object.entries(m.assignments||{}).forEach(([id,key])=>{if(base[id]!==key)state.overrides[id]=key});
+        }
+        state.selected=clonePlayers()[0][0];
+      }
+      renderAll();
+    };
+    wrap.appendChild(b);
+  }
+}
+function promptName(defaultName){
+  const v=prompt("Macro name:",defaultName);return v===null?null:(v.trim()||defaultName);
+}
+function renderUndo(){
+  const b=el("undoAssignment");b.disabled=!state.undoStack.length;
+  b.textContent=state.undoStack.length?`Undo Last Assignment (${state.undoStack.length})`:"Undo Last Assignment";
+}
+function renderAll(){
+  updateTypeBadge();renderField();renderPlayerGrid();renderAssignmentGroups();renderSummary();renderMapping();renderMacros();renderFavoriteControls();renderUndo();
+}
+
+el("libraryView").onchange=e=>{
+  const requested=e.target.value;
+  if(requested==="MY"&&myPlaybookTotals().formations===0){
+    alert("Add a formation or individual play to My Playbook first.");
+    state.libraryView="ALL";e.target.value="ALL";return;
+  }
+  state.libraryView=requested;ensureVisibleSelection();renderAll();
+};
+el("family").onchange=e=>{
+  state.family=e.target.value;
+  const forms=viewFormationsForFamily(state.family);state.formation=forms[0]||"";
+  const plays=state.formation?viewPlaysForFormation(state.formation):[];state.play=plays[0]||"";
+  state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
+  populateFormations();el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";populatePlays(false);
+  state.selected=state.formation?clonePlayers()[0][0]:null;renderAll();
+};
+el("formation").onchange=e=>{
+  state.formation=e.target.value;
+  const plays=viewPlaysForFormation(state.formation);state.play=plays[0]||"";
+  state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
+  el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";populatePlays(false);
+  state.selected=state.formation?clonePlayers()[0][0]:null;renderAll();
+};
+el("typeFilter").onchange=e=>{state.typeFilter=e.target.value;state.overrides={};clearUndo();populatePlays();state.selected=state.formation?clonePlayers()[0][0]:null;renderAll()};
+el("mapFilter").onchange=e=>{state.mapFilter=e.target.value;state.overrides={};clearUndo();populatePlays();state.selected=state.formation?clonePlayers()[0][0]:null;renderAll()};
+el("playSearch").oninput=e=>{state.playSearch=e.target.value;state.overrides={};clearUndo();populatePlays();state.selected=state.formation?clonePlayers()[0][0]:null;renderAll()};
+el("play").onchange=e=>{state.play=e.target.value;state.overrides={};clearUndo();state.selected=state.formation?clonePlayers()[0][0]:null;renderAll()};
+el("strength").onchange=e=>{state.strength=e.target.value;state.overrides={};clearUndo();renderAll()};
+el("globalFinder").onchange=e=>jumpGlobal(e.target.value);
+
+el("toggleFormationFavorite").onclick=()=>{
+  if(!state.formation)return;
+  const book=getMyPlaybook(),index=book.formations.indexOf(state.formation);
+  if(index>=0)book.formations.splice(index,1);else book.formations.push(state.formation);
+  storeMyPlaybook(book);
+  if(state.libraryView==="MY"&&!formationInMyPlaybook(state.formation))ensureVisibleSelection();
+  renderAll();
+};
+el("togglePlayFavorite").onclick=()=>{
+  if(!state.formation||!state.play||isFormationFavorite())return;
+  const book=getMyPlaybook(),list=Array.isArray(book.plays[state.formation])?[...book.plays[state.formation]]:[];
+  const index=list.indexOf(state.play);
+  if(index>=0)list.splice(index,1);else list.push(state.play);
+  if(list.length)book.plays[state.formation]=list;else delete book.plays[state.formation];
+  storeMyPlaybook(book);
+  if(state.libraryView==="MY"&&!formationInMyPlaybook(state.formation))ensureVisibleSelection();
+  else if(state.libraryView==="MY")populatePlays(false);
+  renderAll();
+};
+
+el("undoAssignment").onclick=()=>{
+  if(!state.undoStack.length)return;
+  state.overrides=state.undoStack.pop();renderAll();
+};
+el("resetSelected").onclick=()=>{pushUndo();delete state.overrides[state.selected];renderAll()};
+el("resetAll").onclick=()=>{pushUndo();state.overrides={};renderAll()};
+el("saveDraftMap").onclick=()=>{
+  if(!state.play)return;
+  const maps=getPlayMaps();maps[playKey()]={assignments:currentAssignments(clonePlayers()),status:"partial",updatedAt:new Date().toISOString()};
+  storePlayMaps(maps);state.overrides={};clearUndo();populatePlays();renderAll();
+};
+el("savePlayMap").onclick=()=>{
+  if(!state.play)return;
+  const maps=getPlayMaps();maps[playKey()]={assignments:currentAssignments(clonePlayers()),status:"mapped",updatedAt:new Date().toISOString()};
+  storePlayMaps(maps);state.overrides={};clearUndo();populatePlays();renderAll();
+};
+el("removePlayMap").onclick=()=>{
+  const maps=getPlayMaps();delete maps[playKey()];storePlayMaps(maps);state.overrides={};clearUndo();populatePlays();renderAll();
+};
+el("saveMacro").onclick=()=>{
+  const data=getMacros();let idx=data.findIndex(x=>!x);if(idx<0&&data.length<10)idx=data.length;
+  if(idx<0){alert("All 10 slots are full. Select one and use Overwrite Selected Slot.");return}
+  const name=promptName(`Macro ${idx+1}`);if(name===null)return;
+  data[idx]=snapshot(name);storeMacros(data);state.selectedSlot=idx;renderMacros();
+};
+el("overwriteMacro").onclick=()=>{
+  if(state.selectedSlot===null){alert("Select a macro slot first.");return}
+  const data=getMacros(),old=data[state.selectedSlot],name=promptName(old?.name||`Macro ${state.selectedSlot+1}`);if(name===null)return;
+  data[state.selectedSlot]=snapshot(name);storeMacros(data);renderMacros();
+};
+el("clearMacros").onclick=()=>{
+  if(confirm("Clear all 10 saved macro slots?")){storeMacros([]);state.selectedSlot=null;renderMacros()}
+};
+
+function exportBackup(){
+  const payload={
+    schema:"cfb27-defensive-playbook-lab-backup",
+    version:APP_VERSION,
+    exportedAt:new Date().toISOString(),
+    macros:getMacros(),
+    playMaps:getPlayMaps(),
+    myPlaybook:getMyPlaybook()
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  const date=new Date().toISOString().slice(0,10);
+  a.href=url;a.download=`CFB27_Defensive_Lab_Backup_${date}.json`;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function importBackupFile(file){
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      if(data.schema!=="cfb27-defensive-playbook-lab-backup")throw new Error("This is not a CFB 27 Defensive Lab backup.");
+      if(!confirm("Replace the saved macros, play maps, and My Playbook list with this backup?"))return;
+      storeMacros(Array.isArray(data.macros)?data.macros:[]);
+      storePlayMaps(data.playMaps&&typeof data.playMaps==="object"?data.playMaps:{});
+      storeMyPlaybook(data.myPlaybook&&typeof data.myPlaybook==="object"?data.myPlaybook:{formations:[],plays:{}});
+      state.libraryView="ALL";state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};state.selectedSlot=null;clearUndo();
+      el("libraryView").value="ALL";el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
+      populateFamilies();populateFormations();populatePlays(false);state.selected=clonePlayers()[0][0];renderAll();
+      alert("Backup imported.");
+    }catch(err){alert(err.message||"Could not import that backup file.")}
+    finally{el("backupFile").value=""}
+  };
+  reader.readAsText(file);
+}
+el("exportBackup").onclick=exportBackup;
+el("importBackup").onclick=()=>el("backupFile").click();
+el("backupFile").onchange=e=>{const file=e.target.files?.[0];if(file)importBackupFile(file)};
+
+function setModalTab(tab){
+  const isHelp=tab==="help";
+  el("modalHelpPane").hidden=!isHelp;el("modalReleasePane").hidden=isHelp;
+  document.querySelectorAll("[data-modal-tab]").forEach(btn=>btn.classList.toggle("active",btn.dataset.modalTab===tab));
+  el("modalTitle").textContent=isHelp?"Defensive Playbook Lab Help":"CFB 27 Defensive Playbook Lab v4.4";
+}
+function openModal(tab="help"){
+  setModalTab(tab);el("appModal").hidden=false;document.body.style.overflow="hidden";el("closeModal").focus();
+}
+function closeModal(){el("appModal").hidden=true;document.body.style.overflow=""}
+el("openHelp").onclick=()=>openModal("help");
+el("openRelease").onclick=()=>openModal("release");
+el("closeModal").onclick=closeModal;
+el("appModal").addEventListener("click",e=>{if(e.target===el("appModal"))closeModal()});
+document.querySelectorAll("[data-modal-tab]").forEach(btn=>btn.onclick=()=>setModalTab(btn.dataset.modalTab));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!el("appModal").hidden)closeModal()});
+
+function resetEntireApp(){
+  const confirmation=prompt("This deletes every saved macro, play map, and My Playbook selection in this browser. Type RESET to continue:");
+  if(confirmation!=="RESET"){if(confirmation!==null)alert("Reset canceled. You must type RESET exactly.");return}
+  ["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook"].forEach(key=>localStorage.removeItem(key));
+  alert("The Defensive Playbook Lab has been reset.");
+  location.reload();
+}
+el("resetEntireApp").onclick=resetEntireApp;
+
+populateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();
+el("libraryView").value=state.libraryView;
+el("typeFilter").value=state.typeFilter;
+el("mapFilter").value=state.mapFilter;
+el("strength").value=state.strength;
+state.selected=clonePlayers()[0][0];
+renderAll();
+</script>
+</body>
+</html>
