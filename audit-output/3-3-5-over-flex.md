@@ -21,3 +21,5 @@
 - **Nickel Sim 3** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/nickel-sim-3.png`
 - **Over 3 Sting** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/over-3-sting.png`
 - **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/3-3-5-over-flex/tampa-2.png`
+
+Artifact refresh: 2026-07-20T16:56:00Z
