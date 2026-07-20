@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CFB 27 Defensive Playbook Lab v4.4</title>
+<title>CFB 27 Defensive Playbook Lab v4.28</title>
 <style>
 :root{
   --bg:#061019;--panel:#0d1925;--panel2:#122337;--line:#29435e;
@@ -332,7 +332,7 @@ footer{
 <body>
 <header>
   <div>
-    <h1>CFB 27 Defensive Playbook Lab <span style="color:#65d9ef">v4.4</span></h1>
+    <h1>CFB 27 Defensive Playbook Lab <span style="color:#65d9ef">v4.11</span></h1>
     <p>Build, verify, save, and share defensive play assignments from the complete formation and play library.</p>
   </div>
   <div class="header-actions">
@@ -344,7 +344,7 @@ footer{
     </div>
     <div class="header-tools">
       <button class="icon-btn" id="openHelp" type="button">? Help</button>
-      <button class="icon-btn" id="openRelease" type="button">v4.4 Notes</button>
+      <button class="icon-btn" id="openRelease" type="button">v4.11 Notes</button>
     </div>
   </div>
 </header>
@@ -530,7 +530,7 @@ footer{
       </div>
       <div class="modal-tabs">
         <button class="modal-tab active" data-modal-tab="help" type="button">Quick Start</button>
-        <button class="modal-tab" data-modal-tab="release" type="button">v4.4 Release Notes</button>
+        <button class="modal-tab" data-modal-tab="release" type="button">v4.11 Release Notes</button>
       </div>
       <div class="modal-body">
         <div class="modal-pane" id="modalHelpPane">
@@ -577,12 +577,13 @@ footer{
         </div>
         <div class="modal-pane" id="modalReleasePane" hidden>
           <div class="release-list">
+            <article class="release-item"><strong>Expanded source-verified play art</strong><span>Source-reviewed assignments now cover all 15 plays in 3-3-5 3 High, 26 usable-source plays in 3-3-5 Mint, and all 15 plays in 3-3-5 Odd Ghost. The menu and panel layout are unchanged.</span></article>
             <article class="release-item"><strong>Clearer base versus override play art</strong><span>Base responsibilities use dashed lines. Manual macro overrides use heavier solid gold lines, enhanced player highlighting, and override markers.</span></article>
             <article class="release-item"><strong>Improved assignment console</strong><span>The selected defender card now shows role, assignment source, and whether the responsibility comes from the base play or a manual override.</span></article>
             <article class="release-item"><strong>More informative macro cards</strong><span>Each slot now displays formation, play, play type, passing strength, and saved override count.</span></article>
             <article class="release-item"><strong>Built-in help and release notes</strong><span>The application now includes usage guidance, storage behavior, sharing instructions, and version-specific notes.</span></article>
             <article class="release-item"><strong>Safer complete reset</strong><span>Reset Entire App requires a typed confirmation and clears only the local storage used by this tool.</span></article>
-            <article class="release-item"><strong>Distribution package</strong><span>The v4.4 release includes the standalone HTML file, a README, and an example backup file in a shareable ZIP archive.</span></article>
+            <article class="release-item"><strong>Distribution package</strong><span>The v4.11 checkpoint preserves the standalone HTML format and existing browser-storage compatibility.</span></article>
           </div>
           <div class="release-callout">The role filters remain conservative rather than claiming universal in-game accuracy. Verify formation-specific exceptions before marking play art verified.</div>
         </div>
@@ -592,11 +593,11 @@ footer{
 </main>
 
 <footer>
-  CFB 27 Defensive Playbook Lab v4.4 • Independent planning tool. Formation and play-name inventory comes from public playbook databases. Auto-shell play art is inferred and should be marked verified only after in-game confirmation.
+  CFB 27 Defensive Playbook Lab v4.28 • Independent planning tool. Formation and play-name inventory comes from public playbook databases. Source-verified play art is separated from inferred shells; 56 formation-play entries are source reviewed in this checkpoint. Unverified plays should still be checked in game before being marked verified.
 </footer>
 
 <script>
-const APP_VERSION="4.4";
+const APP_VERSION="4.5";
 const PLAY_DB = {"2-5 Over Wide":["COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 ROBBER","COVER 1 STING WK","COVER 2 INVERT","COVER 2 MAN","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","FIRE MAN","FREE FIRE 3","MIKE SAM CROSS 3","TAMPA 2","THUNDER SMOKE","WILL BLITZ 3"],"3-2-6 3-2":["1 DOUBLE WR1","COVER 1 ROBBER PRESS","COVER 2 MAN LB BLITZ","COVER 3 BUZZ SPY","COVER 3 CLOUD SHOW 2","COVER 3 LOCK","COVER 3 MATCH","COVER 4 DROP CONTAIN","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 3","FS ZONE BLITZ","HOT BLITZ 3","MAX STING 3","OKIE ROLL 2","OKIE ROLL 3","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","TAMPA 2 DROP","ZERO BLITZ"],"3-2-6 Sugar 3-2":["COVER 1 ROBBER PRESS","COVER 2 DROP","COVER 2 MAN LB BLITZ","COVER 3 SKY","COVER 4 DROP","DB FIRE 2","DBL SAFETY GO","DT MIKE LOOP 0","DT MIKE LOOP 1","OVERLOAD 3 SEAM","SS ZONE BLITZ","TAMPA 2"],"3-3-5 3 High":["3 DOUBLE BUZZ","3 DOUBLE CLOUD","CORNER BLITZ 2","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","SAW BLITZ 1","SAW BLITZ 3","TAMPA 2","TAMPA 2 SPY"],"3-3-5 3 High Odd":["2 INVERT DROP","3 DOUBLE CLOUD","3 DOUBLE SKY","COVER 3 MAN","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","HOT BLITZ 3","SAW BLITZ 1","SAW BLITZ 3","SLANT BLITZ 2","SLANT BLITZ 3","TAMPA 2","TAMPA 2 DROP"],"3-3-5 3 High Over":["3 DOUBLE CLOUD","3 DOUBLE SKY","BLITZ DT POP","COVER 2 LURK","COVER 3 MATCH","COVER 4 QUARTERS","EDGE BLITZ 2","HOT BLITZ 3","LB BLITZ 0","TAMPA 2"],"3-3-5 3 High Penny":["3 DOUBLE BUZZ","3 DOUBLE CLOUD","CORNER BLITZ 2","COVER 2 LURK","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","MIKE BLITZ 0","MIKE SIM 2","SAW BLITZ 1","TAMPA 2","TAMPA 2 SPY"],"3-3-5 Mint":["1 DOUBLE WR1","1 DOUBLE WR2","CORNER BLITZ 3","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 BUZZ STRONG","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","HOT BLITZ 3","LB CROSS 0","LB CROSS 3 SHOW 2","NICKEL 2 TRAP","OVERLOAD 3 SKY PRESS","PINCH 0 BLITZ","SAM MIKE 3 PRESS","TAMPA 2","TAMPA SIM PRESSURE"],"3-3-5 Odd Ghost":["COVER 1 DBL HOOK","COVER 2 INVERT","COVER 2 MAN","COVER 2 TAMPA","COVER 2 TAMPA DROP","COVER 3 MATCH","COVER 3 SKY","COVER 3 SKY DROP","COVER 6","HOT BLITZ 3","LB BLITZ 0","MID BLITZ 1","MIKE WILL 3","SAW BLITZ 1","TAMPA SIM PRESSURE"],"3-3-5 Over Flex":["1 DOUBLE WR1","CB BENCH BLITZ","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 SS BLITZ","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","EDGE BLITZ 0","HOT BLITZ 3","NICKEL SIM 3","OVER 3 STING","TAMPA 2"],"3-3-5 Penny":["3 SAM WILL BLITZ","CORNER BLITZ 2","COVER 1 ROBBER","COVER 3 BUZZ","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 9","COVER HOLE 1","DOUBLE DOUBLE","HOT BLITZ 3","MIKE BLITZ 0","MIKE BLITZ 1","SAW BLITZ 1","SLOT BLITZ 3","TAMPA 2"],"3-3-5 Split":["COVER 1 SS BLITZ","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","DOUBLE EDGE BLITZ","FIRE ZONE 3","HOT BLITZ 3","INSIDE BLITZ","ZONE BLITZ"],"3-3-5 Stack":["COVER 3","COVER 3 DROP","COVER 3 MATCH","HOT BLITZ 3","LB BLITZ 0","MID BLITZ 1","MIKE SAM 3","MIKE WILL 2","MIKE WILL 3","SAW BLITZ 1","SAW BLITZ 3","SS BLITZ 0","SS HOT BLITZ 3","TAMPA SIM PRESSURE","WILL SAM 3"],"3-4 Bear":["COVER 1 HOLE","COVER 2 INVERT","COVER 2 INVERT HARD FLAT","COVER 3","COVER 3 HARD FLAT","LB BLITZ 0","SAM MIKE 1","TRIO SKY ZONE","WILL SAM 1"],"3-4 Even":["COV 1 ROBBER PRESS","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","CROSS FIRE 3","PINCH BUCK 0","TAMPA 2","WILL FIRE 3 SEAM"],"3-4 Grizzly":["1 EDGE PINCH","3 EDGE PINCH","COVER 2 INVERT","COVER 3","COVER 3 DROP","COVER 9","MIKE BLITZ 0","MIKE HOT BLITZ 3","MIKE SIM 2","TAMPA 2 SHOW 3"],"3-4 Odd":["COVER 1 HOLE","COVER 1 ROBBER","COVER 3 MATCH","COVER 3 SKY","COVER 3 SKY WK","COVER 4 DROP SHOW 2","COVER 4 QUARTERS","COVER 6","CRASH BLITZ 3","CROSS 3 FIRE","PINCH BUCK 0","SAW BLITZ 1","SS 2 TRAP","STORM BRAVE 1","TAMPA 2","WILL BUCK 3 PRESS"],"3-4 Over":["COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6 PRESS","SAW BLITZ 1","SS 2 TRAP","SS BLITZ 1","STING PINCH","TRIO SKY ZONE","WILL BUCK 3 PRESS"],"3-4 Over Ed":["COVER 1 HOLE","COVER 1 QB CONTAIN","COVER 2","COVER 2 MAN","COVER 3 CLOUD","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","HOT BLITZ 3","OLB FIRE MAN","SAM CRASH 3","STRONG SNAKE 3"],"3-4 Tite":["COVER 1 HOLE","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 QUARTERS","COVER 6","FIELD BLITZ 3","HOT BLITZ 3","SAW BLITZ 0","SAW BLITZ 1","SAW BLITZ 2","SAW BLITZ 3","SS 2 TRAP","TAMPA 2","TRIO SKY ZONE"],"3-4 Tite 5 Tech":["COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","TAMPA 2","WEAK BLITZ 3"],"3-4 Under":["COV 1 QB CONTAIN SPY","COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","TAMPA 2","WEAK BLITZ 1","WEAK BLITZ 3","WILL FIRE 3 SEAM"],"3-4 Under 4 Tech":["COV 1 QB CONTAIN SPY","COVER 1 FS FIRE","COVER 1 HOLE WK","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FS SLANT 3","MLB CROSS FIRE 3","PINCH BUCK 0","SAW BLITZ 1","WEAK BLITZ 1","WEAK BLITZ 3","WILL FIRE 3 SEAM"],"4-2-5 3 High":["3 DOUBLE CLOUD","3 DOUBLE SKY","BLITZ DT POP","COVER 2 LURK","COVER 3 MATCH","COVER 4 QUARTERS","EDGE BLITZ 2","EDGE BLITZ 3","HOT BLITZ 3","LB BLITZ 0","TAMPA 2"],"4-2-5 Even":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BRACKET 9 SWITCH","COVER 1 HOLE","COVER 1 ROBBER","COVER 2","COVER 2 CONTAIN","COVER 2 MAN","COVER 2 MATCH","COVER 3 BUZZ MATCH WK","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","DOUBLE BRACKET SWITCH","LB BLITZ","MIKE SS 3","SS BLITZ 2","SS LB BLITZ","WS BLITZ 1","WS BLITZ 2","WS BLITZ 3"],"4-2-5 Over G":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BRACKET 9 SWITCH","CASINO BLITZ","CORNER BLITZ 3","COVER 1 HOLE","COVER 2","COVER 2 CONTAIN","COVER 2 MAN","COVER 3 BUZZ MATCH WK","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 INVERT","COVER 6 TRAP","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","DOUBLE BRACKET SWITCH","LB BLITZ","MIKE SS 3","PINCH BLITZ","SS BLITZ 2","SS BLITZ 3","SS LB BLITZ","WS BLITZ 1","WS BLITZ 2","WS BLITZ 3"],"4-2-5 Under":["1 FS FIRE","1 SLANT CRASH","2 INVERT HARD FLAT","COVER 1 CONTAIN PRESS","COVER 1 FS FIRE","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 SLANT CRASH","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FREE FIRE","HAMMER 0 BLAST","MIKE SAM CRASH PRESS","SAFETY BLITZ","SAM BLITZ 2","SS SAM CRASH PRESS","TAMPA 2","WILL GO FIRE 3","WK CORNER BLITZ"],"4-3 Even 6-1":["COVER 1 HOLE","COVER 1 MLB BLITZ","COVER 2 MAN","COVER 3 BUZZ","COVER 4 QUARTERS","MIKE WILL BLITZ","SAM BLITZ 3","SAM WILL BLITZ","TAMPA 2"],"4-3 Odd":["COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 CLOUD","COVER 3 SKY","COVER 6","LB DOGS","PINCH 4 PALMS","STRONG SLANT 3","TAMPA 2"],"4-3 Over":["1 ROBBER PRESS","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 ROBBER PRESS","COVER 1 STING WK","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 CLOUD PRESS","COVER 3 CLOUD STR","COVER 3 SKY","COVER 4 PALMS","COVER 4 PRESS","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","FREE FIRE 3","LB STING 1","OLB FIRE MAN","SAM EDGE 3","TAMPA 2"],"4-3 Over Solid":["COVER 1 STING","COVER 2 INVERT","COVER 2 INVERT HARD FLAT","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FS BLITZ","HAMMER 0 BLAST","SAW 0 BLAST","TAMPA 2"],"4-3 Over Walk":["CORNER BLITZ 3","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 SS BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 QUARTERS","FIRE ZONE 2","MIKE WILL BLITZ","SAM WILL BLITZ","SS BLITZ 1","SS BLITZ 3","WILL BLITZ 3"],"4-3 Over Wide":["COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 ROBBER","COVER 2 INVERT","COVER 2 MAN","COVER 3 CLOUD SHOW 2","COVER 3 SKY","COVER 4 QUARTERS","COVER 6","FIRE MAN","FREE FIRE 3","SAM BLITZ 3","TAMPA 2"],"4-3 Tite Leo":["COVER 1 HOLE","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 QUARTERS","COVER 6","FIELD BLITZ 3","HOT BLITZ 3","SAW BLITZ 0","SAW BLITZ 1","SAW BLITZ 2","SAW BLITZ 3","SS 2 TRAP","TAMPA 2","TRIO SKY ZONE"],"4-3 Under":["1 CONTAIN PRESS","1 ROBBER PRESS","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","DBL SAFETY BLITZ","FREE FIRE 0","FS FIRE 1","FS FIRE 3","HAMMER 0 BLAST","SAM BLITZ 2","SAM CRASH 1","SAM CRASH 3","TAMPA 2","WILL GO FIRE 3"],"4-3 Under Wide":["COVER 1 CONTAIN PRESS","COVER 1 FS FIRE","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 ROBBER PRESS","COVER 1 SLANT CRASH","COVER 2 INVERT","COVER 2 MAN","COVER 3 MATCH","COVER 3 SKY WK","COVER 4 QUARTERS","FREE FIRE","FS FIRE 3","HAMMER 0 BLAST","MIKE SAM CRASH PRESS","SAFETY BLITZ","SAM BLITZ 2","SS SAM CRASH PRESS","TAMPA 2","WILL GO FIRE 3"],"4-4 Split":["COVER 1","COVER 2 INVERT","COVER 3","COVER 3 MATCH","COVER 9","CRASH 3","FS BLITZ","LB FIRE","MONSTER GREEN","ZONE BLITZ"],"46 Bear":["46 MID BLITZ","COVER 1","COVER 3","COVER 9","ENGAGE EIGHT","GAP PRESS","LB BLITZ 3","SAFETY FIRE","SLANT WEAK","SLANT WEAK 3","WALL STUNT"],"5-2 Normal":["COVER 1","COVER 2","COVER 3","COVER 9","DT LOOP","FIRE ZONE 2","FLASH BLITZ","PINCH","SMASH BLITZ","TRIO SKY ZONE"],"Dime 2-3 Odd":["1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 2 SINK","COVER 3 BUZZ MATCH WK","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 LOCK","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 2","EDGE BLITZ 3","FS ZONE BLITZ","MAX STING 3","OKIE EAGLE 3","OKIE ROLL 2","OVERLOAD 3 SEAM PRESS","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","ZERO BLITZ"],"Dime 2-3-6":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 QB CONTAIN","COVER 1 ROBBER SHOW 2","COVER 2 INVERT","COVER 2 MAN","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 SHOW 2","COVER 6 WILLIE","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","MAN DOUBLE BUZZ","NICKEL 2 TRAP","OVER STORM BRAVE","OVERLOAD 3 PRESS","PROWL SLANT 3 SEAM","SILVER SHOOT PINCH","TAMPA 2"],"Dime 3-2":["1 DOUBLE WR1","1 DOUBLE WR2","COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 BUZZ MATCH WK","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 LOCK","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DB FIRE 2","DBL SAFETY GO","DOUBLE BRACKET","EDGE BLITZ 1","EDGE BLITZ 2","EDGE BLITZ 3","FS ZONE BLITZ","HOT BLITZ 3","MAX STING 3","OKIE EAGLE 3","OKIE ROLL 2","OVERLOAD 3 SEAM PRESS","SS ZONE BLITZ","STRG CORNER 2 FIRE","TAMPA 2","TAMPA 2 DROP","ZERO BLITZ"],"Dime 3-2 Single Mug":["1 LB DOG","BLITZ TEX 3","BRACKET SWITCH WILLIE","COV 3 BUZZ SHOW 1","COV 3BUZZ SHOW 1","COVER 1 GAMES","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 4 PALMS","DB BLITZ","DB BLITZ TEX 3","DBL SAFETY BLITZ","DIME BLITZ 2","DOUBLE BRACKET","TAMPA 2"],"Dime Load Weak":["COV 1 ROBBER PRESS","COVER 2 DROP","COVER 2 MAN","COVER 4 PALMS","COVER 4 QUARTERS","DB BLITZ 1","DB BLITZ 3","PINCH BLITZ","PINCH BLITZ 3","SIM 3 MATCH","SIM PRESSURE 3","TAMPA 2"],"Dime Normal":["3 DOUBLE BUZZ","COV 3 BUZZ SHOW 1","COV 3BUZZ SHOW 1","COVER 1 CONTAIN","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DBL SAFETY BLITZ","DIME BLITZ 3","LB BLITZ 1","OVERLOAD 3 SHOW 2","SS BLITZ 3","TAMPA 2"],"Dime Rush":["COVER 1 CONTAIN SPY","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 2 ROLL","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","DB BLITZ","DBL SAFETY BLITZ","DIME BLITZ 2","FOX FIRE ZONE PRESS","FS MIDDLE BLITZ 3","MUG BLITZ TEX 3","MUG DT LOOP 1","MUG SIM PRESSURE","SS OVERLOAD 3","SS SIM PRESSURE 3","TAMPA 2"],"Dime Single Mug":["1 LB DOG","BLITZ TEX 3","COV 3 BUZZ SHOW 1","COVER 1 GAMES","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 4 PALMS","DB BLITZ","DB BLITZ TEX 3","DBL SAFETY BLITZ","DIME BLITZ 2","TAMPA 2"],"Goal Line 5-3":["GAPS AB","GAPS ALL","GAPS ALL LB","GAPS B","GL MAN","MLB GAP A"],"Goal Line 6-2":["60 BASE","60 HALF OUT","60 OUT","60 OUT JACKS","60 PINCH","GUTS"],"Nickel 2-4":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","BUCK SLANT 3","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SHOW 2","CROSS SIM 2","DBL SAFETY BLITZ","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL SIM 2","OVER STORM BRAVE","OVERLOAD 3 SEAM","ROLL COVER 2 INVERT","ROLL COVER 3 CLOUD","SILVER SHOOT PINCH","SIM PRESSURE 3","TAMPA 2"],"Nickel 2-4 Dbl Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","MID BLITZ","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL DOG MEG","NICKEL OVERLOAD 3","NICKEL SIM 2","SS DOG 3"],"Nickel 2-4 Load":["0 LB CROSS GAMES","1 DOUBLE WR1","1 LB CROSS GAMES","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","DOUBLE BRACKET","LB 3 SEAM GAMES","OVERLOAD 3 SEAM","TAMPA 2"],"Nickel 2-4 Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel 2-4 Load Mug":["BLITZ LOOP 0","BLITZ LOOP SIM 3","COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 3","TAMPA 2"],"Nickel 2-4 Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9","DB BLITZ TEX 3","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Cub":["1 SAM SS BLITZ","3 SAM WILL BLITZ","COVER 1 CONTAIN","COVER 1 ROBBER","COVER 3 BUZZ","COVER 4 SHOW 2","LB BLITZ 1","MIKE BLITZ 0","NICKEL BLITZ 3","OLB BLITZ 1","SS BLITZ 0","TAMPA 2"],"Nickel 3-3 Dbl Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","MID BLITZ","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL DOG MEG","NICKEL OVERLOAD 3","NICKEL SIM 2","SS DOG 3","TAMPA 2"],"Nickel 3-3 Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","BLITZ LOOP SIM 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel 3-3 Load Mug":["COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 2","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Mint":["1 DOUBLE WR1","1 DOUBLE WR2","3 BUZZ STING PRESS","COVER 1 ROBBER PRESS","COVER 2 MAN","COVER 3 BUZZ MABLE","COVER 3 BUZZ MATCH","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","HOT BLITZ BAIL","LB CROSS 0","LB CROSS 3 SHOW 2","NICKEL 2 TRAP","OVERLOAD 3 SKY PRESS","PINCH 0","SAM MIKE 1","SAM MIKE 3 PRESS","TAMPA 2","TAMPA SIM PRESSURE"],"Nickel 3-3 Over Jack":["1 DOUBLE TE","1 DOUBLE WR1","2 INVERT LURK","BRACKET SWITCH WILLIE","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER","COVER 1 ROBBER PRESS","COVER 2 HARD FLAT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SHOW 2","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","FIELD SIM 3","FS WILL BLITZ 0","NICKEL SIM 2","OVER STORM BRAVE","OVERLOAD 3 SEAM","SILVER SHOOT PINCH","TAMPA 2"],"Nickel 3-3 Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 2 INVERT","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 4 QUARTERS","COVER 9","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel 3-3 Stack":["COVER 1 ROBBER PRESS","COVER 2 DROP","COVER 2 INVERT","COVER 2 MAN","COVER 3 DROP","COVER 4 DROP","COVER 4 PALMS","COVER 4 QUARTERS","LB BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL BLITZ 0","NICKEL BLITZ 3","SS MIKE BLITZ","TAMPA 2 NICKEL BLITZ"],"Nickel 3-3 Wide Jack":["CB ZONE BLITZ PRESS","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9 SHOW 2","DBL SAFETY BLITZ","NICKEL 2 TRAP","NICKEL BLITZ 3","OVER STORM BRAVE","SILVER SHOOT PINCH","TAMPA 2 CONTAIN"],"Nickel Double Mug":["2 INVERT HARD FLAT","BLITZ LOOP 3","BUCK ZONE BLITZ","COVER 1 HOLE","COVER 2 INVERT","COVER 3 MATCH","COVER 3 SKY","FIELD SIM 3","LB BLITZ 3","MID BLITZ","MID BLITZ 0","NICKEL 2 TRAP","NICKEL DOG 3 BUZZ","NICKEL OVERLOAD 3","NICKEL SIM 2","SS BLITZ 3","TAMPA 2"],"Nickel Load":["0 LB CROSS GAMES","1 DOUBLE WR1","1 DOUBLE WR2","1 LB CROSS GAMES","COVER 1 ROBBER","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9","DOUBLE BRACKET","LB 3 SEAM GAMES","OVERLOAD 3 SEAM","TAMPA 2"],"Nickel Load Dbl Mug":["1 DT LB LOOP","BLITZ LOOP 0","BLITZ LOOP 3","BLITZ LOOP SIM 3","CB BENCH SIM 2","COVER 1 LB BLITZ","COVER 3 MATCH","COVER 3 SKY","LB BLITZ 6","NICKEL SIM 2","REDZONE DT DROP","SIDE BLITZ","TAMPA 2"],"Nickel Load Mug":["BLITZ LOOP 0","BLITZ LOOP SIM 3","COVER 1 LB BLITZ","COVER 2 MAN","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY","COVER 6","COVER 6 WILLIE","HOT BLITZ 3","LB BLITZ 0","LB DE TWIST 3","NICKEL BLITZ 0","NICKEL BLITZ 1","NICKEL BLITZ 2","NICKEL BLITZ 3","NICKEL SIM 2","TAMPA 2"],"Nickel Over":["1 DOUBLE SLOT","1 DOUBLE TE","1 DOUBLE WR1","1 DOUBLE WR2","1 ROBBER PRESS","BRACKET 9 SWITCH","BRACKET SWITCH WILLIE","COV 2 MAN CONTAIN","COV 3 BUZZ MATCH WK","COV 3BUZZ MATCH","COVER 1 CONTAIN","COVER 1 HOLE","COVER 1 HOLE PRESS","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 1 SS BLITZ","COVER 2 DROP","COVER 2 HARD FLAT","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 BUZZ STRONG","COVER 3 CLOUD","COVER 3 HARD FLAT","COVER 3 MATCH","COVER 3 SKY","COVER 4 DROP FIELD","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 6 WILLIE","COVER 9 SAMMIE","COVER 9 SHOW 2","DBL SAFETY BLITZ","DOUBLE BRACKET","EDGE BLITZ 0","EDGE BLITZ 3","FIELD SIM 3","FS WILL BLITZ 0","LB BLITZ 1","NICKEL 2 TRAP","NICKEL BLITZ 2","NICKEL BLITZ 3","NICKEL SIM 2","OVER 3 STING","OVER STORM BRAVE","OVERLOAD 3 SEAM","OVERLOAD BLITZ","ROLL COVER 2 INVERT","ROLL COVER 3 CLOUD","SHOW SS SIM 2","SIM PRESSURE 3","TAMPA 2"],"Nickel Single Mug":["1 LB DOG","BLITZ TEX 3 SIM 3","COV 2 INVERT HARD FLAT","COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 CLOUD","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9","DB BLITZ TEX 3","DT MIKE LOOP 3","NICKEL 2 TRAP","NICKEL BLITZ 3","TAMPA 2"],"Nickel Wide":["COV 3 BUZZ MATCH WK","COVER 1 HOLE","COVER 1 LB BLITZ","COVER 1 ROBBER PRESS","COVER 2 INVERT","COVER 2 MAN","COVER 3 BUZZ MATCH","COVER 3 MATCH","COVER 3 SKY PRESS","COVER 4 PALMS","COVER 4 QUARTERS","COVER 6","COVER 9 SHOW 2","DBL SAFETY BLITZ","NICKEL 2 TRAP","NICKEL BLITZ 3","OVER STORM BRAVE","SILVER SHOOT PINCH","TAMPA 2 CONTAIN"],"Prevent 3 Deep":["COVER 3","MAN 3 DEEP","PREVENT"]};
 
 const FAMILY_ORDER=[
@@ -622,6 +623,13 @@ const ASSIGNMENT_GROUPS=[
 
 const ASSIGNMENT_LABELS=Object.fromEntries(ASSIGNMENT_GROUPS.flatMap(g=>g.items));
 ASSIGNMENT_LABELS.manHidden="Man (not visualized)";
+Object.assign(ASSIGNMENT_LABELS,{
+  srcDeepHalfLeft:"Deep Half",srcDeepHalfRight:"Deep Half",
+  srcHookLeft:"Hook",srcHookMid:"Hook Mid",srcHookRight:"Hook",
+  srcHookOuterLeft:"Hook",srcHookOuterRight:"Hook",
+  srcFlatLeft:"Flat",srcFlatRight:"Flat",
+  srcFlatInsideLeft:"Flat",srcFlatInsideRight:"Flat"
+});
 
 const ROLE_ASSIGNMENTS={
   DL:new Set(["blitz","qbContain","qbSpy","hookCurl","vertHook","hardFlat","curlFlat","seamFlat"]),
@@ -651,6 +659,11 @@ const TEMPLATES={
     ["CB1",105,255,"DB"],["FS",385,125,"S"],["SS",615,125,"S"],["CB2",895,255,"DB"],
     ["SAM",345,410,"LB"],["MIKE",500,425,"LB"],["WILL",655,410,"LB"],
     ["LE",350,530,"DL"],["DT1",450,545,"DL"],["DT2",550,545,"DL"],["RE",650,530,"DL"]
+  ],
+  mint425:[
+    ["CB1",105,255,"DB"],["SCB",285,310,"DB"],["FS",390,125,"S"],["SS",640,125,"S"],["CB2",895,255,"DB"],
+    ["SUBLB1",420,405,"LB"],["SUBLB2",580,405,"LB"],
+    ["RRE",345,530,"DL"],["RDT1",450,545,"DL"],["RDT2",550,545,"DL"],["RLE",655,530,"DL"]
   ],
   nickel24:[
     ["CB1",105,255,"DB"],["SCB",285,310,"DB"],["FS",390,125,"S"],["SS",640,125,"S"],["CB2",895,255,"DB"],
@@ -739,6 +752,8 @@ function formationsForFamily(family){
   return Object.keys(PLAY_DB).filter(k=>familyOf(k)===family).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 }
 function profileForFormation(name){
+  if(name==="3-3-5 Mint")return "mint425";
+  if(name==="3-3-5 Over Flex")return "nickel425";
   if(name.startsWith("3-3-5"))return name.includes("3 High")?"threeHigh335":"nickel335";
   if(name.startsWith("3-4"))return "base34";
   if(name.startsWith("4-3"))return "base43";
@@ -765,6 +780,1853 @@ function clonePlayers(){
 function playKey(formation=state.formation,play=state.play){
   return formation+"|||"+play;
 }
+
+
+// Source-verified play art. This layer is intentionally separate from user-saved
+// maps: local maps remain the highest-priority source, while verified built-ins
+// replace heuristic shells only when the formation/play pairing was reviewed.
+const SOURCE_VERIFIED_KEYS=new Set([
+  "3-3-5 3 High|||3 DOUBLE BUZZ",
+  "3-3-5 3 High|||3 DOUBLE CLOUD",
+  "3-3-5 3 High|||CORNER BLITZ 2",
+  "3-3-5 3 High|||COVER 4 DROP",
+  "3-3-5 3 High|||COVER 4 PALMS",
+  "3-3-5 3 High|||COVER 4 QUARTERS",
+  "3-3-5 3 High|||COVER 6",
+  "3-3-5 3 High|||COVER 6 INVERT",
+  "3-3-5 3 High|||EDGE BLITZ 2",
+  "3-3-5 3 High|||EDGE BLITZ 3",
+  "3-3-5 3 High|||HOT BLITZ 3",
+  "3-3-5 3 High|||SAW BLITZ 1",
+  "3-3-5 3 High|||SAW BLITZ 3",
+  "3-3-5 3 High|||TAMPA 2",
+  "3-3-5 3 High|||TAMPA 2 SPY",
+  "3-3-5 3 High Odd|||2 INVERT DROP",
+  "3-3-5 3 High Odd|||3 DOUBLE CLOUD",
+  "3-3-5 3 High Odd|||3 DOUBLE SKY",
+  "3-3-5 3 High Odd|||COVER 3 MAN",
+  "3-3-5 3 High Odd|||COVER 4 PALMS",
+  "3-3-5 3 High Odd|||COVER 4 QUARTERS",
+  "3-3-5 3 High Odd|||COVER 6",
+  "3-3-5 3 High Odd|||COVER 6 INVERT",
+  "3-3-5 3 High Odd|||COVER 6 WILLIE",
+  "3-3-5 3 High Odd|||HOT BLITZ 3",
+  "3-3-5 3 High Odd|||SAW BLITZ 1",
+  "3-3-5 3 High Odd|||SAW BLITZ 3",
+  "3-3-5 3 High Odd|||SLANT BLITZ 2",
+  "3-3-5 3 High Odd|||SLANT BLITZ 3",
+  "3-3-5 3 High Odd|||TAMPA 2",
+  "3-3-5 3 High Odd|||TAMPA 2 DROP",
+  "3-3-5 3 High Over|||3 DOUBLE CLOUD",
+  "3-3-5 3 High Over|||3 DOUBLE SKY",
+  "3-3-5 3 High Over|||BLITZ DT POP",
+  "3-3-5 3 High Over|||COVER 2 LURK",
+  "3-3-5 3 High Over|||COVER 3 MATCH",
+  "3-3-5 3 High Over|||COVER 4 QUARTERS",
+  "3-3-5 3 High Over|||EDGE BLITZ 2",
+  "3-3-5 3 High Over|||HOT BLITZ 3",
+  "3-3-5 3 High Over|||LB BLITZ 0",
+  "3-3-5 3 High Over|||TAMPA 2",
+  "3-3-5 3 High Penny|||3 DOUBLE BUZZ",
+  "3-3-5 3 High Penny|||3 DOUBLE CLOUD",
+  "3-3-5 3 High Penny|||CORNER BLITZ 2",
+  "3-3-5 3 High Penny|||COVER 2 LURK",
+  "3-3-5 3 High Penny|||COVER 3 SKY",
+  "3-3-5 3 High Penny|||COVER 4 DROP",
+  "3-3-5 3 High Penny|||COVER 4 PALMS",
+  "3-3-5 3 High Penny|||COVER 4 QUARTERS",
+  "3-3-5 3 High Penny|||COVER 6",
+  "3-3-5 3 High Penny|||COVER 6 INVERT",
+  "3-3-5 3 High Penny|||EDGE BLITZ 2",
+  "3-3-5 3 High Penny|||EDGE BLITZ 3",
+  "3-3-5 3 High Penny|||HOT BLITZ 3",
+  "3-3-5 3 High Penny|||MIKE BLITZ 0",
+  "3-3-5 3 High Penny|||MIKE SIM 2",
+  "3-3-5 3 High Penny|||SAW BLITZ 1",
+  "3-3-5 3 High Penny|||TAMPA 2",
+  "3-3-5 3 High Penny|||TAMPA 2 SPY",
+  "3-4 Grizzly|||1 EDGE PINCH",
+  "3-4 Grizzly|||3 EDGE PINCH",
+  "3-4 Grizzly|||COVER 2 INVERT",
+  "3-4 Grizzly|||COVER 3",
+  "3-4 Grizzly|||COVER 3 DROP",
+  "3-4 Grizzly|||MIKE BLITZ 0",
+  "3-4 Grizzly|||MIKE HOT BLITZ 3",
+  "3-4 Grizzly|||MIKE SIM 2",
+  "3-4 Grizzly|||TAMPA 2 SHOW 3",
+  "3-4 Bear|||COVER 1 HOLE",
+  "3-4 Bear|||COVER 2 INVERT",
+  "3-4 Bear|||COVER 2 INVERT HARD FLAT",
+  "3-4 Bear|||COVER 3",
+  "3-4 Bear|||COVER 3 HARD FLAT",
+  "3-4 Bear|||LB BLITZ 0",
+  "3-4 Bear|||SAM MIKE 1",
+  "3-4 Bear|||TRIO SKY ZONE",
+  "3-4 Bear|||WILL SAM 1",
+  "3-4 Even|||COV 1 ROBBER PRESS",
+  "3-4 Even|||COVER 2 MAN",
+  "3-4 Even|||COVER 3 CLOUD",
+  "3-4 Even|||COVER 3 MATCH",
+  "3-4 Even|||COVER 3 SKY",
+  "3-4 Even|||CROSS FIRE 3",
+  "3-4 Even|||PINCH BUCK 0",
+  "3-4 Even|||TAMPA 2",
+  "3-4 Even|||WILL FIRE 3 SEAM",
+  "3-4 Odd|||COVER 1 HOLE",
+  "3-4 Odd|||COVER 1 ROBBER",
+  "3-4 Odd|||COVER 3 MATCH",
+  "3-4 Odd|||COVER 3 SKY",
+  "3-4 Odd|||COVER 3 SKY WK",
+  "3-4 Odd|||COVER 4 DROP SHOW 2",
+  "3-4 Odd|||COVER 4 QUARTERS",
+  "3-4 Odd|||COVER 6",
+  "3-4 Odd|||CRASH BLITZ 3",
+  "3-4 Odd|||CROSS 3 FIRE",
+  "3-4 Odd|||PINCH BUCK 0",
+  "3-4 Odd|||SAW BLITZ 1",
+  "3-4 Odd|||SS 2 TRAP",
+  "3-4 Odd|||STORM BRAVE 1",
+  "3-4 Odd|||TAMPA 2",
+  "3-4 Odd|||WILL BUCK 3 PRESS",
+  "3-4 Over|||COVER 1 HOLE",
+  "3-4 Over|||COVER 2 INVERT",
+  "3-4 Over|||COVER 3 MATCH",
+  "3-4 Over|||COVER 3 SKY",
+  "3-4 Over|||COVER 4 QUARTERS",
+  "3-4 Over|||COVER 6 PRESS",
+  "3-4 Over|||SAW BLITZ 1",
+  "3-4 Over|||SS 2 TRAP",
+  "3-4 Over|||SS BLITZ 1",
+  "3-4 Over|||STING PINCH",
+  "3-4 Over|||TRIO SKY ZONE",
+  "3-4 Over|||WILL BUCK 3 PRESS",
+  "3-4 Over Ed|||COVER 1 HOLE",
+  "3-4 Over Ed|||COVER 1 QB CONTAIN",
+  "3-4 Over Ed|||COVER 2",
+  "3-4 Over Ed|||COVER 2 MAN",
+  "3-4 Over Ed|||COVER 3 CLOUD",
+  "3-4 Over Ed|||COVER 3 SKY",
+  "3-4 Over Ed|||COVER 4 QUARTERS",
+  "3-4 Over Ed|||COVER 6",
+  "3-4 Over Ed|||HOT BLITZ 3",
+  "3-4 Over Ed|||OLB FIRE MAN",
+  "3-4 Over Ed|||SAM CRASH 3",
+  "3-4 Over Ed|||STRONG SNAKE 3",
+  "3-4 Tite|||COVER 1 HOLE",
+  "3-4 Tite|||COVER 3 MATCH",
+  "3-4 Tite|||COVER 3 SKY",
+  "3-4 Tite|||COVER 4 DROP",
+  "3-4 Tite|||COVER 4 QUARTERS",
+  "3-4 Tite|||COVER 6",
+  "3-4 Tite|||FIELD BLITZ 3",
+  "3-4 Tite|||HOT BLITZ 3",
+  "3-4 Tite|||SAW BLITZ 0",
+  "3-4 Tite|||SAW BLITZ 1",
+  "3-4 Tite|||SAW BLITZ 2",
+  "3-4 Tite|||SAW BLITZ 3",
+  "3-4 Tite|||SS 2 TRAP",
+  "3-4 Tite|||TAMPA 2",
+  "3-4 Tite|||TRIO SKY ZONE",
+  "3-4 Tite 5 Tech|||COVER 1 FS FIRE",
+  "3-4 Tite 5 Tech|||COVER 1 HOLE WK",
+  "3-4 Tite 5 Tech|||COVER 1 ROBBER PRESS",
+  "3-4 Tite 5 Tech|||COVER 2 INVERT",
+  "3-4 Tite 5 Tech|||COVER 3 MATCH",
+  "3-4 Tite 5 Tech|||COVER 3 SKY",
+  "3-4 Tite 5 Tech|||COVER 4 QUARTERS",
+  "3-4 Tite 5 Tech|||COVER 6",
+  "3-4 Tite 5 Tech|||DBL SAFETY BLITZ",
+  "3-4 Tite 5 Tech|||FS SLANT 3",
+  "3-4 Tite 5 Tech|||MLB CROSS FIRE 3",
+  "3-4 Tite 5 Tech|||PINCH BUCK 0",
+  "3-4 Tite 5 Tech|||SAW BLITZ 1",
+  "3-4 Tite 5 Tech|||TAMPA 2",
+  "3-4 Tite 5 Tech|||WEAK BLITZ 3",
+  "3-4 Under|||COV 1 QB CONTAIN SPY",
+  "3-4 Under|||COVER 1 FS FIRE",
+  "3-4 Under|||COVER 1 HOLE WK",
+  "3-4 Under|||COVER 1 ROBBER PRESS",
+  "3-4 Under|||COVER 2 MAN",
+  "3-4 Under|||COVER 3 HARD FLAT",
+  "3-4 Under|||COVER 3 MATCH",
+  "3-4 Under|||COVER 3 SKY",
+  "3-4 Under|||COVER 4 QUARTERS",
+  "3-4 Under|||COVER 6",
+  "3-4 Under|||DBL SAFETY BLITZ",
+  "3-4 Under|||FS SLANT 3",
+  "3-4 Under|||MLB CROSS FIRE 3",
+  "3-4 Under|||PINCH BUCK 0",
+  "3-4 Under|||SAW BLITZ 1",
+  "3-4 Under|||TAMPA 2",
+  "3-4 Under|||WEAK BLITZ 1",
+  "3-4 Under|||WEAK BLITZ 3",
+  "3-4 Under|||WILL FIRE 3 SEAM",
+  "3-4 Under 4 Tech|||COV 1 QB CONTAIN SPY",
+  "3-4 Under 4 Tech|||COVER 1 FS FIRE",
+  "3-4 Under 4 Tech|||COVER 1 HOLE WK",
+  "3-4 Under 4 Tech|||COVER 1 ROBBER PRESS",
+  "3-4 Under 4 Tech|||COVER 2 INVERT",
+  "3-4 Under 4 Tech|||COVER 2 MAN",
+  "3-4 Under 4 Tech|||COVER 3 HARD FLAT",
+  "3-4 Under 4 Tech|||COVER 3 MATCH",
+  "3-4 Under 4 Tech|||COVER 3 SKY",
+  "3-4 Under 4 Tech|||COVER 4 QUARTERS",
+  "3-4 Under 4 Tech|||COVER 6",
+  "3-4 Under 4 Tech|||DBL SAFETY BLITZ",
+  "3-4 Under 4 Tech|||FS SLANT 3",
+  "3-4 Under 4 Tech|||MLB CROSS FIRE 3",
+  "3-4 Under 4 Tech|||PINCH BUCK 0",
+  "3-4 Under 4 Tech|||SAW BLITZ 1",
+  "3-4 Under 4 Tech|||WEAK BLITZ 1",
+  "3-4 Under 4 Tech|||WEAK BLITZ 3",
+  "3-4 Under 4 Tech|||WILL FIRE 3 SEAM",
+  "4-2-5 3 High|||3 DOUBLE CLOUD",
+  "4-2-5 3 High|||3 DOUBLE SKY",
+  "4-2-5 3 High|||BLITZ DT POP",
+  "4-2-5 3 High|||COVER 2 LURK",
+  "4-2-5 3 High|||COVER 3 MATCH",
+  "4-2-5 3 High|||COVER 4 QUARTERS",
+  "4-2-5 3 High|||EDGE BLITZ 2",
+  "4-2-5 3 High|||EDGE BLITZ 3",
+  "4-2-5 3 High|||HOT BLITZ 3",
+  "4-2-5 3 High|||LB BLITZ 0",
+  "4-2-5 3 High|||TAMPA 2",
+  "4-2-5 Even|||1 DOUBLE SLOT",
+  "4-2-5 Even|||1 DOUBLE TE",
+  "4-2-5 Even|||1 DOUBLE WR1",
+  "4-2-5 Even|||1 DOUBLE WR2",
+  "4-2-5 Even|||BRACKET 9 SWITCH",
+  "4-2-5 Even|||COVER 1 HOLE",
+  "4-2-5 Even|||COVER 1 ROBBER",
+  "4-2-5 Even|||COVER 2",
+  "4-2-5 Even|||COVER 2 CONTAIN",
+  "4-2-5 Even|||COVER 2 MAN",
+  "4-2-5 Even|||COVER 2 MATCH",
+  "4-2-5 Even|||COVER 3 BUZZ MATCH WK",
+  "4-2-5 Even|||COVER 3 MATCH",
+  "4-2-5 Even|||COVER 3 SKY",
+  "4-2-5 Even|||COVER 4 PALMS",
+  "4-2-5 Even|||COVER 4 QUARTERS",
+  "4-2-5 Even|||COVER 6",
+  "4-2-5 Even|||COVER 6 INVERT",
+  "4-2-5 Even|||COVER 6 WILLIE",
+  "4-2-5 Even|||COVER 9",
+  "4-2-5 Even|||DOUBLE BRACKET",
+  "4-2-5 Even|||DOUBLE BRACKET SWITCH",
+  "4-2-5 Even|||LB BLITZ",
+  "4-2-5 Even|||MIKE SS 3",
+  "4-2-5 Even|||SS BLITZ 2",
+  "4-2-5 Even|||SS LB BLITZ",
+  "4-2-5 Even|||WS BLITZ 1",
+  "4-2-5 Even|||WS BLITZ 2",
+  "4-2-5 Even|||WS BLITZ 3",
+  "4-2-5 Over G|||1 DOUBLE SLOT",
+  "4-2-5 Over G|||1 DOUBLE TE",
+  "4-2-5 Over G|||1 DOUBLE WR1",
+  "4-2-5 Over G|||1 DOUBLE WR2",
+  "4-2-5 Over G|||BRACKET 9 SWITCH",
+  "4-2-5 Over G|||CASINO BLITZ",
+  "4-2-5 Over G|||CORNER BLITZ 3",
+  "4-2-5 Over G|||COVER 1 HOLE",
+  "4-2-5 Over G|||COVER 2",
+  "4-2-5 Over G|||COVER 2 CONTAIN",
+  "4-2-5 Over G|||COVER 2 MAN",
+  "4-2-5 Over G|||COVER 3 BUZZ MATCH WK",
+  "4-2-5 Over G|||COVER 3 MATCH",
+  "4-2-5 Over G|||COVER 3 SKY",
+  "4-2-5 Over G|||COVER 4 PALMS",
+  "4-2-5 Over G|||COVER 4 QUARTERS",
+  "4-2-5 Over G|||COVER 6",
+  "4-2-5 Over G|||COVER 6 INVERT",
+  "4-2-5 Over G|||COVER 6 TRAP",
+  "4-2-5 Over G|||COVER 6 WILLIE",
+  "4-2-5 Over G|||COVER 9",
+  "4-2-5 Over G|||DOUBLE BRACKET",
+  "4-2-5 Over G|||DOUBLE BRACKET SWITCH",
+  "4-2-5 Over G|||LB BLITZ",
+  "4-2-5 Over G|||MIKE SS 3",
+  "4-2-5 Over G|||PINCH BLITZ",
+  "4-2-5 Over G|||SS BLITZ 2",
+  "4-2-5 Over G|||SS BLITZ 3",
+  "4-2-5 Over G|||SS LB BLITZ",
+  "4-2-5 Over G|||WS BLITZ 1",
+  "4-2-5 Over G|||WS BLITZ 2",
+  "4-2-5 Over G|||WS BLITZ 3",
+  "4-2-5 Under|||1 FS FIRE",
+  "4-2-5 Under|||1 SLANT CRASH",
+  "4-2-5 Under|||2 INVERT HARD FLAT",
+  "4-2-5 Under|||COVER 1 CONTAIN PRESS",
+  "4-2-5 Under|||COVER 1 FS FIRE",
+  "4-2-5 Under|||COVER 1 HOLE",
+  "4-2-5 Under|||COVER 1 HOLE PRESS",
+  "4-2-5 Under|||COVER 1 SLANT CRASH",
+  "4-2-5 Under|||COVER 2 INVERT",
+  "4-2-5 Under|||COVER 2 MAN",
+  "4-2-5 Under|||COVER 3 HARD FLAT",
+  "4-2-5 Under|||COVER 3 MATCH",
+  "4-2-5 Under|||COVER 3 SKY WK",
+  "4-2-5 Under|||COVER 4 QUARTERS",
+  "4-2-5 Under|||FREE FIRE",
+  "4-2-5 Under|||HAMMER 0 BLAST",
+  "4-2-5 Under|||MIKE SAM CRASH PRESS",
+  "4-2-5 Under|||SAFETY BLITZ",
+  "4-2-5 Under|||SAM BLITZ 2",
+  "4-2-5 Under|||SS SAM CRASH PRESS",
+  "4-2-5 Under|||TAMPA 2",
+  "4-2-5 Under|||WILL GO FIRE 3",
+  "4-2-5 Under|||WK CORNER BLITZ",
+  "3-3-5 Mint|||1 DOUBLE WR1",
+  "3-3-5 Mint|||1 DOUBLE WR2",
+  "3-3-5 Mint|||CORNER BLITZ 3",
+  "3-3-5 Mint|||COVER 1 ROBBER PRESS",
+  "3-3-5 Mint|||COVER 2 MAN",
+  "3-3-5 Mint|||COVER 3 BUZZ MATCH",
+  "3-3-5 Mint|||COVER 3 BUZZ STRONG",
+  "3-3-5 Mint|||COVER 3 CLOUD",
+  "3-3-5 Mint|||COVER 3 MATCH",
+  "3-3-5 Mint|||COVER 3 SKY",
+  "3-3-5 Mint|||COVER 4 DROP",
+  "3-3-5 Mint|||COVER 4 PALMS",
+  "3-3-5 Mint|||COVER 4 QUARTERS",
+  "3-3-5 Mint|||COVER 6",
+  "3-3-5 Mint|||COVER 6 INVERT",
+  "3-3-5 Mint|||COVER 6 WILLIE",
+  "3-3-5 Mint|||DOUBLE BRACKET",
+  "3-3-5 Mint|||HOT BLITZ 3",
+  "3-3-5 Mint|||LB CROSS 0",
+  "3-3-5 Mint|||LB CROSS 3 SHOW 2",
+  "3-3-5 Mint|||NICKEL 2 TRAP",
+  "3-3-5 Mint|||OVERLOAD 3 SKY PRESS",
+  "3-3-5 Mint|||PINCH 0 BLITZ",
+  "3-3-5 Mint|||SAM MIKE 3 PRESS",
+  "3-3-5 Mint|||TAMPA 2",
+  "3-3-5 Mint|||TAMPA SIM PRESSURE",
+  "3-3-5 Odd Ghost|||COVER 1 DBL HOOK",
+  "3-3-5 Odd Ghost|||COVER 2 INVERT",
+  "3-3-5 Odd Ghost|||COVER 2 MAN",
+  "3-3-5 Odd Ghost|||COVER 2 TAMPA",
+  "3-3-5 Odd Ghost|||COVER 2 TAMPA DROP",
+  "3-3-5 Odd Ghost|||COVER 3 MATCH",
+  "3-3-5 Odd Ghost|||COVER 3 SKY",
+  "3-3-5 Odd Ghost|||COVER 3 SKY DROP",
+  "3-3-5 Odd Ghost|||COVER 6",
+  "3-3-5 Odd Ghost|||HOT BLITZ 3",
+  "3-3-5 Odd Ghost|||LB BLITZ 0",
+  "3-3-5 Odd Ghost|||MID BLITZ 1",
+  "3-3-5 Odd Ghost|||MIKE WILL 3",
+  "3-3-5 Odd Ghost|||SAW BLITZ 1",
+  "3-3-5 Odd Ghost|||TAMPA SIM PRESSURE",
+  "3-3-5 Over Flex|||1 DOUBLE WR1",
+  "3-3-5 Over Flex|||CB BENCH BLITZ",
+  "3-3-5 Over Flex|||COVER 1 HOLE",
+  "3-3-5 Over Flex|||COVER 1 LB BLITZ",
+  "3-3-5 Over Flex|||COVER 1 SS BLITZ",
+  "3-3-5 Over Flex|||COVER 2 MAN",
+  "3-3-5 Over Flex|||COVER 3 BUZZ MATCH",
+  "3-3-5 Over Flex|||COVER 3 CLOUD",
+  "3-3-5 Over Flex|||COVER 3 MATCH",
+  "3-3-5 Over Flex|||COVER 3 SKY",
+  "3-3-5 Over Flex|||COVER 4 DROP FIELD",
+  "3-3-5 Over Flex|||COVER 4 PALMS",
+  "3-3-5 Over Flex|||COVER 4 QUARTERS",
+  "3-3-5 Over Flex|||COVER 6",
+  "3-3-5 Over Flex|||COVER 6 WILLIE",
+  "3-3-5 Over Flex|||COVER 9",
+  "3-3-5 Over Flex|||EDGE BLITZ 0",
+  "3-3-5 Over Flex|||HOT BLITZ 3",
+  "3-3-5 Over Flex|||NICKEL SIM 3",
+  "3-3-5 Over Flex|||OVER 3 STING",
+  "3-3-5 Over Flex|||TAMPA 2",
+  "3-3-5 Stack|||COVER 3",
+  "3-3-5 Stack|||COVER 3 DROP",
+  "3-3-5 Stack|||COVER 3 MATCH",
+  "3-3-5 Stack|||HOT BLITZ 3",
+  "3-3-5 Stack|||LB BLITZ 0",
+  "3-3-5 Stack|||MID BLITZ 1",
+  "3-3-5 Stack|||MIKE SAM 3",
+  "3-3-5 Stack|||MIKE WILL 2",
+  "3-3-5 Stack|||MIKE WILL 3",
+  "3-3-5 Stack|||SAW BLITZ 1",
+  "3-3-5 Stack|||SAW BLITZ 3",
+  "3-3-5 Stack|||SS BLITZ 0",
+  "3-3-5 Stack|||SS HOT BLITZ 3",
+  "3-3-5 Stack|||TAMPA SIM PRESSURE",
+  "3-3-5 Stack|||WILL SAM 3",
+  "3-3-5 Split|||COVER 1 SS BLITZ",
+  "3-3-5 Split|||COVER 2 INVERT",
+  "3-3-5 Split|||COVER 3 MATCH",
+  "3-3-5 Split|||COVER 3 SKY",
+  "3-3-5 Split|||DOUBLE EDGE BLITZ",
+  "3-3-5 Split|||FIRE ZONE 3",
+  "3-3-5 Split|||HOT BLITZ 3",
+  "3-3-5 Split|||INSIDE BLITZ",
+  "3-3-5 Split|||ZONE BLITZ",
+  "3-3-5 Penny|||3 SAM WILL BLITZ",
+  "3-3-5 Penny|||CORNER BLITZ 2",
+  "3-3-5 Penny|||COVER 1 ROBBER",
+  "3-3-5 Penny|||COVER 3 BUZZ",
+  "3-3-5 Penny|||COVER 3 MATCH",
+  "3-3-5 Penny|||COVER 3 SKY",
+  "3-3-5 Penny|||COVER 4 QUARTERS",
+  "3-3-5 Penny|||COVER 9",
+  "3-3-5 Penny|||COVER HOLE 1",
+  "3-3-5 Penny|||DOUBLE DOUBLE",
+  "3-3-5 Penny|||HOT BLITZ 3",
+  "3-3-5 Penny|||MIKE BLITZ 0",
+  "3-3-5 Penny|||MIKE BLITZ 1",
+  "3-3-5 Penny|||SAW BLITZ 1",
+  "3-3-5 Penny|||SLOT BLITZ 3",
+  "3-3-5 Penny|||TAMPA 2"
+]);
+function isSourceVerified(formation=state.formation,play=state.play){
+  return SOURCE_VERIFIED_KEYS.has(playKey(formation,play));
+}
+function sourceBase(players){
+  const a={};
+  players.forEach(p=>a[p[0]]=p[3]==="DL"?"blitz":"manHidden");
+  return a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const UNDER425_SOURCE_MAPS={
+  "1 FS FIRE":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "1 SLANT CRASH":{
+    "FS":"insideThird","RRE":"blitz","RDT1":"blitz","RDT2":"blitz","RLE":"blitz"
+  },
+  "2 INVERT HARD FLAT":{
+    "CB1":"srcDeepHalfLeft","FS":"hardFlat","SS":"hardFlat","CB2":"srcDeepHalfRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 1 CONTAIN PRESS":{
+    "FS":"insideThird","RRE":"qbContain","RLE":"qbContain"
+  },
+  "COVER 1 FS FIRE":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "COVER 1 HOLE":{
+    "FS":"insideThird","SUBLB1":"srcHookMid"
+  },
+  "COVER 1 HOLE PRESS":{
+    "FS":"insideThird","SUBLB1":"srcHookMid"
+  },
+  "COVER 1 SLANT CRASH":{
+    "FS":"insideThird","RRE":"blitz","RDT1":"blitz","RDT2":"blitz","RLE":"blitz"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight",
+    "CB1":"manHidden","SCB":"manHidden","CB2":"manHidden","SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "COVER 3 HARD FLAT":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"hardFlat","CB2":"outsideThird",
+    "SCB":"hardFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 SKY WK":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"curlFlat"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "FREE FIRE":{
+    "FS":"blitz","SS":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "HAMMER 0 BLAST":{
+    "RRE":"blitz","RDT1":"blitz","RDT2":"blitz","RLE":"blitz",
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "MIKE SAM CRASH PRESS":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "SAFETY BLITZ":{
+    "FS":"blitz","SS":"blitz"
+  },
+  "SAM BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"blitz","SUBLB2":"srcHookRight"
+  },
+  "SS SAM CRASH PRESS":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"blitz","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"blitz","SUBLB2":"srcHookMid"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"middleRead","SUBLB2":"srcHookRight"
+  },
+  "WILL GO FIRE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"blitz"
+  },
+  "WK CORNER BLITZ":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"blitz",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  }
+};
+
+const OVERG425_SOURCE_MAPS={
+  "1 DOUBLE SLOT":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE TE":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE WR1":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE WR2":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "BRACKET 9 SWITCH":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "CASINO BLITZ":{
+    "SCB":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "CORNER BLITZ 3":{
+    "CB1":"blitz","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 1 HOLE":{
+    "FS":"insideThird","SUBLB1":"srcHookMid"
+  },
+  "COVER 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 2 CONTAIN":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"qbContain","SUBLB2":"qbContain"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight",
+    "CB1":"manHidden","SCB":"manHidden","CB2":"manHidden","SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "COVER 3 BUZZ MATCH WK":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"curlFlat"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 4 PALMS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 6 INVERT":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 6 TRAP":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"flatTrap","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 6 WILLIE":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"manHidden",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 9":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "DOUBLE BRACKET":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "DOUBLE BRACKET SWITCH":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "LB BLITZ":{
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "MIKE SS 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"blitz","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"blitz","SUBLB2":"srcHookMid"
+  },
+  "PINCH BLITZ":{
+    "RDT1":"blitz","RDT2":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "SS BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"blitz","CB2":"srcDeepHalfRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "SS BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"blitz","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "SS LB BLITZ":{
+    "SS":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "WS BLITZ 1":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "WS BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"blitz","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "WS BLITZ 3":{
+    "CB1":"outsideThird","FS":"blitz","SS":"insideThird","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  }
+};
+
+const EVEN425_SOURCE_MAPS={
+  "1 DOUBLE SLOT":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE TE":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE WR1":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "1 DOUBLE WR2":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"insideThird","SS":"manHidden","CB2":"manHidden",
+    "SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "BRACKET 9 SWITCH":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 1 HOLE":{
+    "FS":"insideThird","SUBLB1":"srcHookMid"
+  },
+  "COVER 1 ROBBER":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 2 CONTAIN":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"qbContain","SUBLB2":"qbContain"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight",
+    "CB1":"manHidden","SCB":"manHidden","CB2":"manHidden","SUBLB1":"manHidden","SUBLB2":"manHidden"
+  },
+  "COVER 2 MATCH":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 BUZZ MATCH WK":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"curlFlat"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 4 PALMS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 6 INVERT":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 6 WILLIE":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"manHidden",
+    "SCB":"quarterFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 9":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"deepQuarter","CB2":"deepQuarter",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"quarterFlat"
+  },
+  "DOUBLE BRACKET":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "DOUBLE BRACKET SWITCH":{
+    "CB1":"manHidden","SCB":"manHidden","FS":"deepQuarter","SS":"deepQuarter","CB2":"manHidden",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "LB BLITZ":{
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "MIKE SS 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"blitz","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"blitz","SUBLB2":"srcHookMid"
+  },
+  "SS BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"blitz","CB2":"srcDeepHalfRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "SS LB BLITZ":{
+    "SS":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "WS BLITZ 1":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "WS BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"blitz","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SCB":"srcHookOuterLeft","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "WS BLITZ 3":{
+    "CB1":"outsideThird","FS":"blitz","SS":"insideThird","CB2":"outsideThird",
+    "SCB":"curlFlat","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  }
+};
+
+const HIGH425_SOURCE_MAPS={
+  "3 DOUBLE CLOUD":{
+    "CB1":"srcFlatLeft","SS1":"outsideThird","FS":"insideThird",
+    "SS2":"outsideThird","CB2":"srcFlatRight",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "3 DOUBLE SKY":{
+    "CB1":"outsideThird","SS1":"srcFlatInsideLeft","FS":"insideThird",
+    "SS2":"srcFlatInsideRight","CB2":"outsideThird",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "BLITZ DT POP":{
+    "FS":"insideThird","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight","RDT1":"blitz"
+  },
+  "COVER 2 LURK":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"srcHookMid",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SUBLB1":"quarterFlat","SUBLB2":"quarterFlat"
+  },
+  "EDGE BLITZ 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookMid",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "EDGE BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookLeft","FS":"insideThird",
+    "SS2":"srcHookRight","CB2":"outsideThird",
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "LB BLITZ 0":{
+    "SUBLB1":"blitz","SUBLB2":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"
+  }
+};
+
+const UNDER4_SOURCE_MAPS={
+  "COV 1 QB CONTAIN SPY":{
+    "FS":"insideThird","SAM":"qbContain","MIKE":"qbSpy","JACK":"qbContain"
+  },
+  "COVER 1 FS FIRE":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "COVER 1 HOLE WK":{
+    "FS":"insideThird","WILL":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 1 ROBBER PRESS":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"
+  },
+  "COVER 3 HARD FLAT":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"hardFlat","CB2":"outsideThird",
+    "SAM":"hardFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "DBL SAFETY BLITZ":{
+    "FS":"blitz","SS":"blitz"
+  },
+  "FS SLANT 3":{
+    "CB1":"outsideThird","FS":"blitz","SS":"insideThird","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"curlFlat"
+  },
+  "MLB CROSS FIRE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "PINCH BUCK 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "WEAK BLITZ 1":{
+    "FS":"insideThird","WILL":"blitz"
+  },
+  "WEAK BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "WILL FIRE 3 SEAM":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"seamFlat"
+  }
+};
+
+const UNDER34_SOURCE_MAPS={
+  "COV 1 QB CONTAIN SPY":{
+    "FS":"insideThird","SAM":"qbContain","MIKE":"qbSpy","JACK":"qbContain"
+  },
+  "COVER 1 FS FIRE":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "COVER 1 HOLE WK":{
+    "FS":"insideThird","WILL":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 1 ROBBER PRESS":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"
+  },
+  "COVER 3 HARD FLAT":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"hardFlat","CB2":"outsideThird",
+    "SAM":"hardFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "DBL SAFETY BLITZ":{
+    "FS":"blitz","SS":"blitz"
+  },
+  "FS SLANT 3":{
+    "CB1":"outsideThird","FS":"blitz","SS":"insideThird","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"curlFlat"
+  },
+  "MLB CROSS FIRE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "PINCH BUCK 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WEAK BLITZ 1":{
+    "FS":"insideThird","WILL":"blitz"
+  },
+  "WEAK BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "WILL FIRE 3 SEAM":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"seamFlat"
+  }
+};
+
+const TITE5_SOURCE_MAPS={
+  "COVER 1 FS FIRE":{
+    "FS":"blitz","SS":"insideThird"
+  },
+  "COVER 1 HOLE WK":{
+    "FS":"insideThird","WILL":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 1 ROBBER PRESS":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "DBL SAFETY BLITZ":{
+    "FS":"blitz","SS":"blitz"
+  },
+  "FS SLANT 3":{
+    "CB1":"outsideThird","FS":"blitz","SS":"insideThird","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"curlFlat"
+  },
+  "MLB CROSS FIRE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "PINCH BUCK 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WEAK BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"srcHookMid"
+  }
+};
+
+const TITE34_SOURCE_MAPS={
+  "COVER 1 HOLE":{
+    "FS":"insideThird","MIKE":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 DROP":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat",
+    "RE":"hookCurl"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "FIELD BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookLeft","WILL":"srcHookMid","JACK":"curlFlat"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "SAW BLITZ 0":{
+    "SAM":"blitz","WILL":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "SAW BLITZ 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"blitz","MIKE":"srcHookLeft","WILL":"blitz","JACK":"srcHookRight"
+  },
+  "SAW BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz","JACK":"curlFlat"
+  },
+  "SS 2 TRAP":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "TRIO SKY ZONE":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  }
+};
+
+const OVER_ED_SOURCE_MAPS={
+  "COVER 1 HOLE":{
+    "FS":"insideThird","MIKE":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 1 QB CONTAIN":{
+    "FS":"insideThird","SAM":"qbContain","JACK":"qbContain"
+  },
+  "COVER 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"
+  },
+  "COVER 3 CLOUD":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"outsideThird","CB2":"srcFlatRight",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "OLB FIRE MAN":{
+    "FS":"insideThird","SAM":"blitz","JACK":"blitz"
+  },
+  "SAM CRASH 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"srcHookMid","JACK":"curlFlat"
+  },
+  "STRONG SNAKE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"srcHookRight","JACK":"blitz"
+  }
+};
+
+const OVER34_SOURCE_MAPS={
+  "COVER 1 HOLE":{
+    "FS":"insideThird","MIKE":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6 PRESS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "SS 2 TRAP":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "SS BLITZ 1":{
+    "FS":"insideThird","SS":"blitz"
+  },
+  "STING PINCH":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "TRIO SKY ZONE":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WILL BUCK 3 PRESS":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookMid","WILL":"blitz","JACK":"blitz"
+  }
+};
+
+const ODD34_SOURCE_MAPS={
+  "COVER 1 HOLE":{
+    "FS":"insideThird","MIKE":"srcHookMid","JACK":"qbSpy"
+  },
+  "COVER 1 ROBBER":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY WK":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"curlFlat"
+  },
+  "COVER 4 DROP SHOW 2":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat",
+    "RE":"hookCurl"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "CRASH BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"srcHookMid","JACK":"curlFlat"
+  },
+  "CROSS 3 FIRE":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "PINCH BUCK 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "SS 2 TRAP":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "STORM BRAVE 1":{
+    "FS":"insideThird","SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WILL BUCK 3 PRESS":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookMid","WILL":"blitz","JACK":"blitz"
+  }
+};
+
+const EVEN34_SOURCE_MAPS={
+  "COV 1 ROBBER PRESS":{
+    "FS":"insideThird","SS":"srcHookMid"
+  },
+  "COVER 2 MAN":{
+    "FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"
+  },
+  "COVER 3 CLOUD":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"outsideThird","CB2":"srcFlatRight",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "CROSS FIRE 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"blitz","WILL":"blitz","JACK":"srcHookMid"
+  },
+  "PINCH BUCK 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WILL FIRE 3 SEAM":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"blitz","JACK":"seamFlat"
+  }
+};
+
+const BEAR_SOURCE_MAPS={
+  "COVER 1 HOLE":{
+    "FS":"insideThird","MIKE":"srcHookMid"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight"
+  },
+  "COVER 2 INVERT HARD FLAT":{
+    "CB1":"srcDeepHalfLeft","FS":"hardFlat","SS":"hardFlat","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 HARD FLAT":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"hardFlat","CB2":"outsideThird",
+    "SAM":"hardFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "LB BLITZ 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz","JACK":"blitz"
+  },
+  "SAM MIKE 1":{
+    "FS":"insideThird","SAM":"blitz","MIKE":"blitz"
+  },
+  "TRIO SKY ZONE":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "WILL SAM 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  }
+};
+
+const GRIZZLY_SOURCE_MAPS={
+  "1 EDGE PINCH":{
+    "FS":"insideThird","SAM":"blitz","JACK":"blitz"
+  },
+  "3 EDGE PINCH":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"blitz"
+  },
+  "COVER 2 INVERT":{
+    "CB1":"srcDeepHalfLeft","FS":"srcFlatLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"curlFlat","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  },
+  "COVER 3 DROP":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"srcHookOuterLeft","MIKE":"srcHookLeft","WILL":"srcHookRight","JACK":"srcHookOuterRight",
+    "RE":"hookCurl"
+  },
+  "MIKE BLITZ 0":{
+    "MIKE":"blitz"
+  },
+  "MIKE HOT BLITZ 3":{
+    "CB1":"outsideThird","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"srcHookMid","JACK":"blitz"
+  },
+  "MIKE SIM 2":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"blitz","WILL":"srcHookMid","JACK":"srcHookRight",
+    "RE":"srcHookOuterRight"
+  },
+  "TAMPA 2 SHOW 3":{
+    "CB1":"srcFlatLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookOuterLeft","MIKE":"middleRead","WILL":"srcHookRight","JACK":"srcHookOuterRight"
+  }
+};
+
+const HIGH_PENNY_SOURCE_MAPS={
+  "3 DOUBLE BUZZ":{
+    "CB1":"outsideThird","SS1":"srcFlatInsideLeft","FS":"insideThird",
+    "SS2":"srcFlatInsideRight","CB2":"outsideThird",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "3 DOUBLE CLOUD":{
+    "CB1":"srcFlatLeft","SS1":"outsideThird","FS":"insideThird",
+    "SS2":"outsideThird","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "CORNER BLITZ 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookLeft",
+    "SS2":"srcDeepHalfRight","CB2":"blitz",
+    "SAM":"srcHookMid","MIKE":"srcHookLeft","WILL":"srcHookRight"
+  },
+  "COVER 2 LURK":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  },
+  "COVER 3 SKY":{
+    "CB1":"outsideThird","SS1":"srcFlatInsideLeft","FS":"insideThird",
+    "SS2":"srcFlatInsideRight","CB2":"outsideThird",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 4 DROP":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"srcHookRight",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookLeft","WILL":"quarterFlat"
+  },
+  "COVER 4 PALMS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"qbSpy","WILL":"quarterFlat"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"qbSpy","WILL":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 6 INVERT":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"quarterFlat","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "EDGE BLITZ 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookLeft",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "EDGE BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookLeft","FS":"insideThird",
+    "SS2":"srcHookRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz"
+  },
+  "MIKE BLITZ 0":{
+    "MIKE":"blitz"
+  },
+  "MIKE SIM 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookLeft",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookMid","MIKE":"blitz","WILL":"srcHookRight"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  },
+  "TAMPA 2 SPY":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  }
+};
+
+const HIGH_OVER_SOURCE_MAPS={
+  "3 DOUBLE CLOUD":{
+    "CB1":"srcFlatLeft","SS1":"outsideThird","FS":"insideThird",
+    "SS2":"outsideThird","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "3 DOUBLE SKY":{
+    "CB1":"outsideThird","SS1":"srcFlatInsideLeft","FS":"insideThird",
+    "SS2":"srcFlatInsideRight","CB2":"outsideThird",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "BLITZ DT POP":{
+    "FS":"insideThird","MIKE":"srcHookMid","NT":"blitz"
+  },
+  "COVER 2 LURK":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  },
+  "COVER 3 MATCH":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"srcHookLeft",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"srcHookRight","WILL":"quarterFlat"
+  },
+  "EDGE BLITZ 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookLeft",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookLeft","FS":"insideThird",
+    "SS2":"srcHookRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz"
+  },
+  "LB BLITZ 0":{
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  }
+};
+
+const HIGH_ODD_SOURCE_MAPS={
+  "2 INVERT DROP":{
+    "CB1":"srcDeepHalfLeft","SS1":"srcFlatLeft","FS":"srcHookLeft",
+    "SS2":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "3 DOUBLE CLOUD":{
+    "CB1":"srcFlatLeft","SS1":"outsideThird","FS":"insideThird",
+    "SS2":"outsideThird","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "3 DOUBLE SKY":{
+    "CB1":"outsideThird","SS1":"srcFlatInsideLeft","FS":"insideThird",
+    "SS2":"srcFlatInsideRight","CB2":"outsideThird",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 3 MAN":{
+    "CB1":"manHidden","SS1":"manHidden","FS":"insideThird",
+    "SS2":"manHidden","CB2":"manHidden",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 4 PALMS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"qbSpy","WILL":"quarterFlat"
+  },
+  "COVER 4 QUARTERS":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"deepQuarter","CB2":"deepQuarter",
+    "SAM":"quarterFlat","MIKE":"qbSpy","WILL":"quarterFlat"
+  },
+  "COVER 6":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"quarterFlat","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 6 INVERT":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"srcFlatRight","CB2":"srcDeepHalfRight",
+    "SAM":"quarterFlat","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "COVER 6 WILLIE":{
+    "CB1":"deepQuarter","SS1":"deepQuarter","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"manHidden",
+    "SAM":"quarterFlat","MIKE":"srcHookMid","WILL":"srcHookRight"
+  },
+  "HOT BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookLeft","FS":"insideThird",
+    "SS2":"srcHookRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"blitz","WILL":"blitz"
+  },
+  "SAW BLITZ 1":{
+    "FS":"insideThird","SAM":"blitz","WILL":"blitz"
+  },
+  "SAW BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "SLANT BLITZ 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"srcHookLeft",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "SLANT BLITZ 3":{
+    "CB1":"outsideThird","SS1":"srcHookOuterLeft","FS":"insideThird",
+    "SS2":"srcHookOuterRight","CB2":"outsideThird",
+    "SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"
+  },
+  "TAMPA 2":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"qbSpy","WILL":"srcHookRight"
+  },
+  "TAMPA 2 DROP":{
+    "CB1":"srcFlatLeft","SS1":"srcDeepHalfLeft","FS":"middleRead",
+    "SS2":"srcDeepHalfRight","CB2":"srcFlatRight",
+    "SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"
+  }
+};
+
+const MINT_SOURCE_MAPS={"1 DOUBLE WR1":{},"1 DOUBLE WR2":{},"CORNER BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"outsideThird","CB2":"blitz","SUBLB1":"srcHookMid","SUBLB2":"srcHookOuterRight"},"COVER 1 ROBBER PRESS":{"FS":"insideThird","SS":"srcHookMid"},"COVER 2 MAN":{"FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"},"COVER 3 BUZZ MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"srcHookRight","SUBLB2":"srcHookOuterRight"},"COVER 3 BUZZ STRONG":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"srcHookRight","RLE":"srcHookOuterRight"},"COVER 3 CLOUD":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"outsideThird","CB2":"srcFlatRight","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"},"COVER 3 MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"srcHookRight","SUBLB2":"srcHookOuterRight"},"COVER 3 SKY":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird","SUBLB1":"srcHookLeft","SUBLB2":"srcHookMid"},"COVER 4 DROP":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight","RLE":"quarterFlat"},"COVER 4 PALMS":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookMid","SUBLB2":"quarterFlat"},"COVER 4 QUARTERS":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookMid","SUBLB2":"quarterFlat"},"COVER 6":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SUBLB1":"srcHookMid","SUBLB2":"srcHookRight"},"COVER 6 INVERT":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SUBLB1":"srcHookMid","SUBLB2":"srcHookRight"},"COVER 6 WILLIE":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcDeepHalfRight","SUBLB1":"srcHookMid"},"DOUBLE BRACKET":{"SUBLB1":"srcHookMid"},"HOT BLITZ 3":{"CB1":"outsideThird","SCB":"blitz","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"srcHookRight"},"LB CROSS 0":{"SCB":"blitz","SUBLB1":"blitz","SUBLB2":"blitz"},"LB CROSS 3 SHOW 2":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookMid","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"blitz","RLE":"srcHookOuterRight"},"NICKEL 2 TRAP":{"CB1":"srcFlatLeft","SCB":"blitz","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"},"OVERLOAD 3 SKY PRESS":{"CB1":"outsideThird","SCB":"blitz","FS":"srcHookOuterLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"srcHookMid","RLE":"srcHookOuterRight"},"PINCH 0 BLITZ":{"SCB":"blitz","SUBLB1":"blitz"},"SAM MIKE 3 PRESS":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SUBLB1":"srcHookMid","SUBLB2":"blitz"},"TAMPA 2":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SUBLB1":"middleRead","SUBLB2":"srcHookRight"},"TAMPA SIM PRESSURE":{"CB1":"srcFlatLeft","SCB":"blitz","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SUBLB1":"srcHookLeft","SUBLB2":"srcHookMid","RLE":"srcHookRight"}};
+const ODD_GHOST_SOURCE_MAPS={"COVER 1 DBL HOOK":{"FS":"insideThird","SAM":"srcHookLeft","WILL":"srcHookRight"},"COVER 2 INVERT":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SAM":"middleRead","MIKE":"blitz","WILL":"srcHookRight"},"COVER 2 MAN":{"FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","MIKE":"blitz"},"COVER 2 TAMPA":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SAM":"middleRead","MIKE":"blitz","WILL":"srcHookRight"},"COVER 2 TAMPA DROP":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SAM":"middleRead","MIKE":"srcHookMid","WILL":"srcHookRight"},"COVER 3 MATCH":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"blitz","WILL":"srcHookRight"},"COVER 3 SKY":{"CB1":"outsideThird","SCB":"srcFlatInsideLeft","FS":"insideThird","SS":"srcFlatInsideRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"blitz","WILL":"srcHookRight"},"COVER 3 SKY DROP":{"CB1":"outsideThird","SCB":"srcFlatInsideLeft","FS":"insideThird","SS":"srcFlatInsideRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},"COVER 6":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SAM":"srcHookLeft","MIKE":"blitz","WILL":"srcHookRight"},"HOT BLITZ 3":{"CB1":"outsideThird","SCB":"blitz","FS":"insideThird","SS":"blitz","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"blitz","WILL":"srcHookRight"},"LB BLITZ 0":{"SAM":"blitz","MIKE":"blitz","WILL":"blitz"},"MID BLITZ 1":{"FS":"insideThird","MIKE":"blitz","WILL":"blitz"},"MIKE WILL 3":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookMid","MIKE":"blitz","WILL":"blitz"},"SAW BLITZ 1":{"FS":"insideThird","SAM":"blitz","WILL":"blitz"},"TAMPA SIM PRESSURE":{"CB1":"srcFlatLeft","SCB":"blitz","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SAM":"srcHookLeft","MIKE":"middleRead","WILL":"srcHookRight"}};
+const OVER_FLEX_SOURCE_MAPS={
+  "1 DOUBLE WR1":{},
+  "CB BENCH BLITZ":{"CB1":"blitz"},
+  "COVER 1 HOLE":{"FS":"insideThird","SUBLB1":"srcHookMid"},
+  "COVER 1 LB BLITZ":{"FS":"insideThird","SUBLB1":"blitz"},
+  "COVER 1 SS BLITZ":{"FS":"insideThird","SS":"blitz"},
+  "COVER 2 MAN":{"FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight"},
+  "COVER 3 BUZZ MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"srcHookRight","SUBLB2":"srcHookOuterRight"},
+  "COVER 3 CLOUD":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"outsideThird","CB2":"srcFlatRight","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight"},
+  "COVER 3 MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"srcHookRight","SUBLB2":"srcHookOuterRight"},
+  "COVER 3 SKY":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird","SUBLB1":"srcHookLeft","SUBLB2":"srcHookMid"},
+  "COVER 4 DROP FIELD":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookLeft","SUBLB2":"srcHookRight","RLE":"quarterFlat"},
+  "COVER 4 PALMS":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookMid","SUBLB2":"quarterFlat"},
+  "COVER 4 QUARTERS":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookMid","SUBLB2":"quarterFlat"},
+  "COVER 6":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SUBLB1":"srcHookMid","SUBLB2":"srcHookRight"},
+  "COVER 6 WILLIE":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"srcDeepHalfRight","SUBLB1":"srcHookMid"},
+  "COVER 9":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"deepQuarter","CB2":"deepQuarter","SUBLB1":"srcHookMid","SUBLB2":"quarterFlat"},
+  "EDGE BLITZ 0":{"SCB":"blitz"},
+  "HOT BLITZ 3":{"CB1":"outsideThird","SCB":"blitz","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"srcHookRight"},
+  "NICKEL SIM 3":{"CB1":"outsideThird","SCB":"blitz","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SUBLB1":"srcHookLeft","SUBLB2":"srcHookMid","RLE":"srcHookOuterLeft"},
+  "OVER 3 STING":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SUBLB1":"blitz","SUBLB2":"srcHookMid","RLE":"srcHookRight"},
+  "TAMPA 2":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SUBLB1":"middleRead","SUBLB2":"srcHookRight"}
+};
+const STACK_SOURCE_MAPS={
+  "COVER 3":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "COVER 3 DROP":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","RLE":"srcHookOuterRight"},
+  "COVER 3 MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "HOT BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookLeft","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird","SAM":"blitz","MIKE":"blitz","WILL":"blitz"},
+  "LB BLITZ 0":{"SAM":"blitz","MIKE":"blitz","WILL":"blitz"},
+  "MID BLITZ 1":{"FS":"insideThird","MIKE":"blitz","WILL":"blitz"},
+  "MIKE SAM 3":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"blitz","MIKE":"blitz","WILL":"srcHookMid"},
+  "MIKE WILL 2":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SAM":"srcHookMid","MIKE":"blitz","WILL":"blitz"},
+  "MIKE WILL 3":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookMid","MIKE":"blitz","WILL":"blitz"},
+  "SAW BLITZ 1":{"FS":"insideThird","SAM":"blitz","WILL":"blitz"},
+  "SAW BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"},
+  "SS BLITZ 0":{"SS":"blitz"},
+  "SS HOT BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookLeft","FS":"insideThird","SS":"blitz","CB2":"outsideThird","SAM":"blitz","MIKE":"blitz","WILL":"srcHookRight"},
+  "TAMPA SIM PRESSURE":{"CB1":"srcFlatLeft","SCB":"blitz","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SAM":"srcHookLeft","MIKE":"middleRead","WILL":"srcHookRight"},
+  "WILL SAM 3":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"}
+};
+const SPLIT_SOURCE_MAPS={
+  "COVER 1 SS BLITZ":{"FS":"insideThird","SS":"blitz"},
+  "COVER 2 INVERT":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcFlatRight","CB2":"srcDeepHalfRight","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "COVER 3 MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "COVER 3 SKY":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "DOUBLE EDGE BLITZ":{"FS":"insideThird","SAM":"blitz","WILL":"blitz"},
+  "FIRE ZONE 3":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"},
+  "HOT BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookLeft","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird","SAM":"blitz","MIKE":"blitz","WILL":"blitz"},
+  "INSIDE BLITZ":{"FS":"insideThird","MIKE":"blitz","WILL":"blitz"},
+  "ZONE BLITZ":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight","RLE":"srcHookOuterRight"}
+};
+const PENNY_SOURCE_MAPS={
+  "3 SAM WILL BLITZ":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"blitz","MIKE":"srcHookMid","WILL":"blitz"},
+  "CORNER BLITZ 2":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"blitz","SAM":"srcHookMid","MIKE":"srcHookLeft","WILL":"srcHookRight"},
+  "COVER 1 ROBBER":{"FS":"insideThird","SS":"srcHookMid"},
+  "COVER 3 BUZZ":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"srcHookLeft","SS":"insideThird","CB2":"outsideThird","SAM":"srcHookMid","MIKE":"srcHookRight","WILL":"srcHookOuterRight"},
+  "COVER 3 MATCH":{"CB1":"outsideThird","SCB":"srcHookOuterLeft","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "COVER 3 SKY":{"CB1":"outsideThird","SCB":"curlFlat","FS":"insideThird","SS":"curlFlat","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "COVER 4 QUARTERS":{"CB1":"deepQuarter","SCB":"quarterFlat","FS":"deepQuarter","SS":"deepQuarter","CB2":"deepQuarter","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"quarterFlat"},
+  "COVER 9":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"deepQuarter","CB2":"deepQuarter","SAM":"srcHookMid","MIKE":"srcHookRight","WILL":"quarterFlat"},
+  "COVER HOLE 1":{"FS":"insideThird","MIKE":"srcHookMid"},
+  "DOUBLE DOUBLE":{},
+  "HOT BLITZ 3":{"CB1":"outsideThird","SCB":"srcHookLeft","FS":"insideThird","SS":"srcHookRight","CB2":"outsideThird","SAM":"blitz","MIKE":"blitz","WILL":"blitz"},
+  "MIKE BLITZ 0":{"MIKE":"blitz"},
+  "MIKE BLITZ 1":{"FS":"insideThird","MIKE":"blitz"},
+  "SAW BLITZ 1":{"FS":"insideThird","SAM":"blitz","WILL":"blitz"},
+  "SLOT BLITZ 3":{"CB1":"outsideThird","SCB":"blitz","FS":"insideThird","SS":"srcHookOuterRight","CB2":"outsideThird","SAM":"srcHookLeft","MIKE":"srcHookMid","WILL":"srcHookRight"},
+  "TAMPA 2":{"CB1":"srcFlatLeft","SCB":"srcHookLeft","FS":"srcDeepHalfLeft","SS":"srcDeepHalfRight","CB2":"srcFlatRight","SAM":"srcHookLeft","MIKE":"middleRead","WILL":"srcHookRight"}
+};
+function sourceVerifiedAssignments(players,formation=state.formation,play=state.play){
+  if(!isSourceVerified(formation,play))return null;
+  const a=sourceBase(players),right=state.strength==="right";
+  if(formation==="4-2-5 Under"){
+    const map=UNDER425_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="4-2-5 Over G"){
+    const map=OVERG425_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="4-2-5 Even"){
+    const map=EVEN425_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="4-2-5 3 High"){
+    const map=HIGH425_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Under 4 Tech"){
+    const map=UNDER4_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Under"){
+    const map=UNDER34_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Tite 5 Tech"){
+    const map=TITE5_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Tite"){
+    const map=TITE34_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Over Ed"){
+    const map=OVER_ED_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Over"){
+    const map=OVER34_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Odd"){
+    const map=ODD34_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Even"){
+    const map=EVEN34_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Bear"){
+    const map=BEAR_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-4 Grizzly"){
+    const map=GRIZZLY_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 3 High Penny"){
+    const map=HIGH_PENNY_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 3 High Over"){
+    const map=HIGH_OVER_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 3 High Odd"){
+    const map=HIGH_ODD_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Odd Ghost"){
+    const map=ODD_GHOST_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Penny"){
+    const map=PENNY_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Split"){
+    const map=SPLIT_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Stack"){
+    const map=STACK_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Over Flex"){
+    const map=OVER_FLEX_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation==="3-3-5 Mint"){
+    const map=MINT_SOURCE_MAPS[play];
+    if(!map)return null;
+    Object.entries(map).forEach(([id,key])=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key});
+    return a;
+  }
+  if(formation!=="3-3-5 3 High")return null;
+  const set=(id,key)=>{if(Object.prototype.hasOwnProperty.call(a,id))a[id]=key};
+  const setDL=()=>players.filter(p=>p[3]==="DL").forEach(p=>set(p[0],"blitz"));
+
+  if(play==="3 DOUBLE BUZZ"){
+    set("CB1","outsideThird");set("SS1","srcFlatInsideLeft");set("FS","insideThird");
+    set("SS2","srcFlatInsideRight");set("CB2","outsideThird");
+    set("SAM","srcHookLeft");set("MIKE","srcHookMid");set("WILL","srcHookRight");
+  }else if(play==="3 DOUBLE CLOUD"){
+    set("CB1","srcFlatLeft");set("SS1","outsideThird");set("FS","insideThird");
+    set("SS2","outsideThird");set("CB2","srcFlatRight");
+    set("SAM","srcHookLeft");set("MIKE","srcHookMid");set("WILL","srcHookRight");
+  }else if(play==="COVER 4 DROP"){
+    ["CB1","SS1","SS2","CB2"].forEach(id=>set(id,"deepQuarter"));
+    set("SAM","quarterFlat");set("WILL","quarterFlat");
+    set("FS","srcHookRight");set("MIKE","srcHookLeft");
+  }else if(play==="COVER 4 PALMS"||play==="COVER 4 QUARTERS"){
+    ["CB1","SS1","SS2","CB2"].forEach(id=>set(id,"deepQuarter"));
+    set("SAM","quarterFlat");set("WILL","quarterFlat");
+    set("FS","middleRead");set("MIKE","qbSpy");
+  }else if(play==="TAMPA 2"||play==="TAMPA 2 SPY"){
+    set("CB1","srcFlatLeft");set("SS1","srcDeepHalfLeft");set("FS","middleRead");
+    set("SS2","srcDeepHalfRight");set("CB2","srcFlatRight");
+    set("SAM","srcHookLeft");set("MIKE","qbSpy");set("WILL","srcHookRight");
+  }else if(play==="HOT BLITZ 3"){
+    set("CB1","outsideThird");set("SS1","srcHookLeft");set("FS","insideThird");
+    set("SS2","srcHookRight");set("CB2","outsideThird");
+    ["SAM","MIKE","WILL"].forEach(id=>set(id,"blitz"));
+  }else if(play==="SAW BLITZ 1"){
+    set("FS","insideThird");
+    ["CB1","SS1","MIKE","SS2","CB2"].forEach(id=>set(id,"manHidden"));
+    set("SAM","blitz");set("WILL","blitz");
+  }else if(play==="SAW BLITZ 3"){
+    set("CB1","outsideThird");set("SS1","srcHookOuterLeft");set("FS","insideThird");
+    set("SS2","srcHookOuterRight");set("CB2","outsideThird");set("MIKE","srcHookMid");
+    set("SAM","blitz");set("WILL","blitz");
+  }else if(play==="COVER 6"){
+    if(!right){
+      set("CB1","deepQuarter");set("SS1","deepQuarter");set("SAM","quarterFlat");
+      set("FS","middleRead");set("MIKE","qbSpy");set("WILL","srcHookRight");
+      set("SS2","srcDeepHalfRight");set("CB2","srcFlatRight");
+    }else{
+      set("CB2","deepQuarter");set("SS2","deepQuarter");set("WILL","quarterFlat");
+      set("FS","middleRead");set("MIKE","qbSpy");set("SAM","srcHookLeft");
+      set("SS1","srcDeepHalfLeft");set("CB1","srcFlatLeft");
+    }
+  }else if(play==="COVER 6 INVERT"){
+    if(!right){
+      set("CB1","deepQuarter");set("SS1","deepQuarter");set("SAM","quarterFlat");
+      set("FS","middleRead");set("MIKE","srcHookMid");set("SS2","srcHookOuterRight");
+      set("CB2","srcDeepHalfRight");set("WILL","blitz");
+    }else{
+      set("CB2","deepQuarter");set("SS2","deepQuarter");set("WILL","quarterFlat");
+      set("FS","middleRead");set("MIKE","srcHookMid");set("SS1","srcHookOuterLeft");
+      set("CB1","srcDeepHalfLeft");set("SAM","blitz");
+    }
+  }else if(play==="CORNER BLITZ 2"){
+    if(right){
+      set("CB1","srcFlatLeft");set("SS1","srcDeepHalfLeft");set("FS","srcDeepHalfRight");
+      set("SS2","srcHookOuterRight");set("CB2","blitz");
+      set("SAM","srcHookLeft");set("MIKE","srcHookMid");set("WILL","blitz");
+    }else{
+      set("CB2","srcFlatRight");set("SS2","srcDeepHalfRight");set("FS","srcDeepHalfLeft");
+      set("SS1","srcHookOuterLeft");set("CB1","blitz");
+      set("WILL","srcHookRight");set("MIKE","srcHookMid");set("SAM","blitz");
+    }
+  }else if(play==="EDGE BLITZ 2"){
+    if(right){
+      set("CB1","srcFlatLeft");set("SS1","srcDeepHalfLeft");set("SAM","srcHookLeft");
+      set("FS","srcHookMid");set("SS2","srcDeepHalfRight");set("CB2","srcHookOuterRight");
+      set("MIKE","blitz");set("WILL","blitz");
+    }else{
+      set("CB2","srcFlatRight");set("SS2","srcDeepHalfRight");set("WILL","srcHookRight");
+      set("FS","srcHookMid");set("SS1","srcDeepHalfLeft");set("CB1","srcHookOuterLeft");
+      set("MIKE","blitz");set("SAM","blitz");
+    }
+  }else if(play==="EDGE BLITZ 3"){
+    if(right){
+      set("CB1","outsideThird");set("SS1","insideThird");set("SAM","srcHookLeft");
+      set("FS","srcHookMid");set("SS2","srcHookOuterRight");set("CB2","outsideThird");
+      set("MIKE","blitz");set("WILL","blitz");
+    }else{
+      set("CB2","outsideThird");set("SS2","insideThird");set("WILL","srcHookRight");
+      set("FS","srcHookMid");set("SS1","srcHookOuterLeft");set("CB1","outsideThird");
+      set("MIKE","blitz");set("SAM","blitz");
+    }
+  }
+  setDL();
+  return a;
+}
 function getPlayMaps(){
   try{return JSON.parse(localStorage.getItem("cfb27-playbook-lab-v4-maps")||"{}")}
   catch{return{}}
@@ -789,7 +2651,8 @@ function savedPlayMap(){
 }
 function mapStatusFor(formation,play){
   const record=mapRecordFor(formation,play);
-  return record?record.status:"unmapped";
+  if(record)return record.status;
+  return isSourceVerified(formation,play)?"mapped":"unmapped";
 }
 
 function getMyPlaybook(){
@@ -847,24 +2710,27 @@ function hasOverride(playerId){
 function assignmentSourceLabel(){
   const record=savedPlayMap();
   if(record)return record.status==="partial"?"Draft play map":"Verified play map";
-  return "Auto-shell base";
+  if(isSourceVerified())return "Source-verified play art";
+  return "Auto-shell inference";
 }
 
 function inferType(name){
   const n=name.toUpperCase();
   if(/BLITZ|FIRE|STING|DOG|PRESSURE|CRASH|SHOOT|LOOP|SMOKE|GAPS|GUTS|ENGAGE|STUNT|ZONE BLITZ|THUNDER|OVERLOAD|PINCH|SAW|SLANT|CASINO|ZERO/.test(n))return "BLITZ";
   if(/PALMS|QUARTERS|MATCH|COVER 6|COVER 9|BRACKET|DOUBLE DOUBLE/.test(n))return "MATCH";
-  if(/COVER 1|COVER 2 MAN| MAN|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "MAN";
+  if(/COVER 1|COVER 2 MAN|COVER 3 MAN| MAN|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "MAN";
   return "ZONE";
 }
 function inferShell(name){
   const n=name.toUpperCase();
+  if(/COVER 2 MAN|COV 2 MAN/.test(n))return "cover2man";
+  if(/COVER 3 MAN/.test(n))return "cover3man";
   if(/PALMS/.test(n))return "palms";
   if(/QUARTERS|COVER 4|PREVENT|MAN 3 DEEP/.test(n))return "quarters";
   if(/COVER 6|COVER 9|BRACKET 9/.test(n))return "cover6";
-  if(/TAMPA 2|COVER 2|2 INVERT|2 TRAP|ROLL 2|2 DROP|2 SINK|2 LURK/.test(n))return "cover2";
-  if(/COVER 3|3 DOUBLE|3 BUZZ|3 SKY|3 CLOUD|3 LOCK|3 SEAM|FIRE ZONE 3|ZONE BLITZ|SHOW 2| 3$/.test(n))return "cover3";
-  if(/COVER 1| 1$|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "cover1";
+  if(/TAMPA 2|COVER 2|COV 2|2 INVERT|2 TRAP|ROLL 2|2 DROP|2 SINK|2 LURK/.test(n))return "cover2";
+  if(/COVER 3|COV 3|3 DOUBLE|3 BUZZ|3 SKY|3 CLOUD|3 LOCK|3 SEAM|FIRE ZONE 3|ZONE BLITZ|SHOW 2| 3$/.test(n))return "cover3";
+  if(/COVER 1|COV 1| 1$|ROBBER|HOLE|DOUBLE WR|DOUBLE SLOT|DOUBLE TE/.test(n))return "cover1";
   if(/ 0$|ZERO|ENGAGE EIGHT|GAPS|GUTS|GL MAN/.test(n))return "cover0";
   return "cover3";
 }
@@ -884,123 +2750,126 @@ function sideId(players,role,left){
   const group=players.filter(p=>p[3]===role).sort((a,b)=>left?a[1]-b[1]:b[1]-a[1]);
   return group[0]?.[0];
 }
+function outsideUnderneath(players,left){
+  const candidates=players.filter(p=>p[3]==="LB"||/SCB/.test(p[0])).sort((a,b)=>left?a[1]-b[1]:b[1]-a[1]);
+  return candidates[0]?.[0];
+}
 function inferAssignments(players,name){
   const ids=new Set(players.map(p=>p[0]));
   const {db,s,lb,dl,outside,slots}=roleArrays(players);
   const a={};
   players.forEach(p=>a[p[0]]=p[3]==="DL"?"blitz":"hookCurl");
-  const shell=inferShell(name);
-  const n=name.toUpperCase();
-  const set=(id,val)=>setIf(a,ids,id,val);
+  const shell=inferShell(name),n=name.toUpperCase(),set=(id,val)=>setIf(a,ids,id,val);
+  const midSafety=midpointId(players,"S"),leftSafety=sideId(players,"S",true),rightSafety=sideId(players,"S",false);
+  const leftUnder=outsideUnderneath(players,true),rightUnder=outsideUnderneath(players,false);
 
-  if(shell==="cover2"){
+  if(shell==="cover2man"){
+    db.forEach(id=>set(id,"manHidden"));lb.forEach(id=>set(id,"manHidden"));s.forEach(id=>set(id,"manHidden"));
+    if(leftSafety)set(leftSafety,"deepHalf");if(rightSafety)set(rightSafety,"deepHalf");
+  }else if(shell==="cover3man"){
+    db.forEach(id=>set(id,"manHidden"));lb.forEach(id=>set(id,"manHidden"));s.forEach(id=>set(id,"manHidden"));
+    if(outside[0])set(outside[0],"outsideThird");if(outside[1])set(outside[1],"outsideThird");if(midSafety)set(midSafety,"insideThird");
+  }else if(shell==="cover2"){
+    const hard=/HARD FLAT/.test(n),trap=/TRAP/.test(n),cloud=/CLOUD|SINK/.test(n);
     if(/INVERT/.test(n)){
       outside.forEach(id=>set(id,"deepHalf"));
-      s.forEach(id=>set(id,"hardFlat"));
+      if(leftSafety)set(leftSafety,hard?"hardFlat":trap?"softSquat":"cloudFlat");
+      if(rightSafety)set(rightSafety,hard?"hardFlat":trap?"softSquat":"cloudFlat");
+      s.filter(id=>id!==leftSafety&&id!==rightSafety).forEach(id=>set(id,"middleRead"));
     }else{
-      if(s[0])set(s[0],"deepHalf");
-      if(s.length>1)set(s[s.length-1],"deepHalf");
-      if(s.length===1)set(s[0],"deepHalf");
-      outside.forEach(id=>set(id,/HARD FLAT/.test(n)?"hardFlat":/CLOUD|SINK|TRAP/.test(n)?"cloudFlat":"hardFlat"));
+      if(leftSafety)set(leftSafety,"deepHalf");if(rightSafety)set(rightSafety,"deepHalf");
+      outside.forEach(id=>set(id,hard?"hardFlat":trap?"softSquat":cloud?"cloudFlat":"hardFlat"));
+      s.filter(id=>id!==leftSafety&&id!==rightSafety).forEach(id=>set(id,"middleRead"));
     }
-    slots.forEach(id=>set(id,/TRAP/.test(n)?"softSquat":"seamFlat"));
-    lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)&&/TAMPA/.test(n)?"middleRead":"hookCurl"));
+    slots.forEach(id=>set(id,trap?"softSquat":"hookCurl"));
+    lb.forEach(id=>set(id,"hookCurl"));
+    if(/TAMPA/.test(n)){const m=midpointId(players,"LB")||midSafety;if(m)set(m,"middleRead")}
     if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
-  }
-
-  if(shell==="cover3"){
-    if(outside[0])set(outside[0],"outsideThird");
-    if(outside[1])set(outside[1],"outsideThird");
-    const middleSafety=midpointId(players,"S");
-    if(middleSafety)set(middleSafety,"insideThird");
-    s.filter(id=>id!==middleSafety).forEach(id=>set(id,/BUZZ/.test(n)?"hookCurl":"curlFlat"));
-    slots.forEach(id=>set(id,/MATCH|SEAM/.test(n)?"seamFlat":/HARD FLAT/.test(n)?"hardFlat":/CLOUD/.test(n)?"cloudFlat":"curlFlat"));
-    lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)?"threeRecHook":"hookCurl"));
+  }else if(shell==="cover3"){
+    if(/3 DOUBLE CLOUD/.test(n)&&s.length>=3){
+      outside.forEach(id=>set(id,"hardFlat"));
+      s.forEach(id=>set(id,"deepThird"));
+      lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)?"threeRecHook":"hookCurl"));
+    }else{
+      if(outside[0])set(outside[0],"outsideThird");if(outside[1])set(outside[1],"outsideThird");
+      if(midSafety)set(midSafety,"insideThird");
+      if(/CLOUD/.test(n)&&s.length>=2){
+        const strongRight=state.strength==="right",strongCorner=strongRight?outside[1]:outside[0],strongSafety=strongRight?rightSafety:leftSafety;
+        if(strongCorner)set(strongCorner,"cloudFlat");if(strongSafety)set(strongSafety,"outsideThird");
+        const otherSafety=s.find(id=>id!==strongSafety);if(otherSafety)set(otherSafety,"insideThird");
+      }
+      s.filter(id=>id!==midSafety&&a[id]!=="outsideThird").forEach(id=>set(id,/BUZZ/.test(n)?"hookCurl":"curlFlat"));
+      slots.forEach(id=>set(id,/MATCH|SEAM/.test(n)?"seamFlat":/HARD FLAT/.test(n)?"hardFlat":/CLOUD/.test(n)?"cloudFlat":"curlFlat"));
+      lb.forEach((id,i)=>set(id,i===Math.floor(lb.length/2)?"threeRecHook":"hookCurl"));
+      if(/HARD FLAT/.test(n)){if(leftUnder)set(leftUnder,"hardFlat");if(rightUnder)set(rightUnder,"hardFlat")}
+    }
     if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
-  }
-
-  if(shell==="quarters"||shell==="palms"){
+  }else if(shell==="quarters"||shell==="palms"){
     outside.forEach(id=>set(id,"deepQuarter"));
     if(s.length>2){
-      const middleSafety=midpointId(players,"S");
-      s.filter(id=>id!==middleSafety).forEach(id=>set(id,"deepQuarter"));
-      if(middleSafety)set(middleSafety,"middleRead");
-    }else{
-      s.forEach(id=>set(id,"deepQuarter"));
-    }
+      s.filter(id=>id!==midSafety).forEach(id=>set(id,"deepQuarter"));if(midSafety)set(midSafety,"middleRead");
+    }else s.forEach(id=>set(id,"deepQuarter"));
     slots.forEach(id=>set(id,shell==="palms"?"quarterFlat":"seamFlat"));
     lb.forEach(id=>set(id,"hookCurl"));
-  }
-
-  if(shell==="cover6"){
-    const quarterLeft=state.strength==="left";
+    if(/DROP/.test(n)){if(leftUnder)set(leftUnder,"quarterFlat");if(rightUnder)set(rightUnder,"quarterFlat")}
+  }else if(shell==="cover6"){
+    let quarterLeft=state.strength==="left";if(/COVER 9|SAMMIE/.test(n))quarterLeft=!quarterLeft;
     if(outside[0])set(outside[0],quarterLeft?"deepQuarter":"cloudFlat");
     if(outside[1])set(outside[1],quarterLeft?"cloudFlat":"deepQuarter");
-    if(s[0])set(s[0],quarterLeft?"deepQuarter":"deepHalf");
-    if(s.length>1)set(s[s.length-1],quarterLeft?"deepHalf":"deepQuarter");
-    slots.forEach(id=>set(id,"quarterFlat"));
-    lb.forEach(id=>set(id,"hookCurl"));
-  }
-
-  if(shell==="cover1"){
-    db.forEach(id=>set(id,"manHidden"));
-    lb.forEach(id=>set(id,"manHidden"));
-    s.forEach(id=>set(id,"manHidden"));
-    const middleSafety=midpointId(players,"S");
-    if(middleSafety)set(middleSafety,"insideThird");
-    const robberSafety=s.find(id=>id!==middleSafety);
-    if(robberSafety&&/ROBBER|HOLE|LURK/.test(n))set(robberSafety,"middleRead");
+    if(leftSafety)set(leftSafety,quarterLeft?"deepQuarter":"deepHalf");
+    if(rightSafety)set(rightSafety,quarterLeft?"deepHalf":"deepQuarter");
+    s.filter(id=>id!==leftSafety&&id!==rightSafety).forEach(id=>set(id,"middleRead"));
+    slots.forEach(id=>set(id,"quarterFlat"));lb.forEach(id=>set(id,"hookCurl"));
+    if(/INVERT/.test(n)){
+      const halfCorner=quarterLeft?outside[1]:outside[0],halfSafety=quarterLeft?rightSafety:leftSafety;
+      if(halfCorner)set(halfCorner,"deepHalf");if(halfSafety)set(halfSafety,"curlFlat");
+    }
+  }else if(shell==="cover1"){
+    db.forEach(id=>set(id,"manHidden"));lb.forEach(id=>set(id,"manHidden"));s.forEach(id=>set(id,"manHidden"));
+    if(midSafety)set(midSafety,"insideThird");
+    const robber=s.find(id=>id!==midSafety);if(robber&&/ROBBER|HOLE|LURK/.test(n))set(robber,"middleRead");
     if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
+  }else if(shell==="cover0"){
+    db.forEach(id=>set(id,"manHidden"));s.forEach(id=>set(id,"manHidden"));lb.forEach(id=>set(id,/GAPS|GUTS|ENGAGE|BLITZ|FIRE/.test(n)?"blitz":"manHidden"));
   }
 
-  if(shell==="cover0"){
-    db.forEach(id=>set(id,"manHidden"));
-    s.forEach(id=>set(id,"manHidden"));
-    lb.forEach(id=>set(id,/GAPS|GUTS|ENGAGE|BLITZ|FIRE/.test(n)?"blitz":"manHidden"));
-  }
-
-  dl.forEach(id=>set(id,"blitz"));
-  applyPressureHints(a,players,n);
-  return a;
+  dl.forEach(id=>set(id,"blitz"));applyPressureHints(a,players,n);return a;
 }
 function applyPressureHints(a,players,n){
-  const ids=new Set(players.map(p=>p[0]));
-  const set=(id,val)=>{if(id&&ids.has(id))a[id]=val};
-  const findExact=(...names)=>players.find(p=>names.some(x=>p[0].includes(x)))?.[0];
-  const leftEdge=sideId(players,"DL",true)||sideId(players,"LB",true);
-  const rightEdge=sideId(players,"DL",false)||sideId(players,"LB",false);
-  const strongLeft=state.strength==="left";
+  const ids=new Set(players.map(p=>p[0])),set=(id,val)=>{if(id&&ids.has(id))a[id]=val};
+  const exact=(...names)=>players.find(p=>names.some(x=>p[0]===x||p[0].startsWith(x)))?.[0];
+  const leftEdge=sideId(players,"DL",true)||sideId(players,"LB",true),rightEdge=sideId(players,"DL",false)||sideId(players,"LB",false);
+  const strongRight=state.strength==="right";
 
-  if(/DBL SAFETY|SAFETY GO/.test(n)){players.filter(p=>p[3]==="S").forEach(p=>set(p[0],"blitz"))}
+  if(/DBL SAFETY|DOUBLE SAFETY|SAFETY GO/.test(n))players.filter(p=>p[3]==="S").forEach(p=>set(p[0],"blitz"));
   else{
-    if(/\bFS\b|FREE FIRE/.test(n))set(findExact("FS"),"blitz");
-    if(/\bSS\b|SAFETY FIRE/.test(n))set(findExact("SS"),"blitz");
+    if(/(?:^| )FS (?:FIRE|BLITZ|SLANT)|FREE FIRE/.test(n))set(exact("FS","FS1"),"blitz");
+    if(/(?:^| )SS (?:FIRE|BLITZ|DOG)|SAFETY FIRE/.test(n))set(exact("SS","SS1","SS2"),"blitz");
   }
   if(/DOUBLE EDGE/.test(n)){set(leftEdge,"blitz");set(rightEdge,"blitz")}
-  else if(/EDGE BLITZ/.test(n))set(strongLeft?leftEdge:rightEdge,"blitz");
+  else if(/EDGE BLITZ|EDGE PINCH/.test(n))set(strongRight?rightEdge:leftEdge,"blitz");
 
-  if(/CORNER|CB /.test(n)){
+  if(/CORNER BLITZ|CB BLITZ|STRG CORNER|WK CORNER/.test(n)){
     const corners=players.filter(p=>p[0]==="CB1"||p[0]==="CB2");
-    const id=strongLeft?corners[0]?.[0]:corners[corners.length-1]?.[0];
-    set(id,"blitz");
+    let useRight=strongRight;if(/WK CORNER/.test(n))useRight=!useRight;
+    set(useRight?corners[corners.length-1]?.[0]:corners[0]?.[0],"blitz");
   }
   if(/NICKEL BLITZ|SLOT BLITZ|DB BLITZ/.test(n)){
-    const slots=players.filter(p=>/SCB/.test(p[0]));
-    if(slots.length)set(strongLeft?slots[0][0]:slots[slots.length-1][0],"blitz");
+    const slots=players.filter(p=>/SCB/.test(p[0]));if(slots.length)set(strongRight?slots[slots.length-1][0]:slots[0][0],"blitz");
   }
-  if(/MIKE/.test(n))set(findExact("MIKE","MLB","SUBLB1"),"blitz");
-  if(/SAM/.test(n))set(findExact("SAM"),"blitz");
-  if(/WILL/.test(n))set(findExact("WILL","SUBLB2"),"blitz");
-  if(/\bLB BLITZ\b|HOT BLITZ|MID BLITZ|INSIDE BLITZ/.test(n)){
-    const m=midpointId(players,"LB");if(m)set(m,"blitz");
-  }
+  if(/\bMIKE\b|\bMLB\b/.test(n))set(exact("MIKE","MLB","SUBLB1"),"blitz");
+  if(/\bSAM\b/.test(n))set(exact("SAM"),"blitz");
+  if(/\bWILL\b/.test(n))set(exact("WILL","SUBLB2"),"blitz");
+  if(/\bLB BLITZ\b|HOT BLITZ|MID BLITZ|INSIDE BLITZ/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"blitz")}
   if(/ALL LB|ENGAGE EIGHT|GUTS|GAPS ALL/.test(n))players.filter(p=>p[3]==="LB"||p[3]==="DL").forEach(p=>set(p[0],"blitz"));
   if(/SPY/.test(n)){const m=midpointId(players,"LB");if(m)set(m,"qbSpy")}
   if(/CONTAIN/.test(n)){set(leftEdge,"qbContain");set(rightEdge,"qbContain")}
 }
 function baseAssignments(players){
   const mapped=savedPlayMap();
-  return mapped?{...mapped.assignments}:inferAssignments(players,state.play);
+  if(mapped)return {...mapped.assignments};
+  const source=sourceVerifiedAssignments(players);
+  return source?{...source}:inferAssignments(players,state.play);
 }
 function currentAssignments(players=clonePlayers()){
   return {...baseAssignments(players),...state.overrides};
@@ -1139,6 +3008,8 @@ function assignmentGeometry(key,player){
   const quarter=x<250?125:x<500?375:x<750?625:875;
   return {
     deepHalf:{type:"deep",tx:left?270:730,ty:62,rx:215,ry:92},
+    srcDeepHalfLeft:{type:"deep",tx:270,ty:62,rx:215,ry:92},
+    srcDeepHalfRight:{type:"deep",tx:730,ty:62,rx:215,ry:92},
     deepThird:{type:"deep",tx:x<335?155:x>665?845:500,ty:70,rx:125,ry:85},
     outsideThird:{type:"deep",tx:left?155:845,ty:70,rx:125,ry:85},
     insideThird:{type:"deep",tx:500,ty:70,rx:125,ry:85},
@@ -1147,6 +3018,15 @@ function assignmentGeometry(key,player){
     vertHook:{type:"under",tx:Math.max(350,Math.min(650,x)),ty:245,rx:76,ry:76},
     threeRecHook:{type:"under",tx:state.strength==="left"?420:580,ty:285,rx:92,ry:62},
     middleRead:{type:"under",tx:500,ty:225,rx:95,ry:85},
+    srcHookLeft:{type:"under",tx:350,ty:305,rx:82,ry:58},
+    srcHookMid:{type:"under",tx:500,ty:285,rx:88,ry:62},
+    srcHookRight:{type:"under",tx:650,ty:305,rx:82,ry:58},
+    srcHookOuterLeft:{type:"under",tx:185,ty:325,rx:78,ry:54},
+    srcHookOuterRight:{type:"under",tx:815,ty:325,rx:78,ry:54},
+    srcFlatLeft:{type:"flat",tx:105,ty:375,rx:82,ry:50},
+    srcFlatRight:{type:"flat",tx:895,ty:375,rx:82,ry:50},
+    srcFlatInsideLeft:{type:"flat",tx:195,ty:335,rx:82,ry:52},
+    srcFlatInsideRight:{type:"flat",tx:805,ty:335,rx:82,ry:52},
     hardFlat:{type:"flat",tx:left?80:920,ty:425,rx:72,ry:45},
     cloudFlat:{type:"flat",tx:left?105:895,ty:350,rx:82,ry:56},
     softSquat:{type:"flat",tx:left?125:875,ty:390,rx:78,ry:55},
@@ -1251,8 +3131,8 @@ function renderField(){
   });
 
   el("diagramTitle").textContent=`${state.formation} — ${state.play||"No play matches filter"}`;
-  const record=savedPlayMap(),type=state.play?inferType(state.play):"—";
-  const mapLabel=record?(record.status==="partial"?"DRAFT / PARTIAL MAP":"VERIFIED PLAY MAP"):"AUTO-SHELL • NOT EXACT PLAY ART";
+  const record=savedPlayMap(),sourceVerified=isSourceVerified(),type=state.play?inferType(state.play):"—";
+  const mapLabel=record?(record.status==="partial"?"DRAFT / PARTIAL MAP":"VERIFIED PLAY MAP"):sourceVerified?"SOURCE-VERIFIED PLAY ART":"AUTO-SHELL • NOT EXACT PLAY ART";
   el("status").innerHTML=`<strong>${mapLabel}</strong>${type} • Strength ${state.strength.toUpperCase()} • ${Object.keys(state.overrides).length} override${Object.keys(state.overrides).length===1?"":"s"}`;
 }
 function renderPlayerGrid(){
@@ -1311,8 +3191,9 @@ function renderSummary(){
   const players=clonePlayers(),assignments=currentAssignments(players);
   const changed=Object.entries(assignments).filter(([id,key])=>differsFromBase(id,key,players));
   if(!changed.length){
-    const c=document.createElement("span");c.className="chip"+(savedPlayMap()?.status==="mapped"?" verified":"");
-    c.textContent=savedPlayMap()?"Saved play map • no manual macro overrides":"Inferred play shell only";
+    const c=document.createElement("span"),record=savedPlayMap(),sourceVerified=isSourceVerified();
+    c.className="chip"+((record?.status==="mapped"||sourceVerified)?" verified":"");
+    c.textContent=record?"Saved play map • no manual macro overrides":sourceVerified?"Source-verified play art • no manual overrides":"Inferred play shell only";
     wrap.appendChild(c);return;
   }
   changed.forEach(([player,key])=>{
@@ -1320,15 +3201,17 @@ function renderSummary(){
   });
 }
 function renderMapping(){
-  const record=state.play?savedPlayMap():null;
+  const record=state.play?savedPlayMap():null,sourceVerified=!!state.play&&isSourceVerified();
   const bar=el("mappingState").closest(".mapping-bar");
-  const status=!state.play?"unmapped":record?(record.status==="partial"?"partial":"mapped"):"unmapped";
+  const status=!state.play?"unmapped":record?(record.status==="partial"?"partial":"mapped"):sourceVerified?"mapped":"unmapped";
   bar.classList.remove("unmapped","partial","mapped");bar.classList.add(status);
   el("mappingState").innerHTML=!state.play
     ? `<strong><span class="status-pill unmapped">No Play</span>No active play</strong>Select a play before saving a map.`
     : record
       ? `<strong><span class="status-pill ${status}">${record.status==="partial"?"Draft":"Verified"}</span>${record.status==="partial"?"Draft / partially mapped":"Verified play map"}</strong>${state.formation} — ${state.play}`
-      : `<strong><span class="status-pill unmapped">Unmapped</span>Auto-shell inference</strong>Save a draft while working, then mark it verified after checking it in game.`;
+      : sourceVerified
+        ? `<strong><span class="status-pill mapped">Source Verified</span>Reviewed play art</strong>${state.formation} — ${state.play}`
+        : `<strong><span class="status-pill unmapped">Unmapped</span>Auto-shell inference</strong>Save a draft while working, then mark it verified after checking it in game.`;
   ["saveDraftMap","savePlayMap"].forEach(id=>{
     el(id).disabled=!state.play;el(id).style.opacity=state.play?"1":".4";
   });
@@ -1526,7 +3409,7 @@ function setModalTab(tab){
   const isHelp=tab==="help";
   el("modalHelpPane").hidden=!isHelp;el("modalReleasePane").hidden=isHelp;
   document.querySelectorAll("[data-modal-tab]").forEach(btn=>btn.classList.toggle("active",btn.dataset.modalTab===tab));
-  el("modalTitle").textContent=isHelp?"Defensive Playbook Lab Help":"CFB 27 Defensive Playbook Lab v4.4";
+  el("modalTitle").textContent=isHelp?"Defensive Playbook Lab Help":"CFB 27 Defensive Playbook Lab v4.28";
 }
 function openModal(tab="help"){
   setModalTab(tab);el("appModal").hidden=false;document.body.style.overflow="hidden";el("closeModal").focus();
