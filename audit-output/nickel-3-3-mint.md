@@ -1,0 +1,28 @@
+# Play-art audit: Nickel 3-3 Mint
+
+- **1 DOUBLE WR1** — HTTP 200 — routes 0 — image `audit-output/nickel-3-3-mint/1-double-wr1.png`
+- **1 DOUBLE WR2** — HTTP 200 — routes 0 — image `audit-output/nickel-3-3-mint/1-double-wr2.png`
+- **3 BUZZ STING PRESS** — HTTP 200 — routes 5 — image `audit-output/nickel-3-3-mint/3-buzz-sting-press.png`
+- **COVER 1 ROBBER PRESS** — HTTP 200 — routes 2 — image `audit-output/nickel-3-3-mint/cover-1-robber-press.png`
+- **COVER 2 MAN** — HTTP 200 — routes 2 — image `audit-output/nickel-3-3-mint/cover-2-man.png`
+- **COVER 3 BUZZ MABLE** — HTTP 200 — routes 6 — image `audit-output/nickel-3-3-mint/cover-3-buzz-mable.png`
+- **COVER 3 BUZZ MATCH** — HTTP 200 — routes 0 — image `audit-output/nickel-3-3-mint/cover-3-buzz-match.jpg`
+- **COVER 3 MATCH** — HTTP 200 — routes 7 — image `audit-output/nickel-3-3-mint/cover-3-match.png`
+- **COVER 3 SKY** — HTTP 200 — routes 7 — image `audit-output/nickel-3-3-mint/cover-3-sky.png`
+- **COVER 4 DROP** — HTTP 200 — routes 6 — image `audit-output/nickel-3-3-mint/cover-4-drop.png`
+- **COVER 4 PALMS** — HTTP 200 — routes 6 — image `audit-output/nickel-3-3-mint/cover-4-palms.png`
+- **COVER 4 QUARTERS** — HTTP 200 — routes 8 — image `audit-output/nickel-3-3-mint/cover-4-quarters.png`
+- **COVER 6** — HTTP 200 — routes 6 — image `audit-output/nickel-3-3-mint/cover-6.png`
+- **COVER 6 WILLIE** — HTTP 200 — routes 5 — image `audit-output/nickel-3-3-mint/cover-6-willie.png`
+- **COVER 9** — HTTP 200 — routes 8 — image `audit-output/nickel-3-3-mint/cover-9.png`
+- **DOUBLE BRACKET** — HTTP 200 — routes 1 — image `audit-output/nickel-3-3-mint/double-bracket.png`
+- **HOT BLITZ BAIL** — HTTP 200 — routes 5 — image `audit-output/nickel-3-3-mint/hot-blitz-bail.png`
+- **LB CROSS 0** — HTTP 200 — routes 0 — image `audit-output/nickel-3-3-mint/lb-cross-0.png`
+- **LB CROSS 3 SHOW 2** — HTTP 200 — routes 4 — image `audit-output/nickel-3-3-mint/lb-cross-3-show-2.png`
+- **NICKEL 2 TRAP** — HTTP 200 — routes 3 — image `audit-output/nickel-3-3-mint/nickel-2-trap.png`
+- **OVERLOAD 3 SKY PRESS** — HTTP 200 — routes 4 — image `audit-output/nickel-3-3-mint/overload-3-sky-press.png`
+- **PINCH 0** — HTTP 200 — routes 0 — image `audit-output/nickel-3-3-mint/pinch-0.png`
+- **SAM MIKE 1** — HTTP 200 — routes 1 — image `audit-output/nickel-3-3-mint/sam-mike-1.png`
+- **SAM MIKE 3 PRESS** — HTTP 200 — routes 5 — image `audit-output/nickel-3-3-mint/sam-mike-3-press.png`
+- **TAMPA 2** — HTTP 200 — routes 5 — image `audit-output/nickel-3-3-mint/tampa-2.png`
+- **TAMPA SIM PRESSURE** — HTTP 200 — routes 4 — image `audit-output/nickel-3-3-mint/tampa-sim-pressure.png`

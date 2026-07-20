@@ -1,43 +1,43 @@
 # Play-art audit: Nickel 2-4
 
-- **1 Double Slot** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-slot.png`
-- **1 Double TE** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-te.png`
-- **1 Double WR1** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-wr1.png`
-- **1 Double WR2** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-wr2.png`
-- **Buck Slant 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/buck-slant-3.png`
-- **Cover 1 Contain** — HTTP 200 — routes 1 — image `audit-output/nickel-2-4/cover-1-contain.png`
-- **Cover 1 Hole** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-hole.png`
-- **Cover 1 Hole Press** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-hole-press.png`
-- **Cover 1 LB Blitz** — HTTP 200 — routes 1 — image `audit-output/nickel-2-4/cover-1-lb-blitz.png`
-- **Cover 1 Robber** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-robber.png`
-- **Cover 1 Robber Press** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-robber-press.png`
-- **Cover 2 Hard Flat** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-2-hard-flat.png`
-- **Cover 2 Invert** — HTTP 200 — routes 4 — image `audit-output/nickel-2-4/cover-2-invert.png`
-- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-2-man.png`
-- **Cover 3 Buzz Match** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-buzz-match.png`
-- **Cover 3 Cloud** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-3-cloud.png`
-- **Cover 3 Hard Flat** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-hard-flat.png`
-- **Cover 3 Match** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-match.png`
-- **Cover 3 Sky** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-sky.png`
-- **Cover 4 Drop Field** — HTTP 200 — routes 8 — image `audit-output/nickel-2-4/cover-4-drop-field.png`
-- **Cover 4 Palms** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-4-palms.png`
-- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-4-quarters.png`
-- **Cover 6** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-6.png`
-- **Cover 6 Willie** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-6-willie.png`
-- **Cover 9 Show 2** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-9-show-2.png`
-- **Cross Sim 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cross-sim-2.png`
-- **DBL Safety Blitz** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/dbl-safety-blitz.png`
-- **Edge Blitz 0** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/edge-blitz-0.png`
-- **Edge Blitz 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/edge-blitz-3.png`
-- **Field Sim 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/field-sim-3.png`
-- **FS Will Blitz 0** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/fs-will-blitz-0.png`
-- **LB Blitz 1** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/lb-blitz-1.jpg`
-- **Nickel 2 Trap** — HTTP 200 — routes 3 — image `audit-output/nickel-2-4/nickel-2-trap.png`
-- **Nickel Sim 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/nickel-sim-2.png`
-- **Over Storm Brave** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/over-storm-brave.png`
-- **Overload 3 Seam** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/overload-3-seam.png`
-- **Roll Cover 2 Invert** — HTTP 200 — routes 8 — image `audit-output/nickel-2-4/roll-cover-2-invert.png`
-- **Roll Cover 3 Cloud** — HTTP 200 — routes 10 — image `audit-output/nickel-2-4/roll-cover-3-cloud.png`
-- **Silver Shoot Pinch** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/silver-shoot-pinch.png`
-- **Sim Pressure 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/sim-pressure-3.png`
-- **Tampa 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/tampa-2.png`
+- **1 DOUBLE SLOT** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-slot.png`
+- **1 DOUBLE TE** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-te.png`
+- **1 DOUBLE WR1** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-wr1.png`
+- **1 DOUBLE WR2** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/1-double-wr2.png`
+- **BUCK SLANT 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/buck-slant-3.png`
+- **COVER 1 CONTAIN** — HTTP 200 — routes 1 — image `audit-output/nickel-2-4/cover-1-contain.png`
+- **COVER 1 HOLE** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-hole.png`
+- **COVER 1 HOLE PRESS** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-hole-press.png`
+- **COVER 1 LB BLITZ** — HTTP 200 — routes 1 — image `audit-output/nickel-2-4/cover-1-lb-blitz.png`
+- **COVER 1 ROBBER** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-robber.png`
+- **COVER 1 ROBBER PRESS** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-1-robber-press.png`
+- **COVER 2 HARD FLAT** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-2-hard-flat.png`
+- **COVER 2 INVERT** — HTTP 200 — routes 4 — image `audit-output/nickel-2-4/cover-2-invert.png`
+- **COVER 2 MAN** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4/cover-2-man.png`
+- **COVER 3 BUZZ MATCH** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-buzz-match.png`
+- **COVER 3 CLOUD** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-3-cloud.png`
+- **COVER 3 HARD FLAT** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-hard-flat.png`
+- **COVER 3 MATCH** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-match.png`
+- **COVER 3 SKY** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-3-sky.png`
+- **COVER 4 DROP FIELD** — HTTP 200 — routes 8 — image `audit-output/nickel-2-4/cover-4-drop-field.png`
+- **COVER 4 PALMS** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-4-palms.png`
+- **COVER 4 QUARTERS** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-4-quarters.png`
+- **COVER 6** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-6.png`
+- **COVER 6 WILLIE** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cover-6-willie.png`
+- **COVER 9 SHOW 2** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4/cover-9-show-2.png`
+- **CROSS SIM 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/cross-sim-2.png`
+- **DBL SAFETY BLITZ** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/dbl-safety-blitz.png`
+- **EDGE BLITZ 0** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/edge-blitz-0.png`
+- **EDGE BLITZ 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/edge-blitz-3.png`
+- **FIELD SIM 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/field-sim-3.png`
+- **FS WILL BLITZ 0** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/fs-will-blitz-0.png`
+- **LB BLITZ 1** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/lb-blitz-1.jpg`
+- **NICKEL 2 TRAP** — HTTP 200 — routes 3 — image `audit-output/nickel-2-4/nickel-2-trap.png`
+- **NICKEL SIM 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/nickel-sim-2.png`
+- **OVER STORM BRAVE** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/over-storm-brave.png`
+- **OVERLOAD 3 SEAM** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/overload-3-seam.png`
+- **ROLL COVER 2 INVERT** — HTTP 200 — routes 8 — image `audit-output/nickel-2-4/roll-cover-2-invert.png`
+- **ROLL COVER 3 CLOUD** — HTTP 200 — routes 10 — image `audit-output/nickel-2-4/roll-cover-3-cloud.png`
+- **SILVER SHOOT PINCH** — HTTP 200 — routes 0 — image `audit-output/nickel-2-4/silver-shoot-pinch.png`
+- **SIM PRESSURE 3** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/sim-pressure-3.png`
+- **TAMPA 2** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4/tampa-2.png`

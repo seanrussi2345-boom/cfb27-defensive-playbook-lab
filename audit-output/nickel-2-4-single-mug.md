@@ -1,0 +1,22 @@
+# Play-art audit: Nickel 2-4 Single Mug
+
+- **1 LB DOG** — HTTP 200 — routes 2 — image `audit-output/nickel-2-4-single-mug/1-lb-dog.png`
+- **BLITZ TEX 3 SIM 3** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4-single-mug/blitz-tex-3-sim-3.png`
+- **COV 2 INVERT HARD FLAT** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4-single-mug/cov-2-invert-hard-flat.png`
+- **COV 3 BUZZ MATCH WK** — HTTP 200 — routes 8 — image `audit-output/nickel-2-4-single-mug/cov-3-buzz-match-wk.png`
+- **COVER 1 HOLE** — HTTP 200 — routes 3 — image `audit-output/nickel-2-4-single-mug/cover-1-hole.png`
+- **COVER 2 INVERT** — HTTP 200 — routes 5 — image `audit-output/nickel-2-4-single-mug/cover-2-invert.png`
+- **COVER 2 MAN** — HTTP 200 — routes 3 — image `audit-output/nickel-2-4-single-mug/cover-2-man.png`
+- **COVER 3 BUZZ MATCH** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-3-buzz-match.png`
+- **COVER 3 CLOUD** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4-single-mug/cover-3-cloud.png`
+- **COVER 3 MATCH** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-3-match.png`
+- **COVER 3 SKY PRESS** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-3-sky-press.png`
+- **COVER 4 PALMS** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-4-palms.png`
+- **COVER 4 QUARTERS** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-4-quarters.png`
+- **COVER 6** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4-single-mug/cover-6.png`
+- **COVER 9** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/cover-9.png`
+- **DB BLITZ TEX 3** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/db-blitz-tex-3.png`
+- **DT MIKE LOOP 3** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/dt-mike-loop-3.png`
+- **NICKEL 2 TRAP** — HTTP 200 — routes 4 — image `audit-output/nickel-2-4-single-mug/nickel-2-trap.png`
+- **NICKEL BLITZ 3** — HTTP 200 — routes 7 — image `audit-output/nickel-2-4-single-mug/nickel-blitz-3.png`
+- **TAMPA 2** — HTTP 200 — routes 6 — image `audit-output/nickel-2-4-single-mug/tampa-2.png`
