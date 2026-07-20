@@ -1,0 +1,46 @@
+name: Nickel Final Reconciliation
+
+on:
+  push:
+    branches: [play-art-audit]
+    paths:
+      - audit-batch-input.json
+      - scripts/audit_play_art_batch.py
+      - .github/workflows/nickel-final-reconciliation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: play-art-audit
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python scripts/audit_play_art_batch.py
+      - name: Upload nickel audit package
+        uses: actions/upload-artifact@v4
+        with:
+          name: nickel-final-reconciliation
+          path: |
+            audit-output/nickel-final-reconciliation.json
+            audit-output/nickel-final-reconciliation.md
+            audit-output/nickel-*.json
+            audit-output/nickel-*.md
+            audit-output/nickel-*/**
+          if-no-files-found: error
+          retention-days: 7
+      - name: Commit audit output
+        run: |
+          git config user.name "play-art-audit-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add audit-output
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit final Nickel formations"
+          git push origin HEAD:play-art-audit
