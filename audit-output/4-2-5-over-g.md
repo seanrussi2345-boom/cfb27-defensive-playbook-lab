@@ -1,0 +1,34 @@
+# Play-art audit: 4-2-5 Over G
+
+- **1 Double Slot** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/1-double-slot.png`
+- **1 Double TE** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/1-double-te.png`
+- **1 Double WR1** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/1-double-wr1.png`
+- **1 Double WR2** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/1-double-wr2.png`
+- **Bracket 9 Switch** — HTTP 200 — routes 4 — image `audit-output/4-2-5-over-g/bracket-9-switch.png`
+- **Casino Blitz** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/casino-blitz.png`
+- **Corner Blitz 3** — HTTP 200 — routes 7 — image `audit-output/4-2-5-over-g/corner-blitz-3.png`
+- **Cover 1 Hole** — HTTP 200 — routes 2 — image `audit-output/4-2-5-over-g/cover-1-hole.png`
+- **Cover 2** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/cover-2.png`
+- **Cover 2 Contain** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/cover-2-contain.png`
+- **Cover 2 Man** — HTTP 200 — routes 2 — image `audit-output/4-2-5-over-g/cover-2-man.png`
+- **Cover 3 Buzz Match WK** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/cover-3-buzz-match-wk.png`
+- **Cover 3 Match** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-3-match.png`
+- **Cover 3 Sky** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/cover-3-sky.png`
+- **Cover 4 Palms** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-4-palms.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-6.png`
+- **Cover 6 Invert** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-6-invert.png`
+- **Cover 6 Trap** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-6-trap.png`
+- **Cover 6 Willie** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/cover-6-willie.png`
+- **Cover 9** — HTTP 200 — routes 6 — image `audit-output/4-2-5-over-g/cover-9.png`
+- **Double Bracket** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/double-bracket.png`
+- **Double Bracket Switch** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/double-bracket-switch.png`
+- **LB Blitz** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/lb-blitz.png`
+- **Mike SS 3** — HTTP 200 — routes 7 — image `audit-output/4-2-5-over-g/mike-ss-3.png`
+- **Pinch Blitz** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/pinch-blitz.png`
+- **SS Blitz 2** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/ss-blitz-2.png`
+- **SS Blitz 3** — HTTP 200 — routes 8 — image `audit-output/4-2-5-over-g/ss-blitz-3.png`
+- **SS LB Blitz** — HTTP 200 — routes 0 — image `audit-output/4-2-5-over-g/ss-lb-blitz.png`
+- **WS Blitz 1** — HTTP 200 — routes 1 — image `audit-output/4-2-5-over-g/ws-blitz-1.png`
+- **WS Blitz 2** — HTTP 200 — routes 4 — image `audit-output/4-2-5-over-g/ws-blitz-2.png`
+- **WS Blitz 3** — HTTP 200 — routes 5 — image `audit-output/4-2-5-over-g/ws-blitz-3.png`
