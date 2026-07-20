@@ -1,0 +1,32 @@
+# Play-art audit: Dime 2-3-6
+
+- **1 Double Slot** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/1-double-slot.png`
+- **1 Double TE** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/1-double-te.png`
+- **1 Double WR1** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/1-double-wr1.png`
+- **1 Double WR2** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/1-double-wr2.png`
+- **Cover 1 Hole** — HTTP 200 — routes 3 — image `audit-output/dime-2-3-6/cover-1-hole.png`
+- **Cover 1 LB Blitz** — HTTP 200 — routes 2 — image `audit-output/dime-2-3-6/cover-1-lb-blitz.png`
+- **Cover 1 QB Contain** — HTTP 200 — routes 2 — image `audit-output/dime-2-3-6/cover-1-qb-contain.png`
+- **Cover 1 Robber Show 2** — HTTP 200 — routes 3 — image `audit-output/dime-2-3-6/cover-1-robber-show-2.png`
+- **Cover 2 Invert** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-6/cover-2-invert.png`
+- **Cover 2 Man** — HTTP 200 — routes 3 — image `audit-output/dime-2-3-6/cover-2-man.png`
+- **Cover 3 Match** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-6/cover-3-match.png`
+- **Cover 3 Sky** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/cover-3-sky.png`
+- **Cover 4 Palms** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-6/cover-4-palms.png`
+- **Cover 4 Quarters** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-6/cover-4-quarters.png`
+- **Cover 6** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-6/cover-6.png`
+- **Cover 6 Show 2** — HTTP 200 — routes 7 — image `audit-output/dime-2-3-6/cover-6-show-2.png`
+- **Cover 6 Willie** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/cover-6-willie.png`
+- **DBL Safety Blitz** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/dbl-safety-blitz.png`
+- **Double Bracket** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/double-bracket.png`
+- **Edge Blitz 0** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/edge-blitz-0.png`
+- **Edge Blitz 3** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/edge-blitz-3.png`
+- **Field Sim 3** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/field-sim-3.png`
+- **FS Will Blitz 0** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/fs-will-blitz-0.png`
+- **Man Double Buzz** — HTTP 200 — routes 3 — image `audit-output/dime-2-3-6/man-double-buzz.png`
+- **Nickel 2 Trap** — HTTP 200 — routes 4 — image `audit-output/dime-2-3-6/nickel-2-trap.png`
+- **Over Storm Brave** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/over-storm-brave.png`
+- **Overload 3 Press** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/overload-3-press.png`
+- **Prowl Slant 3 Seam** — HTTP 200 — routes 5 — image `audit-output/dime-2-3-6/prowl-slant-3-seam.png`
+- **Silver Shoot Pinch** — HTTP 200 — routes 1 — image `audit-output/dime-2-3-6/silver-shoot-pinch.png`
+- **Tampa 2** — HTTP 200 — routes 6 — image `audit-output/dime-2-3-6/tampa-2.png`
