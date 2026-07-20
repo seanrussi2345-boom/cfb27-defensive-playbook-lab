@@ -15,10 +15,11 @@ jobs:
       - name: Package audited play art
         uses: actions/upload-artifact@v4
         with:
-          name: 3-3-5-mint-play-art-audit
+          name: 3-3-5-mint-play-art-audit-full
           path: |
             audit-output/3-3-5-mint.json
             audit-output/3-3-5-mint.md
             audit-output/3-3-5-mint/*.png
+            audit-output/3-3-5-mint/*.html
           if-no-files-found: error
           retention-days: 7
