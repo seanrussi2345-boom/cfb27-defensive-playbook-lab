@@ -1,0 +1,93 @@
+name: Run weekly gameplan builder
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  generate-feature-branch:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/weekly-gameplan-builder
+          fetch-depth: 0
+
+      - name: Extract and run feature patch
+        shell: python
+        run: |
+          from pathlib import Path
+          import subprocess
+
+          workflow = Path('.github/workflows/add-weekly-gameplan.yml').read_text(encoding='utf-8').splitlines()
+          start = next(i for i, line in enumerate(workflow) if line.strip() == '- name: Patch weekly gameplan builder and call sheet')
+          run_line = next(i for i in range(start, len(workflow)) if workflow[i].strip() == 'run: |')
+          end = next(i for i in range(run_line + 1, len(workflow)) if workflow[i].strip() == '- name: Validate application structure')
+          code_lines = workflow[run_line + 1:end]
+          code = '\n'.join(line[10:] if line.startswith('          ') else line for line in code_lines) + '\n'
+          Path('/tmp/patch_gameplan.py').write_text(code, encoding='utf-8')
+          subprocess.run(['python', '/tmp/patch_gameplan.py'], check=True)
+
+      - name: Validate generated feature
+        shell: python
+        run: |
+          import re
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          text = Path('index.html').read_text(encoding='utf-8')
+          required = [
+            'id="gameplanPanel"', 'id="gameplanOpponent"', 'id="gameplanSituation"',
+            'id="addCurrentPlayToGameplan"', 'id="addSelectedMacroToGameplan"',
+            'id="gameplanCallSheet"', 'id="printGameplan"',
+            'const GAMEPLAN_STORAGE_KEY="cfb27-playbook-lab-v4-gameplan";',
+            'gameplan:getGameplan()', 'storeGameplan(data.gameplan',
+            'renderUndo();renderGameplan();', '@media print'
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f'Missing gameplan elements: {missing}')
+
+          class IdCollector(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids = []
+              def handle_starttag(self, tag, attrs):
+                  for key, value in attrs:
+                      if key == 'id': self.ids.append(value)
+
+          parser = IdCollector(); parser.feed(text)
+          for item in ['gameplanPanel','gameplanName','gameplanOpponent','gameplanWeek','gameplanSituation','gameplanNote','addCurrentPlayToGameplan','addSelectedMacroToGameplan','gameplanCallSheet','newGameplan','printGameplan']:
+              if parser.ids.count(item) != 1:
+                  raise SystemExit(f'Expected one #{item}, found {parser.ids.count(item)}')
+          if parser.ids.count('libraryView') != 1 or parser.ids.count('macroList') != 1:
+              raise SystemExit('Existing app controls changed unexpectedly.')
+
+          script = re.search(r'<script>(.*)</script>', text, re.S)
+          if not script:
+              raise SystemExit('Could not extract application JavaScript.')
+          Path('/tmp/cfb27-gameplan.js').write_text(script.group(1), encoding='utf-8')
+
+      - name: Validate JavaScript syntax
+        run: node --check /tmp/cfb27-gameplan.js
+
+      - name: Commit feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/add-weekly-gameplan.yml .github/gameplan-trigger.txt
+          git add index.html README.md
+          git commit -m "Add weekly gameplan builder [skip ci]"
+          git push origin agent/weekly-gameplan-builder
+
+      - name: Remove temporary main runner
+        run: |
+          git fetch origin main
+          git checkout main
+          git rm .github/workflows/run-gameplan-builder.yml
+          git commit -m "Remove temporary gameplan runner [skip ci]"
+          git push origin main
