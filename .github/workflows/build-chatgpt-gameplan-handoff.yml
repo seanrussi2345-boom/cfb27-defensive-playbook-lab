@@ -1,0 +1,32 @@
+name: Build ChatGPT gameplan handoff
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/chatgpt-gameplan-handoff
+          fetch-depth: 0
+
+      - name: Build ChatGPT handoff
+        run: python .github/scripts/build_chatgpt_gameplan_handoff.py
+
+      - name: Validate complete JavaScript
+        run: node --check /tmp/cfb27-chatgpt-handoff.js
+
+      - name: Commit clean feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/scripts/build_chatgpt_gameplan_handoff.py
+          git add index.html README.md
+          git commit -m "Add ChatGPT gameplan handoff [skip ci]"
+          git push origin agent/chatgpt-gameplan-handoff
