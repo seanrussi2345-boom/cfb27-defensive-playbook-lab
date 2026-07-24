@@ -1,0 +1,41 @@
+name: Auto commit offensive concepts v2
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  commit-feature-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/offensive-concept-scout-lab
+          fetch-depth: 0
+
+      - name: Build validate and push clean feature
+        run: |
+          set -euxo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/scripts/build_offensive_concept_scout_lab.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'sub_once(r"function saveScoutMatchup\\(\\)\\{.*?\\}", new_save, "save concept matchup")'
+          new = 'sub_once(r"function saveScoutMatchup\\(\\)\\{[^\\n]*\\}", new_save, "save concept matchup")'
+          if old in text:
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+          python .github/scripts/build_offensive_concept_scout_lab.py
+          node --check /tmp/cfb27-offensive-concepts.js
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/scripts/build_offensive_concept_scout_lab.py
+          rm -f offensive-concept-build-diagnostic.txt offensive-concept-build-diagnostic-v2.txt
+          git add -A
+          git status --short
+          git commit -m "Add offensive concept scouting [skip ci]"
+          git push origin HEAD:agent/offensive-concept-scout-lab
