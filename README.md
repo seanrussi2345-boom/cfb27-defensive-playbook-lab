@@ -38,6 +38,7 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - Formation, play-type, and map-status filters
 - Global formation/play search
 - My Playbook favorites
+- Team Playbook view infrastructure with a secondary team selector; verified team mappings reference the existing master play database
 - Player-by-player zone, spy, contain, and rush assignments
 - Draft and verified play maps
 - Ten saved macro slots
