@@ -1,6 +1,8 @@
 name: Build offensive concept scout lab
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,6 +17,19 @@ jobs:
           ref: agent/offensive-concept-scout-lab
           fetch-depth: 0
 
+      - name: Correct saved-matchup patch anchor
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/scripts/build_offensive_concept_scout_lab.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'sub_once(r"function saveScoutMatchup\\(\\)\\{.*?\\}", new_save, "save concept matchup")'
+          new = 'sub_once(r"function saveScoutMatchup\\(\\)\\{[^\\n]*\\}", new_save, "save concept matchup")'
+          if old not in text:
+              raise SystemExit('Saved-matchup patch anchor was not found exactly once.')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Build offensive concept layer
         run: python .github/scripts/build_offensive_concept_scout_lab.py
 
@@ -26,6 +41,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm .github/scripts/build_offensive_concept_scout_lab.py
+          git rm -f offensive-concept-build-diagnostic.txt || true
           git add index.html README.md
           git commit -m "Add offensive concept scouting [skip ci]"
           git push origin agent/offensive-concept-scout-lab
@@ -33,7 +49,7 @@ jobs:
       - name: Remove temporary builder from main
         run: |
           git fetch origin main
-          git checkout main
+          git checkout -B main origin/main
           git rm .github/workflows/build-offensive-concept-scout-lab.yml
           git commit -m "Remove offensive concept scout builder [skip ci]"
           git push origin main
