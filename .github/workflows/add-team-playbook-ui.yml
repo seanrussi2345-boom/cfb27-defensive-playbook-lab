@@ -1,4 +1,4 @@
-name: Add team playbook UI
+name: Populate verified team playbooks
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  patch-app:
+  populate-team-playbooks:
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
@@ -17,106 +17,385 @@ jobs:
         with:
           ref: agent/team-defensive-playbooks
 
-      - name: Patch team playbook infrastructure
+      - name: Add verified Florida State and TCU playbooks
         shell: python
         run: |
+          import json
+          import re
           from pathlib import Path
 
-          path = Path('index.html')
-          text = path.read_text(encoding='utf-8')
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          scheme = json.loads(r'''{
+            "3-4 Tite": [
+              "COVER 1 HOLE",
+              "COVER 3 MATCH",
+              "COVER 3 SKY",
+              "COVER 4 DROP",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "FIELD BLITZ 3",
+              "HOT BLITZ 3",
+              "SAW BLITZ 0",
+              "SAW BLITZ 1",
+              "SAW BLITZ 2",
+              "SAW BLITZ 3",
+              "SS 2 TRAP",
+              "TAMPA 2",
+              "TRIO SKY ZONE"
+            ],
+            "Nickel 2-4 Single Mug": [
+              "1 LB DOG",
+              "BLITZ TEX 3 SIM 3",
+              "COV 2 INVERT HARD FLAT",
+              "COV 3 BUZZ MATCH WK",
+              "COVER 1 HOLE",
+              "COVER 2 INVERT",
+              "COVER 3 BUZZ MATCH",
+              "COVER 3 CLOUD",
+              "COVER 3 MATCH",
+              "COVER 3 SKY PRESS",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "COVER 9",
+              "TAMPA 2"
+            ],
+            "Nickel 3-3 Load Mug": [
+              "COVER 1 LB BLITZ",
+              "COVER 2 MAN",
+              "COVER 3 CLOUD",
+              "COVER 3 MATCH",
+              "COVER 3 SKY",
+              "COVER 6",
+              "COVER 6 WILLIE",
+              "HOT BLITZ 3",
+              "LB BLITZ 0",
+              "LB DE TWIST 3",
+              "NICKEL BLITZ 0",
+              "NICKEL BLITZ 1",
+              "NICKEL BLITZ 2",
+              "NICKEL BLITZ 3",
+              "TAMPA 2"
+            ],
+            "Nickel 3-3 Mint": [
+              "COVER 1 ROBBER PRESS",
+              "COVER 2 MAN",
+              "COVER 3 BUZZ MABLE",
+              "COVER 3 MATCH",
+              "COVER 3 SKY",
+              "COVER 4 DROP",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "COVER 6 WILLIE",
+              "COVER 9",
+              "DOUBLE BRACKET",
+              "LB CROSS 3 SHOW 2",
+              "OVERLOAD 3 SKY PRESS",
+              "PINCH 0",
+              "SAM MIKE 3 PRESS",
+              "TAMPA 2",
+              "TAMPA SIM PRESSURE"
+            ],
+            "Nickel 3-3 Over Jack": [
+              "COVER 1 HOLE",
+              "COVER 1 LB BLITZ",
+              "COVER 2 MAN",
+              "COVER 3 BUZZ MATCH",
+              "COVER 3 CLOUD",
+              "COVER 3 MATCH",
+              "COVER 3 SKY",
+              "COVER 4 DROP FIELD",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "COVER 6 WILLIE",
+              "COVER 9 SHOW 2",
+              "NICKEL SIM 2",
+              "OVER STORM BRAVE",
+              "OVERLOAD 3 SEAM",
+              "SILVER SHOOT PINCH",
+              "TAMPA 2"
+            ],
+            "3-3-5 3 High": [
+              "3 DOUBLE BUZZ",
+              "3 DOUBLE CLOUD",
+              "COVER 4 DROP",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "EDGE BLITZ 2",
+              "EDGE BLITZ 3",
+              "SAW BLITZ 1",
+              "SAW BLITZ 3",
+              "TAMPA 2",
+              "TAMPA 2 SPY"
+            ],
+            "3-3-5 Over Flex": [
+              "COVER 1 HOLE",
+              "COVER 1 LB BLITZ",
+              "COVER 1 SS BLITZ",
+              "COVER 2 MAN",
+              "COVER 3 BUZZ MATCH",
+              "COVER 3 CLOUD",
+              "COVER 3 MATCH",
+              "COVER 3 SKY",
+              "COVER 4 DROP FIELD",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "COVER 9",
+              "EDGE BLITZ 0",
+              "HOT BLITZ 3",
+              "NICKEL SIM 3",
+              "OVER 3 STING",
+              "TAMPA 2"
+            ],
+            "3-3-5 Stack": [
+              "COVER 3",
+              "COVER 3 DROP",
+              "COVER 3 MATCH",
+              "HOT BLITZ 3",
+              "LB BLITZ 0",
+              "MID BLITZ 1",
+              "MIKE SAM 3",
+              "MIKE WILL 2",
+              "MIKE WILL 3",
+              "SAW BLITZ 1",
+              "SAW BLITZ 3",
+              "SS BLITZ 0",
+              "SS HOT BLITZ 3",
+              "TAMPA SIM PRESSURE",
+              "WILL SAM 3"
+            ],
+            "Dime 3-2": [
+              "1 DOUBLE WR1",
+              "1 DOUBLE WR2",
+              "COVER 1 CONTAIN SPY",
+              "COVER 1 ROBBER PRESS",
+              "COVER 2 HARD FLAT",
+              "COVER 2 MAN",
+              "COVER 3 BUZZ MATCH WK",
+              "COVER 3 CLOUD",
+              "COVER 3 HARD FLAT",
+              "COVER 3 LOCK",
+              "COVER 4 DROP",
+              "COVER 4 PALMS",
+              "COVER 4 QUARTERS",
+              "COVER 6",
+              "COVER 6 WILLIE",
+              "DB FIRE 2",
+              "DBL SAFETY GO",
+              "DOUBLE BRACKET",
+              "TAMPA 2",
+              "TAMPA 2 DROP",
+              "ZERO BLITZ"
+            ],
+            "Prevent 3 Deep": [
+              "COVER 3",
+              "MAN 3 DEEP",
+              "PREVENT"
+            ],
+            "Goal Line 5-3": [
+              "GAPS AB",
+              "GAPS ALL",
+              "GAPS ALL LB",
+              "GAPS B",
+              "GL MAN",
+              "MLB GAP A"
+            ],
+            "Goal Line 6-2": [
+              "60 BASE",
+              "60 HALF OUT",
+              "60 OUT",
+              "60 OUT JACKS",
+              "60 PINCH",
+              "GUTS"
+            ]
+          }''')
+          expected_counts = {
+              "3-4 Tite": 15,
+              "Nickel 2-4 Single Mug": 15,
+              "Nickel 3-3 Load Mug": 15,
+              "Nickel 3-3 Mint": 18,
+              "Nickel 3-3 Over Jack": 18,
+              "3-3-5 3 High": 12,
+              "3-3-5 Over Flex": 18,
+              "3-3-5 Stack": 15,
+              "Dime 3-2": 21,
+              "Prevent 3 Deep": 3,
+              "Goal Line 5-3": 6,
+              "Goal Line 6-2": 6,
+          }
+
+          actual_counts = {formation: len(plays) for formation, plays in scheme.items()}
+          if actual_counts != expected_counts:
+              raise SystemExit(f"Unexpected formation counts: {actual_counts}")
+          if sum(actual_counts.values()) != 162:
+              raise SystemExit("The 3-3-5 Zone package must contain exactly 162 formation-play entries.")
+
+          db_match = re.search(r"const PLAY_DB = (\{.*?\});\n\nconst TEAM_PLAYBOOKS", text, re.S)
+          if not db_match:
+              raise SystemExit("Could not locate the master PLAY_DB.")
+          play_db = json.loads(db_match.group(1))
+
+          missing = []
+          for formation, plays in scheme.items():
+              if formation not in play_db:
+                  missing.append(f"formation: {formation}")
+                  continue
+              for play in plays:
+                  if play not in play_db[formation]:
+                      missing.append(f"{formation} — {play}")
+          if missing:
+              raise SystemExit("Team package references missing master entries:\n" + "\n".join(missing))
 
           def replace_once(old, new):
               global text
               if old not in text:
-                  raise SystemExit(f'Missing expected source block: {old[:80]!r}')
+                  raise SystemExit(f"Missing expected source block: {old[:100]!r}")
               text = text.replace(old, new, 1)
 
           replace_once(
-              '.view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}',
-              '.view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}\n.view-indicator.team{border-color:#3f718f;background:#10283a;color:#d2efff}\n.team-playbook-picker[hidden]{display:none}'
+              '<option value="">Team playbooks are being verified</option>',
+              '<option value="">Select a verified team</option>',
+          )
+          replace_once(
+              'The team-playbook framework is ready. Verified team data will be added here without duplicating play art.',
+              'Select Florida State or TCU to load its verified 3-3-5 Zone defensive playbook.',
+          )
+
+          compact_scheme = json.dumps(scheme, separators=(",", ":"))
+          team_constants = (
+              'const TEAM_PLAYBOOK_SCHEMES={\n'
+              '  "3-3-5_ZONE":{name:"3-3-5 Zone",formations:' + compact_scheme + '}\n'
+              '};\n'
+              'const TEAM_PLAYBOOKS={\n'
+              '  FLORIDA_STATE:{name:"Florida State",scheme:"3-3-5 Zone",formations:TEAM_PLAYBOOK_SCHEMES["3-3-5_ZONE"].formations},\n'
+              '  TCU:{name:"TCU",scheme:"3-3-5 Zone",formations:TEAM_PLAYBOOK_SCHEMES["3-3-5_ZONE"].formations}\n'
+              '};'
+          )
+          replace_once("const TEAM_PLAYBOOKS = {};", team_constants)
+
+          replace_once(
+              """function activeTeamPlaybook(){
+            return TEAM_PLAYBOOKS[state.teamPlaybook]||null;
+          }
+          function teamPlaysForFormation(formation){""",
+              """function activeTeamPlaybook(){
+            return TEAM_PLAYBOOKS[state.teamPlaybook]||null;
+          }
+          function teamPlaybookTotals(book=activeTeamPlaybook()){
+            const formations=Object.values(book?.formations||{});
+            return {formations:formations.length,plays:formations.reduce((sum,plays)=>sum+(Array.isArray(plays)?plays.length:0),0)};
+          }
+          function teamPlaysForFormation(formation){""",
           )
 
           replace_once(
-              '      <option value="MY">My Playbook</option>\n    </select>\n    <div class="view-indicator" id="libraryModeIndicator">',
-              '      <option value="MY">My Playbook</option>\n      <option value="TEAM">Team Playbook</option>\n    </select>\n\n    <div class="team-playbook-picker" id="teamPlaybookPicker" hidden>\n      <label>Select Team</label>\n      <select id="teamPlaybook">\n        <option value="">Team playbooks are being verified</option>\n      </select>\n      <div class="library-count" id="teamPlaybookCount">The team-playbook framework is ready. Verified team data will be added here without duplicating play art.</div>\n    </div>\n\n    <div class="view-indicator" id="libraryModeIndicator">'
+              """  else if(state.libraryView==="TEAM"){
+              const team=activeTeamPlaybook();
+              indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;
+            }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;""",
+              """  else if(state.libraryView==="TEAM"){
+              const team=activeTeamPlaybook();
+              const teamTotals=teamPlaybookTotals(team);
+              el("teamPlaybookCount").textContent=team
+                ? `${team.scheme} • ${teamTotals.formations} formations • ${teamTotals.plays} plays`
+                : "Select a verified team.";
+              indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;
+            }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;""",
           )
 
           replace_once(
-              'const FAMILY_ORDER=[',
-              'const TEAM_PLAYBOOKS = {};\n\nconst FAMILY_ORDER=['
+              """  state.libraryView=requested;ensureVisibleSelection();renderAll();
+          };""",
+              """  if(requested==="TEAM"&&!state.teamPlaybook){
+              state.teamPlaybook=Object.entries(TEAM_PLAYBOOKS)
+                .sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""))[0]?.[0]||"";
+              el("teamPlaybook").value=state.teamPlaybook;
+            }
+            state.libraryView=requested;ensureVisibleSelection();renderAll();
+          };""",
           )
 
           replace_once(
-              '  libraryView:"ALL",\n  family:"3-3-5",',
-              '  libraryView:"ALL",\n  teamPlaybook:"",\n  family:"3-3-5",'
+              """Object.entries(TEAM_PLAYBOOKS).forEach(([id,book])=>{
+            const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
+          });""",
+              """Object.entries(TEAM_PLAYBOOKS)
+            .sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""))
+            .forEach(([id,book])=>{
+              const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
+            });""",
           )
 
-          replace_once(
-              'function formationInMyPlaybook(formation){\n  return isFormationFavorite(formation)||favoritePlaysFor(formation).length>0;\n}\nfunction viewFormationsForFamily(family){\n  const all=formationsForFamily(family);\n  return state.libraryView==="ALL"?all:all.filter(formationInMyPlaybook);\n}\nfunction viewPlaysForFormation(formation){\n  const all=PLAY_DB[formation]||[];\n  if(state.libraryView==="ALL")return all;\n  if(isFormationFavorite(formation))return all;\n  return favoritePlaysFor(formation);\n}',
-              'function formationInMyPlaybook(formation){\n  return isFormationFavorite(formation)||favoritePlaysFor(formation).length>0;\n}\nfunction activeTeamPlaybook(){\n  return TEAM_PLAYBOOKS[state.teamPlaybook]||null;\n}\nfunction teamPlaysForFormation(formation){\n  const configured=activeTeamPlaybook()?.formations?.[formation];\n  if(configured===true)return PLAY_DB[formation]||[];\n  return Array.isArray(configured)?configured.filter(play=>PLAY_DB[formation]?.includes(play)):[];\n}\nfunction viewFormationsForFamily(family){\n  const all=formationsForFamily(family);\n  if(state.libraryView==="ALL")return all;\n  if(state.libraryView==="MY")return all.filter(formationInMyPlaybook);\n  return all.filter(formation=>teamPlaysForFormation(formation).length);\n}\nfunction viewPlaysForFormation(formation){\n  const all=PLAY_DB[formation]||[];\n  if(state.libraryView==="ALL")return all;\n  if(state.libraryView==="TEAM")return teamPlaysForFormation(formation);\n  if(isFormationFavorite(formation))return all;\n  return favoritePlaysFor(formation);\n}'
-          )
+          path.write_text(text, encoding="utf-8")
 
-          replace_once(
-              '    const o=document.createElement("option");o.value="";o.textContent="My Playbook is empty";s.appendChild(o);',
-              '    const o=document.createElement("option");o.value="";o.textContent=state.libraryView==="TEAM"?"No verified team playbook selected":"My Playbook is empty";s.appendChild(o);'
-          )
+          readme = Path("README.md")
+          readme_text = readme.read_text(encoding="utf-8")
+          old_line = "- Team Playbook view infrastructure with a secondary team selector; verified team mappings reference the existing master play database"
+          new_line = "- Team Playbook view with verified Florida State and TCU 3-3-5 Zone books (12 formations, 162 plays), referencing the existing master play database"
+          if old_line not in readme_text:
+              raise SystemExit("README team-playbook feature line is missing.")
+          readme.write_text(readme_text.replace(old_line, new_line, 1), encoding="utf-8")
 
-          replace_once(
-              '  indicator.classList.toggle("my",state.libraryView==="MY");\n  indicator.innerHTML=state.libraryView==="MY"\n    ? `<span>Current view</span><strong>★ My Playbook</strong>`\n    : `<span>Current view</span><strong>Full Defensive Library</strong>`;',
-              '  indicator.classList.toggle("my",state.libraryView==="MY");\n  indicator.classList.toggle("team",state.libraryView==="TEAM");\n  const picker=el("teamPlaybookPicker");\n  picker.hidden=state.libraryView!=="TEAM";\n  if(state.libraryView==="MY")indicator.innerHTML=`<span>Current view</span><strong>★ My Playbook</strong>`;\n  else if(state.libraryView==="TEAM"){\n    const team=activeTeamPlaybook();\n    indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;\n  }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;'
-          )
-
-          replace_once(
-              'el("libraryView").onchange=e=>{\n  const requested=e.target.value;\n  if(requested==="MY"&&myPlaybookTotals().formations===0){\n    alert("Add a formation or individual play to My Playbook first.");\n    state.libraryView="ALL";e.target.value="ALL";return;\n  }\n  state.libraryView=requested;ensureVisibleSelection();renderAll();\n};',
-              'el("libraryView").onchange=e=>{\n  const requested=e.target.value;\n  if(requested==="MY"&&myPlaybookTotals().formations===0){\n    alert("Add a formation or individual play to My Playbook first.");\n    state.libraryView="ALL";e.target.value="ALL";return;\n  }\n  state.libraryView=requested;ensureVisibleSelection();renderAll();\n};\nel("teamPlaybook").onchange=e=>{\n  state.teamPlaybook=e.target.value;\n  ensureVisibleSelection();renderAll();\n};'
-          )
-
-          replace_once(
-              'populateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();\nel("libraryView").value=state.libraryView;',
-              'Object.entries(TEAM_PLAYBOOKS).forEach(([id,book])=>{\n  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);\n});\npopulateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();\nel("libraryView").value=state.libraryView;'
-          )
-
-          path.write_text(text, encoding='utf-8')
-
-          readme = Path('README.md')
-          readme_text = readme.read_text(encoding='utf-8')
-          marker = '- My Playbook favorites\n'
-          addition = '- Team Playbook view infrastructure with a secondary team selector; verified team mappings reference the existing master play database\n'
-          if addition not in readme_text:
-              if marker not in readme_text:
-                  raise SystemExit('README feature marker missing')
-              readme_text = readme_text.replace(marker, marker + addition, 1)
-              readme.write_text(readme_text, encoding='utf-8')
-
-      - name: Validate patched application
+      - name: Validate team playbook package
         shell: python
         run: |
+          import json
+          import re
           from pathlib import Path
-          text = Path('index.html').read_text(encoding='utf-8')
+
+          text = Path("index.html").read_text(encoding="utf-8")
           required = [
               'value="TEAM">Team Playbook',
-              'id="teamPlaybook"',
-              'const TEAM_PLAYBOOKS = {};',
-              'function teamPlaysForFormation',
-              'el("teamPlaybook").onchange'
+              'value="">Select a verified team',
+              'FLORIDA_STATE:{name:"Florida State"',
+              'TCU:{name:"TCU"',
+              'scheme:"3-3-5 Zone"',
+              'function teamPlaybookTotals',
+              '${team.scheme} • ${teamTotals.formations} formations • ${teamTotals.plays} plays',
           ]
           missing = [item for item in required if item not in text]
           if missing:
-              raise SystemExit(f'Missing expected team-playbook code: {missing}')
+              raise SystemExit(f"Missing expected team-playbook code: {missing}")
           if text.count('id="libraryView"') != 1:
-              raise SystemExit('Library menu was duplicated or removed')
+              raise SystemExit("Library menu was duplicated or removed.")
           if text.count('id="teamPlaybook"') != 1:
-              raise SystemExit('Team selector was duplicated')
-          print('Team playbook infrastructure validation passed.')
+              raise SystemExit("Team selector was duplicated.")
+          if text.count('const TEAM_PLAYBOOK_SCHEMES=') != 1:
+              raise SystemExit("Shared scheme data was duplicated or removed.")
 
-      - name: Commit generated changes
+          scheme_match = re.search(
+              r'const TEAM_PLAYBOOK_SCHEMES=\{\n  "3-3-5_ZONE":\{name:"3-3-5 Zone",formations:(\{.*?\})\}\n\};',
+              text,
+              re.S,
+          )
+          if not scheme_match:
+              raise SystemExit("Could not read the generated 3-3-5 Zone data.")
+          formations = json.loads(scheme_match.group(1))
+          if len(formations) != 12 or sum(len(plays) for plays in formations.values()) != 162:
+              raise SystemExit("Generated team-playbook totals are incorrect.")
+
+          script_match = re.search(r"<script>(.*)</script>", text, re.S)
+          if not script_match:
+              raise SystemExit("Could not extract the application script.")
+          Path("/tmp/cfb27-app.js").write_text(script_match.group(1), encoding="utf-8")
+          print("Verified 2 teams, 1 shared scheme, 12 formations, and 162 plays.")
+
+      - name: Check JavaScript syntax
+        run: node --check /tmp/cfb27-app.js
+
+      - name: Remove temporary patch workflow
+        run: git rm .github/workflows/add-team-playbook-ui.yml
+
+      - name: Commit verified team playbooks
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html README.md
-          if git diff --cached --quiet; then
-            echo "No generated changes to commit."
-            exit 0
-          fi
-          git commit -m "Add team defensive playbook selector [skip ci]"
+          git commit -m "Add verified Florida State and TCU playbooks [skip ci]"
           git push
