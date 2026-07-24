@@ -1,0 +1,55 @@
+name: Populate all team defensive playbooks
+
+on:
+  push:
+    branches:
+      - agent/team-defensive-playbooks
+    paths:
+      - .github/scripts/populate_all_team_playbooks.py
+
+permissions:
+  contents: write
+
+jobs:
+  populate:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/team-defensive-playbooks
+
+      - name: Install scraper dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4
+
+      - name: Populate and validate all team playbooks
+        run: python .github/scripts/populate_all_team_playbooks.py
+
+      - name: Validate generated JavaScript
+        run: node --check /tmp/cfb27-app.js
+
+      - name: Confirm audit totals
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          audit = json.loads(Path('team-playbook-audit.json').read_text())
+          assert audit['teams'] == 138, audit
+          assert audit['schemes'] == 31, audit
+          assert audit['activeSchemes'] == 30, audit
+          assert audit['schemeFormationMemberships'] > 0, audit
+          assert audit['schemePlayMemberships'] > 0, audit
+          print(audit)
+
+      - name: Remove temporary generator files
+        run: |
+          git rm .github/workflows/populate-all-team-playbooks.yml
+          git rm .github/scripts/populate_all_team_playbooks.py
+
+      - name: Commit complete team playbook library
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html README.md team-playbook-audit.json
+          git commit -m "Add all 138 team defensive playbooks [skip ci]"
+          git push
