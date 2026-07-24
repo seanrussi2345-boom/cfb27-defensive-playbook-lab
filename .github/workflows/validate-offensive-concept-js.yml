@@ -1,0 +1,50 @@
+name: Validate offensive concept JavaScript
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/offensive-concept-scout-lab
+          fetch-depth: 0
+
+      - name: Run patch and JavaScript validation
+        run: |
+          set +e
+          python .github/scripts/build_offensive_concept_scout_lab.py > /tmp/patch-output.txt 2>&1
+          patch_status=$?
+          if [ $patch_status -eq 0 ]; then
+            node --check /tmp/cfb27-offensive-concepts.js > /tmp/node-output.txt 2>&1
+            node_status=$?
+          else
+            node_status=99
+            echo "Node check skipped because patch failed." > /tmp/node-output.txt
+          fi
+          {
+            echo "patch_status=$patch_status"
+            cat /tmp/patch-output.txt
+            echo "node_status=$node_status"
+            cat /tmp/node-output.txt
+          } > offensive-concept-build-diagnostic.txt
+          cat offensive-concept-build-diagnostic.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add offensive-concept-build-diagnostic.txt
+          git commit -m "Capture offensive concept JavaScript validation [skip ci]"
+          git push origin agent/offensive-concept-scout-lab
+
+      - name: Remove temporary validator
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          git rm .github/workflows/validate-offensive-concept-js.yml
+          git commit -m "Remove offensive concept JavaScript validator [skip ci]"
+          git push origin main
