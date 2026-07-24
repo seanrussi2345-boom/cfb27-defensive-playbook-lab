@@ -40,3 +40,5 @@ jobs:
           git add index.html README.md
           git commit -m "Add offensive concept scouting [skip ci]"
           git push origin agent/offensive-concept-scout-lab
+
+# trigger: validated 51-concept build
