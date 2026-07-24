@@ -275,6 +275,19 @@ footer{
 .view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}
 .view-indicator.team{border-color:#3f718f;background:#10283a;color:#d2efff}
 .team-playbook-picker[hidden]{display:none}
+.team-nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.team-nav-grid label{margin-top:8px}
+.team-nav-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.team-nav-actions .favorite-btn{width:100%}
+.team-scheme-field[hidden]{display:none}
+.team-recent{margin-top:8px;padding:8px;border:1px dashed #35516b;border-radius:9px;background:#0b1723}
+.team-recent-title{color:#8fa8bd;font-size:8px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.team-recent-list{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.team-recent-chip{padding:5px 7px;border:1px solid #34516b;border-radius:999px;background:#101f2e;color:#dcecff;cursor:pointer;font-size:8px;line-height:1}
+.team-recent-chip:hover{border-color:#65d9ef;background:#163249}
+.team-result-label{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.team-result-label span{color:#7f96ab;font-size:8px;font-weight:700}
+@media(max-width:850px){.team-nav-grid,.team-nav-actions{grid-template-columns:1fr}}
 .legend i.line-key{display:inline-block;width:24px;height:0;border-radius:0;background:none;border-top:3px dashed #d9e8f5}
 .legend i.line-key.override{border-top-style:solid;border-top-width:4px;border-top-color:#ffdc7b}
 .selected-card{position:relative;overflow:hidden}
@@ -431,10 +444,37 @@ footer{
     </select>
 
     <div class="team-playbook-picker" id="teamPlaybookPicker" hidden>
-      <label>Select Team</label>
-      <select id="teamPlaybook">
+      <label>Find Team</label>
+      <input id="teamPlaybookSearch" type="search" maxlength="80" placeholder="Search team or defensive scheme…">
+
+      <div class="team-nav-grid">
+        <div>
+          <label>Browse Teams</label>
+          <select id="teamBrowseMode">
+            <option value="ALL">All Teams</option>
+            <option value="FAVORITES">Favorite Teams</option>
+            <option value="RECENT">Recently Viewed</option>
+            <option value="SCHEME">By Defensive Scheme</option>
+          </select>
+        </div>
+        <div class="team-scheme-field" id="teamSchemeField" hidden>
+          <label>Defensive Scheme</label>
+          <select id="teamSchemeFilter"></select>
+        </div>
+      </div>
+
+      <label class="team-result-label">Team Results <span id="teamNavigatorMatchCount">138 teams</span></label>
+      <select id="teamPlaybook" size="5">
         <option value="">Select a verified team</option>
       </select>
+      <div class="team-nav-actions">
+        <button class="favorite-btn" id="toggleTeamFavorite" type="button">☆ Favorite Team</button>
+        <button class="favorite-btn" id="clearTeamNavigator" type="button">Clear Search &amp; Filters</button>
+      </div>
+      <div class="team-recent" id="teamRecentPanel">
+        <div class="team-recent-title">Recently Viewed</div>
+        <div class="team-recent-list" id="teamRecentList"></div>
+      </div>
       <div class="library-count" id="teamPlaybookCount">Select any team to load its CFB 27 defensive playbook.</div>
     </div>
 
@@ -713,7 +753,11 @@ footer{
               <p>A macro slot stores the formation, actual play, passing strength, and complete assignment package. The ten slots match the active defensive adjustment limit documented by EA.</p>
             </article>
             <article class="help-card">
-              <h3>5. Build a weekly gameplan</h3>
+              <h3>5. Navigate team playbooks</h3>
+              <p>Search all 138 teams, pin favorites, reopen recent teams, or browse every team using the same defensive scheme.</p>
+            </article>
+            <article class="help-card">
+              <h3>6. Build a weekly gameplan</h3>
               <p>Select an opponent and situation, then add the current play or a saved macro. Reorder calls, reload them into the field, and print a clean call sheet.</p>
             </article>
             <article class="help-card full">
@@ -722,7 +766,7 @@ footer{
                 <li>Saved data stays in Chrome on the current device.</li>
                 <li>Use <strong>Export Backup</strong> before clearing browser data or moving computers.</li>
                 <li>Send the HTML file to another user; they can open it directly in Chrome.</li>
-                <li>Use <strong>Import Backup</strong> to transfer macros, play maps, My Playbook, and the weekly gameplan.</li>
+                <li>Use <strong>Import Backup</strong> to transfer macros, play maps, My Playbook, the weekly gameplan, and team navigator preferences.</li>
                 <li><strong>Reset Entire App</strong> deletes only this tool's locally saved macros, maps, favorites, and weekly gameplan.</li>
               </ul>
             </article>
@@ -734,6 +778,7 @@ footer{
         </div>
         <div class="modal-pane" id="modalReleasePane" hidden>
           <div class="release-list">
+            <article class="release-item"><strong>Searchable team playbook navigator</strong><span>Search all teams, pin favorites, reopen recent playbooks, and browse teams by shared defensive scheme.</span></article>
             <article class="release-item"><strong>Weekly gameplan builder and printable call sheet</strong><span>Create one active opponent plan, organize calls by situation, add current plays or saved macros, reload any call, and print a clean game-day sheet.</span></article>
             <article class="release-item"><strong>Complete built-in formation coverage</strong><span>Built-in mappings now cover 1,243 of 1,245 formation-play entries. The two unavailable Cover 9 source assets remain intentionally unmapped. Source-reviewed and legacy-source-confirmed mappings are labeled separately; no built-in mapped formations remain review-pending.</span></article>
             <article class="release-item"><strong>Clearer base versus override play art</strong><span>Base responsibilities use dashed lines. Manual macro overrides use heavier solid gold lines, enhanced player highlighting, and override markers.</span></article>
@@ -5470,6 +5515,95 @@ function differsFromBase(player,key,players){
   return baseAssignments(players)[player]!==key;
 }
 
+const TEAM_NAV_STORAGE_KEY="cfb27-playbook-lab-v4-teamnav";
+function teamEntriesSorted(){
+  return Object.entries(TEAM_PLAYBOOKS).sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""));
+}
+function teamSchemeNames(){
+  return [...new Set(teamEntriesSorted().map(([,team])=>team.scheme).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
+function emptyTeamNavigator(){return{favorites:[],recent:[],mode:"ALL",scheme:"",query:""}}
+function normalizeTeamNavigator(raw){
+  const validIds=new Set(Object.keys(TEAM_PLAYBOOKS)),validModes=new Set(["ALL","FAVORITES","RECENT","SCHEME"]),validSchemes=new Set(teamSchemeNames());
+  const uniqueValid=values=>[...new Set(Array.isArray(values)?values:[])].filter(id=>validIds.has(id));
+  return {
+    favorites:uniqueValid(raw?.favorites),
+    recent:uniqueValid(raw?.recent).slice(0,6),
+    mode:validModes.has(raw?.mode)?raw.mode:"ALL",
+    scheme:validSchemes.has(raw?.scheme)?raw.scheme:"",
+    query:typeof raw?.query==="string"?raw.query.slice(0,80):""
+  };
+}
+function getTeamNavigator(){
+  try{return normalizeTeamNavigator(JSON.parse(localStorage.getItem(TEAM_NAV_STORAGE_KEY)||"{}"))}
+  catch{return emptyTeamNavigator()}
+}
+function storeTeamNavigator(nav){
+  const normalized=normalizeTeamNavigator(nav);localStorage.setItem(TEAM_NAV_STORAGE_KEY,JSON.stringify(normalized));return normalized;
+}
+function teamNavigatorEntries(nav=getTeamNavigator()){
+  const query=nav.query.trim().toUpperCase(),favorites=new Set(nav.favorites),all=teamEntriesSorted();
+  let entries=nav.mode==="RECENT"
+    ? nav.recent.map(id=>[id,TEAM_PLAYBOOKS[id]]).filter(([,team])=>team)
+    : all.filter(([id])=>nav.mode!=="FAVORITES"||favorites.has(id))
+         .filter(([,team])=>nav.mode!=="SCHEME"||!nav.scheme||team.scheme===nav.scheme);
+  if(query)entries=entries.filter(([,team])=>`${team.name} ${team.scheme}`.toUpperCase().includes(query));
+  if(nav.mode==="ALL")entries.sort(([aId,a],[bId,b])=>Number(favorites.has(bId))-Number(favorites.has(aId))||(a.name||"").localeCompare(b.name||""));
+  return entries;
+}
+function populateTeamSchemeFilter(nav=getTeamNavigator()){
+  const select=el("teamSchemeFilter"),schemes=teamSchemeNames();select.innerHTML="";
+  schemes.forEach(scheme=>{const option=document.createElement("option");option.value=scheme;option.textContent=scheme;select.appendChild(option)});
+  const selected=nav.scheme||TEAM_PLAYBOOKS[state.teamPlaybook]?.scheme||schemes[0]||"";
+  if(selected&&schemes.includes(selected))select.value=selected;
+  return selected;
+}
+function renderTeamNavigator(){
+  const nav=getTeamNavigator(),search=el("teamPlaybookSearch"),mode=el("teamBrowseMode"),schemeField=el("teamSchemeField"),select=el("teamPlaybook");
+  if(document.activeElement!==search)search.value=nav.query;
+  mode.value=nav.mode;schemeField.hidden=nav.mode!=="SCHEME";
+  const selectedScheme=populateTeamSchemeFilter(nav);
+  if(nav.mode==="SCHEME"&&!nav.scheme&&selectedScheme){nav.scheme=selectedScheme;storeTeamNavigator(nav)}
+  const entries=teamNavigatorEntries(nav),favoriteSet=new Set(nav.favorites);select.innerHTML="";
+  if(!entries.length){
+    const option=document.createElement("option");option.value="";option.textContent="No teams match the current navigator filters";option.disabled=true;select.appendChild(option);
+  }else entries.forEach(([id,team])=>{
+    const option=document.createElement("option");option.value=id;option.textContent=`${favoriteSet.has(id)?"★ ":""}${team.name} — ${team.scheme}`;select.appendChild(option);
+  });
+  if(entries.some(([id])=>id===state.teamPlaybook))select.value=state.teamPlaybook;else select.selectedIndex=-1;
+  el("teamNavigatorMatchCount").textContent=`${entries.length} team${entries.length===1?"":"s"}`;
+  const favoriteButton=el("toggleTeamFavorite"),isFavorite=!!state.teamPlaybook&&favoriteSet.has(state.teamPlaybook);
+  favoriteButton.disabled=!state.teamPlaybook;favoriteButton.classList.toggle("active",isFavorite);favoriteButton.textContent=isFavorite?"★ Favorite Team":"☆ Favorite Team";
+  const recentList=el("teamRecentList");recentList.innerHTML="";
+  nav.recent.forEach(id=>{
+    const team=TEAM_PLAYBOOKS[id];if(!team)return;
+    const button=document.createElement("button");button.type="button";button.className="team-recent-chip";button.textContent=team.name;button.title=team.scheme;button.onclick=()=>selectTeamPlaybook(id);recentList.appendChild(button);
+  });
+  el("teamRecentPanel").hidden=!nav.recent.length;
+  const team=activeTeamPlaybook(),totals=teamPlaybookTotals(team);
+  el("teamPlaybookCount").textContent=team
+    ? `${team.scheme} • ${totals.formations} formations • ${totals.plays} plays • ${entries.length} navigator match${entries.length===1?"":"es"}`
+    : `${entries.length} matching team${entries.length===1?"":"s"}`;
+}
+function selectTeamPlaybook(id){
+  if(!TEAM_PLAYBOOKS[id])return;
+  state.teamPlaybook=id;
+  const nav=getTeamNavigator();nav.recent=[id,...nav.recent.filter(teamId=>teamId!==id)].slice(0,6);storeTeamNavigator(nav);
+  ensureVisibleSelection();renderAll();
+}
+function updateTeamNavigator(patch){
+  const nav=getTeamNavigator();Object.assign(nav,patch);storeTeamNavigator(nav);renderTeamNavigator();
+}
+function toggleCurrentTeamFavorite(){
+  if(!state.teamPlaybook)return;
+  const nav=getTeamNavigator(),index=nav.favorites.indexOf(state.teamPlaybook);
+  if(index>=0)nav.favorites.splice(index,1);else nav.favorites.push(state.teamPlaybook);
+  storeTeamNavigator(nav);renderTeamNavigator();
+}
+function clearTeamNavigator(){
+  const nav=getTeamNavigator();nav.mode="ALL";nav.scheme="";nav.query="";storeTeamNavigator(nav);renderTeamNavigator();
+}
+
 function availableFamilies(){
   return FAMILY_ORDER.filter(f=>viewFormationsForFamily(f).length);
 }
@@ -5551,11 +5685,7 @@ function renderFavoriteControls(){
   picker.hidden=state.libraryView!=="TEAM";
   if(state.libraryView==="MY")indicator.innerHTML=`<span>Current view</span><strong>★ My Playbook</strong>`;
   else if(state.libraryView==="TEAM"){
-    const team=activeTeamPlaybook();
-    const teamTotals=teamPlaybookTotals(team);
-    el("teamPlaybookCount").textContent=team
-      ? `${team.scheme} • ${teamTotals.formations} formations • ${teamTotals.plays} plays`
-      : "Select a verified team.";
+    const team=activeTeamPlaybook();renderTeamNavigator();
     indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;
   }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;
 }
@@ -6022,16 +6152,17 @@ el("libraryView").onchange=e=>{
     state.libraryView="ALL";e.target.value="ALL";return;
   }
   if(requested==="TEAM"&&!state.teamPlaybook){
-    state.teamPlaybook=Object.entries(TEAM_PLAYBOOKS)
-      .sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""))[0]?.[0]||"";
-    el("teamPlaybook").value=state.teamPlaybook;
+    const nav=getTeamNavigator();state.teamPlaybook=nav.favorites[0]||nav.recent[0]||teamEntriesSorted()[0]?.[0]||"";
+    if(state.teamPlaybook){nav.recent=[state.teamPlaybook,...nav.recent.filter(id=>id!==state.teamPlaybook)].slice(0,6);storeTeamNavigator(nav)}
   }
   state.libraryView=requested;ensureVisibleSelection();renderAll();
 };
-el("teamPlaybook").onchange=e=>{
-  state.teamPlaybook=e.target.value;
-  ensureVisibleSelection();renderAll();
-};
+el("teamPlaybook").onchange=e=>selectTeamPlaybook(e.target.value);
+el("teamPlaybookSearch").oninput=e=>updateTeamNavigator({query:e.target.value});
+el("teamBrowseMode").onchange=e=>updateTeamNavigator({mode:e.target.value});
+el("teamSchemeFilter").onchange=e=>updateTeamNavigator({scheme:e.target.value});
+el("toggleTeamFavorite").onclick=toggleCurrentTeamFavorite;
+el("clearTeamNavigator").onclick=clearTeamNavigator;
 el("family").onchange=e=>{
   state.family=e.target.value;
   const forms=viewFormationsForFamily(state.family);state.formation=forms[0]||"";
@@ -6123,7 +6254,8 @@ function exportBackup(){
     macros:getMacros(),
     playMaps:getPlayMaps(),
     myPlaybook:getMyPlaybook(),
-    gameplan:getGameplan()
+    gameplan:getGameplan(),
+    teamNavigator:getTeamNavigator()
   };
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob),a=document.createElement("a");
@@ -6137,11 +6269,12 @@ function importBackupFile(file){
     try{
       const data=JSON.parse(reader.result);
       if(data.schema!=="cfb27-defensive-playbook-lab-backup")throw new Error("This is not a CFB 27 Defensive Lab backup.");
-      if(!confirm("Replace the saved macros, play maps, My Playbook list, and weekly gameplan with this backup?"))return;
+      if(!confirm("Replace the saved macros, play maps, My Playbook list, weekly gameplan, and team navigator with this backup?"))return;
       storeMacros(Array.isArray(data.macros)?data.macros:[]);
       storePlayMaps(data.playMaps&&typeof data.playMaps==="object"?data.playMaps:{});
       storeMyPlaybook(data.myPlaybook&&typeof data.myPlaybook==="object"?data.myPlaybook:{formations:[],plays:{}});
       storeGameplan(data.gameplan&&typeof data.gameplan==="object"?data.gameplan:emptyGameplan());
+      storeTeamNavigator(data.teamNavigator&&typeof data.teamNavigator==="object"?data.teamNavigator:emptyTeamNavigator());
       state.libraryView="ALL";state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};state.selectedSlot=null;clearUndo();
       el("libraryView").value="ALL";el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
       populateFamilies();populateFormations();populatePlays(false);state.selected=clonePlayers()[0][0];renderAll();
@@ -6173,18 +6306,16 @@ document.querySelectorAll("[data-modal-tab]").forEach(btn=>btn.onclick=()=>setMo
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!el("appModal").hidden)closeModal()});
 
 function resetEntireApp(){
-  const confirmation=prompt("This deletes every saved macro, play map, My Playbook selection, and weekly gameplan in this browser. Type RESET to continue:");
+  const confirmation=prompt("This deletes every saved macro, play map, My Playbook selection, weekly gameplan, and team navigator preference in this browser. Type RESET to continue:");
   if(confirmation!=="RESET"){if(confirmation!==null)alert("Reset canceled. You must type RESET exactly.");return}
-  ["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook",GAMEPLAN_STORAGE_KEY].forEach(key=>localStorage.removeItem(key));
+  ["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook",GAMEPLAN_STORAGE_KEY,TEAM_NAV_STORAGE_KEY].forEach(key=>localStorage.removeItem(key));
   alert("The Defensive Playbook Lab has been reset.");
   location.reload();
 }
 el("resetEntireApp").onclick=resetEntireApp;
 
-const sortedTeamEntries=Object.entries(TEAM_PLAYBOOKS).sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""));
-sortedTeamEntries.forEach(([id,book])=>{
-  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
-});
+const sortedTeamEntries=teamEntriesSorted();
+renderTeamNavigator();
 sortedTeamEntries.forEach(([id,book])=>{
   const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("gameplanOpponent").appendChild(option);
 });
