@@ -1,0 +1,122 @@
+name: Add team playbook UI
+
+on:
+  push:
+    branches:
+      - agent/team-defensive-playbooks
+
+permissions:
+  contents: write
+
+jobs:
+  patch-app:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/team-defensive-playbooks
+
+      - name: Patch team playbook infrastructure
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new):
+              global text
+              if old not in text:
+                  raise SystemExit(f'Missing expected source block: {old[:80]!r}')
+              text = text.replace(old, new, 1)
+
+          replace_once(
+              '.view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}',
+              '.view-indicator.my{border-color:#806f35;background:#2a2411;color:#ffe8a0}\n.view-indicator.team{border-color:#3f718f;background:#10283a;color:#d2efff}\n.team-playbook-picker[hidden]{display:none}'
+          )
+
+          replace_once(
+              '      <option value="MY">My Playbook</option>\n    </select>\n    <div class="view-indicator" id="libraryModeIndicator">',
+              '      <option value="MY">My Playbook</option>\n      <option value="TEAM">Team Playbook</option>\n    </select>\n\n    <div class="team-playbook-picker" id="teamPlaybookPicker" hidden>\n      <label>Select Team</label>\n      <select id="teamPlaybook">\n        <option value="">Team playbooks are being verified</option>\n      </select>\n      <div class="library-count" id="teamPlaybookCount">The team-playbook framework is ready. Verified team data will be added here without duplicating play art.</div>\n    </div>\n\n    <div class="view-indicator" id="libraryModeIndicator">'
+          )
+
+          replace_once(
+              'const FAMILY_ORDER=[',
+              'const TEAM_PLAYBOOKS = {};\n\nconst FAMILY_ORDER=['
+          )
+
+          replace_once(
+              '  libraryView:"ALL",\n  family:"3-3-5",',
+              '  libraryView:"ALL",\n  teamPlaybook:"",\n  family:"3-3-5",'
+          )
+
+          replace_once(
+              'function formationInMyPlaybook(formation){\n  return isFormationFavorite(formation)||favoritePlaysFor(formation).length>0;\n}\nfunction viewFormationsForFamily(family){\n  const all=formationsForFamily(family);\n  return state.libraryView==="ALL"?all:all.filter(formationInMyPlaybook);\n}\nfunction viewPlaysForFormation(formation){\n  const all=PLAY_DB[formation]||[];\n  if(state.libraryView==="ALL")return all;\n  if(isFormationFavorite(formation))return all;\n  return favoritePlaysFor(formation);\n}',
+              'function formationInMyPlaybook(formation){\n  return isFormationFavorite(formation)||favoritePlaysFor(formation).length>0;\n}\nfunction activeTeamPlaybook(){\n  return TEAM_PLAYBOOKS[state.teamPlaybook]||null;\n}\nfunction teamPlaysForFormation(formation){\n  const configured=activeTeamPlaybook()?.formations?.[formation];\n  if(configured===true)return PLAY_DB[formation]||[];\n  return Array.isArray(configured)?configured.filter(play=>PLAY_DB[formation]?.includes(play)):[];\n}\nfunction viewFormationsForFamily(family){\n  const all=formationsForFamily(family);\n  if(state.libraryView==="ALL")return all;\n  if(state.libraryView==="MY")return all.filter(formationInMyPlaybook);\n  return all.filter(formation=>teamPlaysForFormation(formation).length);\n}\nfunction viewPlaysForFormation(formation){\n  const all=PLAY_DB[formation]||[];\n  if(state.libraryView==="ALL")return all;\n  if(state.libraryView==="TEAM")return teamPlaysForFormation(formation);\n  if(isFormationFavorite(formation))return all;\n  return favoritePlaysFor(formation);\n}'
+          )
+
+          replace_once(
+              '    const o=document.createElement("option");o.value="";o.textContent="My Playbook is empty";s.appendChild(o);',
+              '    const o=document.createElement("option");o.value="";o.textContent=state.libraryView==="TEAM"?"No verified team playbook selected":"My Playbook is empty";s.appendChild(o);'
+          )
+
+          replace_once(
+              '  indicator.classList.toggle("my",state.libraryView==="MY");\n  indicator.innerHTML=state.libraryView==="MY"\n    ? `<span>Current view</span><strong>★ My Playbook</strong>`\n    : `<span>Current view</span><strong>Full Defensive Library</strong>`;',
+              '  indicator.classList.toggle("my",state.libraryView==="MY");\n  indicator.classList.toggle("team",state.libraryView==="TEAM");\n  const picker=el("teamPlaybookPicker");\n  picker.hidden=state.libraryView!=="TEAM";\n  if(state.libraryView==="MY")indicator.innerHTML=`<span>Current view</span><strong>★ My Playbook</strong>`;\n  else if(state.libraryView==="TEAM"){\n    const team=activeTeamPlaybook();\n    indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;\n  }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;'
+          )
+
+          replace_once(
+              'el("libraryView").onchange=e=>{\n  const requested=e.target.value;\n  if(requested==="MY"&&myPlaybookTotals().formations===0){\n    alert("Add a formation or individual play to My Playbook first.");\n    state.libraryView="ALL";e.target.value="ALL";return;\n  }\n  state.libraryView=requested;ensureVisibleSelection();renderAll();\n};',
+              'el("libraryView").onchange=e=>{\n  const requested=e.target.value;\n  if(requested==="MY"&&myPlaybookTotals().formations===0){\n    alert("Add a formation or individual play to My Playbook first.");\n    state.libraryView="ALL";e.target.value="ALL";return;\n  }\n  state.libraryView=requested;ensureVisibleSelection();renderAll();\n};\nel("teamPlaybook").onchange=e=>{\n  state.teamPlaybook=e.target.value;\n  ensureVisibleSelection();renderAll();\n};'
+          )
+
+          replace_once(
+              'populateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();\nel("libraryView").value=state.libraryView;',
+              'Object.entries(TEAM_PLAYBOOKS).forEach(([id,book])=>{\n  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);\n});\npopulateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();\nel("libraryView").value=state.libraryView;'
+          )
+
+          path.write_text(text, encoding='utf-8')
+
+          readme = Path('README.md')
+          readme_text = readme.read_text(encoding='utf-8')
+          marker = '- My Playbook favorites\n'
+          addition = '- Team Playbook view infrastructure with a secondary team selector; verified team mappings reference the existing master play database\n'
+          if addition not in readme_text:
+              if marker not in readme_text:
+                  raise SystemExit('README feature marker missing')
+              readme_text = readme_text.replace(marker, marker + addition, 1)
+              readme.write_text(readme_text, encoding='utf-8')
+
+      - name: Validate patched application
+        shell: python
+        run: |
+          from pathlib import Path
+          text = Path('index.html').read_text(encoding='utf-8')
+          required = [
+              'value="TEAM">Team Playbook',
+              'id="teamPlaybook"',
+              'const TEAM_PLAYBOOKS = {};',
+              'function teamPlaysForFormation',
+              'el("teamPlaybook").onchange'
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f'Missing expected team-playbook code: {missing}')
+          if text.count('id="libraryView"') != 1:
+              raise SystemExit('Library menu was duplicated or removed')
+          if text.count('id="teamPlaybook"') != 1:
+              raise SystemExit('Team selector was duplicated')
+          print('Team playbook infrastructure validation passed.')
+
+      - name: Commit generated changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html README.md
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "Add team defensive playbook selector [skip ci]"
+          git push
