@@ -39,6 +39,7 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - Global formation/play search
 - My Playbook favorites
 - Team Playbook view for all 138 teams across all 31 defensive books, with exact formation/play membership referencing the existing master play database
+- Weekly Gameplan Builder with opponent selection, situation-based calls, current-play and macro capture, reordering, reload, local persistence, backup support, and a print-friendly Call-Sheet View
 - Player-by-player zone, spy, contain, and rush assignments
 - Draft and verified play maps
 - Ten saved macro slots
