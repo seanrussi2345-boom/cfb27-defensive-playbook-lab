@@ -42,6 +42,7 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - Searchable Team Playbook Navigator with favorite teams, recently viewed teams, scheme browsing, local persistence, and backup support
 - Weekly Gameplan Builder with opponent selection, situation-based calls, current-play and macro capture, reordering, reload, local persistence, backup support, and a print-friendly Call-Sheet View
 - Opponent Scout Report and Macro Matchup Lab with offensive tendency tracking, generic offensive-set shells, read-only saved-macro visualization, structural coaching alerts, saved matchup notes, weekly-gameplan integration, local persistence, and backup support
+- Base Offensive Concept layer with grouped pass, run, option, screen, and RPO selections; route/run visualization; concept-specific defensive stress alerts; and concept metadata preserved in saved scout matchups and Weekly Gameplan calls
 - Player-by-player zone, spy, contain, and rush assignments
 - Draft and verified play maps
 - Ten saved macro slots
