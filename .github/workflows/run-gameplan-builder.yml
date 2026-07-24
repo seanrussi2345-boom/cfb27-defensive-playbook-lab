@@ -32,7 +32,17 @@ jobs:
           code_lines = workflow[run_line + 1:end]
           code = '\n'.join(line[10:] if line.startswith('          ') else line for line in code_lines) + '\n'
           Path('/tmp/patch_gameplan.py').write_text(code, encoding='utf-8')
-          subprocess.run(['python', '/tmp/patch_gameplan.py'], check=True)
+          result = subprocess.run(['python', '/tmp/patch_gameplan.py'], text=True, capture_output=True)
+          log = 'STDOUT\n' + result.stdout + '\nSTDERR\n' + result.stderr
+          print(log)
+          if result.returncode:
+              Path('gameplan-build-error.txt').write_text(log, encoding='utf-8')
+              subprocess.run(['git','config','user.name','github-actions[bot]'], check=True)
+              subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+              subprocess.run(['git','add','gameplan-build-error.txt'], check=True)
+              subprocess.run(['git','commit','-m','Capture weekly gameplan build error [skip ci]'], check=True)
+              subprocess.run(['git','push','origin','agent/weekly-gameplan-builder'], check=True)
+              raise SystemExit(result.returncode)
 
       - name: Validate generated feature
         shell: python
@@ -81,7 +91,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm .github/workflows/add-weekly-gameplan.yml .github/gameplan-trigger.txt
-          git add index.html README.md
+          rm -f gameplan-build-error.txt
+          git add index.html README.md gameplan-build-error.txt
           git commit -m "Add weekly gameplan builder [skip ci]"
           git push origin agent/weekly-gameplan-builder
 
