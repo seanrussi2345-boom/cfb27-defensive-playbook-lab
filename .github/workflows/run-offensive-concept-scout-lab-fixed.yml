@@ -1,0 +1,55 @@
+name: Run fixed offensive concept scout lab
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/offensive-concept-scout-lab
+          fetch-depth: 0
+
+      - name: Fix patch anchor
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path=Path('.github/scripts/build_offensive_concept_scout_lab.py')
+          text=path.read_text(encoding='utf-8')
+          old='sub_once(r"function saveScoutMatchup\\(\\)\\{.*?\\}", new_save, "save concept matchup")'
+          new='sub_once(r"function saveScoutMatchup\\(\\)\\{[^\\n]*\\}", new_save, "save concept matchup")'
+          if text.count(old)!=1:
+              raise SystemExit(f'Expected one old saveScoutMatchup regex, found {text.count(old)}')
+          path.write_text(text.replace(old,new,1),encoding='utf-8')
+          PY
+
+      - name: Build feature
+        run: python .github/scripts/build_offensive_concept_scout_lab.py
+
+      - name: Validate complete JavaScript
+        run: node --check /tmp/cfb27-offensive-concepts.js
+
+      - name: Commit clean feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/scripts/build_offensive_concept_scout_lab.py
+          git rm -f offensive-concept-build-diagnostic.txt || true
+          git add index.html README.md
+          git commit -m "Add offensive concept scouting [skip ci]"
+          git push origin agent/offensive-concept-scout-lab
+
+      - name: Clean temporary workflows from main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          git rm -f .github/workflows/run-offensive-concept-scout-lab-fixed.yml
+          git rm -f .github/workflows/build-offensive-concept-scout-lab.yml
+          git commit -m "Remove offensive concept builders [skip ci]"
+          git push origin main
