@@ -1,0 +1,56 @@
+name: Auto diagnose offensive concepts v2
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/offensive-concept-scout-lab
+          fetch-depth: 0
+
+      - name: Apply known correction and capture every stage
+        run: |
+          set +e
+          python - <<'PY' > /tmp/anchor-output.txt 2>&1
+          from pathlib import Path
+          path = Path('.github/scripts/build_offensive_concept_scout_lab.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'sub_once(r"function saveScoutMatchup\\(\\)\\{.*?\\}", new_save, "save concept matchup")'
+          new = 'sub_once(r"function saveScoutMatchup\\(\\)\\{[^\\n]*\\}", new_save, "save concept matchup")'
+          if old in text:
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          print('saved-matchup anchor correction present')
+          PY
+          anchor_status=$?
+          python .github/scripts/build_offensive_concept_scout_lab.py > /tmp/patch-output.txt 2>&1
+          patch_status=$?
+          if [ $patch_status -eq 0 ]; then
+            node --check /tmp/cfb27-offensive-concepts.js > /tmp/node-output.txt 2>&1
+            node_status=$?
+          else
+            node_status=99
+            echo 'Node validation skipped because patch failed.' > /tmp/node-output.txt
+          fi
+          {
+            echo "anchor_status=$anchor_status"
+            cat /tmp/anchor-output.txt
+            echo "patch_status=$patch_status"
+            cat /tmp/patch-output.txt
+            echo "node_status=$node_status"
+            cat /tmp/node-output.txt
+          } > offensive-concept-build-diagnostic-v2.txt
+          cat offensive-concept-build-diagnostic-v2.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add offensive-concept-build-diagnostic-v2.txt
+          git commit -m "Capture current offensive concept failure v2 [skip ci]"
+          git push origin agent/offensive-concept-scout-lab
