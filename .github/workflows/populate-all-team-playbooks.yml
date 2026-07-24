@@ -6,6 +6,7 @@ on:
       - agent/team-defensive-playbooks
     paths:
       - .github/scripts/populate_all_team_playbooks.py
+      - .github/workflows/populate-all-team-playbooks.yml
 
 permissions:
   contents: write
