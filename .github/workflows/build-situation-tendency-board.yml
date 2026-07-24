@@ -1,0 +1,32 @@
+name: Build situation tendency board
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-tendency-board:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/situation-tendency-board
+          fetch-depth: 0
+
+      - name: Build tendency board
+        run: python .github/scripts/build_situation_tendency_board.py
+
+      - name: Validate complete JavaScript
+        run: node --check /tmp/cfb27-tendency-board.js
+
+      - name: Commit clean feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/scripts/build_situation_tendency_board.py
+          git add index.html README.md
+          git commit -m "Add situation tendency board [skip ci]"
+          git push origin agent/situation-tendency-board
