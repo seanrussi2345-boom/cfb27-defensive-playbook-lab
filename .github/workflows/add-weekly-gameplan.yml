@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - agent/weekly-gameplan-builder
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -51,7 +52,7 @@ jobs:
 .gameplan-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:12px;margin-top:12px;align-items:start}
 .gameplan-builder,.call-sheet-shell{border:1px solid #294159;border-radius:12px;background:#08131f;padding:12px;min-width:0}
 .gameplan-builder h3,.call-sheet-title strong{margin:0;color:#eaf7ff;font-size:12px}
-.gameplan-current{margin-top:10px;padding:9px;border:1px dashed #35516b;border-radius:9px;background:#0b1723;color:#b8d2e7;font-size:9px;line-height:1.45}
+.gameplan-current{margin-top:10px;padding:9px;border:1px dashed #35516b;border-radius:9px;background:#0b1723;color:#b8d2e7;font-size:9px;line-height:1.45;white-space:pre-line}
 .gameplan-add-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
 .gameplan-add-actions button{min-width:0}
 .call-sheet-title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding-bottom:9px;border-bottom:1px solid #23394f}
