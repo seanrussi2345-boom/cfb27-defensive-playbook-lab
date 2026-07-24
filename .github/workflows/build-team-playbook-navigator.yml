@@ -1,0 +1,337 @@
+name: Build team playbook navigator
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-navigator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/team-playbook-navigator
+          fetch-depth: 0
+
+      - name: Add searchable team navigator
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new):
+              global text
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'Expected one source block, found {count}: {old[:120]!r}')
+              text = text.replace(old, new, 1)
+
+          navigator_css = r'''
+.team-nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.team-nav-grid label{margin-top:8px}
+.team-nav-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.team-nav-actions .favorite-btn{width:100%}
+.team-scheme-field[hidden]{display:none}
+.team-recent{margin-top:8px;padding:8px;border:1px dashed #35516b;border-radius:9px;background:#0b1723}
+.team-recent-title{color:#8fa8bd;font-size:8px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.team-recent-list{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.team-recent-chip{padding:5px 7px;border:1px solid #34516b;border-radius:999px;background:#101f2e;color:#dcecff;cursor:pointer;font-size:8px;line-height:1}
+.team-recent-chip:hover{border-color:#65d9ef;background:#163249}
+.team-result-label{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.team-result-label span{color:#7f96ab;font-size:8px;font-weight:700}
+@media(max-width:850px){.team-nav-grid,.team-nav-actions{grid-template-columns:1fr}}
+'''
+          replace_once(
+              '.team-playbook-picker[hidden]{display:none}',
+              '.team-playbook-picker[hidden]{display:none}\n' + navigator_css.strip()
+          )
+
+          old_picker = r'''    <div class="team-playbook-picker" id="teamPlaybookPicker" hidden>
+      <label>Select Team</label>
+      <select id="teamPlaybook">
+        <option value="">Select a verified team</option>
+      </select>
+      <div class="library-count" id="teamPlaybookCount">Select any team to load its CFB 27 defensive playbook.</div>
+    </div>'''
+          new_picker = r'''    <div class="team-playbook-picker" id="teamPlaybookPicker" hidden>
+      <label>Find Team</label>
+      <input id="teamPlaybookSearch" type="search" maxlength="80" placeholder="Search team or defensive scheme…">
+
+      <div class="team-nav-grid">
+        <div>
+          <label>Browse Teams</label>
+          <select id="teamBrowseMode">
+            <option value="ALL">All Teams</option>
+            <option value="FAVORITES">Favorite Teams</option>
+            <option value="RECENT">Recently Viewed</option>
+            <option value="SCHEME">By Defensive Scheme</option>
+          </select>
+        </div>
+        <div class="team-scheme-field" id="teamSchemeField" hidden>
+          <label>Defensive Scheme</label>
+          <select id="teamSchemeFilter"></select>
+        </div>
+      </div>
+
+      <label class="team-result-label">Team Results <span id="teamNavigatorMatchCount">138 teams</span></label>
+      <select id="teamPlaybook" size="5">
+        <option value="">Select a verified team</option>
+      </select>
+      <div class="team-nav-actions">
+        <button class="favorite-btn" id="toggleTeamFavorite" type="button">☆ Favorite Team</button>
+        <button class="favorite-btn" id="clearTeamNavigator" type="button">Clear Search &amp; Filters</button>
+      </div>
+      <div class="team-recent" id="teamRecentPanel">
+        <div class="team-recent-title">Recently Viewed</div>
+        <div class="team-recent-list" id="teamRecentList"></div>
+      </div>
+      <div class="library-count" id="teamPlaybookCount">Select any team to load its CFB 27 defensive playbook.</div>
+    </div>'''
+          replace_once(old_picker, new_picker)
+
+          navigator_js = r'''
+const TEAM_NAV_STORAGE_KEY="cfb27-playbook-lab-v4-teamnav";
+function teamEntriesSorted(){
+  return Object.entries(TEAM_PLAYBOOKS).sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""));
+}
+function teamSchemeNames(){
+  return [...new Set(teamEntriesSorted().map(([,team])=>team.scheme).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
+function emptyTeamNavigator(){return{favorites:[],recent:[],mode:"ALL",scheme:"",query:""}}
+function normalizeTeamNavigator(raw){
+  const validIds=new Set(Object.keys(TEAM_PLAYBOOKS)),validModes=new Set(["ALL","FAVORITES","RECENT","SCHEME"]),validSchemes=new Set(teamSchemeNames());
+  const uniqueValid=values=>[...new Set(Array.isArray(values)?values:[])].filter(id=>validIds.has(id));
+  return {
+    favorites:uniqueValid(raw?.favorites),
+    recent:uniqueValid(raw?.recent).slice(0,6),
+    mode:validModes.has(raw?.mode)?raw.mode:"ALL",
+    scheme:validSchemes.has(raw?.scheme)?raw.scheme:"",
+    query:typeof raw?.query==="string"?raw.query.slice(0,80):""
+  };
+}
+function getTeamNavigator(){
+  try{return normalizeTeamNavigator(JSON.parse(localStorage.getItem(TEAM_NAV_STORAGE_KEY)||"{}"))}
+  catch{return emptyTeamNavigator()}
+}
+function storeTeamNavigator(nav){
+  const normalized=normalizeTeamNavigator(nav);localStorage.setItem(TEAM_NAV_STORAGE_KEY,JSON.stringify(normalized));return normalized;
+}
+function teamNavigatorEntries(nav=getTeamNavigator()){
+  const query=nav.query.trim().toUpperCase(),favorites=new Set(nav.favorites),all=teamEntriesSorted();
+  let entries=nav.mode==="RECENT"
+    ? nav.recent.map(id=>[id,TEAM_PLAYBOOKS[id]]).filter(([,team])=>team)
+    : all.filter(([id,team])=>nav.mode!=="FAVORITES"||favorites.has(id))
+         .filter(([,team])=>nav.mode!=="SCHEME"||!nav.scheme||team.scheme===nav.scheme);
+  if(query)entries=entries.filter(([,team])=>`${team.name} ${team.scheme}`.toUpperCase().includes(query));
+  if(nav.mode==="ALL")entries.sort(([aId,a],[bId,b])=>Number(favorites.has(bId))-Number(favorites.has(aId))||(a.name||"").localeCompare(b.name||""));
+  return entries;
+}
+function populateTeamSchemeFilter(nav=getTeamNavigator()){
+  const select=el("teamSchemeFilter"),schemes=teamSchemeNames();select.innerHTML="";
+  schemes.forEach(scheme=>{const option=document.createElement("option");option.value=scheme;option.textContent=scheme;select.appendChild(option)});
+  const selected=nav.scheme||TEAM_PLAYBOOKS[state.teamPlaybook]?.scheme||schemes[0]||"";
+  if(selected&&schemes.includes(selected))select.value=selected;
+  return selected;
+}
+function renderTeamNavigator(){
+  const nav=getTeamNavigator(),search=el("teamPlaybookSearch"),mode=el("teamBrowseMode"),schemeField=el("teamSchemeField"),select=el("teamPlaybook");
+  if(document.activeElement!==search)search.value=nav.query;
+  mode.value=nav.mode;schemeField.hidden=nav.mode!=="SCHEME";
+  const selectedScheme=populateTeamSchemeFilter(nav);
+  if(nav.mode==="SCHEME"&&!nav.scheme&&selectedScheme){nav.scheme=selectedScheme;storeTeamNavigator(nav)}
+  const entries=teamNavigatorEntries(nav),favoriteSet=new Set(nav.favorites);select.innerHTML="";
+  if(!entries.length){
+    const option=document.createElement("option");option.value="";option.textContent="No teams match the current navigator filters";option.disabled=true;select.appendChild(option);
+  }else entries.forEach(([id,team])=>{
+    const option=document.createElement("option");option.value=id;option.textContent=`${favoriteSet.has(id)?"★ ":""}${team.name} — ${team.scheme}`;select.appendChild(option);
+  });
+  if(entries.some(([id])=>id===state.teamPlaybook))select.value=state.teamPlaybook;else select.selectedIndex=-1;
+  el("teamNavigatorMatchCount").textContent=`${entries.length} team${entries.length===1?"":"s"}`;
+  const favoriteButton=el("toggleTeamFavorite"),isFavorite=!!state.teamPlaybook&&favoriteSet.has(state.teamPlaybook);
+  favoriteButton.disabled=!state.teamPlaybook;favoriteButton.classList.toggle("active",isFavorite);favoriteButton.textContent=isFavorite?"★ Favorite Team":"☆ Favorite Team";
+  const recentList=el("teamRecentList");recentList.innerHTML="";
+  nav.recent.forEach(id=>{
+    const team=TEAM_PLAYBOOKS[id];if(!team)return;
+    const button=document.createElement("button");button.type="button";button.className="team-recent-chip";button.textContent=team.name;button.title=team.scheme;button.onclick=()=>selectTeamPlaybook(id);recentList.appendChild(button);
+  });
+  el("teamRecentPanel").hidden=!nav.recent.length;
+  const team=activeTeamPlaybook(),totals=teamPlaybookTotals(team);
+  el("teamPlaybookCount").textContent=team
+    ? `${team.scheme} • ${totals.formations} formations • ${totals.plays} plays • ${entries.length} navigator match${entries.length===1?"":"es"}`
+    : `${entries.length} matching team${entries.length===1?"":"s"}`;
+}
+function selectTeamPlaybook(id){
+  if(!TEAM_PLAYBOOKS[id])return;
+  state.teamPlaybook=id;
+  const nav=getTeamNavigator();nav.recent=[id,...nav.recent.filter(teamId=>teamId!==id)].slice(0,6);storeTeamNavigator(nav);
+  ensureVisibleSelection();renderAll();
+}
+function updateTeamNavigator(patch){
+  const nav=getTeamNavigator();Object.assign(nav,patch);storeTeamNavigator(nav);renderTeamNavigator();
+}
+function toggleCurrentTeamFavorite(){
+  if(!state.teamPlaybook)return;
+  const nav=getTeamNavigator(),index=nav.favorites.indexOf(state.teamPlaybook);
+  if(index>=0)nav.favorites.splice(index,1);else nav.favorites.push(state.teamPlaybook);
+  storeTeamNavigator(nav);renderTeamNavigator();
+}
+function clearTeamNavigator(){
+  const nav=getTeamNavigator();nav.mode="ALL";nav.scheme="";nav.query="";storeTeamNavigator(nav);renderTeamNavigator();
+}
+'''
+          replace_once('function availableFamilies(){', navigator_js + '\nfunction availableFamilies(){')
+
+          old_team_render = r'''  else if(state.libraryView==="TEAM"){
+    const team=activeTeamPlaybook();
+    const teamTotals=teamPlaybookTotals(team);
+    el("teamPlaybookCount").textContent=team
+      ? `${team.scheme} • ${teamTotals.formations} formations • ${teamTotals.plays} plays`
+      : "Select a verified team.";
+    indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;
+  }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;'''
+          new_team_render = r'''  else if(state.libraryView==="TEAM"){
+    const team=activeTeamPlaybook();renderTeamNavigator();
+    indicator.innerHTML=`<span>Current view</span><strong>${team?.name||"Team Playbook"}</strong>`;
+  }else indicator.innerHTML=`<span>Current view</span><strong>Full Defensive Library</strong>`;'''
+          replace_once(old_team_render,new_team_render)
+
+          old_library_team_default = r'''  if(requested==="TEAM"&&!state.teamPlaybook){
+    state.teamPlaybook=Object.entries(TEAM_PLAYBOOKS)
+      .sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""))[0]?.[0]||"";
+    el("teamPlaybook").value=state.teamPlaybook;
+  }'''
+          new_library_team_default = r'''  if(requested==="TEAM"&&!state.teamPlaybook){
+    const nav=getTeamNavigator();state.teamPlaybook=nav.favorites[0]||nav.recent[0]||teamEntriesSorted()[0]?.[0]||"";
+    if(state.teamPlaybook){nav.recent=[state.teamPlaybook,...nav.recent.filter(id=>id!==state.teamPlaybook)].slice(0,6);storeTeamNavigator(nav)}
+  }'''
+          replace_once(old_library_team_default,new_library_team_default)
+
+          old_team_handler = r'''el("teamPlaybook").onchange=e=>{
+  state.teamPlaybook=e.target.value;
+  ensureVisibleSelection();renderAll();
+};'''
+          new_team_handler = r'''el("teamPlaybook").onchange=e=>selectTeamPlaybook(e.target.value);
+el("teamPlaybookSearch").oninput=e=>updateTeamNavigator({query:e.target.value});
+el("teamBrowseMode").onchange=e=>updateTeamNavigator({mode:e.target.value});
+el("teamSchemeFilter").onchange=e=>updateTeamNavigator({scheme:e.target.value});
+el("toggleTeamFavorite").onclick=toggleCurrentTeamFavorite;
+el("clearTeamNavigator").onclick=clearTeamNavigator;'''
+          replace_once(old_team_handler,new_team_handler)
+
+          replace_once(
+              '    gameplan:getGameplan()\n',
+              '    gameplan:getGameplan(),\n    teamNavigator:getTeamNavigator()\n'
+          )
+          replace_once(
+              'if(!confirm("Replace the saved macros, play maps, My Playbook list, and weekly gameplan with this backup?"))return;',
+              'if(!confirm("Replace the saved macros, play maps, My Playbook list, weekly gameplan, and team navigator with this backup?"))return;'
+          )
+          replace_once(
+              '      storeGameplan(data.gameplan&&typeof data.gameplan==="object"?data.gameplan:emptyGameplan());\n',
+              '      storeGameplan(data.gameplan&&typeof data.gameplan==="object"?data.gameplan:emptyGameplan());\n      storeTeamNavigator(data.teamNavigator&&typeof data.teamNavigator==="object"?data.teamNavigator:emptyTeamNavigator());\n'
+          )
+          replace_once(
+              'This deletes every saved macro, play map, My Playbook selection, and weekly gameplan in this browser. Type RESET to continue:',
+              'This deletes every saved macro, play map, My Playbook selection, weekly gameplan, and team navigator preference in this browser. Type RESET to continue:'
+          )
+          replace_once(
+              '["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook",GAMEPLAN_STORAGE_KEY]',
+              '["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook",GAMEPLAN_STORAGE_KEY,TEAM_NAV_STORAGE_KEY]'
+          )
+
+          old_team_init = r'''const sortedTeamEntries=Object.entries(TEAM_PLAYBOOKS).sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""));
+sortedTeamEntries.forEach(([id,book])=>{
+  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
+});
+sortedTeamEntries.forEach(([id,book])=>{
+  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("gameplanOpponent").appendChild(option);
+});'''
+          new_team_init = r'''const sortedTeamEntries=teamEntriesSorted();
+renderTeamNavigator();
+sortedTeamEntries.forEach(([id,book])=>{
+  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("gameplanOpponent").appendChild(option);
+});'''
+          replace_once(old_team_init,new_team_init)
+
+          replace_once(
+              '<article class="help-card">\n              <h3>5. Build a weekly gameplan</h3>',
+              '<article class="help-card">\n              <h3>5. Navigate team playbooks</h3>\n              <p>Search all 138 teams, pin favorites, reopen recent teams, or browse every team using the same defensive scheme.</p>\n            </article>\n            <article class="help-card">\n              <h3>6. Build a weekly gameplan</h3>'
+          )
+          replace_once(
+              '<li>Use <strong>Import Backup</strong> to transfer macros, play maps, My Playbook, and the weekly gameplan.</li>',
+              '<li>Use <strong>Import Backup</strong> to transfer macros, play maps, My Playbook, the weekly gameplan, and team navigator preferences.</li>'
+          )
+          replace_once(
+              '<article class="release-item"><strong>Weekly gameplan builder and printable call sheet</strong>',
+              '<article class="release-item"><strong>Searchable team playbook navigator</strong><span>Search all teams, pin favorites, reopen recent playbooks, and browse teams by shared defensive scheme.</span></article>\n            <article class="release-item"><strong>Weekly gameplan builder and printable call sheet</strong>'
+          )
+
+          path.write_text(text,encoding='utf-8')
+
+          readme_path=Path('README.md')
+          readme=readme_path.read_text(encoding='utf-8')
+          marker='- Team Playbook view for all 138 teams across all 31 defensive books, with exact formation/play membership referencing the existing master play database\n'
+          addition='- Searchable Team Playbook Navigator with favorite teams, recently viewed teams, scheme browsing, local persistence, and backup support\n'
+          if addition not in readme:
+              if marker not in readme:raise SystemExit('README team-playbook feature marker missing.')
+              readme=readme.replace(marker,marker+addition,1)
+          readme_path.write_text(readme,encoding='utf-8')
+
+      - name: Validate navigator structure
+        shell: python
+        run: |
+          import re
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          text=Path('index.html').read_text(encoding='utf-8')
+          required=[
+            'id="teamPlaybookSearch"','id="teamBrowseMode"','id="teamSchemeFilter"',
+            'id="toggleTeamFavorite"','id="clearTeamNavigator"','id="teamRecentList"',
+            'const TEAM_NAV_STORAGE_KEY="cfb27-playbook-lab-v4-teamnav";',
+            'teamNavigator:getTeamNavigator()','storeTeamNavigator(data.teamNavigator',
+            'function teamNavigatorEntries','function selectTeamPlaybook'
+          ]
+          missing=[item for item in required if item not in text]
+          if missing:raise SystemExit(f'Missing team navigator elements: {missing}')
+
+          class IdCollector(HTMLParser):
+            def __init__(self):super().__init__();self.ids=[]
+            def handle_starttag(self,tag,attrs):
+              for key,value in attrs:
+                if key=='id':self.ids.append(value)
+          parser=IdCollector();parser.feed(text)
+          expected=['teamPlaybookSearch','teamBrowseMode','teamSchemeFilter','toggleTeamFavorite','clearTeamNavigator','teamRecentList','teamNavigatorMatchCount']
+          for item in expected:
+            if parser.ids.count(item)!=1:raise SystemExit(f'Expected one #{item}, found {parser.ids.count(item)}')
+          for preserved in ['libraryView','teamPlaybook','gameplanPanel','macroList','field']:
+            if parser.ids.count(preserved)!=1:raise SystemExit(f'Existing control #{preserved} changed unexpectedly.')
+
+          if text.count('const TEAM_NAV_STORAGE_KEY=')!=1:raise SystemExit('Navigator storage key duplicated.')
+          script=re.search(r'<script>(.*)</script>',text,re.S)
+          if not script:raise SystemExit('Could not extract application JavaScript.')
+          Path('/tmp/cfb27-team-navigator.js').write_text(script.group(1),encoding='utf-8')
+          print('Team navigator structure validation passed.')
+
+      - name: Validate JavaScript syntax
+        run: node --check /tmp/cfb27-team-navigator.js
+
+      - name: Commit feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html README.md
+          git commit -m "Add team playbook navigator [skip ci]"
+          git push origin agent/team-playbook-navigator
+
+      - name: Remove temporary workflow from main
+        run: |
+          git fetch origin main
+          git checkout main
+          git rm .github/workflows/build-team-playbook-navigator.yml
+          git commit -m "Remove temporary team navigator builder [skip ci]"
+          git push origin main
