@@ -175,6 +175,75 @@ svg{display:block;width:100%;height:100%}
 .macro b{display:block;font-size:12px}
 .macro small{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.35}
 .macro-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+.gameplan-panel{grid-column:1/-1;padding:14px}
+.gameplan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.gameplan-head h2{margin-bottom:5px}
+.gameplan-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.gameplan-btn{padding:8px 10px;border:1px solid #3b5b75;border-radius:8px;background:#102233;color:#dceeff;cursor:pointer;font-size:10px}
+.gameplan-btn:hover{border-color:#65d9ef}
+.gameplan-btn.primary{border-color:#4e9fbe;background:#173c52;color:#effcff}
+.gameplan-btn.warn{border-color:#71424b;background:#29191e;color:#ffc7cd}
+.gameplan-meta{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:9px;margin-top:12px}
+.gameplan-field label{margin-top:0}
+.gameplan-field input[type="text"],.gameplan-field select,.gameplan-builder textarea{
+  width:100%;padding:9px 10px;color:var(--text);background:#08131f;border:1px solid #304c68;border-radius:9px;outline:none;
+}
+.gameplan-field input:focus,.gameplan-field select:focus,.gameplan-builder textarea:focus{border-color:var(--accent)}
+.gameplan-builder textarea{min-height:78px;resize:vertical;font:inherit}
+.gameplan-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:12px;margin-top:12px;align-items:start}
+.gameplan-builder,.call-sheet-shell{border:1px solid #294159;border-radius:12px;background:#08131f;padding:12px;min-width:0}
+.gameplan-builder h3,.call-sheet-title strong{margin:0;color:#eaf7ff;font-size:12px}
+.gameplan-current{margin-top:10px;padding:9px;border:1px dashed #35516b;border-radius:9px;background:#0b1723;color:#b8d2e7;font-size:9px;line-height:1.45;white-space:pre-line}
+.gameplan-add-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.gameplan-add-actions button{min-width:0}
+.call-sheet-title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding-bottom:9px;border-bottom:1px solid #23394f}
+.call-sheet-title span{display:block;margin-top:3px;color:#9fb4c9;font-size:9px;line-height:1.4}
+.call-sheet-count{flex:0 0 auto;padding:4px 7px;border:1px solid #3a5d7b;border-radius:999px;background:#10263a;color:#dcf6ff;font-size:8px;font-weight:850}
+.call-sheet-list{display:grid;gap:7px;margin-top:9px}
+.call-sheet-row{display:grid;grid-template-columns:125px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px;border:1px solid #2a435d;border-radius:10px;background:#0b1825}
+.call-sheet-situation{color:#9fe9f6;font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+.call-sheet-main{min-width:0}
+.call-sheet-main strong{display:block;color:#eef7ff;font-size:10px;line-height:1.35}
+.call-sheet-main span{display:block;margin-top:3px;color:#9fb4c9;font-size:8px;line-height:1.4}
+.entry-actions{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.entry-actions button{padding:5px 7px;border:1px solid #34516b;border-radius:6px;background:#101f2e;color:#dcecff;cursor:pointer;font-size:8px}
+.entry-actions button:hover{border-color:#65d9ef}
+.entry-actions button:disabled{opacity:.35;cursor:not-allowed}
+.entry-actions .remove{border-color:#71424b;background:#29191e;color:#ffc7cd}
+@media(max-width:1040px){
+  .gameplan-layout{grid-template-columns:1fr}
+  .gameplan-meta{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .gameplan-head{display:block}
+  .gameplan-actions{justify-content:flex-start;margin-top:9px}
+  .gameplan-meta{grid-template-columns:1fr}
+  .gameplan-add-actions{grid-template-columns:1fr}
+  .call-sheet-row{grid-template-columns:1fr}
+  .entry-actions{justify-content:flex-start}
+}
+@media print{
+  body{background:#fff;color:#111}
+  header,.left,.center,.right,.macro-panel,.gameplan-builder,.gameplan-actions,.entry-actions,.gameplan-help,.modal-backdrop,footer{display:none!important}
+  .app{display:block;width:100%;padding:0}
+  .gameplan-panel{display:block!important;border:0;box-shadow:none;background:#fff;color:#111;padding:0}
+  .gameplan-head{border-bottom:2px solid #111;padding-bottom:8px}
+  .gameplan-head h2,.call-sheet-title strong{color:#111}
+  .gameplan-meta{grid-template-columns:1.2fr 1fr 1fr;margin:10px 0 14px}
+  .gameplan-field label{color:#555}
+  .gameplan-field input[type="text"],.gameplan-field select{border:0;background:transparent;color:#111;padding:0;appearance:none}
+  .gameplan-layout{display:block;margin:0}
+  .call-sheet-shell{border:0;background:#fff;padding:0}
+  .call-sheet-title{border-color:#777}
+  .call-sheet-title span{color:#444}
+  .call-sheet-count{border-color:#777;background:#fff;color:#111}
+  .call-sheet-row{grid-template-columns:115px minmax(0,1fr);border-color:#999;background:#fff;break-inside:avoid}
+  .call-sheet-situation{color:#111}
+  .call-sheet-main strong{color:#111}
+  .call-sheet-main span{color:#444}
+}
+
 .action{
   flex:1 1 190px;max-width:260px;margin:0;padding:9px;border-radius:9px;border:1px solid;cursor:pointer;
 }
@@ -531,6 +600,79 @@ footer{
       <input class="hidden-file" id="backupFile" type="file" accept=".json,application/json">
     </div>
   </section>
+
+  <section class="panel gameplan-panel" id="gameplanPanel">
+    <div class="gameplan-head">
+      <div>
+        <h2>Weekly Gameplan Builder</h2>
+        <div class="helptext gameplan-help">Build one active defensive plan from the current play library and your saved macro slots. Calls are saved automatically in this browser.</div>
+      </div>
+      <div class="gameplan-actions">
+        <button class="gameplan-btn warn" id="newGameplan" type="button">New Blank Plan</button>
+        <button class="gameplan-btn primary" id="printGameplan" type="button">Print Call Sheet</button>
+      </div>
+    </div>
+
+    <div class="gameplan-meta">
+      <div class="gameplan-field">
+        <label>Plan Name</label>
+        <input id="gameplanName" type="text" maxlength="80" placeholder="Weekly Defensive Gameplan">
+      </div>
+      <div class="gameplan-field">
+        <label>Opponent</label>
+        <select id="gameplanOpponent">
+<option value="">No opponent selected</option>
+        </select>
+      </div>
+      <div class="gameplan-field">
+        <label>Week / Game</label>
+        <input id="gameplanWeek" type="text" maxlength="80" placeholder="Week 1, Playoffs, Rivalry Game…">
+      </div>
+    </div>
+
+    <div class="gameplan-layout">
+      <div class="gameplan-builder">
+        <h3>Add to Call Sheet</h3>
+        <label>Situation</label>
+        <select id="gameplanSituation">
+<option>Base Defense</option>
+<option>1st &amp; 10</option>
+<option>2nd &amp; Medium</option>
+<option>3rd &amp; Short</option>
+<option>3rd &amp; Medium</option>
+<option>3rd &amp; Long</option>
+<option>Red Zone</option>
+<option>Goal Line</option>
+<option>Two-Minute</option>
+<option>Backed Up</option>
+<option>Mobile QB</option>
+<option>RPO</option>
+<option>Bunch / Trips</option>
+<option>Empty</option>
+<option>Run Heavy</option>
+<option>Custom</option>
+        </select>
+        <label>Call / Adjustment Note</label>
+        <textarea id="gameplanNote" maxlength="220" placeholder="User defender, coverage adjustment, down-and-distance reminder…"></textarea>
+        <div class="gameplan-current" id="gameplanCurrentSummary"></div>
+        <div class="gameplan-add-actions">
+<button class="gameplan-btn primary" id="addCurrentPlayToGameplan" type="button">Add Current Play</button>
+<button class="gameplan-btn" id="addSelectedMacroToGameplan" type="button">Add Selected Macro</button>
+        </div>
+      </div>
+
+      <div class="call-sheet-shell" id="callSheetShell">
+        <div class="call-sheet-title">
+<div>
+  <strong id="gameplanPreviewTitle">Weekly Defensive Gameplan</strong>
+  <span id="gameplanPreviewMeta">No opponent selected</span>
+</div>
+<span class="call-sheet-count" id="gameplanCount">0 calls</span>
+        </div>
+        <div class="call-sheet-list" id="gameplanCallSheet"></div>
+      </div>
+    </div>
+  </section>
   <div class="modal-backdrop" id="appModal" hidden>
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-head">
@@ -571,14 +713,18 @@ footer{
               <h3>4. Save a macro</h3>
               <p>A macro slot stores the formation, actual play, passing strength, and complete assignment package. The ten slots match the active defensive adjustment limit documented by EA.</p>
             </article>
+            <article class="help-card">
+              <h3>5. Build a weekly gameplan</h3>
+              <p>Select an opponent and situation, then add the current play or a saved macro. Reorder calls, reload them into the field, and print a clean call sheet.</p>
+            </article>
             <article class="help-card full">
               <h3>Storage and sharing</h3>
               <ul>
                 <li>Saved data stays in Chrome on the current device.</li>
                 <li>Use <strong>Export Backup</strong> before clearing browser data or moving computers.</li>
                 <li>Send the HTML file to another user; they can open it directly in Chrome.</li>
-                <li>Use <strong>Import Backup</strong> to transfer macros, play maps, and My Playbook.</li>
-                <li><strong>Reset Entire App</strong> deletes only this tool's locally saved macros, maps, and favorites.</li>
+                <li>Use <strong>Import Backup</strong> to transfer macros, play maps, My Playbook, and the weekly gameplan.</li>
+                <li><strong>Reset Entire App</strong> deletes only this tool's locally saved macros, maps, favorites, and weekly gameplan.</li>
               </ul>
             </article>
             <article class="help-card full">
@@ -589,6 +735,7 @@ footer{
         </div>
         <div class="modal-pane" id="modalReleasePane" hidden>
           <div class="release-list">
+            <article class="release-item"><strong>Weekly gameplan builder and printable call sheet</strong><span>Create one active opponent plan, organize calls by situation, add current plays or saved macros, reload any call, and print a clean game-day sheet.</span></article>
             <article class="release-item"><strong>Complete built-in formation coverage</strong><span>Built-in mappings now cover 1,243 of 1,245 formation-play entries. The two unavailable Cover 9 source assets remain intentionally unmapped. Source-reviewed and legacy-source-confirmed mappings are labeled separately; no built-in mapped formations remain review-pending.</span></article>
             <article class="release-item"><strong>Clearer base versus override play art</strong><span>Base responsibilities use dashed lines. Manual macro overrides use heavier solid gold lines, enhanced player highlighting, and override markers.</span></article>
             <article class="release-item"><strong>Improved assignment console</strong><span>The selected defender card now shows role, assignment source, and whether the responsibility comes from the base play or a manual override.</span></article>
@@ -5687,6 +5834,137 @@ function renderMapping(){
   el("removePlayMap").style.opacity=record?"1":".4";
 }
 
+
+const GAMEPLAN_STORAGE_KEY="cfb27-playbook-lab-v4-gameplan";
+function emptyGameplan(){
+  return {name:"Weekly Defensive Gameplan",opponent:"",week:"",entries:[],updatedAt:null};
+}
+function normalizeGameplan(raw){
+  const base=emptyGameplan();
+  if(!raw||typeof raw!=="object")return base;
+  const entries=(Array.isArray(raw.entries)?raw.entries:[])
+    .filter(entry=>entry?.package&&PLAY_DB[entry.package.formation]?.includes(entry.package.play))
+    .map((entry,index)=>({
+      id:String(entry.id||`call-${index}-${Date.now()}`),
+      situation:typeof entry.situation==="string"&&entry.situation.trim()?entry.situation.trim():"Base Defense",
+      note:typeof entry.note==="string"?entry.note.slice(0,220):"",
+      source:typeof entry.source==="string"&&entry.source.trim()?entry.source.trim():"Saved Call",
+      macroSlot:Number.isInteger(entry.macroSlot)&&entry.macroSlot>=0&&entry.macroSlot<10?entry.macroSlot:null,
+      package:JSON.parse(JSON.stringify(entry.package))
+    }));
+  return {
+    name:typeof raw.name==="string"&&raw.name.trim()?raw.name.trim().slice(0,80):base.name,
+    opponent:TEAM_PLAYBOOKS[raw.opponent]?raw.opponent:"",
+    week:typeof raw.week==="string"?raw.week.trim().slice(0,80):"",
+    entries,
+    updatedAt:raw.updatedAt||null
+  };
+}
+function getGameplan(){
+  try{return normalizeGameplan(JSON.parse(localStorage.getItem(GAMEPLAN_STORAGE_KEY)||"{}"))}
+  catch{return emptyGameplan()}
+}
+function storeGameplan(plan){
+  const normalized=normalizeGameplan(plan);normalized.updatedAt=new Date().toISOString();
+  localStorage.setItem(GAMEPLAN_STORAGE_KEY,JSON.stringify(normalized));return normalized;
+}
+function clonePackage(pkg){return JSON.parse(JSON.stringify(pkg))}
+function loadPlayPackage(pkg,selectedSlot=null){
+  if(!pkg||!PLAY_DB[pkg.formation]?.includes(pkg.play)){alert("That saved call is no longer available in the master play library.");return false}
+  state.selectedSlot=Number.isInteger(selectedSlot)?selectedSlot:null;
+  state.libraryView="ALL";state.family=familyOf(pkg.formation);state.formation=pkg.formation;state.play=pkg.play;state.strength=pkg.strength||"left";
+  state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
+  el("libraryView").value="ALL";populateFamilies();el("family").value=state.family;populateFormations();
+  el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
+  populatePlays();el("strength").value=state.strength;
+  if(pkg.overrides&&typeof pkg.overrides==="object")state.overrides={...pkg.overrides};
+  else{
+    const base=baseAssignments(clonePlayers());
+    Object.entries(pkg.assignments||{}).forEach(([id,key])=>{if(base[id]!==key)state.overrides[id]=key});
+  }
+  state.selected=clonePlayers()[0][0];renderAll();
+  requestAnimationFrame(()=>el("diagramTitle")?.scrollIntoView({behavior:"smooth",block:"center"}));
+  return true;
+}
+function updateGameplanMeta(){
+  const plan=getGameplan();
+  plan.name=el("gameplanName").value;plan.opponent=el("gameplanOpponent").value;plan.week=el("gameplanWeek").value;
+  storeGameplan(plan);renderGameplan();
+}
+function addPackageToGameplan(pkg,source,macroSlot=null){
+  if(!pkg||!PLAY_DB[pkg.formation]?.includes(pkg.play)){alert("Select a valid play or saved macro first.");return}
+  const plan=getGameplan();
+  plan.entries.push({
+    id:`call-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+    situation:el("gameplanSituation").value||"Base Defense",
+    note:el("gameplanNote").value.trim(),
+    source,
+    macroSlot:Number.isInteger(macroSlot)?macroSlot:null,
+    package:clonePackage(pkg)
+  });
+  storeGameplan(plan);el("gameplanNote").value="";renderGameplan();
+}
+function addCurrentPlayToGameplan(){
+  if(!state.formation||!state.play){alert("Select a play before adding it to the gameplan.");return}
+  addPackageToGameplan(snapshot(state.play),"Current Play");
+}
+function addSelectedMacroToGameplan(){
+  const slot=state.selectedSlot,macro=Number.isInteger(slot)?getMacros()[slot]:null;
+  if(!macro){alert("Select a saved macro slot first.");return}
+  addPackageToGameplan(macro,`Macro ${String(slot+1).padStart(2,"0")}: ${macro.name}`,slot);
+}
+function moveGameplanEntry(index,direction){
+  const plan=getGameplan(),target=index+direction;
+  if(target<0||target>=plan.entries.length)return;
+  [plan.entries[index],plan.entries[target]]=[plan.entries[target],plan.entries[index]];
+  storeGameplan(plan);renderGameplan();
+}
+function removeGameplanEntry(index){
+  const plan=getGameplan();plan.entries.splice(index,1);storeGameplan(plan);renderGameplan();
+}
+function newBlankGameplan(){
+  const current=getGameplan();
+  if(current.entries.length&&!confirm("Start a new blank weekly gameplan and remove the current call sheet?"))return;
+  storeGameplan(emptyGameplan());el("gameplanNote").value="";renderGameplan();
+}
+function renderGameplan(){
+  const plan=getGameplan(),nameInput=el("gameplanName"),weekInput=el("gameplanWeek"),opponentInput=el("gameplanOpponent");
+  if(document.activeElement!==nameInput)nameInput.value=plan.name;
+  if(document.activeElement!==weekInput)weekInput.value=plan.week;
+  opponentInput.value=plan.opponent;
+  const opponent=TEAM_PLAYBOOKS[plan.opponent]?.name||"No opponent selected";
+  el("gameplanPreviewTitle").textContent=plan.name||"Weekly Defensive Gameplan";
+  el("gameplanPreviewMeta").textContent=[plan.week,opponent].filter(Boolean).join(" • ");
+  el("gameplanCount").textContent=`${plan.entries.length} call${plan.entries.length===1?"":"s"}`;
+
+  const selectedMacro=Number.isInteger(state.selectedSlot)?getMacros()[state.selectedSlot]:null;
+  const playText=state.formation&&state.play?`${state.formation} — ${state.play}`:"No current play selected";
+  const macroText=selectedMacro?`Selected macro ${String(state.selectedSlot+1).padStart(2,"0")}: ${selectedMacro.name}`:"No macro slot selected";
+  el("gameplanCurrentSummary").textContent=`Current play: ${playText}\n${macroText}`;
+  el("addCurrentPlayToGameplan").disabled=!state.formation||!state.play;
+  el("addSelectedMacroToGameplan").disabled=!selectedMacro;
+
+  const list=el("gameplanCallSheet");list.innerHTML="";
+  if(!plan.entries.length){
+    const empty=document.createElement("div");empty.className="empty-state";empty.textContent="No calls added yet. Choose a situation, then add the current play or a selected macro.";list.appendChild(empty);return;
+  }
+  plan.entries.forEach((entry,index)=>{
+    const row=document.createElement("article");row.className="call-sheet-row";
+    const situation=document.createElement("div");situation.className="call-sheet-situation";situation.textContent=entry.situation;
+    const main=document.createElement("div");main.className="call-sheet-main";
+    const title=document.createElement("strong");title.textContent=`${entry.package.formation} — ${entry.package.play}`;
+    const meta=document.createElement("span");
+    const details=[entry.source,`Strength ${(entry.package.strength||"left").toUpperCase()}`];if(entry.note)details.push(entry.note);meta.textContent=details.join(" • ");
+    main.append(title,meta);
+    const actions=document.createElement("div");actions.className="entry-actions";
+    const load=document.createElement("button");load.type="button";load.textContent="Load";load.onclick=()=>loadPlayPackage(entry.package,entry.macroSlot);
+    const up=document.createElement("button");up.type="button";up.textContent="↑";up.title="Move up";up.disabled=index===0;up.onclick=()=>moveGameplanEntry(index,-1);
+    const down=document.createElement("button");down.type="button";down.textContent="↓";down.title="Move down";down.disabled=index===plan.entries.length-1;down.onclick=()=>moveGameplanEntry(index,1);
+    const remove=document.createElement("button");remove.type="button";remove.className="remove";remove.textContent="Remove";remove.onclick=()=>removeGameplanEntry(index);
+    actions.append(load,up,down,remove);row.append(situation,main,actions);list.appendChild(row);
+  });
+}
+
 function getMacros(){
   try{return JSON.parse(localStorage.getItem("cfb27-playbook-lab-v4-macros")||"[]")}
   catch{return[]}
@@ -5721,21 +5999,8 @@ function renderMacros(){
       b.innerHTML=`<div class="macro-top"><span class="macro-slot">${String(i+1).padStart(2,"0")}</span><span class="macro-name">Empty Slot</span></div><div class="macro-play-name" style="color:#7f95aa">Save a full play and assignment package.</div>`;
     }
     b.onclick=()=>{
-      state.selectedSlot=i;
-      if(m&&PLAY_DB[m.formation]?.includes(m.play)){
-        state.libraryView="ALL";state.family=familyOf(m.formation);state.formation=m.formation;state.play=m.play;state.strength=m.strength||"left";
-        state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};clearUndo();
-        el("libraryView").value="ALL";populateFamilies();el("family").value=state.family;populateFormations();
-        el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
-        populatePlays();el("strength").value=state.strength;
-        if(m.overrides&&typeof m.overrides==="object")state.overrides={...m.overrides};
-        else{
-          const base=baseAssignments(clonePlayers());
-          Object.entries(m.assignments||{}).forEach(([id,key])=>{if(base[id]!==key)state.overrides[id]=key});
-        }
-        state.selected=clonePlayers()[0][0];
-      }
-      renderAll();
+      if(m)loadPlayPackage(m,i);
+      else{state.selectedSlot=i;renderAll()}
     };
     wrap.appendChild(b);
   }
@@ -5748,7 +6013,7 @@ function renderUndo(){
   b.textContent=state.undoStack.length?`Undo Last Assignment (${state.undoStack.length})`:"Undo Last Assignment";
 }
 function renderAll(){
-  updateTypeBadge();renderField();renderPlayerGrid();renderAssignmentGroups();renderSummary();renderMapping();renderMacros();renderFavoriteControls();renderUndo();
+  updateTypeBadge();renderField();renderPlayerGrid();renderAssignmentGroups();renderSummary();renderMapping();renderMacros();renderFavoriteControls();renderUndo();renderGameplan();
 }
 
 el("libraryView").onchange=e=>{
@@ -5841,8 +6106,15 @@ el("overwriteMacro").onclick=()=>{
   data[state.selectedSlot]=snapshot(name);storeMacros(data);renderMacros();
 };
 el("clearMacros").onclick=()=>{
-  if(confirm("Clear all 10 saved macro slots?")){storeMacros([]);state.selectedSlot=null;renderMacros()}
+  if(confirm("Clear all 10 saved macro slots?")){storeMacros([]);state.selectedSlot=null;renderAll()}
 };
+el("gameplanName").oninput=updateGameplanMeta;
+el("gameplanWeek").oninput=updateGameplanMeta;
+el("gameplanOpponent").onchange=updateGameplanMeta;
+el("addCurrentPlayToGameplan").onclick=addCurrentPlayToGameplan;
+el("addSelectedMacroToGameplan").onclick=addSelectedMacroToGameplan;
+el("newGameplan").onclick=newBlankGameplan;
+el("printGameplan").onclick=()=>{if(!getGameplan().entries.length){alert("Add at least one call before printing the call sheet.");return}window.print()};
 
 function exportBackup(){
   const payload={
@@ -5851,7 +6123,8 @@ function exportBackup(){
     exportedAt:new Date().toISOString(),
     macros:getMacros(),
     playMaps:getPlayMaps(),
-    myPlaybook:getMyPlaybook()
+    myPlaybook:getMyPlaybook(),
+    gameplan:getGameplan()
   };
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob),a=document.createElement("a");
@@ -5865,10 +6138,11 @@ function importBackupFile(file){
     try{
       const data=JSON.parse(reader.result);
       if(data.schema!=="cfb27-defensive-playbook-lab-backup")throw new Error("This is not a CFB 27 Defensive Lab backup.");
-      if(!confirm("Replace the saved macros, play maps, and My Playbook list with this backup?"))return;
+      if(!confirm("Replace the saved macros, play maps, My Playbook list, and weekly gameplan with this backup?"))return;
       storeMacros(Array.isArray(data.macros)?data.macros:[]);
       storePlayMaps(data.playMaps&&typeof data.playMaps==="object"?data.playMaps:{});
       storeMyPlaybook(data.myPlaybook&&typeof data.myPlaybook==="object"?data.myPlaybook:{formations:[],plays:{}});
+      storeGameplan(data.gameplan&&typeof data.gameplan==="object"?data.gameplan:emptyGameplan());
       state.libraryView="ALL";state.typeFilter="ALL";state.mapFilter="ALL";state.playSearch="";state.overrides={};state.selectedSlot=null;clearUndo();
       el("libraryView").value="ALL";el("typeFilter").value="ALL";el("mapFilter").value="ALL";el("playSearch").value="";
       populateFamilies();populateFormations();populatePlays(false);state.selected=clonePlayers()[0][0];renderAll();
@@ -5900,19 +6174,21 @@ document.querySelectorAll("[data-modal-tab]").forEach(btn=>btn.onclick=()=>setMo
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!el("appModal").hidden)closeModal()});
 
 function resetEntireApp(){
-  const confirmation=prompt("This deletes every saved macro, play map, and My Playbook selection in this browser. Type RESET to continue:");
+  const confirmation=prompt("This deletes every saved macro, play map, My Playbook selection, and weekly gameplan in this browser. Type RESET to continue:");
   if(confirmation!=="RESET"){if(confirmation!==null)alert("Reset canceled. You must type RESET exactly.");return}
-  ["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook"].forEach(key=>localStorage.removeItem(key));
+  ["cfb27-playbook-lab-v4-macros","cfb27-playbook-lab-v4-maps","cfb27-playbook-lab-v4-mybook",GAMEPLAN_STORAGE_KEY].forEach(key=>localStorage.removeItem(key));
   alert("The Defensive Playbook Lab has been reset.");
   location.reload();
 }
 el("resetEntireApp").onclick=resetEntireApp;
 
-Object.entries(TEAM_PLAYBOOKS)
-  .sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""))
-  .forEach(([id,book])=>{
-    const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
-  });
+const sortedTeamEntries=Object.entries(TEAM_PLAYBOOKS).sort(([,a],[,b])=>(a.name||"").localeCompare(b.name||""));
+sortedTeamEntries.forEach(([id,book])=>{
+  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("teamPlaybook").appendChild(option);
+});
+sortedTeamEntries.forEach(([id,book])=>{
+  const option=document.createElement("option");option.value=id;option.textContent=book.name||id;el("gameplanOpponent").appendChild(option);
+});
 populateFamilies();populateFormations();populatePlays(false);populateGlobalFinder();
 el("libraryView").value=state.libraryView;
 el("typeFilter").value=state.typeFilter;
