@@ -1,0 +1,56 @@
+name: Diagnose opponent scout macro lab
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/opponent-scout-macro-lab
+          fetch-depth: 0
+
+      - name: Extract embedded patch and capture exact failure
+        run: |
+          git fetch origin main
+          git show origin/main:.github/workflows/build-opponent-scout-macro-lab.yml > /tmp/scout-builder.yml
+          python - <<'PY'
+          import base64, gzip, re
+          from pathlib import Path
+          text=Path('/tmp/scout-builder.yml').read_text(encoding='utf-8')
+          match=re.search(r'payload = "([A-Za-z0-9+/=]+)"',text)
+          if not match:
+              raise SystemExit('Could not extract embedded scout-lab patch payload.')
+          Path('/tmp/build_opponent_scout_macro_lab.py').write_bytes(gzip.decompress(base64.b64decode(match.group(1))))
+          PY
+          set +e
+          python /tmp/build_opponent_scout_macro_lab.py > /tmp/scout-build-output.txt 2> /tmp/scout-build-error.txt
+          status=$?
+          {
+            echo "exit_status=$status"
+            echo "--- stdout ---"
+            cat /tmp/scout-build-output.txt
+            echo "--- stderr ---"
+            cat /tmp/scout-build-error.txt
+          } > scout-build-diagnostic.txt
+          cat scout-build-diagnostic.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scout-build-diagnostic.txt
+          git commit -m "Capture scout lab build failure [skip ci]"
+          git push origin agent/opponent-scout-macro-lab
+
+      - name: Remove diagnostic workflow from main
+        run: |
+          git fetch origin main
+          git checkout main
+          git rm .github/workflows/diagnose-opponent-scout-macro-lab.yml
+          git commit -m "Remove scout lab diagnostic workflow [skip ci]"
+          git push origin main
