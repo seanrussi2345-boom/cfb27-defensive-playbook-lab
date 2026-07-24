@@ -88,6 +88,6 @@ jobs:
         run: |
           git fetch origin main
           git checkout main
-          git rm .github/workflows/run-gameplan-builder.yml
+          git rm .github/workflows/run-gameplan-builder.yml .github/gameplan-main-trigger.txt
           git commit -m "Remove temporary gameplan runner [skip ci]"
           git push origin main
