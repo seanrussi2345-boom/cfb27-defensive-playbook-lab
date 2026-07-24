@@ -41,6 +41,7 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - Team Playbook view for all 138 teams across all 31 defensive books, with exact formation/play membership referencing the existing master play database
 - Searchable Team Playbook Navigator with favorite teams, recently viewed teams, scheme browsing, local persistence, and backup support
 - Weekly Gameplan Builder with opponent selection, situation-based calls, current-play and macro capture, reordering, reload, local persistence, backup support, and a print-friendly Call-Sheet View
+- Opponent Scout Report and Macro Matchup Lab with offensive tendency tracking, generic offensive-set shells, read-only saved-macro visualization, structural coaching alerts, saved matchup notes, weekly-gameplan integration, local persistence, and backup support
 - Player-by-player zone, spy, contain, and rush assignments
 - Draft and verified play maps
 - Ten saved macro slots
