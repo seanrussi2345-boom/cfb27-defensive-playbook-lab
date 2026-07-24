@@ -23,6 +23,7 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
+          import re
           import subprocess
 
           workflow = Path('.github/workflows/add-weekly-gameplan.yml').read_text(encoding='utf-8').splitlines()
@@ -31,6 +32,12 @@ jobs:
           end = next(i for i in range(run_line + 1, len(workflow)) if workflow[i].strip() == '- name: Validate application structure')
           code_lines = workflow[run_line + 1:end]
           code = '\n'.join(line[10:] if line.startswith('          ') else line for line in code_lines) + '\n'
+
+          brittle = re.compile(r"\n\s*old_macro_click = r'''(?:.|\n)*?replace_once\(old_macro_click,new_macro_click\)\n", re.M)
+          code, count = brittle.subn('\n', code, count=1)
+          if count != 1:
+              raise SystemExit('Could not remove the brittle macro-click patch from the generated script.')
+
           Path('/tmp/patch_gameplan.py').write_text(code, encoding='utf-8')
           result = subprocess.run(['python', '/tmp/patch_gameplan.py'], text=True, capture_output=True)
           log = 'STDOUT\n' + result.stdout + '\nSTDERR\n' + result.stderr
@@ -43,6 +50,18 @@ jobs:
               subprocess.run(['git','commit','-m','Capture weekly gameplan build error [skip ci]'], check=True)
               subprocess.run(['git','push','origin','agent/weekly-gameplan-builder'], check=True)
               raise SystemExit(result.returncode)
+
+          index_path = Path('index.html')
+          text = index_path.read_text(encoding='utf-8')
+          macro_pattern = re.compile(
+              r'''    b\.onclick=\(\)=>\{\n      state\.selectedSlot=i;\n      if\(m&&PLAY_DB\[m\.formation\]\?\.includes\(m\.play\)\)\{\n(?:.|\n)*?      renderAll\(\);\n    \};''',
+              re.M,
+          )
+          replacement = '''    b.onclick=()=>{\n      if(m)loadPlayPackage(m,i);\n      else{state.selectedSlot=i;renderAll()}\n    };'''
+          text, count = macro_pattern.subn(replacement, text, count=1)
+          if count != 1:
+              raise SystemExit(f'Expected one macro click handler, replaced {count}.')
+          index_path.write_text(text, encoding='utf-8')
 
       - name: Validate generated feature
         shell: python
