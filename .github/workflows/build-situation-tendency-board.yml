@@ -1,5 +1,6 @@
 name: Build situation tendency board
 
+# Trigger validated build.
 on:
   push:
     branches: [main]
