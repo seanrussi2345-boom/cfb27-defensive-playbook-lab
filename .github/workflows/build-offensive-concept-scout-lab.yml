@@ -1,0 +1,39 @@
+name: Build offensive concept scout lab
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-offensive-concepts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/offensive-concept-scout-lab
+          fetch-depth: 0
+
+      - name: Build offensive concept layer
+        run: python .github/scripts/build_offensive_concept_scout_lab.py
+
+      - name: Validate complete JavaScript
+        run: node --check /tmp/cfb27-offensive-concepts.js
+
+      - name: Commit feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/scripts/build_offensive_concept_scout_lab.py
+          git add index.html README.md
+          git commit -m "Add offensive concept scouting [skip ci]"
+          git push origin agent/offensive-concept-scout-lab
+
+      - name: Remove temporary builder from main
+        run: |
+          git fetch origin main
+          git checkout main
+          git rm .github/workflows/build-offensive-concept-scout-lab.yml
+          git commit -m "Remove offensive concept scout builder [skip ci]"
+          git push origin main
