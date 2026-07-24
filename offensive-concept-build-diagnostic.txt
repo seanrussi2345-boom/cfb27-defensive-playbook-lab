@@ -1,3 +1,12 @@
-exit_status=0
---- patch output ---
+patch_status=0
 Offensive concept scout patch validation passed with 51 concepts.
+node_status=1
+/tmp/cfb27-offensive-concepts.js:5491
+function saveScoutMatchup(){const report=getScoutReport(),pkg=activeScoutPackage(report);if(!pkg)return;const alerts=scoutAlerts(report,pkg);report.matchups.push({id:`scout-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,set:report.set,concept:report.concept,strength:report.strength,situation:report.situation,macroSlot:scoutPackageSlot(report),package:clonePackage(pkg),alertCount:alerts.filter(item=>item.level!=="good").length,savedAt:new Date().toISOString()});report.matchups=report.matchups.slice(-20);storeScoutReport(report);renderScoutReport()}-${Math.random().toString(36).slice(2,8)}`,set:report.set,strength:report.strength,situation:report.situation,macroSlot:scoutPackageSlot(report),package:clonePackage(pkg),alertCount:alerts.filter(item=>item.level!=="good").length,savedAt:new Date().toISOString()});report.matchups=report.matchups.slice(-20);storeScoutReport(report);renderScoutReport()}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^
+
+SyntaxError: Unexpected token '{'
+    at wrapSafe (node:internal/modules/cjs/loader:1713:18)
+    at checkSyntax (node:internal/main/check_syntax:78:3)
+
+Node.js v22.23.1
