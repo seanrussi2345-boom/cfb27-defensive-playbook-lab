@@ -39,8 +39,11 @@ def main() -> None:
         read("chunk_00.txt")
         + read("chunk_01.txt")
         + read("chunk_02.txt")
-        + read("chunk_03.txt")[:2100]
-        + read("part_ab.txt")
+        + read("chunk_03.txt")
+        + read("chunk_04a.txt")
+        + read("chunk_04b.txt")
+        + read("chunk_05.txt")
+        + read("chunk_06a.txt")
         + read("part_ac.txt")
         + read("part_ad.txt")
     )
