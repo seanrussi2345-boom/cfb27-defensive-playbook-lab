@@ -1196,6 +1196,7 @@ footer{
         </div>
         <div class="modal-pane" id="modalReleasePane" hidden>
           <div class="release-list">
+            <article class="release-item"><strong>Complete offensive play art</strong><span>Every offensive player now receives one visible responsibility across every offensive set, concept, and passing-strength direction: route, run track, quarterback action/read, pass protection, lead block, screen block, or stalk block.</span></article>
             <article class="release-item"><strong>ChatGPT written gameplan handoff</strong><span>Create a link-first film packet from public YouTube or Twitch VODs, transcripts, timestamp notes, the Scout Report, Tendency Board, macros, and call sheet; download or copy it for ChatGPT; and save the returned written gameplan back into the browser.</span></article>
             <article class="release-item"><strong>Situation-based opponent tendency board</strong><span>Organize tendencies by situation, frequency, personnel, set, and base concept; attach primary and changeup macros; identify unanswered calls and macro overuse; preview answers in the Scout Lab; and send them to the Weekly Gameplan.</span></article>
             <article class="release-item"><strong>Base offensive concept scouting</strong><span>Select core pass, run, option, screen, and RPO concepts; draw their route/run art over the offensive shell; and generate concept-specific structural alerts against saved macros.</span></article>
@@ -6594,13 +6595,24 @@ function populateScoutConcepts(report=getScoutReport()){
   });
   select.value=OFFENSIVE_SCOUT_CONCEPTS[current]?current:"fourVerticals";
 }
+
 function scoutSetTargets(set,strength){
-  const players=set.players.map(([name,x,y],index)=>({name,x,y,index})),skill=players.filter(player=>!/^(LT|LG|C|RG|RT|QB)$/.test(player.name)),receivers=skill.filter(player=>!/^(RB|FB)$/.test(player.name)).sort((a,b)=>a.x-b.x),backs=skill.filter(player=>/^(RB|FB)$/.test(player.name)),qb=players.find(player=>player.name==="QB");
-  const strongRight=strength==="right",strong=receivers.filter(player=>strongRight?player.x>=500:player.x<=500),weak=receivers.filter(player=>strongRight?player.x<500:player.x>500);
+  const players=set.players.map(([name,x,y],index)=>({name,x,y,index}));
+  const linemen=players.filter(player=>/^(LT|LG|C|RG|RT)$/.test(player.name));
+  const skill=players.filter(player=>!/^(LT|LG|C|RG|RT|QB)$/.test(player.name));
+  const receivers=skill.filter(player=>!/^(RB|FB)$/.test(player.name)).sort((a,b)=>a.x-b.x);
+  const backs=skill.filter(player=>/^(RB|FB)$/.test(player.name));
+  const qb=players.find(player=>player.name==="QB");
+  const strongRight=strength==="right";
+  const strong=receivers.filter(player=>strongRight?player.x>=500:player.x<=500);
+  const weak=receivers.filter(player=>strongRight?player.x<500:player.x>500);
   const outside=list=>[...list].sort((a,b)=>strongRight?b.x-a.x:a.x-b.x)[0]||receivers[receivers.length-1]||skill[0];
   const inside=list=>[...list].sort((a,b)=>Math.abs(a.x-500)-Math.abs(b.x-500))[0]||receivers[Math.floor(receivers.length/2)]||skill[0];
-  const weakOutside=[...weak].sort((a,b)=>strongRight?a.x-b.x:b.x-a.x)[0]||receivers[0]||skill[0],weakInside=[...weak].sort((a,b)=>Math.abs(a.x-500)-Math.abs(b.x-500))[0]||weakOutside;
-  return{players,skill,receivers,backs,qb,strongRight,dir:strongRight?1:-1,strongOutside:outside(strong),strongInside:inside(strong),weakOutside,weakInside,back:backs.find(player=>player.name==="RB")||backs[0]||inside(strong),fullback:backs.find(player=>player.name==="FB")||backs[1]||backs[0]};
+  const weakOutside=[...weak].sort((a,b)=>strongRight?a.x-b.x:b.x-a.x)[0]||receivers[0]||skill[0];
+  const weakInside=[...weak].sort((a,b)=>Math.abs(a.x-500)-Math.abs(b.x-500))[0]||weakOutside;
+  const back=backs.find(player=>player.name==="RB")||backs[0]||null;
+  const fullback=backs.find(player=>player.name==="FB")||backs.find(player=>player!==back)||null;
+  return{players,linemen,skill,receivers,backs,qb,strongRight,dir:strongRight?1:-1,strongOutside:outside(strong),strongInside:inside(strong),weakOutside,weakInside,back,fullback};
 }
 function scoutPath(svg,start,points,kind="pass",dash=false){
   if(!start||!points.length)return;
@@ -6608,9 +6620,20 @@ function scoutPath(svg,start,points,kind="pass",dash=false){
   const all=[[start.x,start.y],...points],path=svgEl("path",{d:all.map(([x,y],index)=>`${index?"L":"M"}${x} ${y}`).join(" "),fill:"none",stroke:style[0],"stroke-width":style[2],"stroke-linecap":"round","stroke-linejoin":"round","marker-end":`url(#${style[1]})`});
   if(dash)path.setAttribute("stroke-dasharray","9 6");svg.appendChild(path);
 }
-function drawOffensiveConcept(svg,set,conceptId,strength){
-  const concept=OFFENSIVE_SCOUT_CONCEPTS[conceptId]||OFFENSIVE_SCOUT_CONCEPTS.fourVerticals,t=scoutSetTargets(set,strength),d=t.dir,so=t.strongOutside,si=t.strongInside,wo=t.weakOutside,wi=t.weakInside,back=t.back,qb=t.qb,fb=t.fullback;
-  const pass=(start,points)=>scoutPath(svg,start,points,"pass"),run=(start,points)=>scoutPath(svg,start,points,"run"),read=(start,points)=>scoutPath(svg,start,points,"read",true),block=(start,points)=>scoutPath(svg,start,points,"block",true),vertical=(player,xShift=0)=>pass(player,[[player.x+xShift,360],[player.x+xShift,110]]),flat=(player)=>pass(player,[[player.x+d*70,500],[player.x+d*180,470]]),insideRun=()=>run(back,[[back.x-d*25,570],[500+d*35,485],[500+d*20,300]]),bubble=()=>pass(so,[[so.x-d*25,555],[so.x-d*95,525],[so.x-d*165,495]]);
+function scoutConceptPlan(set,conceptId,strength){
+  const concept=OFFENSIVE_SCOUT_CONCEPTS[conceptId]||OFFENSIVE_SCOUT_CONCEPTS.fourVerticals;
+  const t=scoutSetTargets(set,strength),d=t.dir,so=t.strongOutside,si=t.strongInside,wo=t.weakOutside,wi=t.weakInside,back=t.back,qb=t.qb,fb=t.fullback,carrier=back||qb;
+  const paths=[],assigned=new Set(),clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
+  const add=(start,points,kind="pass",dash=false)=>{
+    if(!start||!Array.isArray(points)||!points.length||assigned.has(start.index))return false;
+    paths.push({start,points:points.map(([x,y])=>[clamp(x,20,980),clamp(y,60,610)]),kind,dash});
+    assigned.add(start.index);return true;
+  };
+  const pass=(start,points)=>add(start,points,"pass"),run=(start,points)=>add(start,points,"run"),read=(start,points)=>add(start,points,"read",true),block=(start,points)=>add(start,points,"block",true);
+  const vertical=(player,xShift=0)=>player?pass(player,[[player.x+xShift,360],[player.x+xShift,110]]):false;
+  const flat=(player)=>player?pass(player,[[player.x+d*70,500],[player.x+d*180,470]]):false;
+  const insideRun=()=>carrier?run(carrier,[[carrier.x-d*25,570],[500+d*35,485],[500+d*20,300]]):false;
+  const bubble=()=>so?pass(so,[[so.x-d*25,555],[so.x-d*95,525],[so.x-d*165,495]]):false;
   switch(conceptId){
     case"fourVerticals":{const targets=[...t.receivers].sort((a,b)=>a.x-b.x);targets.slice(0,4).forEach((player,index)=>vertical(player,index===1?25:index===2?-25:0));break}
     case"mesh":pass(si,[[si.x,430],[wi.x,400],[wo.x,390]]);pass(wi,[[wi.x,425],[si.x,395],[so.x,385]]);vertical(so);pass(wo,[[wo.x,350],[500,210]]);break;
@@ -6629,31 +6652,116 @@ function drawOffensiveConcept(svg,set,conceptId,strength){
     case"cornerFlat":pass(si,[[si.x,350],[si.x+d*135,205]]);flat(back);break;
     case"posts":pass(so,[[so.x,330],[500+d*70,120]]);pass(wo,[[wo.x,330],[500-d*70,120]]);break;
     case"doubleMove":[so,wo].filter(Boolean).forEach(player=>pass(player,[[player.x,410],[player.x-d*(player===wo?1:-1)*25,435],[player.x,360],[player.x,110]]));break;
-    case"rbScreen":pass(back,[[back.x-d*20,585],[back.x+d*70,560],[back.x+d*190,470],[back.x+d*235,360]]);t.players.filter(player=>/^(LG|C|RG)$/.test(player.name)).forEach((player,index)=>block(player,[[player.x+d*(70+index*35),525],[player.x+d*(155+index*35),450]]));break;
+    case"rbScreen":{const screenBack=back||si||wi||so;pass(screenBack,[[screenBack.x-d*20,585],[screenBack.x+d*70,560],[screenBack.x+d*190,470],[screenBack.x+d*235,360]]);t.players.filter(player=>/^(LG|C|RG)$/.test(player.name)).forEach((player,index)=>block(player,[[player.x+d*(70+index*35),525],[player.x+d*(155+index*35),450]]));break;}
     case"wrScreen":pass(so,[[so.x-d*25,555],[so.x-d*95,525],[so.x-d*145,490]]);[si,t.receivers.find(player=>player!==so&&player!==si&&Math.sign(player.x-500)===Math.sign(so.x-500))].filter(Boolean).forEach((player,index)=>block(player,[[so.x-d*(80+index*45),470],[so.x-d*(105+index*50),400]]));break;
     case"teScreen":pass(si,[[si.x,520],[si.x-d*35,500],[500+d*40,445],[500+d*90,350]]);t.players.filter(player=>/^(LG|C|RG)$/.test(player.name)).forEach((player,index)=>block(player,[[500+d*(35+index*45),500],[500+d*(55+index*55),420]]));break;
-    case"playActionShot":run(back,[[500+d*25,525],[500+d*45,480]]);pass(so,[[so.x,330],[500+d*65,105]]);pass(wi,[[wi.x,360],[500,280],[so.x-d*80,235]]);break;
+    case"playActionShot":run(carrier,[[500+d*25,525],[500+d*45,480]]);pass(so,[[so.x,330],[500+d*65,105]]);pass(wi,[[wi.x,360],[500,280],[so.x-d*80,235]]);break;
     case"insideZone":insideRun();break;
-    case"outsideZone":run(back,[[back.x+d*70,560],[500+d*180,510],[500+d*320,420],[500+d*400,300]]);break;
+    case"outsideZone":run(carrier,[[carrier.x+d*70,560],[500+d*180,510],[500+d*320,420],[500+d*400,300]]);break;
     case"splitZone":insideRun();block(wi||fb,[[500-d*80,545],[500+d*95,505],[500+d*155,455]]);break;
-    case"duo":run(back,[[500,520],[500+d*15,420],[500+d*10,260]]);break;
-    case"power":run(back,[[back.x-d*20,565],[500+d*65,500],[500+d*95,330]]);{const guard=t.players.find(player=>player.name===(d>0?"LG":"RG"));block(guard,[[500-d*35,550],[500+d*65,505],[500+d*110,420]])}break;
-    case"counter":run(back,[[back.x+d*45,585],[back.x-d*40,555],[500-d*90,485],[500-d*140,330]]);t.players.filter(player=>player.name===(d>0?"RG":"LG")||player.name===(d>0?"RT":"LT")).forEach((player,index)=>block(player,[[500+d*(35+index*40),555],[500-d*(80+index*50),500],[500-d*(125+index*45),420]]));break;
-    case"trap":run(back,[[500,535],[500+d*30,450],[500+d*25,300]]);{const guard=t.players.find(player=>player.name===(d>0?"LG":"RG"));block(guard,[[500-d*55,555],[500+d*40,505]])}break;
-    case"stretch":run(back,[[back.x+d*90,565],[500+d*245,525],[500+d*375,455],[500+d*430,330]]);break;
-    case"toss":read(qb,[[qb.x+d*80,590],[qb.x+d*145,565]]);run(back,[[back.x+d*105,575],[500+d*250,520],[500+d*390,430],[500+d*440,320]]);break;
-    case"draw":read(qb,[[qb.x,610],[qb.x,595]]);run(back,[[back.x,585],[500,530],[500+d*25,410],[500+d*15,270]]);break;
-    case"readOption":run(back,[[back.x+d*75,565],[500+d*170,500],[500+d*260,390]]);read(qb,[[qb.x-d*40,565],[500-d*135,480],[500-d*210,360]]);break;
-    case"speedOption":read(qb,[[qb.x+d*80,565],[500+d*180,485],[500+d*275,365]]);run(back,[[back.x+d*140,580],[500+d*280,500],[500+d*390,390]]);break;
+    case"duo":run(carrier,[[500,520],[500+d*15,420],[500+d*10,260]]);break;
+    case"power":run(carrier,[[carrier.x-d*20,565],[500+d*65,500],[500+d*95,330]]);{const guard=t.players.find(player=>player.name===(d>0?"LG":"RG"));block(guard,[[500-d*35,550],[500+d*65,505],[500+d*110,420]])}break;
+    case"counter":run(carrier,[[carrier.x+d*45,585],[carrier.x-d*40,555],[500-d*90,485],[500-d*140,330]]);t.players.filter(player=>player.name===(d>0?"RG":"LG")||player.name===(d>0?"RT":"LT")).forEach((player,index)=>block(player,[[500+d*(35+index*40),555],[500-d*(80+index*50),500],[500-d*(125+index*45),420]]));break;
+    case"trap":run(carrier,[[500,535],[500+d*30,450],[500+d*25,300]]);{const guard=t.players.find(player=>player.name===(d>0?"LG":"RG"));block(guard,[[500-d*55,555],[500+d*40,505]])}break;
+    case"stretch":run(carrier,[[carrier.x+d*90,565],[500+d*245,525],[500+d*375,455],[500+d*430,330]]);break;
+    case"toss":{const pitchBack=back||wi||si||so;if(pitchBack&&pitchBack!==qb){read(qb,[[qb.x+d*80,590],[qb.x+d*145,565]]);run(pitchBack,[[pitchBack.x+d*105,575],[500+d*250,520],[500+d*390,430],[500+d*440,320]])}else run(qb,[[qb.x+d*80,575],[500+d*230,510],[500+d*380,410]]);break}
+    case"draw":{const drawBack=back||fb;if(drawBack){read(qb,[[qb.x,610],[qb.x,595]]);run(drawBack,[[drawBack.x,585],[500,530],[500+d*25,410],[500+d*15,270]])}else run(qb,[[qb.x,585],[500,530],[500+d*25,410],[500+d*15,270]]);break}
+    case"readOption":{const giveBack=back||wi||si||so;run(giveBack,[[giveBack.x+d*75,565],[500+d*170,500],[500+d*260,390]]);read(qb,[[qb.x-d*40,565],[500-d*135,480],[500-d*210,360]]);break}
+    case"speedOption":{const pitchBack=back||wi||si||so;read(qb,[[qb.x+d*80,565],[500+d*180,485],[500+d*275,365]]);run(pitchBack,[[pitchBack.x+d*140,580],[500+d*280,500],[500+d*390,390]]);break}
     case"qbPower":read(qb,[[qb.x-d*20,565],[500+d*65,495],[500+d*95,330]]);block(fb||back,[[500+d*35,530],[500+d*95,430]]);break;
     case"jetSweep":{const jet=d>0?wi:si;run(jet,[[500-d*90,555],[500+d*90,535],[500+d*260,470],[500+d*390,360]]);break}
     case"izBubble":insideRun();bubble();break;
     case"izGlance":insideRun();pass(so,[[so.x,430],[so.x-d*115,320]]);break;
     case"izStick":insideRun();pass(si,[[si.x,420],[si.x+d*45,395]]);flat(so);break;
-    case"readBubble":run(back,[[back.x+d*70,565],[500+d*170,500],[500+d*250,400]]);read(qb,[[qb.x-d*40,565],[500-d*140,450]]);bubble();break;
-    case"powerRead":run(si||back,[[500-d*90,555],[500+d*105,525],[500+d*260,430]]);read(qb,[[qb.x-d*20,565],[500-d*70,500],[500-d*95,340]]);block(fb||back,[[500-d*30,535],[500-d*90,430]]);break;
+    case"readBubble":{const giveBack=back||wi||si||so;run(giveBack,[[giveBack.x+d*70,565],[500+d*170,500],[500+d*250,400]]);read(qb,[[qb.x-d*40,565],[500-d*140,450]]);bubble();break}
+    case"powerRead":run(si||carrier,[[500-d*90,555],[500+d*105,525],[500+d*260,430]]);read(qb,[[qb.x-d*20,565],[500-d*70,500],[500-d*95,340]]);block(fb||back,[[500-d*30,535],[500-d*90,430]]);break;
   }
+  const tags=new Set(concept.tags||[]),outsideIds=new Set([t.receivers[0]?.index,t.receivers[t.receivers.length-1]?.index].filter(Number.isInteger));
+  const strongSide=player=>(d>0?player.x>=500:player.x<=500);
+  if(concept.category==="Pass"){
+    const screenConcept=tags.has("screen"),screenSide=Math.sign((so?.x??(500+d*100))-500)||d;
+    t.receivers.filter(player=>!assigned.has(player.index)).forEach(player=>{
+      const outside=outsideIds.has(player.index),sameScreenSide=(Math.sign(player.x-500)||screenSide)===screenSide;
+      if(screenConcept){
+        if(sameScreenSide)block(player,[[player.x+(player.x<500?20:-20),500],[player.x+d*55,420]]);
+        else vertical(player,player.x<500?-12:12);
+      }else if(tags.has("vertical")||tags.has("shot")||tags.has("post")){
+        if(outside)vertical(player,player.x<500?-14:14);
+        else pass(player,[[player.x,350],[player.x+(player.x<500?35:-35),155]]);
+      }else if(tags.has("cross")||tags.has("traffic")||tags.has("levels")||tags.has("dig")){
+        if(outside)vertical(player,player.x<500?-10:10);
+        else pass(player,[[player.x,425],[500+(player.x<500?95:-95),365]]);
+      }else if(tags.has("flood")||tags.has("threeLevel")||tags.has("smash")||tags.has("highLow")||tags.has("flatConflict")){
+        if(strongSide(player))vertical(player,player.x<500?-10:10);
+        else pass(player,[[player.x,405],[500+(player.x<500?115:-115),330]]);
+      }else if(tags.has("quick")||tags.has("spacing")||tags.has("inside")){
+        pass(player,[[player.x,435],[player.x+(player.x<500?95:-95),360]]);
+      }else{
+        pass(player,[[player.x,390],[player.x+(player.x<500?35:-35),365]]);
+      }
+    });
+    t.backs.filter(player=>!assigned.has(player.index)).forEach((player,index)=>{
+      if(screenConcept||index>0)block(player,[[player.x-d*20,565],[player.x-d*45,520]]);
+      else pass(player,[[player.x,570],[player.x-d*75,530],[player.x-d*165,480]]);
+    });
+    if(qb&&!assigned.has(qb.index))read(qb,[[qb.x-d*5,610],[qb.x-d*35,605]]);
+    t.linemen.filter(player=>!assigned.has(player.index)).forEach(player=>{
+      const pocket=player.x<500?-1:player.x>500?1:0;
+      block(player,[[player.x+pocket*8,585],[player.x+pocket*22,605]]);
+    });
+  }else if(concept.category==="Run"){
+    const runDir=tags.has("misdirection")?-d:d;
+    t.receivers.filter(player=>!assigned.has(player.index)).forEach(player=>block(player,[[player.x+(player.x<500?18:-18),505],[player.x+runDir*42,430]]));
+    t.backs.filter(player=>!assigned.has(player.index)).forEach((player,index)=>block(player,[[player.x+runDir*25,570],[500+runDir*(115+index*35),485],[500+runDir*(170+index*35),410]]));
+    if(qb&&!assigned.has(qb.index))read(qb,[[qb.x-runDir*15,585],[qb.x-runDir*75,550]]);
+    t.linemen.filter(player=>!assigned.has(player.index)).forEach(player=>{
+      if(tags.has("runOutside")||tags.has("perimeter"))block(player,[[player.x+runDir*35,535],[player.x+runDir*82,485]]);
+      else block(player,[[player.x+runDir*16,530],[player.x+runDir*32,450]]);
+    });
+  }else{
+    const runDir=d,routeSide=Math.sign((so?.x??(500+d*100))-500)||d;
+    t.receivers.filter(player=>!assigned.has(player.index)).forEach(player=>{
+      const playerSide=Math.sign(player.x-500)||routeSide,outside=outsideIds.has(player.index);
+      if(tags.has("bubble")){
+        if(playerSide===routeSide)block(player,[[player.x+(player.x<500?18:-18),505],[player.x+runDir*45,430]]);
+        else pass(player,[[player.x,430],[player.x+(player.x<500?105:-105),345]]);
+      }else if(tags.has("glance")){
+        if(outside)vertical(player,player.x<500?-10:10);
+        else block(player,[[player.x+(player.x<500?18:-18),505],[player.x+runDir*35,435]]);
+      }else if(tags.has("stick")){
+        if(strongSide(player))vertical(player,player.x<500?-10:10);
+        else pass(player,[[player.x,430],[player.x+(player.x<500?90:-90),360]]);
+      }else{
+        block(player,[[player.x+(player.x<500?18:-18),505],[player.x+runDir*42,430]]);
+      }
+    });
+    t.backs.filter(player=>!assigned.has(player.index)).forEach((player,index)=>block(player,[[player.x+runDir*20,570],[500+runDir*(110+index*35),485],[500+runDir*(155+index*35),415]]));
+    if(qb&&!assigned.has(qb.index))read(qb,[[qb.x-d*20,580],[500-d*75,525]]);
+    t.linemen.filter(player=>!assigned.has(player.index)).forEach(player=>block(player,[[player.x+runDir*18,532],[player.x+runDir*38,452]]));
+  }
+  t.players.filter(player=>!assigned.has(player.index)).forEach(player=>{
+    if(player.name==="QB")read(player,[[player.x,585],[player.x-d*45,550]]);
+    else block(player,[[player.x,Math.max(100,player.y-35)],[player.x+d*25,Math.max(80,player.y-85)]]);
+  });
+  return{paths,assigned,total:t.players.length,unassigned:t.players.filter(player=>!assigned.has(player.index))};
 }
+function drawOffensiveConcept(svg,set,conceptId,strength){
+  const plan=scoutConceptPlan(set,conceptId,strength);
+  plan.paths.forEach(path=>scoutPath(svg,path.start,path.points,path.kind,path.dash));
+}
+function offensiveConceptCoverageReport(){
+  const failures=[];let tested=0;
+  Object.entries(OFFENSIVE_SCOUT_SETS).forEach(([setId,set])=>{
+    Object.keys(OFFENSIVE_SCOUT_CONCEPTS).forEach(conceptId=>{
+      ["left","right"].forEach(strength=>{
+        const plan=scoutConceptPlan(set,conceptId,strength);tested+=1;
+        if(plan.unassigned.length||plan.paths.length!==plan.total)failures.push({set:setId,concept:conceptId,strength,unassigned:plan.unassigned.map(player=>`${player.name}#${player.index}`),paths:plan.paths.length,total:plan.total});
+      });
+    });
+  });
+  return{tested,failures};
+}
+
 function scoutDefenseCoords(ids){
   const map={CB1:[85,330],SCB:[250,365],SCB1:[230,365],SCB2:[770,365],CB2:[915,330],SS1:[285,220],FS1:[430,120],FS:[500,120],SS:[650,190],SS2:[715,220],SAM:[300,410],MIKE:[500,405],WILL:[700,410],JACK:[790,420],SUBLB1:[430,410],SUBLB2:[570,410],RLE:[350,485],LE:[350,485],RDT:[465,500],DT1:[465,500],NT:[500,500],DT2:[535,500],RRE:[650,485],RE:[650,485]};
   const result={},fallback={DB:[],S:[],LB:[],DL:[]};
@@ -6708,7 +6816,7 @@ function renderScoutSaved(report=getScoutReport()){
   const list=el("scoutSavedList");list.innerHTML="";el("scoutSavedCount").textContent=`${report.matchups.length} saved`;if(!report.matchups.length){const empty=document.createElement("div");empty.className="empty-state";empty.textContent="No tested macro matchups saved yet.";list.appendChild(empty);return}report.matchups.slice().reverse().forEach(item=>{const concept=OFFENSIVE_SCOUT_CONCEPTS[item.concept]||OFFENSIVE_SCOUT_CONCEPTS.fourVerticals,row=document.createElement("article");row.className="scout-saved-row";const main=document.createElement("div"),title=document.createElement("strong"),meta=document.createElement("span");title.textContent=`${OFFENSIVE_SCOUT_SETS[item.set]?.name||item.set} • ${concept.name} — ${item.package.name||item.package.play}`;meta.textContent=`${concept.category} • ${item.situation} • ${item.package.formation} — ${item.package.play} • ${item.alertCount} alert${item.alertCount===1?"":"s"}`;main.append(title,meta);const actions=document.createElement("div");actions.className="scout-saved-actions";const preview=document.createElement("button");preview.textContent="Preview";preview.onclick=()=>{scoutPreviewPackage={...clonePackage(item.package),macroSlot:item.macroSlot};const r=getScoutReport();r.set=item.set;r.concept=item.concept;r.strength=item.strength;r.situation=item.situation;storeScoutReport(r);renderScoutReport()};const gameplan=document.createElement("button");gameplan.textContent="Gameplan";gameplan.onclick=()=>sendScoutPackageToGameplan(item.package,item.macroSlot,`Saved Scout: ${OFFENSIVE_SCOUT_SETS[item.set]?.name||item.set} • ${concept.name}`,item.situation,item.concept,item.set);const remove=document.createElement("button");remove.className="remove";remove.textContent="Remove";remove.onclick=()=>{const r=getScoutReport();r.matchups=r.matchups.filter(saved=>saved.id!==item.id);storeScoutReport(r);renderScoutReport()};actions.append(preview,gameplan,remove);row.append(main,actions);list.appendChild(row)})
 }
 function renderScoutReport(){
-  const report=getScoutReport(),set=OFFENSIVE_SCOUT_SETS[report.set],concept=OFFENSIVE_SCOUT_CONCEPTS[report.concept];populateScoutMacros(report);populateScoutConcepts(report);const bind=(id,value)=>{const node=el(id);if(document.activeElement!==node)node.value=value};bind("scoutOpponent",report.opponent);bind("scoutWeek",report.week);bind("scoutTempo",report.tempo);bind("scoutTendency",report.tendency);bind("scoutConcepts",report.concepts);bind("scoutNotes",report.notes);bind("scoutOffensiveSet",report.set);bind("scoutConcept",report.concept);bind("scoutStrength",report.strength);bind("scoutSituation",report.situation);el("scoutConceptDescription").innerHTML=`<strong>${concept.category}: ${concept.name}</strong><br>${concept.description}`;el("scoutMobileQB").checked=report.mobileQB;el("scoutRPO").checked=report.rpo;document.querySelectorAll('#scoutPersonnelGrid input[type="checkbox"]').forEach(box=>box.checked=report.personnel.includes(box.value));drawScoutField();const pkg=activeScoutPackage(report),alerts=scoutAlerts(report,pkg),summary=el("scoutMatchupSummary");summary.innerHTML="";[set.name,`Personnel ${set.personnel}`,`${concept.category}: ${concept.name}`,pkg?`${pkg.formation} — ${pkg.play}`:"No macro",`Strength ${report.strength.toUpperCase()}`].forEach(value=>{const span=document.createElement("span");span.textContent=value;summary.appendChild(span)});const alertWrap=el("scoutAlerts");alertWrap.innerHTML="";alerts.forEach(item=>{const card=document.createElement("div");card.className=`scout-alert ${item.level}`;const strong=document.createElement("strong"),detail=document.createElement("span");strong.textContent=item.title;detail.textContent=item.detail;card.append(strong,detail);alertWrap.appendChild(card)});const disabled=!pkg;["saveScoutMatchup","sendScoutToGameplan","loadScoutInBuilder"].forEach(id=>el(id).disabled=disabled);renderScoutSaved(report)
+  const report=getScoutReport(),set=OFFENSIVE_SCOUT_SETS[report.set],concept=OFFENSIVE_SCOUT_CONCEPTS[report.concept];populateScoutMacros(report);populateScoutConcepts(report);const bind=(id,value)=>{const node=el(id);if(document.activeElement!==node)node.value=value};bind("scoutOpponent",report.opponent);bind("scoutWeek",report.week);bind("scoutTempo",report.tempo);bind("scoutTendency",report.tendency);bind("scoutConcepts",report.concepts);bind("scoutNotes",report.notes);bind("scoutOffensiveSet",report.set);bind("scoutConcept",report.concept);bind("scoutStrength",report.strength);bind("scoutSituation",report.situation);el("scoutConceptDescription").innerHTML=`<strong>${concept.category}: ${concept.name}</strong><br>${concept.description}<br><span style="color:#79dced">Complete 11-player responsibility art: routes, run tracks, reads, protection, and blocking.</span>`;el("scoutMobileQB").checked=report.mobileQB;el("scoutRPO").checked=report.rpo;document.querySelectorAll('#scoutPersonnelGrid input[type="checkbox"]').forEach(box=>box.checked=report.personnel.includes(box.value));drawScoutField();const pkg=activeScoutPackage(report),alerts=scoutAlerts(report,pkg),summary=el("scoutMatchupSummary");summary.innerHTML="";[set.name,`Personnel ${set.personnel}`,`${concept.category}: ${concept.name}`,pkg?`${pkg.formation} — ${pkg.play}`:"No macro",`Strength ${report.strength.toUpperCase()}`].forEach(value=>{const span=document.createElement("span");span.textContent=value;summary.appendChild(span)});const alertWrap=el("scoutAlerts");alertWrap.innerHTML="";alerts.forEach(item=>{const card=document.createElement("div");card.className=`scout-alert ${item.level}`;const strong=document.createElement("strong"),detail=document.createElement("span");strong.textContent=item.title;detail.textContent=item.detail;card.append(strong,detail);alertWrap.appendChild(card)});const disabled=!pkg;["saveScoutMatchup","sendScoutToGameplan","loadScoutInBuilder"].forEach(id=>el(id).disabled=disabled);renderScoutSaved(report)
 }
 function updateScoutReportFromInputs(){const report=getScoutReport();report.opponent=el("scoutOpponent").value;report.week=el("scoutWeek").value;report.tempo=el("scoutTempo").value;report.tendency=el("scoutTendency").value;report.personnel=[...document.querySelectorAll('#scoutPersonnelGrid input[type="checkbox"]:checked')].map(box=>box.value);report.mobileQB=el("scoutMobileQB").checked;report.rpo=el("scoutRPO").checked;report.concepts=el("scoutConcepts").value;report.notes=el("scoutNotes").value;report.set=el("scoutOffensiveSet").value;report.concept=el("scoutConcept").value;report.strength=el("scoutStrength").value;report.situation=el("scoutSituation").value;report.macroSlot=el("scoutMacro").value===""?null:Number(el("scoutMacro").value);scoutPreviewPackage=null;storeScoutReport(report);renderScoutReport()}
 function saveScoutMatchup(){const report=getScoutReport(),pkg=activeScoutPackage(report);if(!pkg)return;const alerts=scoutAlerts(report,pkg);report.matchups.push({id:`scout-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,set:report.set,concept:report.concept,strength:report.strength,situation:report.situation,macroSlot:scoutPackageSlot(report),package:clonePackage(pkg),alertCount:alerts.filter(item=>item.level!=="good").length,savedAt:new Date().toISOString()});report.matchups=report.matchups.slice(-20);storeScoutReport(report);renderScoutReport()}
