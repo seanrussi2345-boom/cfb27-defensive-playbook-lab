@@ -1,4 +1,4 @@
-name: Build ChatGPT gameplan handoff
+name: Build stronger video instruction
 
 on:
   push:
@@ -8,27 +8,25 @@ permissions:
   contents: write
 
 jobs:
-  build-handoff:
+  build-video-instruction:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/chatgpt-gameplan-handoff
+          ref: agent/strengthen-video-analysis-instruction
           fetch-depth: 0
 
-      - name: Build ChatGPT handoff
-        run: python .github/scripts/build_chatgpt_gameplan_handoff.py
+      - name: Apply stronger instruction
+        run: python .github/scripts/strengthen_video_analysis_instruction.py
 
       - name: Validate complete JavaScript
-        run: node --check /tmp/cfb27-chatgpt-handoff.js
+        run: node --check /tmp/cfb27-video-instruction.js
 
       - name: Commit clean feature branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm .github/scripts/build_chatgpt_gameplan_handoff.py
-          git add index.html README.md
-          git commit -m "Add ChatGPT gameplan handoff [skip ci]"
-          git push origin agent/chatgpt-gameplan-handoff
-
-# trigger: 2026-07-24T23:43Z
+          git rm .github/scripts/strengthen_video_analysis_instruction.py
+          git add index.html
+          git commit -m "Strengthen linked video analysis instruction [skip ci]"
+          git push origin agent/strengthen-video-analysis-instruction
