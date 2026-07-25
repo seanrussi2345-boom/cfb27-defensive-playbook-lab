@@ -523,7 +523,7 @@ footer{
 
 
 /* Saturday War Room v5 — Season Command Center */
-.season-shell{width:min(1760px,100%);margin:14px auto 0;padding:0 14px}
+.season-shell{grid-column:1/-1;width:100%;margin:0;padding:0}
 .season-panel{padding:15px;border:1px solid #29455f;border-radius:15px;background:linear-gradient(180deg,#102236,#08131f);box-shadow:0 18px 48px rgba(0,0,0,.3)}
 .season-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
 .season-head h2{margin-bottom:5px;color:#eef8ff;font-size:15px;letter-spacing:.09em}
@@ -575,7 +575,7 @@ footer{
 .season-card-actions .season-btn{flex:1 1 112px;min-width:0}
 .season-empty{grid-column:1/-1;padding:18px;border:1px dashed #3b5872;border-radius:11px;background:#0b1723;color:#a8bfd3;text-align:center;font-size:10px;line-height:1.5}
 @media(max-width:1200px){.season-profile-list{grid-template-columns:repeat(2,minmax(0,1fr))}.season-builder{grid-template-columns:1fr 1fr 1fr}.season-builder .season-btn{width:100%}.season-summary{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.season-shell{padding:0 9px}.season-head,.season-active-bar{display:block}.season-jumps{justify-content:flex-start;margin-top:9px}.season-builder,.season-toolbar,.season-profile-list,.season-summary{grid-template-columns:1fr}.season-profile-card{margin:0}.season-card-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.season-shell{padding:0}.season-head,.season-active-bar{display:block}.season-jumps{justify-content:flex-start;margin-top:9px}.season-builder,.season-toolbar,.season-profile-list,.season-summary{grid-template-columns:1fr}.season-profile-card{margin:0}.season-card-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 @media(max-width:1280px){
   .app{grid-template-columns:250px minmax(520px,1fr) 350px}
@@ -630,45 +630,6 @@ footer{
     </div>
   </div>
 </header>
-
-<section class="season-shell" id="seasonCommandCenter">
-  <div class="season-panel">
-    <div class="season-head">
-      <div>
-        <h2>Season Command Center</h2>
-        <div class="helptext">Keep a separate War Room for every dynasty opponent. Opening a profile loads its Scout Report, Tendency Board, film handoff, written plan, tested matchups, and Weekly Gameplan.</div>
-      </div>
-      <div class="note">The defensive library, all 138 team playbooks, My Playbook, verified play maps, and ten macro slots stay global across the entire season.</div>
-    </div>
-
-    <div class="season-active-bar empty" id="seasonActiveBar">
-      <div class="season-active-copy"><strong>No active opponent War Room</strong><span>Create a profile below or continue working; the first meaningful opponent entry will be captured automatically.</span></div>
-      <div class="season-jumps">
-        <button class="season-btn" id="jumpSeasonScout" type="button">Scout Lab</button>
-        <button class="season-btn" id="jumpSeasonTendencies" type="button">Tendency Board</button>
-        <button class="season-btn" id="jumpSeasonHandoff" type="button">Film Handoff</button>
-        <button class="season-btn" id="jumpSeasonGameplan" type="button">Call Sheet</button>
-      </div>
-    </div>
-
-    <div class="season-builder">
-      <div class="season-field"><label>Opponent</label><select id="seasonNewOpponent"><option value="">Select an opponent</option></select></div>
-      <div class="season-field"><label>Week / Game</label><input id="seasonNewWeek" type="text" maxlength="80" placeholder="Week 4, Playoffs, Rematch…"></div>
-      <div class="season-field"><label>Profile Name <span style="color:#71889d">(optional)</span></label><input id="seasonNewName" type="text" maxlength="100" placeholder="Rivalry Game War Room"></div>
-      <button class="season-btn primary" id="createSeasonProfile" type="button">Create Opponent War Room</button>
-      <button class="season-btn" id="importSeasonProfile" type="button">Import Opponent Package</button>
-      <input class="hidden-file" id="seasonProfileFile" type="file" accept=".json,application/json">
-    </div>
-
-    <div class="season-summary" id="seasonSummary"></div>
-    <div class="season-toolbar">
-      <div class="season-field"><label>Find Opponent Profile</label><input id="seasonProfileSearch" type="search" maxlength="100" placeholder="Search opponent, week, or profile name…"></div>
-      <div class="season-field"><label>Profile Status</label><select id="seasonProfileFilter"><option value="ALL">All Profiles</option><option value="ACTIVE">Active Preparation</option><option value="ARCHIVED">Archived Games</option></select></div>
-      <button class="season-btn" id="exportSeasonOverview" type="button">Export Season Overview</button>
-    </div>
-    <div class="season-profile-list" id="seasonProfileList"></div>
-  </div>
-</section>
 
 <main class="app">
   <section class="panel left">
@@ -1141,7 +1102,47 @@ footer{
     </div>
   </section>
 
-  <section class="panel gameplan-panel" id="gameplanPanel">
+  <section class="season-shell" id="seasonCommandCenter">
+  <div class="season-panel">
+    <div class="season-head">
+      <div>
+        <h2>Season Command Center</h2>
+        <div class="helptext">Keep a separate War Room for every dynasty opponent. Opening a profile loads its Scout Report, Tendency Board, film handoff, written plan, tested matchups, and Weekly Gameplan.</div>
+      </div>
+      <div class="note">The defensive library, all 138 team playbooks, My Playbook, verified play maps, and ten macro slots stay global across the entire season.</div>
+    </div>
+
+    <div class="season-active-bar empty" id="seasonActiveBar">
+      <div class="season-active-copy"><strong>No active opponent War Room</strong><span>Create a profile below or continue working; the first meaningful opponent entry will be captured automatically.</span></div>
+      <div class="season-jumps">
+        <button class="season-btn" id="jumpSeasonScout" type="button">Scout Lab</button>
+        <button class="season-btn" id="jumpSeasonTendencies" type="button">Tendency Board</button>
+        <button class="season-btn" id="jumpSeasonHandoff" type="button">Film Handoff</button>
+        <button class="season-btn" id="jumpSeasonGameplan" type="button">Call Sheet</button>
+        <button class="season-btn remove" id="deleteActiveSeasonProfile" type="button">Delete Active War Room</button>
+      </div>
+    </div>
+
+    <div class="season-builder">
+      <div class="season-field"><label>Opponent</label><select id="seasonNewOpponent"><option value="">Select an opponent</option></select></div>
+      <div class="season-field"><label>Week / Game</label><input id="seasonNewWeek" type="text" maxlength="80" placeholder="Week 4, Playoffs, Rematch…"></div>
+      <div class="season-field"><label>Profile Name <span style="color:#71889d">(optional)</span></label><input id="seasonNewName" type="text" maxlength="100" placeholder="Rivalry Game War Room"></div>
+      <button class="season-btn primary" id="createSeasonProfile" type="button">Create Opponent War Room</button>
+      <button class="season-btn" id="importSeasonProfile" type="button">Import Opponent Package</button>
+      <input class="hidden-file" id="seasonProfileFile" type="file" accept=".json,application/json">
+    </div>
+
+    <div class="season-summary" id="seasonSummary"></div>
+    <div class="season-toolbar">
+      <div class="season-field"><label>Find Opponent Profile</label><input id="seasonProfileSearch" type="search" maxlength="100" placeholder="Search opponent, week, or profile name…"></div>
+      <div class="season-field"><label>Profile Status</label><select id="seasonProfileFilter"><option value="ALL">All Profiles</option><option value="ACTIVE">Active Preparation</option><option value="ARCHIVED">Archived Games</option></select></div>
+      <button class="season-btn" id="exportSeasonOverview" type="button">Export Season Overview</button>
+    </div>
+    <div class="season-profile-list" id="seasonProfileList"></div>
+  </div>
+</section>
+
+<section class="panel gameplan-panel" id="gameplanPanel">
     <div class="gameplan-head">
       <div>
         <h2>Weekly Gameplan Builder</h2>
@@ -7112,9 +7113,9 @@ function seasonProfileId(){return`war-room-${Date.now()}-${Math.random().toStrin
 function emptySeasonCommandCenter(){return{schemaVersion:1,activeProfileId:null,profiles:[],updatedAt:null}}
 function seasonTeamName(id){return TEAM_PLAYBOOKS[id]?.name||""}
 function blankSeasonWorkspace(opponent="",week=""){
-  const teamName=seasonTeamName(opponent)||"Opponent";
+  const teamName=seasonTeamName(opponent)||"",planName=teamName?`${teamName} Defensive Gameplan`:"Saturday War Room Weekly Gameplan";
   return{
-    gameplan:normalizeGameplan({name:`${teamName} Defensive Gameplan`,opponent,week,entries:[],updatedAt:null}),
+    gameplan:normalizeGameplan({name:planName,opponent,week,entries:[],updatedAt:null}),
     scoutReport:normalizeScoutReport({...emptyScoutReport(),opponent,week}),
     tendencyBoard:normalizeTendencyBoard({opponent,week,entries:[],filters:{situation:"ALL",frequency:"ALL",answer:"ALL"},updatedAt:null}),
     chatGptHandoff:normalizeHandoff({opponent:teamName,week,sources:[],transcript:"",filmNotes:"",instructions:"",writtenPlan:"",planSavedAt:null,updatedAt:null})
@@ -7200,7 +7201,13 @@ function duplicateSeasonProfile(id){
 }
 function toggleSeasonProfileArchive(id){const season=getSeasonCommandCenter(),profile=season.profiles.find(item=>item.id===id);if(!profile)return;profile.status=profile.status==="archived"?"active":"archived";profile.updatedAt=new Date().toISOString();storeSeasonCommandCenter(season)}
 function deleteSeasonProfile(id){
-  let season=getSeasonCommandCenter(),profile=season.profiles.find(item=>item.id===id);if(!profile)return;if(!confirm(`Delete ${seasonProfileLabel(profile)}? Global macros, play maps, and My Playbook will not be deleted.`))return;const wasActive=season.activeProfileId===id;season.profiles=season.profiles.filter(item=>item.id!==id);if(wasActive)season.activeProfileId=(season.profiles.find(item=>item.status!=="archived")||season.profiles[0]||{}).id||null;season=storeSeasonCommandCenter(season,false);const active=activeSeasonProfile(season);applySeasonProfileToWorkingStorage(active||{data:blankSeasonWorkspace()});renderAll();
+  let season=getSeasonCommandCenter(),profile=season.profiles.find(item=>item.id===id);if(!profile)return;
+  const label=seasonProfileLabel(profile);if(!confirm(`Permanently delete ${label}? Global macros, play maps, team playbooks, and My Playbook will not be deleted.`))return;
+  const wasActive=season.activeProfileId===id;season.profiles=season.profiles.filter(item=>item.id!==id);
+  if(wasActive)season.activeProfileId=(season.profiles.find(item=>item.status!=="archived")||season.profiles[0]||{}).id||null;
+  season=storeSeasonCommandCenter(season,false);const active=activeSeasonProfile(season);
+  applySeasonProfileToWorkingStorage(active||{data:blankSeasonWorkspace("","")});renderAll();
+  requestAnimationFrame(()=>el("seasonCommandCenter")?.scrollIntoView({behavior:"smooth",block:"start"}));
 }
 function seasonProfileStats(profile){
   const s=profile.data.scoutReport,t=profile.data.tendencyBoard,h=profile.data.chatGptHandoff,g=profile.data.gameplan,scoutReady=!!(s.opponent&&(s.notes.trim()||s.concepts.trim()||s.matchups.length)),checks=[scoutReady,h.sources.length>0,t.entries.length>0,!!h.writtenPlan.trim(),g.entries.length>0];
@@ -7218,7 +7225,7 @@ function renderSeasonCommandCenter(){
   const totalCalls=season.profiles.reduce((sum,profile)=>sum+profile.data.gameplan.entries.length,0),totalFilm=season.profiles.reduce((sum,profile)=>sum+profile.data.chatGptHandoff.sources.length,0),summary=el("seasonSummary");summary.innerHTML="";[[season.profiles.length,"Opponent profiles"],[season.profiles.filter(profile=>profile.status!=="archived").length,"Active preparation"],[season.profiles.filter(profile=>profile.status==="archived").length,"Archived games"],[totalFilm,"Film links"],[totalCalls,"Gameplan calls"]].forEach(([value,label])=>{const card=document.createElement("div");card.className="season-summary-card";const strong=document.createElement("strong"),span=document.createElement("span");strong.textContent=String(value);span.textContent=label;card.append(strong,span);summary.appendChild(card)});
   const profiles=season.profiles.filter(profile=>filter==="ALL"||(filter==="ACTIVE"&&profile.status!=="archived")||(filter==="ARCHIVED"&&profile.status==="archived")).filter(profile=>!query||`${seasonProfileLabel(profile)} ${seasonTeamName(profile.opponent)} ${profile.week}`.toUpperCase().includes(query)).sort((a,b)=>Number(b.id===season.activeProfileId)-Number(a.id===season.activeProfileId)||Number(a.status==="archived")-Number(b.status==="archived")||new Date(b.updatedAt)-new Date(a.updatedAt));list.innerHTML="";
   if(!profiles.length){const empty=document.createElement("div");empty.className="season-empty";empty.textContent=season.profiles.length?"No opponent profiles match the current search and status filter.":"No opponent War Rooms yet. Create one above, or begin entering meaningful opponent data and Saturday War Room will capture it automatically.";list.appendChild(empty);return}
-  profiles.forEach(profile=>{const stats=seasonProfileStats(profile),card=document.createElement("article");card.className=`season-profile-card${profile.id===season.activeProfileId?" active":""}${profile.status==="archived"?" archived":""}`;const head=document.createElement("div");head.className="season-card-head";const title=document.createElement("div");title.className="season-card-title";const strong=document.createElement("strong"),meta=document.createElement("span");strong.textContent=seasonProfileLabel(profile);meta.textContent=[seasonTeamName(profile.opponent)||profile.data.chatGptHandoff.opponent,profile.week,`Updated ${new Date(profile.updatedAt).toLocaleDateString()}`].filter(Boolean).join(" • ");title.append(strong,meta);const status=document.createElement("span");status.className=`season-status ${profile.id===season.activeProfileId?"active":profile.status}`;status.textContent=profile.id===season.activeProfileId?"Active":profile.status==="archived"?"Archived":"Preparing";head.append(title,status);const progress=document.createElement("div");progress.className="season-progress";const progressFill=document.createElement("span");progressFill.style.width=`${stats.progress}%`;progress.appendChild(progressFill);const statWrap=document.createElement("div");statWrap.className="season-card-stats";[[stats.film,"Film links"],[stats.tendencies,"Tendencies"],[stats.matchups,"Tested matchups"],[stats.calls,"Call-sheet calls"],[stats.written?"Saved":"—","Written plan"],[`${stats.progress}%`,"Prep completion"]].forEach(([value,label])=>{const stat=document.createElement("div");stat.className="season-card-stat";const valueNode=document.createElement("strong"),labelNode=document.createElement("span");valueNode.textContent=String(value);labelNode.textContent=label;stat.append(valueNode,labelNode);statWrap.appendChild(stat)});const note=document.createElement("div");note.className="season-card-note";note.textContent="Profile data: Scout Report, offensive-set selection, tested macro matchups, Tendency Board, film packet, returned written plan, and Weekly Gameplan.";const actions=document.createElement("div");actions.className="season-card-actions";actions.append(seasonActionButton(profile.id===season.activeProfileId?"Reload War Room":"Open War Room","primary",()=>openSeasonProfile(profile.id)),seasonActionButton("Duplicate / Rematch","",()=>duplicateSeasonProfile(profile.id)),seasonActionButton(profile.status==="archived"?"Restore":"Archive",profile.status==="archived"?"good":"warn",()=>toggleSeasonProfileArchive(profile.id)),seasonActionButton("Export Package","",()=>exportSeasonProfile(profile.id)),seasonActionButton("Delete","remove",()=>deleteSeasonProfile(profile.id)));card.append(head,progress,statWrap,note,actions);list.appendChild(card)});
+  profiles.forEach(profile=>{const stats=seasonProfileStats(profile),card=document.createElement("article");card.className=`season-profile-card${profile.id===season.activeProfileId?" active":""}${profile.status==="archived"?" archived":""}`;const head=document.createElement("div");head.className="season-card-head";const title=document.createElement("div");title.className="season-card-title";const strong=document.createElement("strong"),meta=document.createElement("span");strong.textContent=seasonProfileLabel(profile);meta.textContent=[seasonTeamName(profile.opponent)||profile.data.chatGptHandoff.opponent,profile.week,`Updated ${new Date(profile.updatedAt).toLocaleDateString()}`].filter(Boolean).join(" • ");title.append(strong,meta);const status=document.createElement("span");status.className=`season-status ${profile.id===season.activeProfileId?"active":profile.status}`;status.textContent=profile.id===season.activeProfileId?"Active":profile.status==="archived"?"Archived":"Preparing";head.append(title,status);const progress=document.createElement("div");progress.className="season-progress";const progressFill=document.createElement("span");progressFill.style.width=`${stats.progress}%`;progress.appendChild(progressFill);const statWrap=document.createElement("div");statWrap.className="season-card-stats";[[stats.film,"Film links"],[stats.tendencies,"Tendencies"],[stats.matchups,"Tested matchups"],[stats.calls,"Call-sheet calls"],[stats.written?"Saved":"—","Written plan"],[`${stats.progress}%`,"Prep completion"]].forEach(([value,label])=>{const stat=document.createElement("div");stat.className="season-card-stat";const valueNode=document.createElement("strong"),labelNode=document.createElement("span");valueNode.textContent=String(value);labelNode.textContent=label;stat.append(valueNode,labelNode);statWrap.appendChild(stat)});const note=document.createElement("div");note.className="season-card-note";note.textContent="Profile data: Scout Report, offensive-set selection, tested macro matchups, Tendency Board, film packet, returned written plan, and Weekly Gameplan.";const actions=document.createElement("div");actions.className="season-card-actions";actions.append(seasonActionButton(profile.id===season.activeProfileId?"Reload War Room":"Open War Room","primary",()=>openSeasonProfile(profile.id)),seasonActionButton("Duplicate / Rematch","",()=>duplicateSeasonProfile(profile.id)),seasonActionButton(profile.status==="archived"?"Restore":"Archive",profile.status==="archived"?"good":"warn",()=>toggleSeasonProfileArchive(profile.id)),seasonActionButton("Export Package","",()=>exportSeasonProfile(profile.id)),seasonActionButton("Delete Permanently","remove",()=>deleteSeasonProfile(profile.id)));card.append(head,progress,statWrap,note,actions);list.appendChild(card)});
 }
 function jumpSeasonTo(id){el(id)?.scrollIntoView({behavior:"smooth",block:"start"})}
 
@@ -7417,6 +7424,7 @@ el("jumpSeasonScout").onclick=()=>jumpSeasonTo("scoutLabPanel");
 el("jumpSeasonTendencies").onclick=()=>jumpSeasonTo("tendencyBoardPanel");
 el("jumpSeasonHandoff").onclick=()=>jumpSeasonTo("chatGptHandoffPanel");
 el("jumpSeasonGameplan").onclick=()=>jumpSeasonTo("gameplanPanel");
+el("deleteActiveSeasonProfile").onclick=()=>{const profile=activeSeasonProfile();if(profile)deleteSeasonProfile(profile.id)};
 
 function exportBackup(){
   syncActiveSeasonProfileSnapshot();
