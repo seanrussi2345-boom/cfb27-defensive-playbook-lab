@@ -1,0 +1,35 @@
+name: Build complete offensive play art
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-offensive-art:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/complete-offensive-play-art
+          fetch-depth: 0
+
+      - name: Build complete offensive play art
+        run: python .github/scripts/build_complete_offensive_play_art.py
+
+      - name: Validate complete JavaScript
+        run: node --check /tmp/cfb27-complete-offensive-art.js
+
+      - name: Validate every set concept and strength
+        run: node /tmp/cfb27-offensive-coverage.js
+
+      - name: Commit clean feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/scripts/build_complete_offensive_play_art.py
+          git add index.html README.md
+          git commit -m "Add complete offensive play art [skip ci]"
+          git push origin agent/complete-offensive-play-art
