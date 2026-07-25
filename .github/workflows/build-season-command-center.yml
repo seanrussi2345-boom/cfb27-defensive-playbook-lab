@@ -1,4 +1,4 @@
-name: Build Season Command Center
+name: Fix Command Center placement and delete
 
 on:
   push:
@@ -8,47 +8,50 @@ permissions:
   contents: write
 
 jobs:
-  build-season-command-center:
+  fix-command-center:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/season-command-center
+          ref: agent/fix-command-center-placement-delete
           fetch-depth: 0
 
-      - name: Build Season Command Center
-        run: python .github/scripts/build_season_command_center.py
+      - name: Apply placement and deletion fix
+        run: python .github/scripts/fix_command_center_placement_delete.py
 
       - name: Validate complete JavaScript
-        run: node --check /tmp/saturday-war-room-v5.js
+        run: node --check /tmp/saturday-war-room-command-center-fix.js
 
-      - name: Validate required profile behavior
+      - name: Validate placement and permanent delete
         run: |
           python - <<'PY'
           from pathlib import Path
           text=Path('index.html').read_text()
+          main=text.index('<main class="app">')
+          handoff=text.index('id="chatGptHandoffPanel"')
+          season=text.index('id="seasonCommandCenter"')
+          gameplan=text.index('id="gameplanPanel"')
+          assert main < handoff < season < gameplan
           required=[
-            'id="seasonCommandCenter"',
-            'function createSeasonProfile()',
-            'function openSeasonProfile(id,scroll=true)',
-            'function duplicateSeasonProfile(id)',
-            'function toggleSeasonProfileArchive(id)',
-            'function exportSeasonProfile(id)',
-            'function importSeasonProfileFile(file)',
-            'function initializeSeasonCommandCenter(forceWorkingMigration=false)',
-            'seasonCommandCenter:getSeasonCommandCenter()',
-            'SEASON_STORAGE_KEY'
+            'id="deleteActiveSeasonProfile"',
+            'Delete Active War Room',
+            'Delete Permanently',
+            'el("deleteActiveSeasonProfile").onclick',
+            'const teamName=seasonTeamName(opponent)||""',
+            'blankSeasonWorkspace("","")',
           ]
-          missing=[item for item in required if item not in text]
-          if missing: raise SystemExit(f'Missing Season Command Center markers: {missing}')
-          print('Season Command Center structural validation passed.')
+          missing=[item for item in required if text.count(item)!=1]
+          if missing: raise SystemExit(f'Missing or duplicate fix markers: {missing}')
+          if 'const teamName=seasonTeamName(opponent)||"Opponent";' in text:
+            raise SystemExit('Blank profile recreation bug remains')
+          print('Command Center placement and permanent-delete validation passed.')
           PY
 
-      - name: Commit clean feature branch
+      - name: Commit clean fix branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm .github/scripts/build_season_command_center.py
-          git add index.html README.md
-          git commit -m "Add Season Command Center [skip ci]"
-          git push origin agent/season-command-center
+          git rm .github/scripts/fix_command_center_placement_delete.py
+          git add index.html
+          git commit -m "Move Command Center and fix profile deletion [skip ci]"
+          git push origin agent/fix-command-center-placement-delete
