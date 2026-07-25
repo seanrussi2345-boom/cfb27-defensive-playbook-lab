@@ -31,7 +31,7 @@ def webp_dimensions(data: bytes) -> tuple[int, int]:
 
 
 def main() -> None:
-    names = ["part_aa1.txt", "part_aa2.txt", "part_ab.txt", "part_ac.txt", "part_ad.txt"]
+    names = ["chunk_00.txt", "part_aa2.txt", "part_ab.txt", "part_ac.txt", "part_ad.txt"]
     encoded = "".join((PARTS / name).read_text(encoding="ascii").strip() for name in names)
     data = base64.b64decode(encoded, validate=True)
     digest = hashlib.sha256(data).hexdigest()
