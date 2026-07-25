@@ -30,9 +30,20 @@ def webp_dimensions(data: bytes) -> tuple[int, int]:
     raise RuntimeError(f"Unsupported WebP chunk: {marker!r}")
 
 
+def read(name: str) -> str:
+    return (PARTS / name).read_text(encoding="ascii").strip()
+
+
 def main() -> None:
-    names = ["chunk_00.txt", "part_aa2.txt", "part_ab.txt", "part_ac.txt", "part_ad.txt"]
-    encoded = "".join((PARTS / name).read_text(encoding="ascii").strip() for name in names)
+    encoded = (
+        read("chunk_00.txt")
+        + read("chunk_01.txt")
+        + read("chunk_02.txt")
+        + read("chunk_03.txt")[:2100]
+        + read("part_ab.txt")
+        + read("part_ac.txt")
+        + read("part_ad.txt")
+    )
     data = base64.b64decode(encoded, validate=True)
     digest = hashlib.sha256(data).hexdigest()
     if len(data) != EXPECTED_SIZE:
