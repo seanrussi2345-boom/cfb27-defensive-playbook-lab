@@ -1,8 +1,8 @@
-# CFB 27 Defensive Playbook Lab
+# Saturday War Room
 
-**Version:** 4.60
+**Version:** 5.0 — Season Command Center
 
-A standalone browser tool for exploring CFB 27 defensive formations and plays, visualizing player assignments, building custom play maps, and saving defensive macro packages.
+A standalone CFB 27 defensive gameplanning platform for building play assignments, scouting offensive concepts, organizing opponent tendencies, preparing written film packets, and managing a full dynasty season.
 
 ## Files
 
@@ -17,7 +17,7 @@ A standalone browser tool for exploring CFB 27 defensive formations and plays, v
 2. Open `index.html` in Google Chrome.
 3. No installation or internet connection is required after the file is downloaded.
 
-Your macros, mapped plays, and My Playbook selections are stored in that browser on that device. Use **Export Backup** inside the application to preserve or transfer them.
+Your global macros, mapped plays, My Playbook selections, and Season Command Center opponent profiles are stored in that browser on that device. Use **Export Backup** inside the application to preserve or transfer them.
 
 ## Publish with GitHub Pages
 
@@ -40,6 +40,7 @@ Do not rename `index.html`; GitHub Pages uses that filename as the home page.
 - My Playbook favorites
 - Team Playbook view for all 138 teams across all 31 defensive books, with exact formation/play membership referencing the existing master play database
 - Searchable Team Playbook Navigator with favorite teams, recently viewed teams, scheme browsing, local persistence, and backup support
+- Season Command Center with separate opponent War Rooms, automatic migration of existing opponent data, active-profile switching, rematch duplication, completed-game archiving, opponent-package export/import, season overview export, and full backup support
 - Weekly Gameplan Builder with opponent selection, situation-based calls, current-play and macro capture, reordering, reload, local persistence, backup support, and a print-friendly Call-Sheet View
 - Opponent Scout Report and Macro Matchup Lab with offensive tendency tracking, generic offensive-set shells, read-only saved-macro visualization, structural coaching alerts, saved matchup notes, weekly-gameplan integration, local persistence, and backup support
 - Base Offensive Concept layer with grouped pass, run, option, screen, and RPO selections; route/run visualization; concept-specific defensive stress alerts; and concept metadata preserved in saved scout matchups and Weekly Gameplan calls
@@ -65,8 +66,8 @@ All other built-in mapped entries have completed the final source reconciliation
 
 The application is self-contained, so `index.html` can be sent directly to another Chrome user. Each user receives separate local browser storage.
 
-Importing a backup replaces the current macros, play maps, and My Playbook selections. Export the current data before importing when it needs to be retained.
+Importing a backup replaces the global macros, play maps, My Playbook selections, and all opponent War Rooms. Export the current data before importing when it needs to be retained.
 
 ## Release
 
-**CFB 27 Defensive Playbook Lab v4.60**
+**Saturday War Room v5 — Season Command Center**
