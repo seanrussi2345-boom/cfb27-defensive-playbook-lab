@@ -10,7 +10,7 @@ PATCH_DIR = ROOT / ".swr-branding-patch"
 INDEX = ROOT / "index.html"
 ASSETS = ROOT / "assets"
 
-BANNER_PARTS = [PATCH_DIR / f"banner_{i:02d}.txt" for i in range(5)]
+BANNER_PARTS = [PATCH_DIR / f"banner_{i:02d}.txt" for i in range(6)]
 LOGO_PARTS = [PATCH_DIR / f"logo_{i:02d}.txt" for i in range(2)]
 
 BRANDING_CSS = r'''
@@ -30,7 +30,7 @@ body{overflow-x:hidden}
   box-shadow:0 16px 42px rgba(0,0,0,.32)
 }
 .swr-brand-banner{
-  display:block;width:100%;max-width:100%;height:auto;aspect-ratio:2048/682;
+  display:block;width:100%;max-width:100%;height:auto;aspect-ratio:3/1;
   object-fit:cover;object-position:center;pointer-events:none;user-select:none
 }
 @media(max-width:850px){
@@ -64,7 +64,7 @@ HERO = '''
 
 <!-- SWR BRANDING START -->
 <section class="swr-brand-hero" aria-label="Saturday War Room branding">
-  <img class="swr-brand-banner" src="assets/swr-banner.webp" alt="Saturday War Room football strategy and gameplanning banner" width="1400" height="466" fetchpriority="high" decoding="async">
+  <img class="swr-brand-banner" src="assets/swr-banner.webp" alt="Saturday War Room football strategy and gameplanning banner" width="1200" height="400" fetchpriority="high" decoding="async">
 </section>
 <!-- SWR BRANDING END -->'''
 
@@ -128,11 +128,11 @@ def main() -> None:
         raise RuntimeError("Brand banner was not inserted before the application menus")
     if "<iframe" in updated.lower():
         raise RuntimeError("Iframe detected; nested-scroll layouts are not allowed")
-    if BRANDING_CSS.lower().count("position:fixed") or BRANDING_CSS.lower().count("overflow-y"):
+    if "position:fixed" in BRANDING_CSS.lower() or "overflow-y" in BRANDING_CSS.lower():
         raise RuntimeError("Branding CSS contains a prohibited fixed or nested vertical-scroll rule")
 
-    decode_parts(BANNER_PARTS, ASSETS / "swr-banner.webp", 95364)
-    decode_parts(LOGO_PARTS, ASSETS / "swr-logo.webp", 24128)
+    decode_parts(BANNER_PARTS, ASSETS / "swr-banner.webp", 56678)
+    decode_parts(LOGO_PARTS, ASSETS / "swr-logo.webp", 14874)
     INDEX.write_text(updated, encoding="utf-8")
 
     print("Saturday War Room branding applied successfully")
