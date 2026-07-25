@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import base64
 import hashlib
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,7 +31,7 @@ def webp_dimensions(data: bytes) -> tuple[int, int]:
 
 
 def main() -> None:
-    names = ["part_aa.txt", "part_ab.txt", "part_ac.txt", "part_ad.txt"]
+    names = ["part_aa1.txt", "part_aa2.txt", "part_ab.txt", "part_ac.txt", "part_ad.txt"]
     encoded = "".join((PARTS / name).read_text(encoding="ascii").strip() for name in names)
     data = base64.b64decode(encoded, validate=True)
     digest = hashlib.sha256(data).hexdigest()
@@ -55,7 +54,8 @@ def main() -> None:
         raise RuntimeError("Could not locate the banner width rule")
     if "<iframe" in html.lower():
         raise RuntimeError("Iframe detected")
-    if "position:fixed" in html[html.index("/* SWR BRANDING START */"):html.index("/* SWR BRANDING END */")].lower():
+    branding = html[html.index("/* SWR BRANDING START */"):html.index("/* SWR BRANDING END */")]
+    if "position:fixed" in branding.lower():
         raise RuntimeError("Fixed branding element detected")
     INDEX.write_text(html, encoding="utf-8")
 
