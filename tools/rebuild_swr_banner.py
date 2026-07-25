@@ -35,18 +35,14 @@ def read(name: str) -> str:
 
 
 def main() -> None:
-    encoded = (
-        read("chunk_00.txt")
-        + read("chunk_01.txt")
-        + read("chunk_02.txt")
-        + read("chunk_03.txt")
-        + read("chunk_04a.txt")
-        + read("chunk_04b.txt")
-        + read("chunk_05.txt")
-        + read("chunk_06a.txt")
-        + read("part_ac.txt")
-        + read("part_ad.txt")
-    )
+    names = [
+        "chunk_00.txt", "chunk_01.txt", "chunk_02.txt", "chunk_03.txt",
+        "chunk_04a.txt", "chunk_04b.txt", "chunk_05.txt",
+        "chunk_06a.txt", "chunk_06b.txt", "chunk_07.txt", "chunk_08.txt",
+        "chunk_09.txt", "chunk_10.txt", "chunk_11.txt", "chunk_12.txt",
+        "chunk_13.txt",
+    ]
+    encoded = "".join(read(name) for name in names)
     data = base64.b64decode(encoded, validate=True)
     digest = hashlib.sha256(data).hexdigest()
     if len(data) != EXPECTED_SIZE:
